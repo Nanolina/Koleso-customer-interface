@@ -1,6 +1,6 @@
 import { StyleSheet, TextInput, View } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { borderRadius, colors, iconSize } from '../../assets/css';
+import { borderRadius, colors, iconSize } from '../consts';
 
 export const SearchBar: React.FC = () => (
   <View style={styles.searchBar}>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Dimensions, StyleSheet, Text, View } from 'react-native';
-import { colors } from '../../assets/css';
+import { colors } from '../consts';
 import { Gradient } from '../ui/Gradient';
 import { SearchBar } from './SearchBar';
 
@@ -17,7 +17,6 @@ export const Header: React.FC = () => (
 
 const styles = StyleSheet.create({
   header: {
-    // paddingTop: headerHeight / ,
     height: headerHeight,
     justifyContent: 'center',
     alignItems: 'center',

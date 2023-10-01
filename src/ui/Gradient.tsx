@@ -1,6 +1,6 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { StyleSheet } from 'react-native';
-import { borderRadius, colors } from '../../assets/css';
+import { borderRadius, colors } from '../consts';
 
 export const Gradient = ({ type }) => {
   const styles = getStyles(type);

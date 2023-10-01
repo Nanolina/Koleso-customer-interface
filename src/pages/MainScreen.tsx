@@ -1,25 +1,21 @@
 import { StyleSheet, View } from 'react-native';
-import { Footer } from '../components/common/Footer';
-import { Header } from '../components/common/Header';
+import { Container } from '../components/Container';
+import { Footer } from '../components/Footer';
+import { Header } from '../components/Header';
 
-const MainScreen = () => {
+export const MainScreen = () => {
   return (
-    <View style={styles.container}>
+    <Container>
       <Header />
       <View style={styles.mainContent}></View>
       <Footer />
-    </View>
+    </Container>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   mainContent: {
     flex: 1,
     backgroundColor: 'white',
   },
 });
-
-export default MainScreen;

@@ -7,7 +7,7 @@ import {
 } from '@expo-google-fonts/open-sans';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import MainScreen from './screens/MainScreen';
+import { MainScreen } from './src/pages/MainScreen';
 
 export default function App() {
   const Stack = createStackNavigator();
