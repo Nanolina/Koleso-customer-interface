@@ -7,7 +7,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import { colors } from '../consts';
+import { colors, size } from '../consts';
 import { Gradient } from '../ui/Gradient';
 import { SearchBar } from './SearchBar';
 
@@ -15,7 +15,7 @@ const { width, height } = Dimensions.get('window');
 let headerHeight = height / 7;
 
 if (Platform.OS === 'ios') {
-  headerHeight = height / 6;
+  headerHeight = height / 5.5;
 }
 
 export const Header: React.FC = () => {
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   text: {
-    fontSize: 24,
+    fontSize: size.title,
     fontFamily: 'OpenSans_700Bold',
     color: colors.white,
     paddingTop: 10,

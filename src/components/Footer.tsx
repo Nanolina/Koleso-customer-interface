@@ -1,22 +1,22 @@
 import React from 'react';
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { Dimensions, SafeAreaView, StyleSheet, View } from 'react-native';
 import { Gradient } from '../ui/Gradient';
 import { IconFooter } from '../ui/IconFooter';
 
 const { width, height } = Dimensions.get('window');
-const footerHeight = height / 15;
+const footerHeight = height / 10;
 
 export const Footer: React.FC = () => (
   <View style={styles.footer}>
     <Gradient type="footer" />
-    <View style={styles.iconContainer}>
+    <SafeAreaView style={styles.iconContainer}>
       <IconFooter name="home" />
       <IconFooter name="search" />
       <IconFooter name="notifications" />
       <IconFooter name="shopping-cart" />
       <IconFooter name="favorite" />
       <IconFooter name="person" />
-    </View>
+    </SafeAreaView>
   </View>
 );
 
