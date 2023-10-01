@@ -1,0 +1,29 @@
+import { StyleSheet, Text, View } from 'react-native';
+import { colors, size } from '../../../../consts';
+
+export const PriceContainer = ({ price, oldPrice }) => {
+  return (
+    <View style={styles.priceContainer}>
+      <Text style={styles.price}>{`$${price}`}</Text>
+      <Text style={styles.oldPrice}>{`$${oldPrice}`}</Text>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  priceContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 10,
+  },
+  price: {
+    fontSize: size.text20,
+    fontWeight: 'bold',
+  },
+  oldPrice: {
+    fontSize: size.text12,
+    textDecorationLine: 'line-through',
+    color: colors.gray,
+  },
+});

@@ -1,8 +1,10 @@
 import { StyleSheet, View } from 'react-native';
+import { productCards } from '../../mockData';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { DeliveryQRCode } from '../modules/home/components/QRCode/DeliveryQRCode';
+import { ProductList } from '../modules/home/components/productCard/ProductList';
 
 export const Home = () => {
   return (
@@ -10,6 +12,7 @@ export const Home = () => {
       <Header />
       <View style={styles.mainContent}>
         <DeliveryQRCode />
+        <ProductList data={productCards} />
       </View>
       <Footer />
     </Container>
