@@ -1,29 +1,16 @@
 import React from 'react';
-import {
-  Dimensions,
-  Platform,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
-import { colors, size } from '../consts';
+import { Dimensions, SafeAreaView, StyleSheet, View } from 'react-native';
 import { Gradient } from '../ui/Gradient';
 import { SearchBar } from './SearchBar';
 
 const { width, height } = Dimensions.get('window');
-let headerHeight = height / 7;
-
-if (Platform.OS === 'ios') {
-  headerHeight = height / 5.5;
-}
+const headerHeight = height / 8;
 
 export const Header: React.FC = () => {
   return (
     <View style={styles.container}>
       <Gradient type="header" />
-      <SafeAreaView style={styles.textAndSearchBarContainer}>
-        <Text style={styles.text}>Main</Text>
+      <SafeAreaView style={styles.searchBarContainer}>
         <SearchBar />
       </SafeAreaView>
     </View>
@@ -36,22 +23,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: width,
-    paddingBottom: 15,
     paddingLeft: 15,
     paddingRight: 15,
     borderBottomLeftRadius: 15,
     borderBottomRightRadius: 15,
     position: 'relative',
   },
-  textAndSearchBarContainer: {
-    gap: 5,
-    alignItems: 'center',
+  searchBarContainer: {
     width: '100%',
-  },
-  text: {
-    fontSize: size.title,
-    fontFamily: 'OpenSans_700Bold',
-    color: colors.white,
     paddingTop: 10,
   },
 });

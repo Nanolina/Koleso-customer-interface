@@ -1,9 +1,9 @@
-import { StyleSheet, TextInput, View } from 'react-native';
+import { SafeAreaView, StyleSheet, TextInput, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { borderRadius, colors, iconSize } from '../consts';
 
 export const SearchBar: React.FC = () => (
-  <View style={styles.searchBar}>
+  <View style={styles.container}>
     <Icon name="search" size={iconSize} color={colors.border} />
     <TextInput
       style={styles.input}
@@ -14,7 +14,7 @@ export const SearchBar: React.FC = () => (
 );
 
 const styles = StyleSheet.create({
-  searchBar: {
+  container: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 2,
@@ -22,7 +22,6 @@ const styles = StyleSheet.create({
     borderRadius: borderRadius,
     paddingLeft: 10,
     backgroundColor: 'white',
-    width: '100%',
   },
   input: {
     height: 40,
