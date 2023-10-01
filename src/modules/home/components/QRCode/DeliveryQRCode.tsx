@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import { borderRadius, padding } from '../../../../consts';
+import { css } from '../../../../consts';
 import { Gradient } from '../../ui/QRCode/Gradient';
 import { InfoQRCodeSection } from './InfoQRCodeSection';
 import { QRCodeSection } from './QRCodeSection';
@@ -19,7 +19,7 @@ export const DeliveryQRCode = () => {
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: borderRadius,
+    borderRadius: css.borderRadius,
     overflow: 'hidden',
   },
   flexRow: {

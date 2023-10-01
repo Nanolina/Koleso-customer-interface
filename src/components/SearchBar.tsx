@@ -1,14 +1,14 @@
-import { SafeAreaView, StyleSheet, TextInput, View } from 'react-native';
+import { StyleSheet, TextInput, View } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { borderRadius, colors, iconSize } from '../consts';
+import { css } from '../consts';
 
 export const SearchBar: React.FC = () => (
   <View style={styles.container}>
-    <Icon name="search" size={iconSize} color={colors.border} />
+    <Icon name="search" size={css.iconSize} color={css.colors.border} />
     <TextInput
       style={styles.input}
       placeholder="Search..."
-      placeholderTextColor={colors.gray}
+      placeholderTextColor={css.colors.gray}
     />
   </View>
 );
@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: colors.border,
-    borderRadius: borderRadius,
+    borderColor: css.colors.border,
+    borderRadius: css.borderRadius,
     paddingLeft: 10,
     backgroundColor: 'white',
   },

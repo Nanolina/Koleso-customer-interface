@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, size } from '../../../../consts';
+import { css } from '../../../../consts';
 
 export const PriceContainer = ({ price, oldPrice }) => {
   return (
@@ -18,12 +18,12 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   price: {
-    fontSize: size.text20,
+    fontSize: css.size.text20,
     fontWeight: 'bold',
   },
   oldPrice: {
-    fontSize: size.text12,
+    fontSize: css.size.text12,
     textDecorationLine: 'line-through',
-    color: colors.gray,
+    color: css.colors.gray,
   },
 });

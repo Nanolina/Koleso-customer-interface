@@ -1,8 +1,7 @@
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { Dimensions, Platform, StyleSheet, View } from 'react-native';
 import { Image } from 'react-native-elements';
-import { borderRadius } from '../../../../consts';
+import { css } from '../../../../consts';
 import { IconContainer } from './IconContainer';
-import { Platform } from 'react-native';
 
 const { height } = Dimensions.get('window');
 const imageHeight = height * 0.9;
@@ -22,7 +21,7 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   image: {
-    borderRadius,
+    borderRadius: css.borderRadius,
     width: '100%',
     height: Platform.OS === 'web' ? imageHeight : 200,
     resizeMode: 'cover',
