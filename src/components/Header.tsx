@@ -1,22 +1,37 @@
 import React from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import {
+  Dimensions,
+  Platform,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import { colors } from '../consts';
 import { Gradient } from '../ui/Gradient';
 import { SearchBar } from './SearchBar';
 
 const { width, height } = Dimensions.get('window');
-const headerHeight = height / 7;
+let headerHeight = height / 7;
 
-export const Header: React.FC = () => (
-  <View style={styles.header}>
-    <Gradient type="header" />
-    <Text style={styles.headerText}>Main</Text>
-    <SearchBar />
-  </View>
-);
+if (Platform.OS === 'ios') {
+  headerHeight = height / 6;
+}
+
+export const Header: React.FC = () => {
+  return (
+    <View style={styles.container}>
+      <Gradient type="header" />
+      <SafeAreaView style={styles.textAndSearchBarContainer}>
+        <Text style={styles.text}>Main</Text>
+        <SearchBar />
+      </SafeAreaView>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-  header: {
+  container: {
     height: headerHeight,
     justifyContent: 'center',
     alignItems: 'center',
@@ -28,12 +43,15 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 15,
     position: 'relative',
   },
-  headerText: {
+  textAndSearchBarContainer: {
+    gap: 5,
+    alignItems: 'center',
+    width: '100%',
+  },
+  text: {
     fontSize: 24,
     fontFamily: 'OpenSans_700Bold',
     color: colors.white,
-    textShadowOffset: { width: -3, height: -2 },
-    textShadowRadius: 1,
-    textShadowColor: colors.border,
+    paddingTop: 10,
   },
 });
