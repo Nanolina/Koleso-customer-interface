@@ -8,7 +8,7 @@ export const Gradient = ({ type }) => {
   return (
     <LinearGradient
       colors={[colors.pink, colors.purple]}
-      style={styles.gradientBackground}
+      style={styles.background}
       start={{ x: 1, y: 0 }}
       end={{ x: 1, y: 1 }}
     />
@@ -17,7 +17,7 @@ export const Gradient = ({ type }) => {
 
 const getStyles = (type): any =>
   StyleSheet.create({
-    gradientBackground: {
+    background: {
       position: 'absolute',
       left: 0,
       right: 0,

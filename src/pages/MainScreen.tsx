@@ -1,10 +1,8 @@
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { DeliveryQRCode } from '../modules/main/components/DeliveryQRCode';
-
-const { width } = Dimensions.get('window');
+import { DeliveryQRCode } from '../modules/main/components/QRCode/DeliveryQRCode';
 
 export const MainScreen = () => {
   return (
