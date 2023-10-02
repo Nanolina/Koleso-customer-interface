@@ -4,7 +4,7 @@ import { css } from '../consts';
 
 const getWidthInput = (searchOn) => {
   if (searchOn) {
-    return Platform.OS === 'web' ? '97%' : '90%';
+    return Platform.OS === 'web' ? '90%' : '70%';
   }
 
   return '100%';

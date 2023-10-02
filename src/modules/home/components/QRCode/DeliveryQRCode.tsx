@@ -1,6 +1,6 @@
 import { Platform, StyleSheet, View } from 'react-native';
 import { css } from '../../../../consts';
-import { Gradient } from '../../ui/QRCode/Gradient';
+import { Gradient } from '../../../../ui/Gradient';
 import { InfoQRCodeSection } from './InfoQRCodeSection';
 import { QRCodeSection } from './QRCodeSection';
 

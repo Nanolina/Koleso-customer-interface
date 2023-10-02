@@ -1,7 +1,7 @@
 import { EvilIcons } from '@expo/vector-icons';
 import { StyleSheet, Text, View } from 'react-native';
 import { css } from '../../../../consts';
-import { DeleteText } from './DeleteText';
+import { DeleteText } from '../../ui/search/DeleteText';
 
 export const SearchQuery = ({ query, handleClearQuery }) => {
   return (

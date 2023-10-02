@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ScrollView } from 'react-native';
 import { queries } from '../../../../../mockData';
-import { ClearAll } from './ClearAll';
+import { ClearAll } from '../../ui/search/ClearAll';
 import { SearchQuery } from './SearchQuery';
 
 export const SearchQueries = () => {

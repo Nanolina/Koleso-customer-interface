@@ -1,16 +1,14 @@
-import { Octicons } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import {
   Dimensions,
   Keyboard,
-  Platform,
   SafeAreaView,
   StyleSheet,
-  TouchableOpacity,
   View,
 } from 'react-native';
-import { css } from '../consts';
-import { Gradient } from '../ui/Gradient';
+import { Button } from '../ui/Button';
+import { ButtonBack } from '../ui/ButtonBack';
+import { GradientHeaderFooter } from '../ui/GradientHeaderFooter';
 import { SearchBar } from './SearchBar';
 
 const { width, height } = Dimensions.get('window');
@@ -21,30 +19,28 @@ export const Header = ({ searchOn = false, setSearchOn }) => {
 
   return (
     <View style={styles.container}>
-      <Gradient type="header" />
+      <GradientHeaderFooter type="header" />
       <SafeAreaView style={styles.searchBarContainer}>
         {searchOn && (
-          <TouchableOpacity
+          <ButtonBack
             onPress={() => {
               setSearchOn(false);
               setSearchText('');
               Keyboard.dismiss();
             }}
-            style={styles.icon}
-          >
-            <Octicons
-              name="chevron-left"
-              size={css.iconSizeMax}
-              color={css.colors.white}
-            />
-          </TouchableOpacity>
+          />
         )}
+
         <SearchBar
           searchOn={searchOn}
           setSearchOn={setSearchOn}
           searchText={searchText}
           setSearchText={setSearchText}
         />
+
+        {searchOn && (
+          <Button text="Search" onPress={() => console.log('Search')} />
+        )}
       </SafeAreaView>
     </View>
   );
@@ -66,8 +62,7 @@ const styles = StyleSheet.create({
     paddingTop: 30,
     flexDirection: 'row',
     alignItems: 'center',
-  },
-  icon: {
-    width: Platform.OS === 'web' ? '2%' : '10%',
+    gap: 10,
+    justifyContent: 'center',
   },
 });
