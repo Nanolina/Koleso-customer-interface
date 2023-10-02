@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { css } from '../../../../consts';
 
-export const WebCardWrapper = ({ children }) => {
+export const WebCardWrapper = ({ cardWidth, children }) => {
   const [isHovered, setIsHovered] = useState(false);
+  const styles = getStyles(cardWidth);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -30,12 +31,14 @@ export const WebCardWrapper = ({ children }) => {
   return <View style={webStyles}>{children}</View>;
 };
 
-const styles = StyleSheet.create({
-  hovered: {
-    flex: 1,
-    borderRadius: css.borderRadius,
-    transform: 'scale(1.05)',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-    transition: 'transform 0.3s, box-shadow 0.3s',
-  },
-});
+const getStyles = (cardWidth) =>
+  StyleSheet.create({
+    hovered: {
+      flex: 1,
+      borderRadius: css.borderRadius,
+      transform: 'scale(1.05)',
+      boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
+      transition: 'transform 0.3s, box-shadow 0.3s',
+      maxWidth: cardWidth,
+    },
+  });

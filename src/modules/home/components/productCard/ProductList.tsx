@@ -13,7 +13,7 @@ export const ProductList = ({ data }) => {
       renderItem={renderProductCard}
       keyExtractor={(item) => item.id}
       numColumns={Platform.OS === 'web' ? 3 : 2}
-      contentContainerStyle={styles.listContainer}
+      style={styles.listContainer}
     />
   );
 };
@@ -24,6 +24,5 @@ const styles = StyleSheet.create({
     paddingVertical: Platform.OS === 'web' ? css.paddingWeb : css.padding,
     paddingHorizontal: css.padding,
     width: '100%',
-    alignSelf: 'center',
   },
 });

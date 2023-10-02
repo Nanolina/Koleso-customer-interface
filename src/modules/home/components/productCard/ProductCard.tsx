@@ -1,13 +1,16 @@
 import React from 'react';
-import { Platform, StyleSheet, View } from 'react-native';
+import { Dimensions, Platform, StyleSheet, View } from 'react-native';
 import { WebCardWrapper } from '../../ui/productCard/WebCardWrapper';
 import { ImageContainer } from './ImageContainer';
 import { PriceContainer } from './PriceContainer';
 import { TitleContainer } from './TitleContainer';
 
+const { width } = Dimensions.get('window');
+const cardWidth = width / 3;
+
 export const ProductCard = ({ image, price, oldPrice, seller, title }) => {
   return (
-    <WebCardWrapper>
+    <WebCardWrapper cardWidth={cardWidth}>
       <View style={styles.card}>
         <ImageContainer image={image} />
         <PriceContainer price={price} oldPrice={oldPrice} />
@@ -23,5 +26,7 @@ const styles = StyleSheet.create({
     gap: 4,
     paddingVertical: Platform.OS === 'web' ? 20 : 2.5,
     paddingHorizontal: Platform.OS === 'web' ? 20 : 2.5,
+    paddingBottom: 20,
+    maxWidth: Platform.OS === 'web' ? cardWidth : '100%',
   },
 });

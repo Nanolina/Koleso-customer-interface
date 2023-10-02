@@ -26,8 +26,7 @@ export const productCards = [
   },
   {
     id: '4',
-    image:
-      'https://marketpro-demo.ru/upload/products_pictures_demo/c7b/b9dp2462keos5hlnrqo4zqavaba3ircv/fg6vrukxrq1.jpg',
+    image: 'https://13not.ru/img/letnie-platya-s-volanami-na-plechah.jpg',
     price: '40',
     oldPrice: '80',
     seller: 'Eldorado',

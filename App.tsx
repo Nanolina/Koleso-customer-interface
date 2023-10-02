@@ -8,7 +8,6 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Home } from './src/pages/Home';
-import { Search } from './src/pages/Search';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -32,7 +31,6 @@ export default function App() {
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Search" component={Search} />
       </Stack.Navigator>
     </NavigationContainer>
   );

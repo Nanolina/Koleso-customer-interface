@@ -1,8 +1,8 @@
 import { Octicons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Dimensions,
+  Keyboard,
   Platform,
   SafeAreaView,
   StyleSheet,
@@ -16,16 +16,20 @@ import { SearchBar } from './SearchBar';
 const { width, height } = Dimensions.get('window');
 const headerHeight = height / 8;
 
-export const Header = ({ isBack = false }) => {
-  const navigation: any = useNavigation();
+export const Header = ({ searchOn = false, setSearchOn }) => {
+  const [searchText, setSearchText] = useState('');
 
   return (
     <View style={styles.container}>
       <Gradient type="header" />
       <SafeAreaView style={styles.searchBarContainer}>
-        {isBack && (
+        {searchOn && (
           <TouchableOpacity
-            onPress={() => navigation.goBack()}
+            onPress={() => {
+              setSearchOn(false);
+              setSearchText('');
+              Keyboard.dismiss();
+            }}
             style={styles.icon}
           >
             <Octicons
@@ -35,7 +39,12 @@ export const Header = ({ isBack = false }) => {
             />
           </TouchableOpacity>
         )}
-        <SearchBar isBack={isBack} />
+        <SearchBar
+          searchOn={searchOn}
+          setSearchOn={setSearchOn}
+          searchText={searchText}
+          setSearchText={setSearchText}
+        />
       </SafeAreaView>
     </View>
   );
@@ -43,10 +52,9 @@ export const Header = ({ isBack = false }) => {
 
 const styles = StyleSheet.create({
   container: {
+    width,
     height: headerHeight,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: width,
+    justifyContent: 'space-around',
     paddingLeft: 15,
     paddingRight: 15,
     borderBottomLeftRadius: 15,

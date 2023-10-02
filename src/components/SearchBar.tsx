@@ -1,19 +1,22 @@
-import { useNavigation } from '@react-navigation/native';
 import { Platform, StyleSheet, TextInput, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { css } from '../consts';
 
-const getWidthInput = (isBack) => {
-  if (isBack) {
+const getWidthInput = (searchOn) => {
+  if (searchOn) {
     return Platform.OS === 'web' ? '97%' : '90%';
   }
 
   return '100%';
 };
 
-export const SearchBar = ({ isBack = false }) => {
-  const navigation: any = useNavigation();
-  const styles = getStyles(isBack);
+export const SearchBar: React.FC<{
+  searchOn: boolean;
+  setSearchOn: any;
+  searchText: string;
+  setSearchText: any;
+}> = ({ searchOn = false, setSearchOn, searchText = '', setSearchText }) => {
+  const styles = getStyles(searchOn);
 
   return (
     <View style={styles.container}>
@@ -22,13 +25,15 @@ export const SearchBar = ({ isBack = false }) => {
         style={styles.input}
         placeholder="Search..."
         placeholderTextColor={css.colors.gray}
-        onFocus={() => navigation.navigate('Search')}
+        onFocus={() => setSearchOn(true)}
+        value={searchText}
+        onChangeText={setSearchText}
       />
     </View>
   );
 };
 
-const getStyles = (isBack) =>
+const getStyles = (searchOn) =>
   StyleSheet.create({
     container: {
       flexDirection: 'row',
@@ -38,12 +43,14 @@ const getStyles = (isBack) =>
       borderRadius: css.borderRadius,
       paddingLeft: 10,
       backgroundColor: 'white',
-      width: getWidthInput(isBack),
+      width: getWidthInput(searchOn),
     },
     input: {
       height: 40,
       flex: 1,
       paddingLeft: 10,
-      outlineStyle: 'none',
+      ...(Platform.OS === 'web' && {
+        outlineStyle: 'none',
+      }),
     },
   });
