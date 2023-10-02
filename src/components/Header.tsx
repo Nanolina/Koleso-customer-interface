@@ -31,6 +31,6 @@ const styles = StyleSheet.create({
   },
   searchBarContainer: {
     width: '100%',
-    paddingTop: 10,
+    paddingTop: 30,
   },
 });

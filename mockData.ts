@@ -24,4 +24,13 @@ export const productCards = [
     seller: 'Eldorado',
     title: 'Laptop',
   },
+  {
+    id: '4',
+    image:
+      'https://marketpro-demo.ru/upload/products_pictures_demo/c7b/b9dp2462keos5hlnrqo4zqavaba3ircv/fg6vrukxrq1.jpg',
+    price: '40',
+    oldPrice: '80',
+    seller: 'Eldorado',
+    title: 'Laptop',
+  },
 ];

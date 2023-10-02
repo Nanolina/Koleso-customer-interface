@@ -4,7 +4,7 @@ import { css } from '../../../../consts';
 import { IconContainer } from './IconContainer';
 
 const { height } = Dimensions.get('window');
-const imageHeight = height * 0.9;
+const imageHeight = height / 2;
 
 export const ImageContainer = ({ image }) => {
   return (

@@ -1,4 +1,5 @@
 import { FlatList, Platform, StyleSheet } from 'react-native';
+import { css } from '../../../../consts';
 import { ProductCard } from './ProductCard';
 
 export const ProductList = ({ data }) => {
@@ -11,7 +12,7 @@ export const ProductList = ({ data }) => {
       data={data}
       renderItem={renderProductCard}
       keyExtractor={(item) => item.id}
-      numColumns={Platform.OS === 'web' ? 5 : 2}
+      numColumns={Platform.OS === 'web' ? 3 : 2}
       contentContainerStyle={styles.listContainer}
     />
   );
@@ -20,6 +21,9 @@ export const ProductList = ({ data }) => {
 const styles = StyleSheet.create({
   listContainer: {
     gap: 20,
-    paddingVertical: 5,
+    paddingVertical: Platform.OS === 'web' ? css.paddingWeb : css.padding,
+    paddingHorizontal: css.padding,
+    width: '100%',
+    alignSelf: 'center',
   },
 });

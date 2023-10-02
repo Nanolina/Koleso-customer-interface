@@ -1,4 +1,4 @@
-import { StyleSheet, View } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 import { css } from '../../../../consts';
 import { Gradient } from '../../ui/QRCode/Gradient';
 import { InfoQRCodeSection } from './InfoQRCodeSection';
@@ -21,6 +21,8 @@ const styles = StyleSheet.create({
   container: {
     borderRadius: css.borderRadius,
     overflow: 'hidden',
+    backgroundColor: 'transparent',
+    marginHorizontal: Platform.OS === 'web' ? css.paddingWeb : css.padding,
   },
   flexRow: {
     flexDirection: 'row',

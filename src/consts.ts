@@ -20,12 +20,7 @@ export const css = {
   iconSize: 30,
   borderRadius: 12,
   padding: 10,
+  paddingWeb: 30,
 };
-
-// export const borderRadius = 12;
-// export const iconSize = 30;
-// export const iconSizeProductCard = 18;
-// export const borderRadiusProductCard = 5;
-// export const padding = 10;
 
 export const currency = '€';
