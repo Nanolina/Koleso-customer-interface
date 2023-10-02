@@ -14,7 +14,9 @@ export const IconProductCard = ({ name }) => {
       >
         <Icon
           name={name}
-          size={Platform.OS === 'web' ? css.iconSize : css.productCard.iconSize}
+          size={
+            Platform.OS === 'web' ? css.iconSizeMax : css.productCard.iconSize
+          }
           color={css.colors.white}
         />
       </LinearGradient>
