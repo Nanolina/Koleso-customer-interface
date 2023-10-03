@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
-import { css } from '../../../../consts';
+import { css } from '../consts';
 
 export const WebCardWrapper = ({ cardWidth, children }) => {
   const [isHovered, setIsHovered] = useState(false);

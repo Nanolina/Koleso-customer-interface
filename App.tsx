@@ -7,6 +7,7 @@ import {
 } from '@expo-google-fonts/open-sans';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Catalog } from './src/pages/Catalog';
 import { Home } from './src/pages/Home';
 
 export default function App() {
@@ -27,10 +28,11 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Main"
+        initialRouteName="Home"
         screenOptions={{ headerShown: false }}
       >
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Catalog" component={Catalog} />
       </Stack.Navigator>
     </NavigationContainer>
   );

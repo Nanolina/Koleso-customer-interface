@@ -1,24 +1,39 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Dimensions, SafeAreaView, StyleSheet, View } from 'react-native';
+import {
+  Dimensions,
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { GradientHeaderFooter } from '../ui/GradientHeaderFooter';
 import { IconFooter } from '../ui/IconFooter';
 
 const { width, height } = Dimensions.get('window');
 const footerHeight = height / 10;
 
-export const Footer: React.FC = () => (
-  <View style={styles.footer}>
-    <GradientHeaderFooter type="footer" />
-    <SafeAreaView style={styles.iconContainer}>
-      <IconFooter name="home" />
-      <IconFooter name="search" />
-      <IconFooter name="notifications" />
-      <IconFooter name="shopping-cart" />
-      <IconFooter name="favorite" />
-      <IconFooter name="person" />
-    </SafeAreaView>
-  </View>
-);
+export const Footer: React.FC<any> = () => {
+  const navigation: any = useNavigation();
+
+  return (
+    <View style={styles.footer}>
+      <GradientHeaderFooter type="footer" />
+      <SafeAreaView style={styles.iconContainer}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+          <IconFooter name="home" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Catalog')}>
+          <IconFooter name="search" />
+        </TouchableOpacity>
+        <IconFooter name="notifications" />
+        <IconFooter name="shopping-cart" />
+        <IconFooter name="favorite" />
+        <IconFooter name="person" />
+      </SafeAreaView>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   footer: {

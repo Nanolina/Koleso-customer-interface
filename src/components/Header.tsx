@@ -14,7 +14,7 @@ import { SearchBar } from './SearchBar';
 const { width, height } = Dimensions.get('window');
 const headerHeight = height / 8;
 
-export const Header = ({ searchOn = false, setSearchOn }) => {
+export const Header = ({ searchOn = false, setSearchOn }: any) => {
   const [searchText, setSearchText] = useState('');
 
   return (
