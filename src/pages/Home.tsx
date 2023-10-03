@@ -1,14 +1,10 @@
 import { useState } from 'react';
-import { StyleSheet } from 'react-native';
-import { ScrollView } from 'react-native-virtualized-view';
 import { productCards } from '../../mockData';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { css } from '../consts';
-import { DeliveryQRCode } from '../modules/home/components/QRCode/DeliveryQRCode';
-import { ProductList } from '../modules/home/components/productCard/ProductList';
-import { SearchQueries } from '../modules/home/components/search/SearchQueries';
+import { DeliveryQRCode, ProductList, SearchQueries } from '../modules/home';
+import { CentralContainer } from '../ui/CentralContainer';
 
 export const Home = () => {
   const [searchOn, setSearchOn] = useState(false);
@@ -16,7 +12,7 @@ export const Home = () => {
   return (
     <Container>
       <Header searchOn={searchOn} setSearchOn={setSearchOn} />
-      <ScrollView style={styles.mainContent}>
+      <CentralContainer>
         {!searchOn && (
           <>
             <DeliveryQRCode />
@@ -24,17 +20,8 @@ export const Home = () => {
           </>
         )}
         {searchOn && <SearchQueries />}
-      </ScrollView>
+      </CentralContainer>
       <Footer />
     </Container>
   );
 };
-
-const styles = StyleSheet.create({
-  mainContent: {
-    flex: 1,
-    backgroundColor: css.colors.white,
-    paddingHorizontal: 5,
-    paddingTop: 5,
-  },
-});
