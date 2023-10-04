@@ -6,6 +6,18 @@ export const productCards = [
     oldPrice: '40',
     seller: 'Estetico',
     title: 'Pantsuit',
+    color: 'beige',
+    composition: 'cotton 100%',
+    gender: 'female',
+    size: 35,
+    description: `Pantsuit - An Elegant Choice for the Modern Woman
+Mesmerizing and fashionable, our pantsuit is the perfect addition to your closet! Consisting of pants and jacket, this stylish set is designed to make you feel confident and comfortable in any situation, whether it's a business meeting or an after-work party.
+Features:
+Top quality material: We used only the best fabrics to ensure durability and wearing comfort. The fabric is breathable, lightweight and pleasant to the body.
+Perfect fit: Thanks to the carefully designed cut, our pantsuit fits perfectly, emphasizing your strengths and hiding flaws.
+Versatile: Perfect for work, presentations, formal events or romantic dates.
+Fashionable details: Modern design elements such as slim fit pants, neat lapels and elegant buttons make this pantsuit a true work of art.
+Don't miss the opportunity to add this gorgeous pantsuit to your closet! It will not only emphasize your sense of style, but will also enhance your confident and modern radiance. Show the world your uniqueness and professionalism with our pantsuit!`,
   },
   {
     id: '2',

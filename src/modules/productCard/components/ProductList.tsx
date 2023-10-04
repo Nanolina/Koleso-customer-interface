@@ -4,7 +4,7 @@ import { ProductCard } from './ProductCard';
 
 export const ProductList = ({ data }) => {
   const renderProductCard = ({ item }) => (
-    <ProductCard {...item} key={item.id} />
+    <ProductCard item={item} key={item.id} />
   );
 
   return (

@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {
   Dimensions,
@@ -13,13 +14,22 @@ import { TitleContainer } from './TitleContainer';
 const { width } = Dimensions.get('window');
 const cardWidth = width / 3;
 
-export const ProductCard = ({ image, price, oldPrice, seller, title }) => {
+export const ProductCard = ({ item }) => {
+  const navigation: any = useNavigation();
+
   return (
     <WebCardWrapper cardWidth={cardWidth}>
-      <TouchableOpacity style={styles.card}>
-        <ImageContainer image={image} />
-        <PriceContainer price={price} oldPrice={oldPrice} />
-        <TitleContainer seller={seller} title={title} />
+      <TouchableOpacity
+        style={styles.card}
+        onPress={() =>
+          navigation.navigate('ItemPage', {
+            item,
+          })
+        }
+      >
+        <ImageContainer image={item.image} />
+        <PriceContainer price={item.price} oldPrice={item.oldPrice} />
+        <TitleContainer seller={item.seller} title={item.title} />
       </TouchableOpacity>
     </WebCardWrapper>
   );

@@ -25,7 +25,7 @@ export const HeaderWithSearch = () => {
 
   return (
     <View style={styles.container}>
-      <GradientHeaderFooter type="header" />
+      <GradientHeaderFooter type="header" isBorder={true} />
       <SafeAreaView style={styles.searchBarContainer}>
         {isEnabled && (
           <ButtonBack

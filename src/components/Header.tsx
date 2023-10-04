@@ -13,7 +13,7 @@ export const Header = ({ title }) => {
 
   return (
     <View style={styles.container}>
-      <GradientHeaderFooter type="header" />
+      <GradientHeaderFooter type="header" isBorder={true} />
       <SafeAreaView style={styles.buttonWithText}>
         <ButtonBack
           onPress={() => {

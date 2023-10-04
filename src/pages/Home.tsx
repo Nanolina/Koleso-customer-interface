@@ -12,7 +12,7 @@ export const Home = () => {
   return (
     <Container>
       <HeaderWithSearch />
-      <CentralContainer>
+      <CentralContainer isPadding={true}>
         {!isEnabledSearch && (
           <>
             <DeliveryQRCode />

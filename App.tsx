@@ -11,9 +11,12 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import { CategoriesPage } from './src/pages/CategoriesPage';
 import { Home } from './src/pages/Home';
+import { ItemPage } from './src/pages/ItemPage';
 import { Main } from './src/pages/Main';
 import { SectionsPage } from './src/pages/SectionsPage';
 import { SubcategoriesPage } from './src/pages/SubcategoriesPage';
+import { Dimensions } from 'react-native';
+import { useState } from 'react';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -45,6 +48,7 @@ export default function App() {
             name="SubcategoriesPage"
             component={SubcategoriesPage}
           />
+          <Stack.Screen name="ItemPage" component={ItemPage} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

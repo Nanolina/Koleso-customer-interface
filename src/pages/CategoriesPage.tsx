@@ -11,7 +11,7 @@ export const CategoriesPage = () => {
   return (
     <Container>
       <Header title={section} />
-      <CentralContainer>
+      <CentralContainer isPadding={true}>
         <Categories />
       </CentralContainer>
       <Footer />

@@ -2,8 +2,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { StyleSheet } from 'react-native';
 import { css } from '../consts';
 
-export const GradientHeaderFooter = ({ type }) => {
-  const styles = getStyles(type);
+export const GradientHeaderFooter = ({ type, isBorder }) => {
+  const styles = getStyles(type, isBorder);
 
   return (
     <LinearGradient
@@ -15,7 +15,7 @@ export const GradientHeaderFooter = ({ type }) => {
   );
 };
 
-const getStyles = (type): any =>
+const getStyles = (type, isBorder): any =>
   StyleSheet.create({
     background: {
       position: 'absolute',
@@ -24,13 +24,15 @@ const getStyles = (type): any =>
       top: 0,
       bottom: 0,
       opacity: 0.55,
-      ...(type === 'header' && {
-        borderBottomLeftRadius: css.borderRadius,
-        borderBottomRightRadius: css.borderRadius,
-      }),
-      ...(type === 'footer' && {
-        borderTopLeftRadius: css.borderRadius,
-        borderTopRightRadius: css.borderRadius,
-      }),
+      ...(type === 'header' &&
+        isBorder && {
+          borderBottomLeftRadius: css.borderRadius,
+          borderBottomRightRadius: css.borderRadius,
+        }),
+      ...(type === 'footer' &&
+        isBorder && {
+          borderTopLeftRadius: css.borderRadius,
+          borderTopRightRadius: css.borderRadius,
+        }),
     },
   });

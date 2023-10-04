@@ -8,7 +8,7 @@ export const SectionsPage = () => {
   return (
     <Container>
       <HeaderWithSearch />
-      <CentralContainer>
+      <CentralContainer isPadding={true}>
         <Sections />
       </CentralContainer>
       <Footer />
