@@ -15,7 +15,7 @@ const catalogSlice = createSlice({
       state.category = action.payload;
     },
     selectSubcategory(state, action) {
-      state.category = action.payload;
+      state.subcategory = action.payload;
     },
   },
 });
