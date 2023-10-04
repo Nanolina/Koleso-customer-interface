@@ -1,5 +1,5 @@
 import { FlatList, Platform, StyleSheet } from 'react-native';
-import { css } from '../../../../consts';
+import { css } from '../../../consts';
 import { ProductCard } from './ProductCard';
 
 export const ProductList = ({ data }) => {

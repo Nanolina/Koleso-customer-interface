@@ -5,7 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import { WebCardWrapper } from '../../../../ui/WebCardWrapper';
+import { WebCardWrapper } from '../../../ui/WebCardWrapper';
 import { ImageContainer } from './ImageContainer';
 import { PriceContainer } from './PriceContainer';
 import { TitleContainer } from './TitleContainer';

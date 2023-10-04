@@ -1,5 +1,5 @@
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import { IconProductCard } from '../../ui/productCard/IconProductCard';
+import { IconProductCard } from '../ui/IconProductCard';
 
 export const IconContainer = ({ name, type }) => {
   const styles: any = getStyles(type);

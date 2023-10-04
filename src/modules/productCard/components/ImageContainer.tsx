@@ -1,6 +1,6 @@
 import { Dimensions, Platform, StyleSheet, View } from 'react-native';
 import { Image } from 'react-native-elements';
-import { css } from '../../../../consts';
+import { css } from '../../../consts';
 import { IconContainer } from './IconContainer';
 
 const { height } = Dimensions.get('window');

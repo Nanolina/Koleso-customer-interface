@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../../consts';
+import { css } from '../../../consts';
 
 export const PriceContainer = ({ price, oldPrice }) => {
   return (

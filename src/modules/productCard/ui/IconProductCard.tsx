@@ -1,7 +1,7 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { Platform, StyleSheet, View } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { css } from '../../../../consts';
+import { css } from '../../../consts';
 
 export const IconProductCard = ({ name }) => {
   return (
