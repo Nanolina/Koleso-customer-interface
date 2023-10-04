@@ -7,8 +7,11 @@ import {
 } from '@expo-google-fonts/open-sans';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Catalog } from './src/pages/Catalog';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import { CategoriesPage } from './src/pages/CategoriesPage';
 import { Home } from './src/pages/Home';
+import { SectionsPage } from './src/pages/SectionsPage';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -26,14 +29,17 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={{ headerShown: false }}
-      >
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Catalog" component={Catalog} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Home"
+          screenOptions={{ headerShown: false }}
+        >
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="SectionsPage" component={SectionsPage} />
+          <Stack.Screen name="CategoriesPage" component={CategoriesPage} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }

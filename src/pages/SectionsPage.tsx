@@ -1,15 +1,15 @@
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { Cards } from '../modules/catalog';
+import { Sections } from '../modules/section';
 import { CentralContainer } from '../ui/CentralContainer';
 
-export const Catalog = () => {
+export const SectionsPage = () => {
   return (
     <Container>
       <Header />
       <CentralContainer>
-        <Cards />
+        <Sections />
       </CentralContainer>
       <Footer />
     </Container>

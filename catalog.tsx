@@ -1,20 +1,52 @@
-export const cards = [
+/**
+ * Represents the catalog.
+ * @typedef {Object} Catalog
+ * @property {Section[]} sections - The sections of the catalog.
+ */
+
+/**
+ * Represents a section in the catalog.
+ * @typedef {Object} Section
+ * @property {string} id - The unique identifier of the section.
+ * @property {string} title - The title of the section.
+ * @property {Category[]} [categories] - The categories within the section.
+ */
+
+/**
+ * Represents a category in a section.
+ * @typedef {Object} Category
+ * @property {string} id - The unique identifier of the category.
+ * @property {string} title - The title of the category.
+ * @property {Subcategory[]} [subcategories] - The subcategories within the category.
+ */
+
+/**
+ * Represents a subcategory in a category.
+ * @typedef {Object} Subcategory
+ * @property {string} id - The unique identifier of the subcategory.
+ * @property {string} title - The title of the subcategory.
+ */
+
+export const catalog = [
   {
     id: 'd5bb60ad-0be2-49df-b200-1f17271fc0f2',
     title: 'Women',
-    image: require('./assets/women.png'),
+    image: require('./src/modules/section/assets/women.png'),
     categories: [
       {
         id: '471cc5ce-a113-45e8-b2ea-0c74a0a0613c',
         title: 'Blouses and shirts',
+        image: require('./src/modules/categories/assets/blouse.jpg'),
       },
       {
         id: 'd43001bd-2010-416c-9f5b-babd5c6fa7b2',
         title: 'Pants',
+        image: require('./src/modules/categories/assets/pants.jpeg'),
       },
       {
         id: '55e915e7-52f4-4efe-bd7a-7c027c0003ca',
         title: 'Outerwear',
+        image: require('./src/modules/categories/assets/outerwear.jpeg'),
       },
       {
         id: '5ffbce07-a646-4cb0-9cf3-12a3a9befcce',
@@ -130,12 +162,12 @@ export const cards = [
   {
     id: '727b5cd5-fc0e-4c86-8ff1-75e13dc9a0f6',
     title: 'Men',
-    image: require('./assets/men.png'),
+    image: require('./src/modules/section/assets/men.png'),
   },
   {
     id: '36f04285-1bb0-43de-814f-ee0f3e5fdb7e',
     title: 'Kids',
-    image: require('./assets/kids.png'),
+    image: require('./src/modules/section/assets/kids.png'),
   },
   {
     id: 'ef7baf08-ef25-43bb-b388-739735e56c64',

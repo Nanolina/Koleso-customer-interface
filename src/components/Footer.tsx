@@ -23,7 +23,7 @@ export const Footer: React.FC<any> = () => {
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <IconFooter name="home" />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Catalog')}>
+        <TouchableOpacity onPress={() => navigation.navigate('SectionsPage')}>
           <IconFooter name="search" />
         </TouchableOpacity>
         <IconFooter name="notifications" />
