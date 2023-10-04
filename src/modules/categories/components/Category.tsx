@@ -19,13 +19,21 @@ export const Category: React.FC<any> = ({ category }) => {
   const dispatch = useDispatch();
   const navigation: any = useNavigation();
 
+  const handleRedirections = (category) => {
+    if (category.subcategories) {
+      navigation.navigate('SubcategoriesPage');
+    } else {
+      navigation.navigate('Main');
+    }
+  };
+
   return (
     <WebCardWrapper cardWidth={width}>
       <TouchableOpacity
         style={styles.container}
         onPress={() => {
           dispatch(selectCategory(category));
-          navigation.navigate('SubcategoriesPage');
+          handleRedirections(category);
         }}
       >
         <Image source={category.image} style={styles.image} />

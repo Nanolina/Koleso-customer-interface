@@ -1,7 +1,14 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Dimensions, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import {
+  Dimensions,
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { css } from '../consts';
 import { ButtonBack } from '../ui/ButtonBack';
 import { GradientHeaderFooter } from '../ui/GradientHeaderFooter';
@@ -22,17 +29,22 @@ export const HeaderWithFilterSort = ({ title }) => {
           }}
         />
         <Text style={styles.title}>{title}</Text>
-        <View>
-          <MaterialCommunityIcons
-            name="sort"
-            size={css.iconSizeMax}
-            color={css.colors.white}
-          />
-          <MaterialCommunityIcons
-            name="filter"
-            size={css.iconSizeMax}
-            color={css.colors.white}
-          />
+        <View style={styles.filterSort}>
+          <TouchableOpacity>
+            <MaterialCommunityIcons
+              name="sort"
+              size={css.iconSizeMax}
+              color={css.colors.white}
+            />
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <MaterialCommunityIcons
+              name="filter"
+              size={css.iconSizeMax}
+              color={css.colors.white}
+            />
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
     </View>
@@ -58,5 +70,9 @@ const styles = StyleSheet.create({
     fontSize: css.size.title,
     fontWeight: 'bold',
     color: css.colors.white,
+  },
+  filterSort: {
+    flexDirection: 'row',
+    gap: 10,
   },
 });

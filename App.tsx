@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import { CategoriesPage } from './src/pages/CategoriesPage';
 import { Home } from './src/pages/Home';
+import { Main } from './src/pages/Main';
 import { SectionsPage } from './src/pages/SectionsPage';
 import { SubcategoriesPage } from './src/pages/SubcategoriesPage';
 
@@ -37,6 +38,7 @@ export default function App() {
           screenOptions={{ headerShown: false }}
         >
           <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Main" component={Main} />
           <Stack.Screen name="SectionsPage" component={SectionsPage} />
           <Stack.Screen name="CategoriesPage" component={CategoriesPage} />
           <Stack.Screen
