@@ -104,13 +104,27 @@ export const catalog = [
       {
         id: '8357a341-b954-4a41-ba19-3683c6fa1bdc',
         title: 'Lingerie',
+        image: require('./src/modules/subcategories/assets/lingerie.webp'),
         subcategories: [
-          { id: '6fbb1d52-b017-49fa-9ecc-f565ef7f7102', title: 'Accessories' },
-          { id: '3d174675-62e9-4979-8d04-11996ab00835', title: 'Bandages' },
-          { id: '6b75ee0a-122f-4f64-9eeb-880991e75b91', title: 'Bosshole' },
+          {
+            id: '6fbb1d52-b017-49fa-9ecc-f565ef7f7102',
+            title: 'Accessories',
+            image: require('./src/modules/subcategories/assets/accessories.jpeg'),
+          },
+          {
+            id: '3d174675-62e9-4979-8d04-11996ab00835',
+            title: 'Bandages',
+            image: require('./src/modules/subcategories/assets/bandages.jpeg'),
+          },
+          {
+            id: '664eeb65-31d6-4738-ade4-0d9a5a21a016',
+            title: 'Seamless',
+            image: require('./src/modules/subcategories/assets/seamless.jpeg'),
+          },
           {
             id: 'e9f8b8de-a54e-4397-8132-25d588956ae5',
             title: 'Bodysuits and corsets',
+            image: require('./src/modules/subcategories/assets/corsets.jpeg'),
           },
           { id: '27b9c47d-4c33-48a1-8dc9-202d65481a88', title: 'Bras' },
           {

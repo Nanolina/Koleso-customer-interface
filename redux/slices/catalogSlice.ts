@@ -5,7 +5,7 @@ const catalogSlice = createSlice({
   initialState: {
     section: null,
     category: null,
-    // subcategories: null,
+    subcategory: null,
   },
   reducers: {
     selectSection(state, action) {
@@ -14,8 +14,12 @@ const catalogSlice = createSlice({
     selectCategory(state, action) {
       state.category = action.payload;
     },
+    selectSubcategory(state, action) {
+      state.category = action.payload;
+    },
   },
 });
 
 export default catalogSlice.reducer;
-export const { selectSection, selectCategory } = catalogSlice.actions;
+export const { selectSection, selectCategory, selectSubcategory } =
+  catalogSlice.actions;

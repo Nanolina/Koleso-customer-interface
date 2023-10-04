@@ -12,6 +12,7 @@ import store from './redux/store';
 import { CategoriesPage } from './src/pages/CategoriesPage';
 import { Home } from './src/pages/Home';
 import { SectionsPage } from './src/pages/SectionsPage';
+import { SubcategoriesPage } from './src/pages/SubcategoriesPage';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -38,6 +39,10 @@ export default function App() {
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="SectionsPage" component={SectionsPage} />
           <Stack.Screen name="CategoriesPage" component={CategoriesPage} />
+          <Stack.Screen
+            name="SubcategoriesPage"
+            component={SubcategoriesPage}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

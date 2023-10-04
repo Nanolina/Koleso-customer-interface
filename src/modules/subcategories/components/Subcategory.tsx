@@ -1,4 +1,3 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {
   Dimensions,
@@ -8,28 +7,17 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import { useDispatch } from 'react-redux';
-import { selectSection } from '../../../../redux/slices/catalogSlice';
 import { css } from '../../../consts';
 import { WebCardWrapper } from '../../../ui/WebCardWrapper';
 
 const { width } = Dimensions.get('window');
 
-export const Section: React.FC<any> = ({ section }) => {
-  const dispatch = useDispatch();
-  const navigation: any = useNavigation();
-
+export const Subcategory: React.FC<any> = ({ subcategory }) => {
   return (
     <WebCardWrapper cardWidth={width}>
-      <TouchableOpacity
-        style={styles.container}
-        onPress={() => {
-          dispatch(selectSection(section));
-          navigation.navigate('CategoriesPage');
-        }}
-      >
-        <Image source={section.image} style={styles.image} />
-        <Text style={styles.text}>{section.title}</Text>
+      <TouchableOpacity style={styles.container}>
+        <Image source={subcategory.image} style={styles.image} />
+        <Text style={styles.text}>{subcategory.title}</Text>
       </TouchableOpacity>
     </WebCardWrapper>
   );
