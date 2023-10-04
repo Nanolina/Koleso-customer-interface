@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { productCards } from '../../mockData';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
-import { Header } from '../components/Header';
+import { HeaderWithSearch } from '../components/HeaderWithSearch';
 import { DeliveryQRCode, ProductList, SearchQueries } from '../modules/home';
 import { CentralContainer } from '../ui/CentralContainer';
 
@@ -11,7 +11,7 @@ export const Home = () => {
 
   return (
     <Container>
-      <Header searchOn={searchOn} setSearchOn={setSearchOn} />
+      <HeaderWithSearch searchOn={searchOn} setSearchOn={setSearchOn} />
       <CentralContainer>
         {!searchOn && (
           <>

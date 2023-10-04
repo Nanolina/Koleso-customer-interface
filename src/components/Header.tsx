@@ -1,46 +1,26 @@
-import React, { useState } from 'react';
-import {
-  Dimensions,
-  Keyboard,
-  SafeAreaView,
-  StyleSheet,
-  View,
-} from 'react-native';
-import { Button } from '../ui/Button';
+import { useNavigation } from '@react-navigation/native';
+import React from 'react';
+import { Dimensions, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { css } from '../consts';
 import { ButtonBack } from '../ui/ButtonBack';
 import { GradientHeaderFooter } from '../ui/GradientHeaderFooter';
-import { SearchBar } from './SearchBar';
 
 const { width, height } = Dimensions.get('window');
 const headerHeight = height / 8;
 
-export const Header = ({ searchOn = false, setSearchOn }: any) => {
-  const [searchText, setSearchText] = useState('');
+export const Header = ({ title }) => {
+  const navigation: any = useNavigation();
 
   return (
     <View style={styles.container}>
       <GradientHeaderFooter type="header" />
-      <SafeAreaView style={styles.searchBarContainer}>
-        {searchOn && (
-          <ButtonBack
-            onPress={() => {
-              setSearchOn(false);
-              setSearchText('');
-              Keyboard.dismiss();
-            }}
-          />
-        )}
-
-        <SearchBar
-          searchOn={searchOn}
-          setSearchOn={setSearchOn}
-          searchText={searchText}
-          setSearchText={setSearchText}
+      <SafeAreaView style={styles.buttonWithText}>
+        <ButtonBack
+          onPress={() => {
+            navigation.goBack();
+          }}
         />
-
-        {searchOn && (
-          <Button text="Search" onPress={() => console.log('Search')} />
-        )}
+        <Text style={styles.title}>{title}</Text>
       </SafeAreaView>
     </View>
   );
@@ -57,12 +37,14 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 15,
     position: 'relative',
   },
-  searchBarContainer: {
-    width: '100%',
-    paddingTop: 30,
+  buttonWithText: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+  },
+  title: {
+    fontSize: css.size.title,
+    fontWeight: 'bold',
+    color: css.colors.white,
   },
 });

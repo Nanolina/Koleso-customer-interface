@@ -51,6 +51,7 @@ export const catalog = [
       {
         id: '5ffbce07-a646-4cb0-9cf3-12a3a9befcce',
         title: 'Sweater, turtlenecks, cardigans',
+        image: require('./src/modules/categories/assets/sweater.jpeg'),
       },
       {
         id: '31acd67b-5734-4d5f-9c6d-71dfe38d964a',

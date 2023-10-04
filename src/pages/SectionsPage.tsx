@@ -1,13 +1,13 @@
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
-import { Header } from '../components/Header';
+import { HeaderWithSearch } from '../components/HeaderWithSearch';
 import { Sections } from '../modules/section';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const SectionsPage = () => {
   return (
     <Container>
-      <Header />
+      <HeaderWithSearch />
       <CentralContainer>
         <Sections />
       </CentralContainer>

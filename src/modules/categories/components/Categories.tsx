@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, Platform, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 
 import { useSelector } from 'react-redux';
 import { css } from '../../../consts';
@@ -15,7 +15,6 @@ export const Categories: React.FC = () => {
       data={categories}
       renderItem={({ item }) => <Category category={item} />}
       keyExtractor={(item) => item.id}
-      numColumns={Platform.OS === 'web' ? 5 : 3}
       style={styles.container}
     />
   );
@@ -23,7 +22,7 @@ export const Categories: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: Platform.OS === 'web' ? css.paddingWeb : 0,
+    paddingVertical: 0,
     paddingHorizontal: css.padding,
     width: '100%',
   },
