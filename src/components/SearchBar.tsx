@@ -1,22 +1,21 @@
 import { Platform, StyleSheet, TextInput, View } from 'react-native';
 import { Icon } from 'react-native-elements';
+import { useDispatch, useSelector } from 'react-redux';
+import { handleSearchText, turnOnSearch } from '../../redux/slices/searchSlice';
 import { css } from '../consts';
 
-const getWidthInput = (searchOn) => {
-  if (searchOn) {
+const getWidthInput = (isEnabled) => {
+  if (isEnabled) {
     return Platform.OS === 'web' ? '90%' : '70%';
   }
 
   return '100%';
 };
 
-export const SearchBar: React.FC<{
-  searchOn: boolean;
-  setSearchOn: any;
-  searchText: string;
-  setSearchText: any;
-}> = ({ searchOn = false, setSearchOn, searchText = '', setSearchText }) => {
-  const styles = getStyles(searchOn);
+export const SearchBar: React.FC = () => {
+  const { isEnabled, text } = useSelector((state: any) => state.search);
+  const styles = getStyles(isEnabled);
+  const dispatch = useDispatch();
 
   return (
     <View style={styles.container}>
@@ -25,15 +24,15 @@ export const SearchBar: React.FC<{
         style={styles.input}
         placeholder="Search..."
         placeholderTextColor={css.colors.gray}
-        onFocus={() => setSearchOn(true)}
-        value={searchText}
-        onChangeText={setSearchText}
+        onFocus={() => dispatch(turnOnSearch())}
+        value={text}
+        onChangeText={(inputText) => dispatch(handleSearchText(inputText))}
       />
     </View>
   );
 };
 
-const getStyles = (searchOn) =>
+const getStyles = (isEnabled) =>
   StyleSheet.create({
     container: {
       flexDirection: 'row',
@@ -43,7 +42,7 @@ const getStyles = (searchOn) =>
       borderRadius: css.borderRadius,
       paddingLeft: 10,
       backgroundColor: 'white',
-      width: getWidthInput(searchOn),
+      width: getWidthInput(isEnabled),
     },
     input: {
       height: 40,

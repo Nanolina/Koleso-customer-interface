@@ -1,32 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ScrollView } from 'react-native';
-import { queries } from '../../../../../mockData';
+import { useSelector } from 'react-redux';
 import { ClearAll } from '../../ui/search/ClearAll';
 import { SearchQuery } from './SearchQuery';
 
 export const SearchQueries = () => {
-  const [searchQueries, setSearchQueries] = useState(queries);
-
-  const handleClearAll = () => {
-    setSearchQueries([]);
-  };
-
-  const handleClearQuery = (searchQuery) => {
-    setSearchQueries(
-      searchQueries.filter((query) => searchQuery.id !== query.id)
-    );
-  };
+  const queries = useSelector((state: any) => state.search.queries);
 
   return (
     <>
-      <ClearAll handleClearAll={handleClearAll} />
+      <ClearAll />
       <ScrollView>
-        {searchQueries.map((query: any) => (
-          <SearchQuery
-            query={query}
-            handleClearQuery={handleClearQuery}
-            key={query.id}
-          />
+        {queries.map((query: any) => (
+          <SearchQuery query={query} key={query.id} />
         ))}
       </ScrollView>
     </>

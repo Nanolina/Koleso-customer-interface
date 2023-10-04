@@ -1,9 +1,13 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { handleClearQuery } from '../../../../../redux/slices/searchSlice';
 import { css } from '../../../../consts';
 
-export const DeleteText = ({ query, handleClearQuery }) => {
+export const DeleteText = ({ query }) => {
+  const dispatch = useDispatch();
+
   return (
-    <TouchableOpacity onPress={() => handleClearQuery(query)}>
+    <TouchableOpacity onPress={() => dispatch(handleClearQuery(query))}>
       <Text style={styles.text}>✕</Text>
     </TouchableOpacity>
   );

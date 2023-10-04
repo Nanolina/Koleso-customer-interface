@@ -1,9 +1,16 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { handleClearAllQueries } from '../../../../../redux/slices/searchSlice';
 import { css } from '../../../../consts';
 
-export const ClearAll = ({ handleClearAll }) => {
+export const ClearAll = () => {
+  const dispatch = useDispatch();
+
   return (
-    <TouchableOpacity onPress={handleClearAll} style={styles.button}>
+    <TouchableOpacity
+      onPress={() => dispatch(handleClearAllQueries())}
+      style={styles.button}
+    >
       <Text style={styles.text}>Clear all</Text>
     </TouchableOpacity>
   );

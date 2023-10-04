@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { css } from '../../../../consts';
 import { DeleteText } from '../../ui/search/DeleteText';
 
-export const SearchQuery = ({ query, handleClearQuery }) => {
+export const SearchQuery = ({ query }) => {
   return (
     <View key={query.id} style={styles.queryRow}>
       <View style={styles.textWithIcon}>
@@ -14,7 +14,7 @@ export const SearchQuery = ({ query, handleClearQuery }) => {
         />
         <Text style={styles.queryText}>{query.name}</Text>
       </View>
-      <DeleteText query={query} handleClearQuery={handleClearQuery} />
+      <DeleteText query={query} />
     </View>
   );
 };

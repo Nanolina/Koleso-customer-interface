@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { productCards } from '../../mockData';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
@@ -7,19 +7,18 @@ import { DeliveryQRCode, ProductList, SearchQueries } from '../modules/home';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const Home = () => {
-  const [searchOn, setSearchOn] = useState(false);
-
+  const isEnabledSearch = useSelector((state: any) => state.search.isEnabled);
   return (
     <Container>
-      <HeaderWithSearch searchOn={searchOn} setSearchOn={setSearchOn} />
+      <HeaderWithSearch />
       <CentralContainer>
-        {!searchOn && (
+        {!isEnabledSearch && (
           <>
             <DeliveryQRCode />
             <ProductList data={productCards} />
           </>
         )}
-        {searchOn && <SearchQueries />}
+        {isEnabledSearch && <SearchQueries />}
       </CentralContainer>
       <Footer />
     </Container>

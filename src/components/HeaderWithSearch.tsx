@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   Dimensions,
   Keyboard,
@@ -6,6 +6,11 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  removeSearchText,
+  turnOffSearch,
+} from '../../redux/slices/searchSlice';
 import { Button } from '../ui/Button';
 import { ButtonBack } from '../ui/ButtonBack';
 import { GradientHeaderFooter } from '../ui/GradientHeaderFooter';
@@ -14,31 +19,27 @@ import { SearchBar } from './SearchBar';
 const { height } = Dimensions.get('window');
 const headerHeight = height / 8;
 
-export const HeaderWithSearch = ({ searchOn = false, setSearchOn }: any) => {
-  const [searchText, setSearchText] = useState('');
+export const HeaderWithSearch = () => {
+  const dispatch = useDispatch();
+  const isEnabled = useSelector((state: any) => state.search.isEnabled);
 
   return (
     <View style={styles.container}>
       <GradientHeaderFooter type="header" />
       <SafeAreaView style={styles.searchBarContainer}>
-        {searchOn && (
+        {isEnabled && (
           <ButtonBack
             onPress={() => {
-              setSearchOn(false);
-              setSearchText('');
+              dispatch(turnOffSearch());
+              dispatch(removeSearchText());
               Keyboard.dismiss();
             }}
           />
         )}
 
-        <SearchBar
-          searchOn={searchOn}
-          setSearchOn={setSearchOn}
-          searchText={searchText}
-          setSearchText={setSearchText}
-        />
+        <SearchBar />
 
-        {searchOn && (
+        {isEnabled && (
           <Button text="Search" onPress={() => console.log('Search')} />
         )}
       </SafeAreaView>
