@@ -5,7 +5,7 @@ import { css } from '../consts';
 import { ButtonBack } from '../ui/ButtonBack';
 import { GradientHeaderFooter } from '../ui/GradientHeaderFooter';
 
-const { width, height } = Dimensions.get('window');
+const { height } = Dimensions.get('window');
 const headerHeight = height / 8;
 
 export const Header = ({ title }) => {
@@ -28,7 +28,6 @@ export const Header = ({ title }) => {
 
 const styles = StyleSheet.create({
   container: {
-    width,
     height: headerHeight,
     justifyContent: 'space-around',
     paddingLeft: 15,

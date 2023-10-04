@@ -11,7 +11,7 @@ import { ButtonBack } from '../ui/ButtonBack';
 import { GradientHeaderFooter } from '../ui/GradientHeaderFooter';
 import { SearchBar } from './SearchBar';
 
-const { width, height } = Dimensions.get('window');
+const { height } = Dimensions.get('window');
 const headerHeight = height / 8;
 
 export const HeaderWithSearch = ({ searchOn = false, setSearchOn }: any) => {
@@ -48,7 +48,6 @@ export const HeaderWithSearch = ({ searchOn = false, setSearchOn }: any) => {
 
 const styles = StyleSheet.create({
   container: {
-    width,
     height: headerHeight,
     justifyContent: 'space-around',
     paddingLeft: 15,

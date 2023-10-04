@@ -42,8 +42,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: Platform.OS === 'web' ? 100 : 10,
   },
   image: {
-    width: 50,
-    height: Platform.OS === 'web' ? imageHeight : 50,
+    width: Platform.OS === 'web' ? 100 : 50,
+    height: Platform.OS === 'web' ? 100 : 50,
     resizeMode: 'cover',
     borderRadius: css.borderRadius,
   },

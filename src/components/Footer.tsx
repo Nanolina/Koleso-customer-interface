@@ -10,7 +10,7 @@ import {
 import { GradientHeaderFooter } from '../ui/GradientHeaderFooter';
 import { IconFooter } from '../ui/IconFooter';
 
-const { width, height } = Dimensions.get('window');
+const { height } = Dimensions.get('window');
 const footerHeight = height / 10;
 
 export const Footer: React.FC<any> = () => {
@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
     height: footerHeight,
     justifyContent: 'center',
     alignItems: 'center',
-    width: width,
     padding: 10,
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,

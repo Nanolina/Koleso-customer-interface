@@ -31,7 +31,7 @@ export const catalog = [
   {
     id: 'd5bb60ad-0be2-49df-b200-1f17271fc0f2',
     title: 'Women',
-    image: require('./src/modules/section/assets/women.png'),
+    image: require('./src/modules/section/assets/women.jpeg'),
     categories: [
       {
         id: '471cc5ce-a113-45e8-b2ea-0c74a0a0613c',
@@ -163,12 +163,12 @@ export const catalog = [
   {
     id: '727b5cd5-fc0e-4c86-8ff1-75e13dc9a0f6',
     title: 'Men',
-    image: require('./src/modules/section/assets/men.png'),
+    image: require('./src/modules/section/assets/men.jpeg'),
   },
   {
     id: '36f04285-1bb0-43de-814f-ee0f3e5fdb7e',
     title: 'Kids',
-    image: require('./src/modules/section/assets/kids.png'),
+    image: require('./src/modules/section/assets/kids.jpeg'),
   },
   {
     id: 'ef7baf08-ef25-43bb-b388-739735e56c64',

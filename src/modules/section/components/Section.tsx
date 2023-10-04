@@ -5,6 +5,7 @@ import {
   Image,
   Platform,
   StyleSheet,
+  Text,
   TouchableOpacity,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
@@ -13,7 +14,6 @@ import { css } from '../../../consts';
 import { WebCardWrapper } from '../../../ui/WebCardWrapper';
 
 const { width, height } = Dimensions.get('window');
-const cardWidth = width / 5;
 const imageHeight = height / 3.5;
 
 export const Section: React.FC<any> = ({ section }) => {
@@ -21,7 +21,7 @@ export const Section: React.FC<any> = ({ section }) => {
   const navigation: any = useNavigation();
 
   return (
-    <WebCardWrapper cardWidth={cardWidth}>
+    <WebCardWrapper cardWidth={width}>
       <TouchableOpacity
         style={styles.container}
         onPress={() => {
@@ -30,6 +30,7 @@ export const Section: React.FC<any> = ({ section }) => {
         }}
       >
         <Image source={section.image} style={styles.image} />
+        <Text style={styles.text}>{section.title}</Text>
       </TouchableOpacity>
     </WebCardWrapper>
   );
@@ -38,14 +39,21 @@ export const Section: React.FC<any> = ({ section }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingVertical: Platform.OS === 'web' ? 20 : 2.5,
-    paddingHorizontal: Platform.OS === 'web' ? 20 : 2.5,
-    maxWidth: Platform.OS === 'web' ? cardWidth : '100%',
+    flexDirection: 'row',
+    gap: 20,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    paddingVertical: 10,
+    paddingHorizontal: Platform.OS === 'web' ? 100 : 10,
   },
   image: {
-    width: '100%',
-    height: Platform.OS === 'web' ? imageHeight : 100,
+    width: Platform.OS === 'web' ? 100 : 50,
+    height: Platform.OS === 'web' ? 100 : 50,
     resizeMode: 'cover',
     borderRadius: css.borderRadius,
+  },
+  text: {
+    fontSize: Platform.OS === 'web' ? css.size.text20 : css.size.text16,
+    fontWeight: 'bold',
   },
 });

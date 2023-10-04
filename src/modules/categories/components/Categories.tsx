@@ -22,7 +22,6 @@ export const Categories: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 0,
     paddingHorizontal: css.padding,
     width: '100%',
   },

@@ -10,7 +10,6 @@ export const Sections: React.FC = () => {
       data={catalog}
       renderItem={({ item }) => <Section section={item} />}
       keyExtractor={(item) => item.id}
-      numColumns={Platform.OS === 'web' ? 5 : 3}
       style={styles.container}
     />
   );
@@ -18,7 +17,6 @@ export const Sections: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: Platform.OS === 'web' ? css.paddingWeb : 0,
     paddingHorizontal: css.padding,
     width: '100%',
   },
