@@ -1,8 +1,11 @@
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { headerHeight } from '../../../components/EmptyHeader';
 import { css } from '../../../consts';
 import { ButtonBack } from '../../../ui/ButtonBack';
 import { IconFeather } from '../ui/IconFeather';
+
+const top = headerHeight + 10;
 
 export const IconContainer = () => {
   const navigation = useNavigation();
@@ -22,21 +25,23 @@ export const IconContainer = () => {
 
 const styles = StyleSheet.create({
   iconContainer: {
+    top,
     flex: 1,
     position: 'absolute',
     right: 5,
-    top: 5,
     backgroundColor: 'rgba(223, 218, 218, 0.55)',
     padding: 10,
     gap: 15,
     borderRadius: css.borderRadius,
+    zIndex: 1,
   },
   iconBack: {
+    top,
     position: 'absolute',
     left: 10,
-    top: 5,
     backgroundColor: 'rgba(223, 218, 218, 0.55)',
     borderRadius: css.borderRadius,
     padding: 10,
+    zIndex: 1,
   },
 });

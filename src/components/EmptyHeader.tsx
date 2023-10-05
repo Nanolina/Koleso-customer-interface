@@ -3,7 +3,8 @@ import { Dimensions, StyleSheet, View } from 'react-native';
 import { GradientHeaderFooter } from '../ui/GradientHeaderFooter';
 
 const { height } = Dimensions.get('window');
-const headerHeight = height * 0.07;
+// Also use in IconContainer
+export const headerHeight = height * 0.07;
 
 export const EmptyHeader = () => {
   return (
