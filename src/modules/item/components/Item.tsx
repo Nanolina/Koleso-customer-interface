@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Dimensions,
   ScrollView,
   StyleSheet,
   Text,
@@ -8,17 +7,12 @@ import {
   View,
 } from 'react-native';
 import { css } from '../../../consts';
-
-const { height, width } = Dimensions.get('window');
-const imageHeight = height * 0.5;
+import { PriceContainer } from './PriceContainer';
 
 export const Item = ({ item }) => {
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.priceContainer}>
-        <Text style={styles.currentPrice}>{item.price}</Text>
-        <Text style={styles.oldPrice}>{item.oldPrice}</Text>
-      </View>
+      <PriceContainer price={item.price} oldPrice={item.oldPrice} />
       <Text style={styles.productName}>{item.title.toUpperCase()}</Text>
       <Text style={styles.storeName}>{item.seller}</Text>
       <Text>
@@ -78,23 +72,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     justifyContent: 'space-between',
     width: 90,
-  },
-  priceContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'rgba(7, 214, 15, 0.55)',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    marginTop: 10,
-  },
-  currentPrice: {
-    fontWeight: 'bold',
-    fontSize: 18,
-  },
-  oldPrice: {
-    textDecorationLine: 'line-through',
-    marginLeft: 10,
-    color: 'gray',
   },
   productName: {
     fontWeight: 'bold',
