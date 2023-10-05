@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 import { css } from '../../../consts';
 import { PriceContainer } from './PriceContainer';
+import { Properties } from './Properties';
 import { TitleContainer } from './TitleContainer';
 
 export const Item = ({ item }) => {
@@ -15,18 +16,12 @@ export const Item = ({ item }) => {
     <ScrollView style={styles.container}>
       <PriceContainer price={item.price} oldPrice={item.oldPrice} />
       <TitleContainer title={item.title} seller={item.seller} />
-      <Text>
-        <Text style={styles.label}>Color:</Text> {item.color}
-      </Text>
-      <Text>
-        <Text style={styles.label}>Composition:</Text> {item.composition}
-      </Text>
-      <Text>
-        <Text style={styles.label}>Gender:</Text> {item.gender}
-      </Text>
-      <Text>
-        <Text style={styles.label}>Size:</Text> {item.size}
-      </Text>
+      <Properties
+        color={item.color}
+        composition={item.composition}
+        gender={item.gender}
+        size={item.size}
+      />
       <View style={styles.sizeBoxesContainer}>
         {Array.from({ length: 16 }, (_, index) => (
           <View style={styles.sizeBox} key={index}>
@@ -72,9 +67,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     justifyContent: 'space-between',
     width: 90,
-  },
-  label: {
-    fontWeight: 'bold',
   },
   sizeBoxesContainer: {
     flexDirection: 'row',
