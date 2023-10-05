@@ -18,6 +18,12 @@ export const css = {
     iconSize: 18,
     borderRadius: 5,
   },
+  item: {
+    boxSize: {
+      width: 60,
+      height: 60,
+    },
+  },
   iconSizeMax: 30,
   iconSizeMin: 20,
   borderRadius: 12,
@@ -26,3 +32,5 @@ export const css = {
 };
 
 export const currency = '€';
+
+export const sizes = [35, 36, 37, 38, 39, 40, 41, 42, 43, 44];

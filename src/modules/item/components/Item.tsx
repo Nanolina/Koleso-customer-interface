@@ -9,6 +9,7 @@ import {
 import { css } from '../../../consts';
 import { PriceContainer } from './PriceContainer';
 import { Properties } from './Properties';
+import { SizeContainer } from './SizeContainer';
 import { TitleContainer } from './TitleContainer';
 
 export const Item = ({ item }) => {
@@ -22,13 +23,7 @@ export const Item = ({ item }) => {
         gender={item.gender}
         size={item.size}
       />
-      <View style={styles.sizeBoxesContainer}>
-        {Array.from({ length: 16 }, (_, index) => (
-          <View style={styles.sizeBox} key={index}>
-            <Text>{35 + index}</Text>
-          </View>
-        ))}
-      </View>
+      <SizeContainer itemSize={item.size} />
       <Text numberOfLines={2} ellipsizeMode="tail">
         {item.description} <Text style={styles.more}>more</Text>
       </Text>
@@ -67,24 +62,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     justifyContent: 'space-between',
     width: 90,
-  },
-  sizeBoxesContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    marginTop: 10,
-    marginHorizontal: 10,
-  },
-  sizeBox: {
-    borderWidth: 1,
-    borderColor: 'transparent',
-    borderRadius: 5,
-    backgroundColor: 'rgba(0,0,0,0.1)', // Placeholder gradient. Consider using a gradient library.
-    padding: 5,
-    marginVertical: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: 40,
   },
   more: {
     color: 'blue',
