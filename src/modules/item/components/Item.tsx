@@ -8,13 +8,13 @@ import {
 } from 'react-native';
 import { css } from '../../../consts';
 import { PriceContainer } from './PriceContainer';
+import { TitleContainer } from './TitleContainer';
 
 export const Item = ({ item }) => {
   return (
     <ScrollView style={styles.container}>
       <PriceContainer price={item.price} oldPrice={item.oldPrice} />
-      <Text style={styles.productName}>{item.title.toUpperCase()}</Text>
-      <Text style={styles.storeName}>{item.seller}</Text>
+      <TitleContainer title={item.title} seller={item.seller} />
       <Text>
         <Text style={styles.label}>Color:</Text> {item.color}
       </Text>
@@ -72,17 +72,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     justifyContent: 'space-between',
     width: 90,
-  },
-  productName: {
-    fontWeight: 'bold',
-    fontSize: 24,
-    marginTop: 15,
-    marginHorizontal: 10,
-  },
-  storeName: {
-    fontStyle: 'italic',
-    marginTop: 5,
-    marginHorizontal: 10,
   },
   label: {
     fontWeight: 'bold',
