@@ -24,9 +24,7 @@ export const HeaderWithFilterSort = ({ title }) => {
       <GradientHeaderFooter type="header" isBorder={true} />
       <SafeAreaView style={styles.buttonWithText}>
         <ButtonBack
-          onPress={() => {
-            navigation.goBack();
-          }}
+          navigation={navigation}
         />
         <Text style={styles.title}>{title}</Text>
         <View style={styles.filterSort}>

@@ -1,26 +1,42 @@
-import { StyleSheet, TouchableOpacity } from 'react-native';
-import { IconProductCard } from '../../productCard/ui/IconProductCard';
+import { useNavigation } from '@react-navigation/native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import { css } from '../../../consts';
+import { ButtonBack } from '../../../ui/ButtonBack';
+import { IconFeather } from '../ui/IconFeather';
 
-export const IconContainer = ({ name, type }) => {
-  const styles: any = getStyles(type);
+export const IconContainer = () => {
+  const navigation = useNavigation();
 
   return (
-    <TouchableOpacity style={styles.container}>
-      <IconProductCard name={name} />
-    </TouchableOpacity>
+    <>
+      <TouchableOpacity style={styles.iconBack}>
+        <ButtonBack navigation={navigation} />
+      </TouchableOpacity>
+      <View style={styles.iconContainer}>
+        <IconFeather name="heart" />
+        <IconFeather name="share" />
+      </View>
+    </>
   );
 };
 
-const getStyles = (type: 'top' | 'bottom') =>
-  StyleSheet.create({
-    container: {
-      position: 'absolute',
-      right: 5,
-      ...(type === 'top' && {
-        top: 5,
-      }),
-      ...(type === 'bottom' && {
-        bottom: 5,
-      }),
-    },
-  });
+const styles = StyleSheet.create({
+  iconContainer: {
+    flex: 1,
+    position: 'absolute',
+    right: 5,
+    top: 5,
+    backgroundColor: 'rgba(223, 218, 218, 0.55)',
+    padding: 10,
+    gap: 15,
+    borderRadius: css.borderRadius,
+  },
+  iconBack: {
+    position: 'absolute',
+    left: 10,
+    top: 5,
+    backgroundColor: 'rgba(223, 218, 218, 0.55)',
+    borderRadius: css.borderRadius,
+    padding: 10,
+  },
+});

@@ -15,11 +15,7 @@ export const Header = ({ title }) => {
     <View style={styles.container}>
       <GradientHeaderFooter type="header" isBorder={true} />
       <SafeAreaView style={styles.buttonWithText}>
-        <ButtonBack
-          onPress={() => {
-            navigation.goBack();
-          }}
-        />
+        <ButtonBack navigation={navigation} />
         <Text style={styles.title}>{title}</Text>
       </SafeAreaView>
     </View>

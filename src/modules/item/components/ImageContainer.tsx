@@ -1,6 +1,5 @@
-import { Dimensions, Platform, StyleSheet, View } from 'react-native';
+import { Dimensions, StyleSheet, View } from 'react-native';
 import { Image } from 'react-native-elements';
-import { css } from '../../../consts';
 import { IconContainer } from './IconContainer';
 
 const { height } = Dimensions.get('window');
@@ -8,16 +7,15 @@ const imageHeight = height / 2;
 
 export const ImageContainer = ({ image }) => {
   return (
-    <View style={styles.imageContainer}>
+    <View style={styles.container}>
       <Image source={{ uri: image }} style={styles.image} />
-      <IconContainer name="favorite" type="top" />
-      <IconContainer name="shopping-cart" type="bottom" />
+      <IconContainer />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  imageContainer: {
+  container: {
     position: 'relative',
   },
   image: {
