@@ -14,9 +14,8 @@ import { Home } from './src/pages/Home';
 import { ItemPage } from './src/pages/ItemPage';
 import { Main } from './src/pages/Main';
 import { SectionsPage } from './src/pages/SectionsPage';
+import { SortPage } from './src/pages/SortPage';
 import { SubcategoriesPage } from './src/pages/SubcategoriesPage';
-import { Dimensions } from 'react-native';
-import { useState } from 'react';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -49,6 +48,7 @@ export default function App() {
             component={SubcategoriesPage}
           />
           <Stack.Screen name="ItemPage" component={ItemPage} />
+          <Stack.Screen name="SortPage" component={SortPage} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

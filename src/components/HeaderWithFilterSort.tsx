@@ -23,12 +23,10 @@ export const HeaderWithFilterSort = ({ title }) => {
     <View style={styles.container}>
       <GradientHeaderFooter type="header" isBorder={true} />
       <SafeAreaView style={styles.buttonWithText}>
-        <ButtonBack
-          navigation={navigation}
-        />
+        <ButtonBack navigation={navigation} />
         <Text style={styles.title}>{title}</Text>
         <View style={styles.filterSort}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('SortPage')}>
             <MaterialCommunityIcons
               name="sort"
               size={css.iconSizeMax}
