@@ -17,7 +17,9 @@ const SizeContainer = ({ itemSize, possibleSizes, missingSizes }) => {
 
   return (
     <View style={styles.container}>
-      {possibleSizes?.map((size) => renderSizeBox(size))}
+      {possibleSizes?.map((size) => (
+        <View key={size}>{renderSizeBox(size)}</View>
+      ))}
     </View>
   );
 };
