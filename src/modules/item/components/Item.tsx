@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 import { css } from '../../../consts';
+import { Description } from './Description';
 import { PriceContainer } from './PriceContainer';
 import { Properties } from './Properties';
 import SizeContainer from './SizeContainer';
@@ -28,9 +29,7 @@ export const Item = ({ item }) => {
         possibleSizes={item.possibleSizes}
         missingSizes={item.missingSizes}
       />
-      <Text numberOfLines={2} ellipsizeMode="tail">
-        {item.description} <Text style={styles.more}>more</Text>
-      </Text>
+      {item.description && <Description description={item.description} />}
       <View style={styles.buttonsContainer}>
         <TouchableOpacity style={styles.buyNowButton}>
           <Text style={styles.buttonText}>Buy now</Text>
@@ -66,9 +65,6 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     justifyContent: 'space-between',
     width: 90,
-  },
-  more: {
-    color: 'blue',
   },
   buttonsContainer: {
     flexDirection: 'row',
