@@ -17,6 +17,6 @@ const styles = StyleSheet.create({
     fontSize: css.size.text15,
   },
   more: {
-    color: 'blue',
+    color: css.colors.purple,
   },
 });
