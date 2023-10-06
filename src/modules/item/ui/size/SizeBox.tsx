@@ -1,8 +1,9 @@
+import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { css } from '../../../consts';
-import { Gradient } from '../../../ui/Gradient';
+import { css } from '../../../../consts';
+import { Gradient } from '../../../../ui/Gradient';
 
-export const SizeBox = ({ size }) => {
+const SizeBox = ({ size }) => {
   return (
     <Gradient style={styles.gradientBox}>
       <TouchableOpacity style={styles.box}>
@@ -13,20 +14,21 @@ export const SizeBox = ({ size }) => {
 };
 
 const styles = StyleSheet.create({
+  gradientBox: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    ...css.item.size.box,
+  },
   box: {
-    borderRadius: 1,
     backgroundColor: css.colors.white,
     alignItems: 'center',
     justifyContent: 'center',
-    ...css.item.gradientBoxSize,
+    ...css.item.size.gradientBox,
   },
   text: {
+    fontWeight: 'bold',
     fontSize: css.size.text16,
   },
-  gradientBox: {
-    borderRadius: css.item.gradientBoxSize.borderRadius,
-    alignItems: 'center',
-    justifyContent: 'center',
-    ...css.item.boxSize,
-  },
 });
+
+export default React.memo(SizeBox);

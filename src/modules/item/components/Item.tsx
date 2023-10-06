@@ -9,7 +9,7 @@ import {
 import { css } from '../../../consts';
 import { PriceContainer } from './PriceContainer';
 import { Properties } from './Properties';
-import { SizeContainer } from './SizeContainer';
+import SizeContainer from './SizeContainer';
 import { TitleContainer } from './TitleContainer';
 
 export const Item = ({ item }) => {

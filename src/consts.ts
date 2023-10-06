@@ -19,14 +19,17 @@ export const css = {
     borderRadius: 5,
   },
   item: {
-    boxSize: {
-      width: 45,
-      height: 40,
-    },
-    gradientBoxSize: {
-      width: 40,
-      height: 35,
-      borderRadius: 8,
+    size: {
+      box: {
+        borderRadius: 8,
+        width: 45,
+        height: 40,
+      },
+      gradientBox: {
+        borderRadius: 6,
+        width: 40,
+        height: 35,
+      },
     },
   },
   iconSizeMax: 30,
