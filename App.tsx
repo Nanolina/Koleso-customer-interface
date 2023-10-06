@@ -16,6 +16,8 @@ import { Main } from './src/pages/Main';
 import { SectionsPage } from './src/pages/SectionsPage';
 import { SortPage } from './src/pages/SortPage';
 import { SubcategoriesPage } from './src/pages/SubcategoriesPage';
+import { FilterPage } from './src/pages/filter/FilterPage';
+import { FilterCheckboxPage } from './src/pages/filter/FilterCheckboxPage';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -49,6 +51,8 @@ export default function App() {
           />
           <Stack.Screen name="ItemPage" component={ItemPage} />
           <Stack.Screen name="SortPage" component={SortPage} />
+          <Stack.Screen name="FilterPage" component={FilterPage} />
+          <Stack.Screen name="FilterCheckboxPage" component={FilterCheckboxPage} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

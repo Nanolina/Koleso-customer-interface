@@ -34,7 +34,7 @@ export const HeaderWithFilterSort = ({ title }) => {
             />
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('FilterPage')}>
             <MaterialCommunityIcons
               name="filter"
               size={css.iconSizeMax}
