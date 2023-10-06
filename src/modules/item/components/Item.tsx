@@ -23,7 +23,11 @@ export const Item = ({ item }) => {
         gender={item.gender}
         size={item.size}
       />
-      <SizeContainer itemSize={item.size} />
+      <SizeContainer
+        itemSize={item.size}
+        possibleSizes={item.possibleSizes}
+        missingSizes={item.missingSizes}
+      />
       <Text numberOfLines={2} ellipsizeMode="tail">
         {item.description} <Text style={styles.more}>more</Text>
       </Text>

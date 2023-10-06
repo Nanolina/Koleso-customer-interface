@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     gap: 15,
     borderRadius: css.borderRadius,
     zIndex: 1,
+    width: 50,
   },
   iconBack: {
     top,
@@ -43,5 +44,7 @@ const styles = StyleSheet.create({
     borderRadius: css.borderRadius,
     padding: 10,
     zIndex: 1,
+    width: 50,
+    alignItems: 'center',
   },
 });

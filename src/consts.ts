@@ -20,8 +20,13 @@ export const css = {
   },
   item: {
     boxSize: {
-      width: 60,
-      height: 60,
+      width: 45,
+      height: 40,
+    },
+    gradientBoxSize: {
+      width: 40,
+      height: 35,
+      borderRadius: 8,
     },
   },
   iconSizeMax: 30,
@@ -32,5 +37,3 @@ export const css = {
 };
 
 export const currency = '€';
-
-export const sizes = [35, 36, 37, 38, 39, 40, 41, 42, 43, 44];

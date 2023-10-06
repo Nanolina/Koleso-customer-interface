@@ -9,7 +9,9 @@ export const productCards = [
     color: 'beige',
     composition: 'cotton 100%',
     gender: 'female',
-    size: 35,
+    size: 36,
+    possibleSizes: [35, 36, 37, 38, 39, 40, 41],
+    missingSizes: [38, 39, 41],
     description: `Pantsuit - An Elegant Choice for the Modern Woman
 Mesmerizing and fashionable, our pantsuit is the perfect addition to your closet! Consisting of pants and jacket, this stylish set is designed to make you feel confident and comfortable in any situation, whether it's a business meeting or an after-work party.
 Features:
