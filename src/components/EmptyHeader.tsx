@@ -4,7 +4,7 @@ import { GradientHeaderFooter } from '../ui/GradientHeaderFooter';
 
 const { height } = Dimensions.get('window');
 // Also use in IconContainer
-export const headerHeight = height * 0.07;
+export const headerHeight = height * 0.06;
 
 export const EmptyHeader = () => {
   return (

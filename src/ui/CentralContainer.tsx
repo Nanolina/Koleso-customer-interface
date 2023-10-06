@@ -14,7 +14,6 @@ const getStyles = (isPadding) =>
       backgroundColor: css.colors.white,
       ...(isPadding && {
         paddingHorizontal: 5,
-        paddingTop: 5,
       }),
     },
   });

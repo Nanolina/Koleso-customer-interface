@@ -1,7 +1,6 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { css } from '../../../consts';
-import { Buttons } from './Buttons';
 import { Description } from './Description';
 import { PriceContainer } from './PriceContainer';
 import { Properties } from './Properties';

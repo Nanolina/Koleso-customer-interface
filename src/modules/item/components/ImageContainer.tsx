@@ -1,5 +1,6 @@
-import { Dimensions, StyleSheet, View } from 'react-native';
+import { Dimensions, Platform, StyleSheet, View } from 'react-native';
 import { Image } from 'react-native-elements';
+import { css } from '../../../consts';
 
 const { height } = Dimensions.get('window');
 const imageHeight = height / 2;
@@ -15,10 +16,13 @@ export const ImageContainer = ({ image }) => {
 const styles = StyleSheet.create({
   container: {
     position: 'relative',
+    ...(Platform.OS === 'web' && {
+      paddingVertical: css.padding,
+    }),
   },
   image: {
     width: '100%',
     height: imageHeight,
-    resizeMode: 'cover',
+    resizeMode: Platform.OS === 'web' ? 'contain' : 'cover',
   },
 });

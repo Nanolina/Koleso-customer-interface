@@ -39,7 +39,6 @@ const styles = StyleSheet.create({
   card: {
     flex: 1,
     gap: 4,
-    paddingVertical: Platform.OS === 'web' ? 20 : 2.5,
     paddingHorizontal: Platform.OS === 'web' ? 20 : 2.5,
     paddingBottom: 20,
     maxWidth: Platform.OS === 'web' ? cardWidth : '100%',

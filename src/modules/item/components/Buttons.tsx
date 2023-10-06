@@ -4,7 +4,7 @@ import { Button } from '../ui/Button';
 
 export const Buttons = () => {
   return (
-    <View style={styles.buttonsContainer}>
+    <View style={styles.container}>
       <Button type="buy" text="Buy now" />
       <Button type="cart" text="Add to cart" />
     </View>
@@ -12,7 +12,7 @@ export const Buttons = () => {
 };
 
 const styles = StyleSheet.create({
-  buttonsContainer: {
+  container: {
     flexDirection: 'row',
     gap: css.padding,
     paddingHorizontal: css.padding,
