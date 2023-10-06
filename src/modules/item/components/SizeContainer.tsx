@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
-import { css } from '../../../consts';
-import { Gradient } from '../../../ui/Gradient';
+import { MissingSizeBox } from '../ui/MissingSizeBox';
+import { SelectedSizeBox } from '../ui/SelectedSizeBox';
 import { SizeBox } from '../ui/SizeBox';
 
 export const SizeContainer = ({ itemSize, possibleSizes, missingSizes }) => {
@@ -8,15 +8,11 @@ export const SizeContainer = ({ itemSize, possibleSizes, missingSizes }) => {
     <View style={styles.container}>
       {possibleSizes.map((size) =>
         itemSize === size ? (
-          <Gradient style={styles.gradientBox}>
-            <SizeBox size={size} isStyleBox={false} />
-          </Gradient>
+          <SelectedSizeBox size={itemSize} />
         ) : missingSizes.includes(size) ? (
-          <SizeBox size={size} isStyleBox={true} isMissingSize={true} />
+          <MissingSizeBox size={size} />
         ) : (
-          <Gradient style={styles.gradientBox}>
-            <SizeBox size={size} isStyleBox={true} />
-          </Gradient>
+          <SizeBox size={size} />
         )
       )}
     </View>
@@ -30,11 +26,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 20,
     gap: 5,
-  },
-  gradientBox: {
-    borderRadius: css.item.gradientBoxSize.borderRadius,
-    alignItems: 'center',
-    justifyContent: 'center',
-    ...css.item.boxSize,
   },
 });
