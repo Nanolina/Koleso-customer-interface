@@ -24,16 +24,16 @@ export const Wheather = () => {
         <TemperatureToggle
           text="From"
           temperatureToggle={temperatureFromToggle}
-          setTemperatureToggle={toggleTemperatureFrom}
-          searchTemperature={temperatureFrom}
-          setSearchTemperature={handleTemperatureFrom}
+          handleTemperatureToggle={toggleTemperatureFrom}
+          temperature={temperatureFrom}
+          handleTemperature={handleTemperatureFrom}
         />
         <TemperatureToggle
           text="To"
           temperatureToggle={temperatureToToggle}
-          setTemperatureToggle={toggleTemperatureTo}
-          searchTemperature={temperatureTo}
-          setSearchTemperature={handleTemperatureTo}
+          handleTemperatureToggle={toggleTemperatureTo}
+          temperature={temperatureTo}
+          handleTemperature={handleTemperatureTo}
         />
       </View>
       {/* <View>
