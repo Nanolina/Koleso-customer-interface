@@ -15,6 +15,13 @@ const filterSlice = createSlice({
     ageTo: null,
     priceFrom: null,
     priceTo: null,
+
+    // Wheather
+    temperatureFrom: null,
+    temperatureTo: null,
+    temperatureFromToggle: '+',
+    temperatureToToggle: '+',
+    wheatherCondition: null,
   },
   reducers: {
     // Colors
@@ -144,6 +151,20 @@ const filterSlice = createSlice({
     addPriceTo(state, action) {
       state.priceTo = action.payload;
     },
+
+    // Wheather
+    toggleTemperatureFrom(state, action) {
+      state.temperatureFromToggle = action.payload;
+    },
+    toggleTemperatureTo(state, action) {
+      state.temperatureToToggle = action.payload;
+    },
+    handleTemperatureFrom(state, action) {
+      state.temperatureFrom = action.payload;
+    },
+    handleTemperatureTo(state, action) {
+      state.temperatureTo = action.payload;
+    },
   },
 });
 
@@ -191,4 +212,10 @@ export const {
   // Price
   addPriceFrom,
   addPriceTo,
+
+  // Wheather
+  toggleTemperatureFrom,
+  toggleTemperatureTo,
+  handleTemperatureFrom,
+  handleTemperatureTo,
 } = filterSlice.actions;

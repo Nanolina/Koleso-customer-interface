@@ -42,6 +42,7 @@ export const Filter = () => {
       />
       <RowRange title="Age" from={ageFrom} to={ageTo} />
       <RowRange title="Price" from={priceFrom} to={priceTo} />
+      <Row title="Wheather" />
     </View>
   );
 };

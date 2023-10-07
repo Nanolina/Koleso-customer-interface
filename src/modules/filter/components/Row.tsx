@@ -2,20 +2,39 @@ import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { useSelector } from 'react-redux';
 import { css } from '../../../consts';
 
-export const Row = ({ items, title, selectedItems }) => {
+export const Row = ({ items = [], title, selectedItems = [] }: any) => {
   const navigation: any = useNavigation();
 
-  const isFilled = selectedItems.length > 0;
+  let isFilled = selectedItems.length > 0;
 
-  const handlePress = () => {
+  let handlePress = () => {
     navigation.navigate('FilterCheckboxPage', {
       title,
       items,
       selectedItems,
     });
   };
+
+  // Wheather
+  const { temperatureFrom, temperatureTo, wheatherCondition } = useSelector(
+    (state: any) => state.filter
+  );
+
+  if (title === 'Wheather') {
+    isFilled =
+      temperatureFrom !== null || temperatureTo !== null || wheatherCondition
+        ? true
+        : false;
+
+    handlePress = () => {
+      navigation.navigate('FilterWheatherPage', {
+        title,
+      });
+    };
+  }
 
   return (
     <TouchableOpacity style={styles.container} onPress={handlePress}>
