@@ -6,6 +6,7 @@ const filterSlice = createSlice({
   initialState: {
     colors: [],
     genders: [],
+    sizes: [],
     ageFrom: null,
     ageTo: null,
   },
@@ -42,6 +43,22 @@ const filterSlice = createSlice({
       state.genders = data.genders;
     },
 
+    // Sizes
+    toggleSize(state, action) {
+      const sizeIndex = state.sizes.indexOf(action.payload);
+      if (sizeIndex === -1) {
+        state.sizes.push(action.payload);
+      } else {
+        state.sizes.splice(sizeIndex, 1);
+      }
+    },
+    resetAllSizes(state) {
+      state.sizes = [];
+    },
+    selectAllSizes(state) {
+      state.sizes = data.sizes;
+    },
+
     // Age
     addAgeFrom(state, action) {
       state.ageFrom = action.payload;
@@ -60,6 +77,9 @@ export const {
   toggleGender,
   resetAllGenders,
   selectAllGenders,
+  toggleSize,
+  resetAllSizes,
+  selectAllSizes,
   addAgeFrom,
   addAgeTo,
 } = filterSlice.actions;

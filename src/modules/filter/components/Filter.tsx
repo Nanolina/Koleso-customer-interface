@@ -7,7 +7,7 @@ import { Row } from './Row';
 import { RowRange } from './RowRange';
 
 export const Filter = () => {
-  const { colors, genders, ageFrom, ageTo } = useSelector(
+  const { colors, genders, sizes, ageFrom, ageTo } = useSelector(
     (state: any) => state.filter
   );
 
@@ -15,6 +15,7 @@ export const Filter = () => {
     <View style={styles.container}>
       <Row items={data.colors} title="Colors" selectedItems={colors} />
       <Row items={data.genders} title="Gender" selectedItems={genders} />
+      <Row items={data.sizes} title="Size" selectedItems={sizes} />
       <RowRange title="Age" from={ageFrom} to={ageTo} />
     </View>
   );

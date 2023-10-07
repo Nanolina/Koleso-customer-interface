@@ -3,14 +3,17 @@ import {
   addAgeTo,
   resetAllColors,
   resetAllGenders,
+  resetAllSizes,
   selectAllColors,
   selectAllGenders,
+  selectAllSizes,
   toggleColor,
   toggleGender,
+  toggleSize,
 } from '../../../redux/slices/filterSlice';
 
 // For colors and genders
-export const getItems = (title, colors, genders) => {
+export const getItems = (title, colors, genders, sizes) => {
   let items;
 
   if (title === 'Colors') {
@@ -28,6 +31,15 @@ export const getItems = (title, colors, genders) => {
       onToggleItem: toggleGender,
       resetAll: resetAllGenders,
       selectAll: selectAllGenders,
+    };
+  }
+
+  if (title === 'Size') {
+    items = {
+      selectedItems: sizes,
+      onToggleItem: toggleSize,
+      resetAll: resetAllSizes,
+      selectAll: selectAllSizes,
     };
   }
 
