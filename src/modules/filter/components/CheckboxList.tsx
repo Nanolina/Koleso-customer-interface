@@ -8,7 +8,7 @@ import { Buttons } from './Buttons';
 
 export const CheckboxList = ({ title, items }) => {
   const dispatch = useDispatch();
-  const { colors, genders, sizes, categories } = useSelector(
+  const { colors, genders, sizes, categories, brands } = useSelector(
     (state: any) => state.filter
   );
 
@@ -17,7 +17,8 @@ export const CheckboxList = ({ title, items }) => {
     colors,
     genders,
     sizes,
-    categories
+    categories,
+    brands,
   );
 
   const renderItem = useCallback(
