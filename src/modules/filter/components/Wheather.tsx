@@ -1,12 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   handleTemperatureFrom,
   handleTemperatureTo,
+  resetAllWheather,
   toggleTemperatureFrom,
   toggleTemperatureTo,
 } from '../../../../redux/slices/filterSlice';
 import { css } from '../../../consts';
+import { Button } from '../ui/Button';
 import { TemperatureToggle } from './TemperatureToggle';
 import { WheatherConditions } from './WheatherConditions';
 
@@ -18,8 +20,13 @@ export const Wheather = () => {
     temperatureToToggle,
   } = useSelector((state: any) => state.filter);
 
+  const dispatch = useDispatch();
+
   return (
     <View style={styles.container}>
+      <View style={styles.buttonContainer}>
+        <Button text="Reset all" onPress={() => dispatch(resetAllWheather())} />
+      </View>
       <Text style={styles.title}>Temperature</Text>
       <View style={styles.temperatureContainer}>
         <TemperatureToggle
@@ -50,13 +57,15 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   title: {
+    fontSize: css.size.text20,
     fontWeight: 'bold',
-    fontSize: css.size.text16,
-    marginBottom: 15,
     textAlign: 'center',
   },
   temperatureContainer: {
     gap: 20,
     paddingBottom: 20,
+  },
+  buttonContainer: {
+    alignSelf: 'flex-end'
   },
 });

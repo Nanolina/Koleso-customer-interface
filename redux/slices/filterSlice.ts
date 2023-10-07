@@ -168,6 +168,13 @@ const filterSlice = createSlice({
     toggleWheatherCondition(state, action) {
       state.wheatherCondition = action.payload;
     },
+    resetAllWheather(state) {
+      state.temperatureFrom = '0';
+      state.temperatureTo = '0';
+      state.temperatureFromToggle = '+';
+      state.temperatureToToggle = '+';
+      state.wheatherCondition = null;
+    },
   },
 });
 
@@ -222,4 +229,5 @@ export const {
   handleTemperatureFrom,
   handleTemperatureTo,
   toggleWheatherCondition,
+  resetAllWheather,
 } = filterSlice.actions;
