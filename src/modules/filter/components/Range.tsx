@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { css } from '../../../consts';
+import { getNumericData } from '../functions';
 
 export const Range = ({ text, value, onChangeText }) => {
   const dispatch = useDispatch();
@@ -9,9 +10,10 @@ export const Range = ({ text, value, onChangeText }) => {
     <View style={styles.inputWrapper}>
       <Text style={styles.text}>{text}</Text>
       <TextInput
+        keyboardType="numeric"
         style={styles.input}
         value={value}
-        onChangeText={(input) => dispatch(onChangeText(input))}
+        onChangeText={(text) => dispatch(onChangeText(getNumericData(text)))}
       />
     </View>
   );

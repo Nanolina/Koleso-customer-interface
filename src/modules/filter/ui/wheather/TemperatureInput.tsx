@@ -1,6 +1,7 @@
 import { StyleSheet, TextInput } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { css } from '../../../../consts';
+import { getNumericData } from '../../functions';
 
 export const TemperatureInput = ({ temperature, handleTemperature }) => {
   const dispatch = useDispatch();
@@ -11,16 +12,7 @@ export const TemperatureInput = ({ temperature, handleTemperature }) => {
       value={temperature}
       maxLength={5}
       keyboardType="numeric"
-      onChangeText={(text) => {
-        // If the text starts with '0' and the length is greater than 1 (e.g., '01', '023', etc.), delete the first '0'
-        if (text.startsWith('0') && text.length > 1) {
-          text = text.substring(1);
-        }
-        // Make sure the text is either empty or consists only of numbers
-        if (text.trim() === '' || /^\d+$/.test(text)) {
-          dispatch(handleTemperature(text));
-        }
-      }}
+      onChangeText={(text) => dispatch(handleTemperature(getNumericData(text)))}
     />
   );
 };

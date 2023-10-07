@@ -179,3 +179,14 @@ export const getExtraText = (
     return `Add wheather`;
   }
 };
+
+export const getNumericData = (text) => {
+  // If the text starts with '0' and the length is greater than 1 (e.g., '01', '023', etc.), delete the first '0'
+  if (text.startsWith('0') && text.length > 1) {
+    text = text.substring(1);
+  }
+  // Make sure the text is either empty or consists only of numbers
+  if (text.trim() === '' || /^\d+$/.test(text)) {
+    return text;
+  }
+};

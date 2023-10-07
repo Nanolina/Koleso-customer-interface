@@ -14,6 +14,7 @@ export const css = {
     text12: 12,
     text15: 15,
     text16: 16,
+    text18: 18,
     text20: 20,
   },
   iconSizeMax: 30,

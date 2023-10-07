@@ -6,7 +6,7 @@ export const Button = ({ text, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
       <Gradient style={styles.container}>
-        <Text>{text}</Text>
+        <Text style={styles.text}>{text}</Text>
       </Gradient>
     </TouchableOpacity>
   );
@@ -15,5 +15,10 @@ export const Button = ({ text, onPress }) => {
 const styles = StyleSheet.create({
   container: {
     borderRadius: css.borderRadius,
+    alignItems: 'center',
+  },
+  text: {
+    fontWeight: 'bold',
+    fontSize: css.size.text16,
   },
 });

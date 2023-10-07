@@ -175,6 +175,27 @@ const filterSlice = createSlice({
       state.temperatureToToggle = '+';
       state.wheatherCondition = null;
     },
+
+    // For all
+    clearAllFilters(state) {
+      state.colors = [];
+      state.genders = [];
+      state.sizes = [];
+      state.categories = [];
+      state.brands = [];
+      state.sellers = [];
+      state.compositions = [];
+      state.ageFrom = null;
+      state.ageTo = null;
+      state.priceFrom = null;
+      state.priceTo = null;
+
+      state.temperatureFrom = '0';
+      state.temperatureTo = '0';
+      state.temperatureFromToggle = '+';
+      state.temperatureToToggle = '+';
+      state.wheatherCondition = null;
+    },
   },
 });
 
@@ -230,4 +251,7 @@ export const {
   handleTemperatureTo,
   toggleWheatherCondition,
   resetAllWheather,
+
+  // For all
+  clearAllFilters,
 } = filterSlice.actions;
