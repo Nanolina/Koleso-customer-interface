@@ -9,6 +9,7 @@ const filterSlice = createSlice({
     sizes: [],
     categories: [],
     brands: [],
+    sellers: [],
     ageFrom: null,
     ageTo: null,
     priceFrom: null,
@@ -95,6 +96,22 @@ const filterSlice = createSlice({
       state.brands = data.brands;
     },
 
+    // Sellers
+    toggleSeller(state, action) {
+      const sellerIndex = state.sellers.indexOf(action.payload);
+      if (sellerIndex === -1) {
+        state.sellers.push(action.payload);
+      } else {
+        state.sellers.splice(sellerIndex, 1);
+      }
+    },
+    resetAllSellers(state) {
+      state.sellers = [];
+    },
+    selectAllSellers(state) {
+      state.sellers = data.sellers;
+    },
+
     // Age
     addAgeFrom(state, action) {
       state.ageFrom = action.payload;
@@ -139,6 +156,11 @@ export const {
   toggleBrand,
   resetAllBrands,
   selectAllBrands,
+
+  // Sellers
+  toggleSeller,
+  resetAllSellers,
+  selectAllSellers,
 
   // Age
   addAgeFrom,

@@ -7,21 +7,32 @@ import {
   resetAllCategories,
   resetAllColors,
   resetAllGenders,
+  resetAllSellers,
   resetAllSizes,
   selectAllBrands,
   selectAllCategories,
   selectAllColors,
   selectAllGenders,
+  selectAllSellers,
   selectAllSizes,
   toggleBrand,
   toggleCategory,
   toggleColor,
   toggleGender,
+  toggleSeller,
   toggleSize,
 } from '../../../redux/slices/filterSlice';
 
 // For colors and genders
-export const getItems = (title, colors, genders, sizes, categories, brands) => {
+export const getItems = (
+  title,
+  colors,
+  genders,
+  sizes,
+  categories,
+  brands,
+  sellers
+) => {
   let items;
 
   if (title === 'Color') {
@@ -66,6 +77,15 @@ export const getItems = (title, colors, genders, sizes, categories, brands) => {
       onToggleItem: toggleBrand,
       resetAll: resetAllBrands,
       selectAll: selectAllBrands,
+    };
+  }
+
+  if (title === 'Seller') {
+    items = {
+      selectedItems: sellers,
+      onToggleItem: toggleSeller,
+      resetAll: resetAllSellers,
+      selectAll: selectAllSellers,
     };
   }
 

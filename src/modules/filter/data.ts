@@ -47,7 +47,7 @@ export const data = {
   ],
   brands: ['Chanel', 'Louis Vuitton'],
   sellers: ['Koleso', 'New Yorker'],
-  fabricMaterials: [
+  compositions: [
     'Cotton',
     'Polyester',
     'Nylon',

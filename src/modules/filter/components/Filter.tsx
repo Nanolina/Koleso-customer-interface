@@ -13,6 +13,7 @@ export const Filter = () => {
     sizes,
     categories,
     brands,
+    sellers,
 
     // From-To
     ageFrom,
@@ -32,6 +33,7 @@ export const Filter = () => {
         selectedItems={categories}
       />
       <Row items={data.brands} title="Brand" selectedItems={brands} />
+      <Row items={data.sellers} title="Seller" selectedItems={sellers} />
       <RowRange title="Age" from={ageFrom} to={ageTo} />
       <RowRange title="Price" from={priceFrom} to={priceTo} />
     </View>

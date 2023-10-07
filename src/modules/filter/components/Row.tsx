@@ -7,7 +7,7 @@ import { css } from '../../../consts';
 export const Row = ({ items, title, selectedItems }) => {
   const navigation: any = useNavigation();
 
-  const isFilled = items.length > 0;
+  const isFilled = selectedItems.length > 0;
 
   const handlePress = () => {
     navigation.navigate('FilterCheckboxPage', {
@@ -21,11 +21,10 @@ export const Row = ({ items, title, selectedItems }) => {
     <TouchableOpacity style={styles.container} onPress={handlePress}>
       <Text style={styles.text}>{title}</Text>
       <View style={styles.right}>
-        {!isFilled && (
-          <Text style={styles.extra}>Add {title.toLowerCase()}</Text>
-        )}
-        {isFilled && (
+        {isFilled ? (
           <Text style={styles.extraFilled}>{selectedItems.length}</Text>
+        ) : (
+          <Text style={styles.extra}>Add {title.toLowerCase()}</Text>
         )}
         <AntDesign
           name="right"
