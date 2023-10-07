@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { data } from '../../src/modules/filter';
+import { data } from '../../src/modules/filter/data';
 
 const filterSlice = createSlice({
   name: 'filter',
