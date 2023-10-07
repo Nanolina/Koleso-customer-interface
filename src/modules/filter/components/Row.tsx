@@ -4,6 +4,7 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { css } from '../../../consts';
+import { getExtraText } from '../functions';
 
 export const Row = ({ items = [], title, selectedItems = [] }: any) => {
   const navigation: any = useNavigation();
@@ -18,14 +19,20 @@ export const Row = ({ items = [], title, selectedItems = [] }: any) => {
     });
   };
 
+  let extraText = selectedItems.length;
+
   // Wheather
-  const { temperatureFrom, temperatureTo, wheatherCondition } = useSelector(
-    (state: any) => state.filter
-  );
+  const {
+    temperatureFrom,
+    temperatureTo,
+    wheatherCondition,
+    temperatureFromToggle,
+    temperatureToToggle,
+  } = useSelector((state: any) => state.filter);
 
   if (title === 'Wheather') {
     isFilled =
-      temperatureFrom !== null || temperatureTo !== null || wheatherCondition
+      temperatureFrom !== '0' || temperatureTo !== '0' || wheatherCondition
         ? true
         : false;
 
@@ -34,6 +41,14 @@ export const Row = ({ items = [], title, selectedItems = [] }: any) => {
         title,
       });
     };
+
+    extraText = getExtraText(
+      temperatureFrom,
+      temperatureTo,
+      temperatureFromToggle,
+      temperatureToToggle,
+      wheatherCondition
+    );
   }
 
   return (
@@ -41,7 +56,7 @@ export const Row = ({ items = [], title, selectedItems = [] }: any) => {
       <Text style={styles.text}>{title}</Text>
       <View style={styles.right}>
         {isFilled ? (
-          <Text style={styles.extraFilled}>{selectedItems.length}</Text>
+          <Text style={styles.extraFilled}>{extraText}</Text>
         ) : (
           <Text style={styles.extra}>Add {title.toLowerCase()}</Text>
         )}
@@ -64,7 +79,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: css.size.text20,
     fontWeight: 'bold',
-    width: '50%',
   },
   right: {
     flexDirection: 'row',

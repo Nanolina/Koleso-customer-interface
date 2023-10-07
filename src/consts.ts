@@ -45,6 +45,18 @@ export const css = {
       height: 30,
       borderRadius: 10,
     },
+    wheather: {
+      box: {
+        borderRadius: 8,
+        width: 70,
+        height: 55,
+      },
+      gradientBox: {
+        borderRadius: 6,
+        width: 65,
+        height: 50,
+      },
+    },
   },
 };
 

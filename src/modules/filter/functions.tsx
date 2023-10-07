@@ -1,3 +1,4 @@
+import { Text } from 'react-native';
 import {
   addAgeFrom,
   addAgeTo,
@@ -124,4 +125,57 @@ export const getFromToFunctions = (title) => {
   }
 
   return functions;
+};
+
+// For wheather
+const getWheatherConditionsSmiles = (condition) => {
+  if (condition === 'Wind') {
+    return '🌬';
+  } else if (condition === 'Sun') {
+    return '☀️';
+  } else if (condition === 'Snow') {
+    return '❄';
+  } else if (condition === 'Rain') {
+    return '🌧';
+  } else {
+    return '';
+  }
+};
+
+export const getExtraText = (
+  fromArg,
+  toArg,
+  signFirst,
+  signSecond,
+  wheatherCondition
+) => {
+  const from = signFirst ? `${signFirst}${fromArg}` : fromArg;
+  const to = signSecond ? `${signSecond}${toArg}` : toArg;
+
+  if (fromArg !== '0' && toArg === '0') {
+    return (
+      <Text>
+        From {from}&nbsp;
+        {getWheatherConditionsSmiles(wheatherCondition)}
+      </Text>
+    );
+  } else if (fromArg === '0' && toArg !== '0') {
+    return (
+      <Text>
+        To {to}&nbsp;
+        {getWheatherConditionsSmiles(wheatherCondition)}
+      </Text>
+    );
+  } else if (fromArg !== '0' && toArg !== '0') {
+    return (
+      <Text>
+        From {from} to {to}&nbsp;
+        {getWheatherConditionsSmiles(wheatherCondition)}
+      </Text>
+    );
+  } else if (wheatherCondition) {
+    return <Text>&nbsp;{getWheatherConditionsSmiles(wheatherCondition)}</Text>;
+  } else {
+    return `Add wheather`;
+  }
 };

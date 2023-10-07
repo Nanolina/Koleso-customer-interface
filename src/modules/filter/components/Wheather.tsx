@@ -8,6 +8,7 @@ import {
 } from '../../../../redux/slices/filterSlice';
 import { css } from '../../../consts';
 import { TemperatureToggle } from './TemperatureToggle';
+import { WheatherConditions } from './WheatherConditions';
 
 export const Wheather = () => {
   const {
@@ -36,9 +37,8 @@ export const Wheather = () => {
           handleTemperature={handleTemperatureTo}
         />
       </View>
-      {/* <View>
-        <WheatherConditions />
-      </View> */}
+
+      <WheatherConditions />
     </View>
   );
 };
