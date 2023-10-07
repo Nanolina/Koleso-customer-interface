@@ -1,4 +1,6 @@
 import {
+  addAgeFrom,
+  addAgeTo,
   resetAllColors,
   resetAllGenders,
   selectAllColors,
@@ -7,6 +9,7 @@ import {
   toggleGender,
 } from '../../../redux/slices/filterSlice';
 
+// For colors and genders
 export const getItems = (title, colors, genders) => {
   let items;
 
@@ -29,4 +32,18 @@ export const getItems = (title, colors, genders) => {
   }
 
   return items;
+};
+
+// For ages
+export const getFromToFunctions = (title) => {
+  let functions;
+
+  if (title === 'Age') {
+    functions = {
+      addFrom: addAgeFrom,
+      addTo: addAgeTo,
+    };
+  }
+
+  return functions;
 };

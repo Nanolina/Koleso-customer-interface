@@ -6,8 +6,8 @@ const filterSlice = createSlice({
   initialState: {
     colors: [],
     genders: [],
-    ageFrom: 0,
-    ageTo: 0,
+    ageFrom: null,
+    ageTo: null,
   },
   reducers: {
     // Colors

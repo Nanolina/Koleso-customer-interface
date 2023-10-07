@@ -1,34 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { addAgeFrom, addAgeTo } from '../../../../redux/slices/filterSlice';
+import { StyleSheet, Text, View } from 'react-native';
 import { css } from '../../../consts';
+import { getFromToFunctions } from '../functions';
+import { Range } from './Range';
 
-export const RowRange = ({ title }) => {
-  const dispatch = useDispatch();
-  const { ageFrom, ageTo } = useSelector((state: any) => state.filter);
+export const RowRange = ({ title, from, to }) => {
+  const { addFrom, addTo } = getFromToFunctions(title);
 
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{title}</Text>
       <View style={styles.right}>
-        <View style={styles.inputWrapper}>
-          <Text style={styles.textFromTo}>From</Text>
-          <TextInput
-            style={styles.input}
-            value={ageFrom}
-            onChangeText={(input) => dispatch(addAgeFrom(input))}
-          />
-        </View>
-
-        <View style={styles.inputWrapper}>
-          <Text style={styles.textFromTo}>To</Text>
-          <TextInput
-            style={styles.input}
-            value={ageTo}
-            onChangeText={(input) => dispatch(addAgeTo(input))}
-          />
-        </View>
+        <Range text="From" value={from} onChangeText={addFrom} />
+        <Range text="To" value={to} onChangeText={addTo} />
       </View>
     </View>
   );
@@ -48,23 +32,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 20,
-  },
-  inputWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 10,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: css.colors.border,
-    borderRadius: css.borderRadius,
-    padding: 5,
-    width: 50,
-    height: 30,
-    fontSize: css.size.text16,
-  },
-  textFromTo: {
-    fontSize: css.size.text16,
-    color: css.colors.gray,
   },
 });
