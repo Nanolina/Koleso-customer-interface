@@ -9,6 +9,8 @@ const filterSlice = createSlice({
     sizes: [],
     ageFrom: null,
     ageTo: null,
+    priceFrom: null,
+    priceTo: null,
   },
   reducers: {
     // Colors
@@ -66,6 +68,14 @@ const filterSlice = createSlice({
     addAgeTo(state, action) {
       state.ageTo = action.payload;
     },
+
+    // Price
+    addPriceFrom(state, action) {
+      state.priceFrom = action.payload;
+    },
+    addPriceTo(state, action) {
+      state.priceTo = action.payload;
+    },
   },
 });
 
@@ -82,4 +92,6 @@ export const {
   selectAllSizes,
   addAgeFrom,
   addAgeTo,
+  addPriceFrom,
+  addPriceTo,
 } = filterSlice.actions;

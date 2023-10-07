@@ -1,6 +1,8 @@
 import {
   addAgeFrom,
   addAgeTo,
+  addPriceFrom,
+  addPriceTo,
   resetAllColors,
   resetAllGenders,
   resetAllSizes,
@@ -54,6 +56,13 @@ export const getFromToFunctions = (title) => {
     functions = {
       addFrom: addAgeFrom,
       addTo: addAgeTo,
+    };
+  }
+
+  if (title === 'Price') {
+    functions = {
+      addFrom: addPriceFrom,
+      addTo: addPriceTo,
     };
   }
 
