@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { data } from '../../src/modules/filter';
 
 const filterSlice = createSlice({
   name: 'filter',
@@ -14,8 +15,15 @@ const filterSlice = createSlice({
         state.colors.splice(colorIndex, 1);
       }
     },
+    resetAllColors(state) {
+      state.colors = [];
+    },
+    selectAllColors(state) {
+      state.colors = data.colors;
+    },
   },
 });
 
 export default filterSlice.reducer;
-export const { toggleColor } = filterSlice.actions;
+export const { toggleColor, resetAllColors, selectAllColors } =
+  filterSlice.actions;

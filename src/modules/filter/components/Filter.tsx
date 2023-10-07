@@ -15,10 +15,10 @@ export const Filter = () => {
     <TouchableOpacity
       style={styles.container}
       onPress={() =>
-        navigation.navigate('FilterCheckboxPage', { title: 'Color' })
+        navigation.navigate('FilterCheckboxPage', { title: 'Colors' })
       }
     >
-      <Text style={styles.text}>Color</Text>
+      <Text style={styles.text}>Colors</Text>
       <View style={styles.right}>
         {!isFilled && <Text style={styles.extra}>Add color</Text>}
         {isFilled && <Text style={styles.extraFilled}>{colors.length}</Text>}
