@@ -7,6 +7,7 @@ const filterSlice = createSlice({
     colors: [],
     genders: [],
     sizes: [],
+    categories: [],
     ageFrom: null,
     ageTo: null,
     priceFrom: null,
@@ -61,6 +62,22 @@ const filterSlice = createSlice({
       state.sizes = data.sizes;
     },
 
+    // Categories
+    toggleCategory(state, action) {
+      const categoryIndex = state.categories.indexOf(action.payload);
+      if (categoryIndex === -1) {
+        state.categories.push(action.payload);
+      } else {
+        state.categories.splice(categoryIndex, 1);
+      }
+    },
+    resetAllCategories(state) {
+      state.categories = [];
+    },
+    selectAllCategories(state) {
+      state.categories = data.categories;
+    },
+
     // Age
     addAgeFrom(state, action) {
       state.ageFrom = action.payload;
@@ -81,17 +98,31 @@ const filterSlice = createSlice({
 
 export default filterSlice.reducer;
 export const {
+  // Colors
   toggleColor,
   resetAllColors,
   selectAllColors,
+
+  // Genders
   toggleGender,
   resetAllGenders,
   selectAllGenders,
+
+  // Sizes
   toggleSize,
   resetAllSizes,
   selectAllSizes,
+
+  // Categories
+  toggleCategory,
+  resetAllCategories,
+  selectAllCategories,
+
+  // Age
   addAgeFrom,
   addAgeTo,
+
+  // Price
   addPriceFrom,
   addPriceTo,
 } = filterSlice.actions;
