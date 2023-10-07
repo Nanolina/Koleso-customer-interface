@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { toggleWheatherCondition } from '../../../../redux/slices/filterSlice';
-import { css } from '../../../consts';
-import { Gradient } from '../../../ui/Gradient';
+import { toggleWheatherCondition } from '../../../../../redux/slices/filterSlice';
+import { css } from '../../../../consts';
+import { Gradient } from '../../../../ui/Gradient';
 
 const WheatherCondition = ({ condition }) => {
   const dispatch = useDispatch();

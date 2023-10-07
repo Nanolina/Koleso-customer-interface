@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native';
-import { css } from '../../../consts';
-import { GradientTemperatureSign } from '../ui/GradientTemperatureSign';
-import { TemperatureSign } from '../ui/TemperatureSign';
+import { css } from '../../../../consts';
+import { GradientTemperatureSign } from '../../ui/wheather/GradientTemperatureSign';
+import { TemperatureSign } from '../../ui/wheather/TemperatureSign';
 
 export const ToggleContainer = ({
   temperatureToggle,

@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
-import { css } from '../../../consts';
-import { data } from '../data';
+import { css } from '../../../../consts';
+import { data } from '../../data';
 import SelectedWheatherCondition from './SelectedWheatherCondition';
 import WheatherCondition from './WheatherCondition';
 

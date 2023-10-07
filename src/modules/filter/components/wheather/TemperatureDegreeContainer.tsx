@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../consts';
-import { TemperatureInput } from '../ui/TemperatureInput';
+import { css } from '../../../../consts';
+import { TemperatureInput } from '../../ui/wheather/TemperatureInput';
 
 export const TemperatureDegreeContainer = ({
   temperature,

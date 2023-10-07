@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
-import { css } from '../../../consts';
-import { Gradient } from '../../../ui/Gradient';
+import { css } from '../../../../consts';
+import { Gradient } from '../../../../ui/Gradient';
 import { TemperatureSign } from './TemperatureSign';
 
 export const GradientTemperatureSign = ({

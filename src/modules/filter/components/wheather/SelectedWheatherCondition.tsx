@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
-import { css } from '../../../consts';
-import { Gradient } from '../../../ui/Gradient';
+import { css } from '../../../../consts';
+import { Gradient } from '../../../../ui/Gradient';
 
 const SelectedWheatherCondition = ({ condition }) => {
   return (

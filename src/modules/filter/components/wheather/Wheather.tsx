@@ -6,9 +6,9 @@ import {
   resetAllWheather,
   toggleTemperatureFrom,
   toggleTemperatureTo,
-} from '../../../../redux/slices/filterSlice';
-import { css } from '../../../consts';
-import { Button } from '../ui/Button';
+} from '../../../../../redux/slices/filterSlice';
+import { css } from '../../../../consts';
+import { Button } from '../../ui/Button';
 import { TemperatureToggle } from './TemperatureToggle';
 import { WheatherConditions } from './WheatherConditions';
 
@@ -66,6 +66,6 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   buttonContainer: {
-    alignSelf: 'flex-end'
+    alignSelf: 'flex-end',
   },
 });

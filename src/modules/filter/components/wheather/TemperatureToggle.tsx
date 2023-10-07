@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../consts';
+import { css } from '../../../../consts';
 import { TemperatureDegreeContainer } from './TemperatureDegreeContainer';
 import { ToggleContainer } from './ToggleContainer';
 
