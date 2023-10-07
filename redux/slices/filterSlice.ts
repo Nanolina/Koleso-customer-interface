@@ -10,6 +10,7 @@ const filterSlice = createSlice({
     categories: [],
     brands: [],
     sellers: [],
+    compositions: [],
     ageFrom: null,
     ageTo: null,
     priceFrom: null,
@@ -112,6 +113,22 @@ const filterSlice = createSlice({
       state.sellers = data.sellers;
     },
 
+    // Compositions
+    toggleComposition(state, action) {
+      const compositionIndex = state.compositions.indexOf(action.payload);
+      if (compositionIndex === -1) {
+        state.compositions.push(action.payload);
+      } else {
+        state.compositions.splice(compositionIndex, 1);
+      }
+    },
+    resetAllCompositions(state) {
+      state.compositions = [];
+    },
+    selectAllCompositions(state) {
+      state.compositions = data.compositions;
+    },
+
     // Age
     addAgeFrom(state, action) {
       state.ageFrom = action.payload;
@@ -161,6 +178,11 @@ export const {
   toggleSeller,
   resetAllSellers,
   selectAllSellers,
+
+  // Compositions
+  toggleComposition,
+  resetAllCompositions,
+  selectAllCompositions,
 
   // Age
   addAgeFrom,

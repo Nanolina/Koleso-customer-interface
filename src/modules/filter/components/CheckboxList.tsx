@@ -8,9 +8,8 @@ import { Buttons } from './Buttons';
 
 export const CheckboxList = ({ title, items }) => {
   const dispatch = useDispatch();
-  const { colors, genders, sizes, categories, brands, sellers } = useSelector(
-    (state: any) => state.filter
-  );
+  const { colors, genders, sizes, categories, brands, sellers, compositions } =
+    useSelector((state: any) => state.filter);
 
   const { selectedItems, onToggleItem, resetAll, selectAll } = getItems(
     title,
@@ -20,6 +19,7 @@ export const CheckboxList = ({ title, items }) => {
     categories,
     brands,
     sellers,
+    compositions,
   );
 
   const renderItem = useCallback(

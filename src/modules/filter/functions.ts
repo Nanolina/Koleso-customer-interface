@@ -6,18 +6,21 @@ import {
   resetAllBrands,
   resetAllCategories,
   resetAllColors,
+  resetAllCompositions,
   resetAllGenders,
   resetAllSellers,
   resetAllSizes,
   selectAllBrands,
   selectAllCategories,
   selectAllColors,
+  selectAllCompositions,
   selectAllGenders,
   selectAllSellers,
   selectAllSizes,
   toggleBrand,
   toggleCategory,
   toggleColor,
+  toggleComposition,
   toggleGender,
   toggleSeller,
   toggleSize,
@@ -31,7 +34,8 @@ export const getItems = (
   sizes,
   categories,
   brands,
-  sellers
+  sellers,
+  compositions
 ) => {
   let items;
 
@@ -86,6 +90,15 @@ export const getItems = (
       onToggleItem: toggleSeller,
       resetAll: resetAllSellers,
       selectAll: selectAllSellers,
+    };
+  }
+
+  if (title === 'Composition') {
+    items = {
+      selectedItems: compositions,
+      onToggleItem: toggleComposition,
+      resetAll: resetAllCompositions,
+      selectAll: selectAllCompositions,
     };
   }
 
