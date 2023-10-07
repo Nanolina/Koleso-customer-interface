@@ -5,8 +5,10 @@ const filterSlice = createSlice({
   name: 'filter',
   initialState: {
     colors: [],
+    genders: [],
   },
   reducers: {
+    // Colors
     toggleColor(state, action) {
       const colorIndex = state.colors.indexOf(action.payload);
       if (colorIndex === -1) {
@@ -21,9 +23,31 @@ const filterSlice = createSlice({
     selectAllColors(state) {
       state.colors = data.colors;
     },
+
+    // Genders
+    toggleGender(state, action) {
+      const genderIndex = state.genders.indexOf(action.payload);
+      if (genderIndex === -1) {
+        state.genders.push(action.payload);
+      } else {
+        state.genders.splice(genderIndex, 1);
+      }
+    },
+    resetAllGenders(state) {
+      state.genders = [];
+    },
+    selectAllGenders(state) {
+      state.genders = data.genders;
+    },
   },
 });
 
 export default filterSlice.reducer;
-export const { toggleColor, resetAllColors, selectAllColors } =
-  filterSlice.actions;
+export const {
+  toggleColor,
+  resetAllColors,
+  selectAllColors,
+  toggleGender,
+  resetAllGenders,
+  selectAllGenders,
+} = filterSlice.actions;

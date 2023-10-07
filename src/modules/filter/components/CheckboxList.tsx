@@ -1,16 +1,20 @@
 import React, { useCallback } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import { useDispatch } from 'react-redux';
-import {
-  resetAllColors,
-  selectAllColors,
-} from '../../../../redux/slices/filterSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import { css } from '../../../consts';
+import { getItems } from '../functions';
 import { CheckboxItem } from '../ui/CheckboxItem';
 import { Buttons } from './Buttons';
 
-export const CheckboxList = ({ items, selectedItems, onToggleItem }) => {
+export const CheckboxList = ({ title, items }) => {
   const dispatch = useDispatch();
+  const { colors, genders } = useSelector((state: any) => state.filter);
+
+  const { selectedItems, onToggleItem, resetAll, selectAll } = getItems(
+    title,
+    colors,
+    genders
+  );
 
   const renderItem = useCallback(
     (item) => {
@@ -33,8 +37,8 @@ export const CheckboxList = ({ items, selectedItems, onToggleItem }) => {
       <Buttons
         items={items}
         selectedItems={selectedItems}
-        resetAll={resetAllColors}
-        selectAll={selectAllColors}
+        resetAll={resetAll}
+        selectAll={selectAll}
       />
       {items.map(renderItem)}
     </ScrollView>
