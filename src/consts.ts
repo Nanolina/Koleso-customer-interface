@@ -10,6 +10,7 @@ export const css = {
     black: '#000000',
     pinkOpacity: '#FF08C18C',
     purpleOpacity: '#8C60FF8C',
+    lightGreen: 'rgba(7, 214, 15, 0.55)',
   },
   size: {
     title: 24,
@@ -18,6 +19,7 @@ export const css = {
     text16: 16,
     text18: 18,
     text20: 20,
+    buttonWidth: 150,
   },
   iconSizeMax: 30,
   iconSizeMin: 20,

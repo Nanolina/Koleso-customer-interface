@@ -19,7 +19,7 @@ const getStyles = (width) =>
     container: {
       borderRadius: css.borderRadius,
       alignItems: 'center',
-      width: width || 150,
+      width: width || css.size.buttonWidth,
     },
     text: {
       fontWeight: 'bold',

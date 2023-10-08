@@ -21,6 +21,7 @@ export const productCards = [
       saturday: '09.00 - 14.00',
       sunday: 'day off',
     },
+    reservationDays: 5,
     title: 'Pantsuit',
     color: 'beige',
     composition: 'cotton 100%',

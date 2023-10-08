@@ -27,7 +27,7 @@ const getStyles = (priceSize) =>
       flexDirection: 'row',
       alignItems: 'center',
       borderRadius: 8,
-      backgroundColor: 'rgba(7, 214, 15, 0.55)',
+      backgroundColor: css.colors.lightGreen,
       paddingHorizontal: 10,
       paddingVertical: 5,
     },

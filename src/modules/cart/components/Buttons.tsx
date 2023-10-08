@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleDelivery } from '../../../../redux/slices/cartSlice';
 import { ButtonWithBorder } from '../../../ui/ButtonWithBorder';
 import { GradientButton } from '../../../ui/GradientButton';
+import { css } from '../../../consts';
 
 export const Buttons = () => {
   const { delivery } = useSelector((state: any) => state.cart);
@@ -41,6 +42,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   button: {
-    width: 150,
+    width: css.size.buttonWidth,
   },
 });

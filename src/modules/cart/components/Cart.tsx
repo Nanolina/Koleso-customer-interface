@@ -1,4 +1,5 @@
 import { StyleSheet, View } from 'react-native';
+import { ButtonGreen } from '../../../ui/ButtonGreen';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { Hr } from '../../../ui/Hr';
 import { Buttons } from './Buttons';
@@ -19,6 +20,9 @@ export const Cart = () => {
       <View style={styles.priceContainer}>
         <PriceInfo text="Total cost" price="50" />
       </View>
+      <View style={styles.buttonContainer}>
+        <ButtonGreen text="Book" onPress={() => {}} />
+      </View>
     </View>
   );
 };
@@ -30,5 +34,8 @@ const styles = StyleSheet.create({
   priceContainer: {
     gap: 10,
     paddingVertical: 10,
+  },
+  buttonContainer: {
+    alignItems: 'flex-end',
   },
 });
