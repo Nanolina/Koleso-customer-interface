@@ -1,7 +1,7 @@
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { Cart } from '../modules/cart';
+import { ButtonsCheckout, Cart } from '../modules/cart';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const CartPage = () => {
@@ -11,6 +11,7 @@ export const CartPage = () => {
       <CentralContainer isPadding={true}>
         <Cart />
       </CentralContainer>
+      <ButtonsCheckout />
       <Footer />
     </Container>
   );
