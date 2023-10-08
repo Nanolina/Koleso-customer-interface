@@ -11,6 +11,7 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 import { CartPage } from './src/pages/CartPage';
 import { CategoriesPage } from './src/pages/CategoriesPage';
+import { CheckoutPage } from './src/pages/CheckoutPage';
 import { Home } from './src/pages/Home';
 import { ItemPage } from './src/pages/ItemPage';
 import { Main } from './src/pages/Main';
@@ -63,6 +64,7 @@ export default function App() {
             component={FilterWheatherPage}
           />
           <Stack.Screen name="CartPage" component={CartPage} />
+          <Stack.Screen name="CheckoutPage" component={CheckoutPage} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

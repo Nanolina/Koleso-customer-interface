@@ -5,7 +5,7 @@ import { css } from '../../../consts';
 import { ButtonGradient } from '../../../ui/ButtonGradient';
 import { ButtonWithBorder } from '../../../ui/ButtonWithBorder';
 
-export const Buttons = () => {
+export const ButtonsDelivery = () => {
   const { delivery } = useSelector((state: any) => state.cart);
   const dispatch = useDispatch();
 

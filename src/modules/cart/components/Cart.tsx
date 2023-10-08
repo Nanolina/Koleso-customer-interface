@@ -1,14 +1,14 @@
 import { StyleSheet, View } from 'react-native';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { Hr } from '../../../ui/Hr';
-import { Buttons } from './Buttons';
+import { ButtonsDelivery } from './ButtonsDelivery';
 import { CartItems } from './CartItems';
 import { PriceInfo } from './PriceInfo';
 
 export const Cart = () => {
   return (
     <View style={styles.container}>
-      <Buttons />
+      <ButtonsDelivery />
       <CheckboxItem item="Select all" onPress={() => {}} />
       <CartItems />
       <View style={styles.priceContainer}>
