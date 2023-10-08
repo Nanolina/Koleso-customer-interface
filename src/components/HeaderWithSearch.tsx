@@ -12,7 +12,7 @@ import {
   turnOffSearch,
 } from '../../redux/slices/searchSlice';
 import { ButtonBack } from '../ui/ButtonBack';
-import { GradientButton } from '../ui/GradientButton';
+import { ButtonGradient } from '../ui/ButtonGradient';
 import { GradientHeaderFooter } from '../ui/GradientHeaderFooter';
 import { SearchBar } from './SearchBar';
 
@@ -40,7 +40,7 @@ export const HeaderWithSearch = () => {
         <SearchBar />
 
         {isEnabled && (
-          <GradientButton
+          <ButtonGradient
             text="Search"
             onPress={() => console.log('Search')}
             width={80}

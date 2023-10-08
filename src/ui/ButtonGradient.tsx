@@ -2,7 +2,7 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { css } from '../consts';
 import { Gradient } from './Gradient';
 
-export const GradientButton = ({ text, onPress, style, width }: any) => {
+export const ButtonGradient = ({ text, onPress, style, width }: any) => {
   const styles = getStyles(width);
 
   return (
