@@ -2,8 +2,8 @@ import React, { useCallback } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { css } from '../../../consts';
+import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { getItems } from '../functions';
-import { CheckboxItem } from '../ui/CheckboxItem';
 import { Buttons } from './Buttons';
 
 export const CheckboxList = ({ title, items }) => {
@@ -19,7 +19,7 @@ export const CheckboxList = ({ title, items }) => {
     categories,
     brands,
     sellers,
-    compositions,
+    compositions
   );
 
   const renderItem = useCallback(

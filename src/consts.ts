@@ -5,9 +5,11 @@ export const css = {
     white: '#fff',
     gray: '#808080',
     lightGray: '#c9c7c7',
-    border: '#D404FF',
+    main: '#D404FF',
     yellow: '#FDDC00',
     black: '#000000',
+    pinkOpacity: '#FF08C18C',
+    purpleOpacity: '#8C60FF8C',
   },
   size: {
     title: 24,

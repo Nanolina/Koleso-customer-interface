@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: css.colors.border,
+    borderColor: css.colors.main,
     padding: '10%',
   },
   togglePlus: {

@@ -10,7 +10,7 @@ export const SearchQuery = ({ query }) => {
         <EvilIcons
           name="clock"
           size={css.iconSizeMin}
-          color={css.colors.border}
+          color={css.colors.main}
         />
         <Text style={styles.queryText}>{query.name}</Text>
       </View>

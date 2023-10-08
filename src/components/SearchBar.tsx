@@ -19,7 +19,7 @@ export const SearchBar: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Icon name="search" size={css.iconSizeMax} color={css.colors.border} />
+      <Icon name="search" size={css.iconSizeMax} color={css.colors.main} />
       <TextInput
         style={styles.input}
         placeholder="Search..."
@@ -38,7 +38,7 @@ const getStyles = (isEnabled) =>
       flexDirection: 'row',
       alignItems: 'center',
       borderWidth: 2,
-      borderColor: css.colors.border,
+      borderColor: css.colors.main,
       borderRadius: css.borderRadius,
       paddingLeft: 10,
       backgroundColor: 'white',

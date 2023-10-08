@@ -6,9 +6,10 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
+import { PriceContainer } from '../../../components/PriceContainer';
+import { css } from '../../../consts';
 import { WebCardWrapper } from '../../../ui/WebCardWrapper';
 import { ImageContainer } from './ImageContainer';
-import { PriceContainer } from './PriceContainer';
 import { TitleContainer } from './TitleContainer';
 
 const { width } = Dimensions.get('window');
@@ -28,7 +29,11 @@ export const ProductCard = ({ item }) => {
         }
       >
         <ImageContainer image={item.image} />
-        <PriceContainer price={item.price} oldPrice={item.oldPrice} />
+        <PriceContainer
+          price={item.price}
+          oldPrice={item.oldPrice}
+          priceSize={css.size.text16}
+        />
         <TitleContainer seller={item.seller} title={item.title} />
       </TouchableOpacity>
     </WebCardWrapper>

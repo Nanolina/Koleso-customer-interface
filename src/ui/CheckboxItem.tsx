@@ -1,21 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { css } from '../../../consts';
-import { Gradient } from '../../../ui/Gradient';
+import { css } from '../consts';
+import { Gradient } from './Gradient';
 
-export const CheckboxItem = React.memo(
-  ({ item, isSelected, onToggle }: any) => (
-    <TouchableOpacity style={styles.item} onPress={onToggle}>
-      {isSelected ? (
-        <Gradient style={styles.gradient}>
-          <Text style={styles.check}>✓</Text>
-        </Gradient>
-      ) : (
-        <View style={styles.checkbox}></View>
-      )}
-      <Text style={styles.text}>{item}</Text>
-    </TouchableOpacity>
-  )
+export const CheckboxItem = ({ item, isSelected, onToggle }: any) => (
+  <TouchableOpacity style={styles.item} onPress={onToggle}>
+    {isSelected ? (
+      <Gradient style={styles.gradient}>
+        <Text style={styles.check}>✓</Text>
+      </Gradient>
+    ) : (
+      <View style={styles.checkbox}></View>
+    )}
+    <Text style={styles.text}>{item}</Text>
+  </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
