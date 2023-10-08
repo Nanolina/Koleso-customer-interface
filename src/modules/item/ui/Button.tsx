@@ -26,10 +26,10 @@ const baseStyles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: css.borderRadius,
+    borderRadius: css.borderRadiusMax,
   },
   gradient: {
-    borderRadius: css.borderRadius,
+    borderRadius: css.borderRadiusMax,
     paddingVertical: 10,
     paddingHorizontal: 40,
     width: '100%',

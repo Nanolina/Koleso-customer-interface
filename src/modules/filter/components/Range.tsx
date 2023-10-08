@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
     borderColor: css.colors.main,
-    borderRadius: css.borderRadius,
+    borderRadius: css.borderRadiusMax,
     padding: 5,
     width: 60,
     height: 30,

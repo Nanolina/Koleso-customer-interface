@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     color: css.colors.white,
   },
   gradient: {
-    borderRadius: 8,
+    borderRadius: css.borderRadiusMin,
     paddingHorizontal: 10,
     paddingVertical: 5,
   },

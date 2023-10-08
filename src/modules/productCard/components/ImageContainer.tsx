@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   image: {
-    borderRadius: css.borderRadius,
+    borderRadius: css.borderRadiusMax,
     width: '100%',
     height: Platform.OS === 'web' ? imageHeight : 200,
     resizeMode: 'cover',

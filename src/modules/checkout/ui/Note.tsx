@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     borderColor: css.colors.main,
     borderWidth: 1,
     padding: 10,
-    borderRadius: 8,
+    borderRadius: css.borderRadiusMin,
   },
   text: {
     fontSize: css.size.text16,

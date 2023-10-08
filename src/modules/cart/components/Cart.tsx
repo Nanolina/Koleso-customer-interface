@@ -1,4 +1,5 @@
 import { StyleSheet, View } from 'react-native';
+import { css } from '../../../consts';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { Hr } from '../../../ui/Hr';
 import { ButtonsDelivery } from './ButtonsDelivery';
@@ -25,7 +26,7 @@ export const Cart = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: 20,
+    paddingBottom: css.paddingBottom,
   },
   priceContainer: {
     gap: 10,

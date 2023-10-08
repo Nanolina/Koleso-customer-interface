@@ -48,6 +48,6 @@ const styles = StyleSheet.create({
   image: {
     width: widthImage,
     height: heightImage,
-    borderRadius: css.borderRadius,
+    borderRadius: css.borderRadiusMax,
   },
 });

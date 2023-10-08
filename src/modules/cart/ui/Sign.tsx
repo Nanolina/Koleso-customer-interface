@@ -16,7 +16,7 @@ export const Sign = ({ type }) => {
 
 const styles = StyleSheet.create({
   gradient: {
-    borderRadius: 8,
+    borderRadius: css.borderRadiusMin,
     paddingHorizontal: 10,
     paddingVertical: 5,
   },

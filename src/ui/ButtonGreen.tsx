@@ -11,7 +11,7 @@ export const ButtonGreen = ({ text, onPress }) => {
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: css.borderRadius,
+    borderRadius: css.borderRadiusMax,
     alignItems: 'center',
     backgroundColor: css.colors.lightGreen,
     width: css.size.buttonWidth,

@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     width: Platform.OS === 'web' ? 100 : 50,
     height: Platform.OS === 'web' ? 100 : 50,
     resizeMode: 'cover',
-    borderRadius: css.borderRadius,
+    borderRadius: css.borderRadiusMax,
   },
   text: {
     fontSize: Platform.OS === 'web' ? css.size.text20 : css.size.text16,

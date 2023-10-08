@@ -26,13 +26,13 @@ const getStyles = (type, isBorder): any =>
       opacity: 0.55,
       ...(type === 'header' &&
         isBorder && {
-          borderBottomLeftRadius: css.borderRadius,
-          borderBottomRightRadius: css.borderRadius,
+          borderBottomLeftRadius: css.borderRadiusMax,
+          borderBottomRightRadius: css.borderRadiusMax,
         }),
       ...(type === 'footer' &&
         isBorder && {
-          borderTopLeftRadius: css.borderRadius,
-          borderTopRightRadius: css.borderRadius,
+          borderTopLeftRadius: css.borderRadiusMax,
+          borderTopRightRadius: css.borderRadiusMax,
         }),
     },
   });

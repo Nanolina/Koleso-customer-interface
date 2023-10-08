@@ -26,7 +26,7 @@ const getStyles = (priceSize) =>
     container: {
       flexDirection: 'row',
       alignItems: 'center',
-      borderRadius: 8,
+      borderRadius: css.borderRadiusMin,
       backgroundColor: css.colors.lightGreen,
       paddingHorizontal: 10,
       paddingVertical: 5,

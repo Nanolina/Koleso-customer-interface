@@ -23,9 +23,11 @@ export const css = {
   },
   iconSizeMax: 30,
   iconSizeMin: 20,
-  borderRadius: 12,
+  borderRadiusMax: 12,
+  borderRadiusMin: 8,
   padding: 10,
   paddingWeb: 30,
+  paddingBottom: 20,
   productCard: {
     iconSize: 18,
     borderRadius: 5,

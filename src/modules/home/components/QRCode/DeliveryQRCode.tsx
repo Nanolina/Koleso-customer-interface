@@ -19,7 +19,7 @@ export const DeliveryQRCode = () => {
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: css.borderRadius,
+    borderRadius: css.borderRadiusMax,
     overflow: 'hidden',
     backgroundColor: 'transparent',
     marginHorizontal: Platform.OS === 'web' ? css.paddingWeb : css.padding,

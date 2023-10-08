@@ -24,7 +24,7 @@ const getStyles = (width) =>
     input: {
       borderWidth: 1,
       borderColor: css.colors.main,
-      borderRadius: 8,
+      borderRadius: css.borderRadiusMin,
       textAlign: 'center',
       fontSize: css.size.text16,
       color: css.colors.black,

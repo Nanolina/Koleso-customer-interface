@@ -53,11 +53,11 @@ const styles = StyleSheet.create({
     padding: '10%',
   },
   togglePlus: {
-    borderTopLeftRadius: css.borderRadius,
-    borderBottomLeftRadius: css.borderRadius,
+    borderTopLeftRadius: css.borderRadiusMax,
+    borderBottomLeftRadius: css.borderRadiusMax,
   },
   toggleMinus: {
-    borderTopRightRadius: css.borderRadius,
-    borderBottomRightRadius: css.borderRadius,
+    borderTopRightRadius: css.borderRadiusMax,
+    borderBottomRightRadius: css.borderRadiusMax,
   },
 });

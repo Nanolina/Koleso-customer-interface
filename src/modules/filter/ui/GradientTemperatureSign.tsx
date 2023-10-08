@@ -22,14 +22,14 @@ export const GradientTemperatureSign = ({
 
 const styles = StyleSheet.create({
   gradientRight: {
-    borderTopRightRadius: css.borderRadius,
-    borderBottomRightRadius: css.borderRadius,
+    borderTopRightRadius: css.borderRadiusMax,
+    borderBottomRightRadius: css.borderRadiusMax,
     justifyContent: 'center',
     alignItems: 'center',
   },
   gradientLeft: {
-    borderTopLeftRadius: css.borderRadius,
-    borderBottomLeftRadius: css.borderRadius,
+    borderTopLeftRadius: css.borderRadiusMax,
+    borderBottomLeftRadius: css.borderRadiusMax,
     justifyContent: 'center',
     alignItems: 'center',
   },

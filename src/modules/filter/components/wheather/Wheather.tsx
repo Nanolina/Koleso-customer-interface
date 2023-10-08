@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
   temperatureContainer: {
     gap: 20,
-    paddingBottom: 20,
+    paddingBottom: css.paddingBottom,
   },
   buttonContainer: {
     alignSelf: 'flex-end',

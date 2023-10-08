@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
     borderColor: css.colors.main,
-    borderRadius: css.borderRadius,
+    borderRadius: css.borderRadiusMax,
     textAlign: 'center',
     fontSize: css.size.text16,
     color: css.colors.black,

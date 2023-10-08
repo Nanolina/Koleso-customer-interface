@@ -17,7 +17,7 @@ export const ButtonGradient = ({ text, onPress, style, width }: any) => {
 const getStyles = (width) =>
   StyleSheet.create({
     container: {
-      borderRadius: css.borderRadius,
+      borderRadius: css.borderRadiusMax,
       alignItems: 'center',
       width: width || css.size.buttonWidth,
     },

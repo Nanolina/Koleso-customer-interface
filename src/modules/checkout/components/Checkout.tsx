@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { addField } from '../../../../redux/slices/checkoutSlice';
+import { css } from '../../../consts';
 import { ButtonGradient } from '../../../ui/ButtonGradient';
 import { Note } from '../ui/Note';
 import { TextWithInput } from './TextWithInput';
@@ -105,6 +106,7 @@ export const Checkout = () => {
 const styles = StyleSheet.create({
   container: {
     gap: 20,
+    paddingBottom: css.paddingBottom,
   },
   buttonContainer: {
     alignItems: 'flex-end',

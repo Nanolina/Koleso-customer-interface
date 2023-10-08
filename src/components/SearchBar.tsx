@@ -39,7 +39,7 @@ const getStyles = (isEnabled) =>
       alignItems: 'center',
       borderWidth: 2,
       borderColor: css.colors.main,
-      borderRadius: css.borderRadius,
+      borderRadius: css.borderRadiusMax,
       paddingLeft: 10,
       backgroundColor: 'white',
       width: getWidthInput(isEnabled),
