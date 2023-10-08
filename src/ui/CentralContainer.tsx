@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-virtualized-view';
 import { css } from '../consts';
 
@@ -12,8 +12,10 @@ const getStyles = (isPadding) =>
     mainContent: {
       flex: 1,
       backgroundColor: css.colors.white,
+      width: '100%',
       ...(isPadding && {
-        paddingHorizontal: 5,
+        paddingVertical: Platform.OS === 'web' ? css.paddingWeb : css.padding,
+        paddingHorizontal: css.padding,
       }),
     },
   });
