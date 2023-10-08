@@ -2,10 +2,10 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { css } from '../consts';
 import { Gradient } from './Gradient';
 
-export const Button = ({ text, onPress }) => {
+export const Button = ({ text, onPress, style }: any) => {
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
-      <Gradient style={styles.container}>
+      <Gradient style={style ? [styles.container, style] : styles.container}>
         <Text style={styles.text}>{text}</Text>
       </Gradient>
     </TouchableOpacity>

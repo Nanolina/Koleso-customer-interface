@@ -26,10 +26,18 @@ export const Footer: React.FC<any> = () => {
         <TouchableOpacity onPress={() => navigation.navigate('SectionsPage')}>
           <IconFooter name="search" />
         </TouchableOpacity>
-        <IconFooter name="notifications" />
-        <IconFooter name="shopping-cart" />
-        <IconFooter name="favorite" />
-        <IconFooter name="person" />
+        <TouchableOpacity onPress={() => {}}>
+          <IconFooter name="notifications" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('CartPage')}>
+          <IconFooter name="shopping-cart" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {}}>
+          <IconFooter name="favorite" />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => {}}>
+          <IconFooter name="person" />
+        </TouchableOpacity>
       </SafeAreaView>
     </View>
   );

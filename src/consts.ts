@@ -59,6 +59,16 @@ export const css = {
       },
     },
   },
+  box: {
+    borderRadius: 12,
+    width: 120,
+    height: 40,
+  },
+  gradientBox: {
+    borderRadius: 10,
+    width: 115,
+    height: 35,
+  },
 };
 
 export const currency = '€';
