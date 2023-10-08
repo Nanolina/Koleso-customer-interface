@@ -6,7 +6,7 @@ export const CartItems = () => {
   return (
     <View style={styles.container}>
       {productCards.map((item) => (
-        <CartItem item={item} />
+        <CartItem item={item} key={item.id} />
       ))}
     </View>
   );
@@ -14,6 +14,6 @@ export const CartItems = () => {
 
 const styles = StyleSheet.create({
   container: {
-    gap: 80,
+    gap: 50,
   },
 });

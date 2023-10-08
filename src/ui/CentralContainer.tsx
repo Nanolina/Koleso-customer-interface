@@ -15,7 +15,7 @@ const getStyles = (isPadding) =>
       width: '100%',
       ...(isPadding && {
         paddingVertical: Platform.OS === 'web' ? css.paddingWeb : css.padding,
-        paddingHorizontal: css.padding,
+        paddingHorizontal: Platform.OS === 'web' ? css.paddingWeb : css.padding,
       }),
     },
   });
