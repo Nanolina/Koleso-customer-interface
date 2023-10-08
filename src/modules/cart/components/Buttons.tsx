@@ -1,8 +1,8 @@
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleDelivery } from '../../../../redux/slices/cartSlice';
-import { Button } from '../../../ui/Button';
 import { ButtonWithBorder } from '../../../ui/ButtonWithBorder';
+import { GradientButton } from '../../../ui/GradientButton';
 
 export const Buttons = () => {
   const { delivery } = useSelector((state: any) => state.cart);
@@ -10,7 +10,7 @@ export const Buttons = () => {
 
   return delivery === 'Self-delivery' ? (
     <View style={styles.container}>
-      <Button
+      <GradientButton
         text="Self-delivery"
         onPress={() => dispatch(toggleDelivery('Self-delivery'))}
         style={styles.button}
@@ -26,7 +26,7 @@ export const Buttons = () => {
         text="Self-delivery"
         onPress={() => dispatch(toggleDelivery('Self-delivery'))}
       />
-      <Button
+      <GradientButton
         text="Courier"
         onPress={() => dispatch(toggleDelivery('Courier'))}
         style={styles.button}

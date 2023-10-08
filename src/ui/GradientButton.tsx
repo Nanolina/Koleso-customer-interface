@@ -2,7 +2,9 @@ import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { css } from '../consts';
 import { Gradient } from './Gradient';
 
-export const Button = ({ text, onPress, style }: any) => {
+export const GradientButton = ({ text, onPress, style, width }: any) => {
+  const styles = getStyles(width);
+
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
       <Gradient style={style ? [styles.container, style] : styles.container}>
@@ -12,13 +14,15 @@ export const Button = ({ text, onPress, style }: any) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    borderRadius: css.borderRadius,
-    alignItems: 'center',
-  },
-  text: {
-    fontWeight: 'bold',
-    fontSize: css.size.text16,
-  },
-});
+const getStyles = (width) =>
+  StyleSheet.create({
+    container: {
+      borderRadius: css.borderRadius,
+      alignItems: 'center',
+      width: width || 150,
+    },
+    text: {
+      fontWeight: 'bold',
+      fontSize: css.size.text16,
+    },
+  });

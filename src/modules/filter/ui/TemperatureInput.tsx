@@ -1,7 +1,7 @@
 import { StyleSheet, TextInput } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { css } from '../../../../consts';
-import { getNumericData } from '../../functions';
+import { css } from '../../../consts';
+import { getNumericData } from '../functions';
 
 export const TemperatureInput = ({ temperature, handleTemperature }) => {
   const dispatch = useDispatch();

@@ -8,9 +8,9 @@ import {
   toggleTemperatureTo,
 } from '../../../../../redux/slices/filterSlice';
 import { css } from '../../../../consts';
-import { Button } from '../../ui/Button';
 import { TemperatureToggle } from './TemperatureToggle';
 import { WheatherConditions } from './WheatherConditions';
+import { GradientButton } from '../../../../ui/GradientButton';
 
 export const Wheather = () => {
   const {
@@ -25,7 +25,10 @@ export const Wheather = () => {
   return (
     <View style={styles.container}>
       <View style={styles.buttonContainer}>
-        <Button text="Reset all" onPress={() => dispatch(resetAllWheather())} />
+        <GradientButton
+          text="Reset all"
+          onPress={() => dispatch(resetAllWheather())}
+        />
       </View>
       <Text style={styles.title}>Temperature</Text>
       <View style={styles.temperatureContainer}>

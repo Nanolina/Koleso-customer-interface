@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearAllFilters } from '../../../../redux/slices/filterSlice';
 import { css } from '../../../consts';
-import { Button } from '../../../ui/Button';
+import { GradientButton } from '../../../ui/GradientButton';
 import { data } from '../data';
 import { Row } from './Row';
 import { RowRange } from './RowRange';
@@ -48,8 +48,11 @@ export const Filter = () => {
       <RowRange title="Price" from={priceFrom} to={priceTo} />
       <Row title="Wheather" />
       <View style={styles.buttonsContainer}>
-        <Button text="Clear all" onPress={() => dispatch(clearAllFilters())} />
-        <Button text="Apply" onPress={() => {}} />
+        <GradientButton
+          text="Clear all"
+          onPress={() => dispatch(clearAllFilters())}
+        />
+        <GradientButton text="Apply" onPress={() => {}} />
       </View>
     </View>
   );
@@ -64,6 +67,6 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     paddingTop: 20,
     flexDirection: 'row',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
 });
