@@ -75,6 +75,10 @@ export const css = {
     width: 145,
     height: 35,
   },
+  priceInfoContainer: {
+    gap: 10,
+    paddingVertical: 10,
+  },
 };
 
 export const currency = '€';
