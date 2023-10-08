@@ -9,7 +9,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import { CartPage } from './src/pages/Cart';
+import { CartPage } from './src/pages/CartPage';
 import { CategoriesPage } from './src/pages/CategoriesPage';
 import { Home } from './src/pages/Home';
 import { ItemPage } from './src/pages/ItemPage';

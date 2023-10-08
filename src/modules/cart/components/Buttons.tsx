@@ -41,6 +41,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   button: {
-    width: 120,
+    width: 150,
   },
 });
