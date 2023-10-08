@@ -7,6 +7,7 @@ import { DetailsContainer } from './DetailsContainer';
 import { IconContainer } from './IconContainer';
 import { StoreButton } from './StoreButton';
 import { StoreDetails } from './StoreDetails';
+import { Hr } from '../../../ui/Hr';
 
 export const CartItem = ({ item, quantity = 1 }: any) => {
   const [storeDetails, setStoreDetails] = useState(false);
@@ -21,13 +22,14 @@ export const CartItem = ({ item, quantity = 1 }: any) => {
       </View>
       <StoreButton onPress={() => setStoreDetails(!storeDetails)} />
       {storeDetails && <StoreDetails item={item} />}
+      <Hr />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    gap: 10,
+    gap: 20,
   },
   itemContainer: {
     flexDirection: 'row',
