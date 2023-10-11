@@ -1,18 +1,15 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Dimensions, SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { css } from '../consts';
 import { ButtonBack } from '../ui/ButtonBack';
 import { GradientHeaderFooter } from '../ui/GradientHeaderFooter';
-
-const { height } = Dimensions.get('window');
-const headerHeight = height / 8;
 
 export const Header = ({ title }) => {
   const navigation: any = useNavigation();
 
   return (
-    <View style={styles.container}>
+    <View style={css.header.container}>
       <GradientHeaderFooter type="header" isBorder={true} />
       <SafeAreaView style={styles.buttonWithText}>
         <ButtonBack navigation={navigation} />
@@ -23,23 +20,12 @@ export const Header = ({ title }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    height: headerHeight,
-    justifyContent: 'space-around',
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderBottomLeftRadius: 15,
-    borderBottomRightRadius: 15,
-    position: 'relative',
-  },
   buttonWithText: {
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-between',
   },
   title: {
-    fontSize: css.size.title,
     fontWeight: 'bold',
-    color: css.colors.white,
+    ...css.header.title,
   },
 });

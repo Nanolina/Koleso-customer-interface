@@ -20,7 +20,7 @@ export const HeaderWithFilterSort = ({ title }) => {
   const navigation: any = useNavigation();
 
   return (
-    <View style={styles.container}>
+    <View style={css.header.container}>
       <GradientHeaderFooter type="header" isBorder={true} />
       <SafeAreaView style={styles.buttonWithText}>
         <ButtonBack navigation={navigation} />
@@ -48,24 +48,14 @@ export const HeaderWithFilterSort = ({ title }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    height: headerHeight,
-    justifyContent: 'space-around',
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderBottomLeftRadius: 15,
-    borderBottomRightRadius: 15,
-    position: 'relative',
-  },
   buttonWithText: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
   title: {
-    fontSize: css.size.title,
     fontWeight: 'bold',
-    color: css.colors.white,
+    ...css.header.title,
   },
   filterSort: {
     flexDirection: 'row',
