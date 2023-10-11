@@ -6,6 +6,8 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
+import { useDispatch } from 'react-redux';
+import { toggleModal } from '../../../../redux/slices/paymentSlice';
 import { css } from '../../../consts';
 import { ButtonGradient } from '../../../ui/ButtonGradient';
 import { ButtonGreen } from '../../../ui/ButtonGreen';
@@ -15,6 +17,7 @@ import { PriceInfoContainer } from './PriceInfoContainer';
 
 export const Checkout = () => {
   const navigation: any = useNavigation();
+  const dispatch = useDispatch();
 
   return (
     <KeyboardAvoidingView
@@ -34,7 +37,10 @@ export const Checkout = () => {
         <View style={styles.buttonPayment}>
           <ButtonGreen
             text="Proceed payment"
-            onPress={() => navigation.navigate('PaymentPage')}
+            onPress={() => {
+              dispatch(toggleModal(true));
+              navigation.navigate('PaymentPage');
+            }}
             width="50%"
           />
         </View>

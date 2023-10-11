@@ -79,6 +79,9 @@ export const css = {
     gap: 10,
     paddingVertical: 10,
   },
+  modal: {
+    paddingHorizontal: 30,
+  },
 };
 
 export const currency = '€';
