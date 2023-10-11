@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { minDate } from '../../src/modules/checkout/consts';
 
 const checkoutSlice = createSlice({
   name: 'checkout',
@@ -9,7 +10,7 @@ const checkoutSlice = createSlice({
     street: null,
     house: null,
     apartment: null,
-    date: new Date().toISOString(),
+    date: minDate.toISOString(),
     time: null,
     note: null,
   },

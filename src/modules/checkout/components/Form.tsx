@@ -10,32 +10,6 @@ export const Form = () => {
   const { name, phone, city, street, house, apartment, date, time, note } =
     useSelector((state: any) => state.checkout);
 
-  const onChangeDate = (selectedDate) => {
-    let currentDate;
-
-    if (selectedDate) {
-      selectedDate.setHours(0, 0, 0, 0);
-      currentDate = selectedDate;
-    } else {
-      try {
-        currentDate = new Date(date);
-        if (isNaN(currentDate.getTime())) {
-          throw new Error('Invalid date string');
-        }
-      } catch (error) {
-        console.error('Error converting date string to Date object:', error);
-        return;
-      }
-    }
-
-    dispatch(
-      addField({
-        field: 'date',
-        value: currentDate.toISOString(),
-      })
-    );
-  };
-
   return (
     <>
       <TextWithInput
@@ -94,7 +68,14 @@ export const Form = () => {
         <DateTimeInput
           text="Date for delivery"
           value={date}
-          onChange={onChangeDate}
+          onChange={(text) =>
+            dispatch(
+              addField({
+                field: 'date',
+                value: text.toISOString(),
+              })
+            )
+          }
           width="45%"
         />
 

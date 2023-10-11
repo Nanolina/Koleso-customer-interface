@@ -6,13 +6,9 @@ import {
   registerTranslation,
 } from 'react-native-paper-dates';
 import { css, minDaysDelivery } from '../../../consts';
+import { minDate } from '../consts';
 
 registerTranslation('en-GB', enGB);
-
-const currentDate = new Date();
-const minDate = new Date(
-  currentDate.setDate(currentDate.getDate() + minDaysDelivery)
-);
 
 export const DateTimeInput = ({ text, value, onChange, width }: any) => {
   const styles = getStyles(width);
@@ -48,12 +44,10 @@ const getStyles = (width) =>
       width: width || '100%',
     },
     input: {
-      borderWidth: 1,
-      borderColor: css.colors.main,
       borderRadius: css.borderRadiusMin,
       fontSize: css.size.text16,
       color: css.colors.black,
-      height: 40,
+      height: 50,
       backgroundColor: css.colors.white,
     },
     text: {
