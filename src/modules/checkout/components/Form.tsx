@@ -1,9 +1,9 @@
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { addField } from '../../../../redux/slices/checkoutSlice';
+import { TextWithInput } from '../../../components/TextWithInput';
 import { Note } from '../ui/Note';
 import { DatePicker } from './DatePicker';
-import { TextWithInput } from './TextWithInput';
 import { TimePicker } from './TimePicker';
 
 export const Form = () => {

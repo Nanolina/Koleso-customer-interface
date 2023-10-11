@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import {
   KeyboardAvoidingView,
   Platform,
@@ -13,6 +14,8 @@ import { Form } from './Form';
 import { PriceInfoContainer } from './PriceInfoContainer';
 
 export const Checkout = () => {
+  const navigation: any = useNavigation();
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -29,7 +32,11 @@ export const Checkout = () => {
         <PriceInfoContainer />
 
         <View style={styles.buttonPayment}>
-          <ButtonGreen text="Proceed payment" onPress={() => {}} width="50%" />
+          <ButtonGreen
+            text="Proceed payment"
+            onPress={() => navigation.navigate('PaymentPage')}
+            width="50%"
+          />
         </View>
       </ScrollView>
     </KeyboardAvoidingView>

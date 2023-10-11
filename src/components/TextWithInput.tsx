@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import { css } from '../../../consts';
+import { css } from '../consts';
 
 export const TextWithInput = ({
   text,

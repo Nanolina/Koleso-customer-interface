@@ -15,6 +15,7 @@ import { CheckoutPage } from './src/pages/CheckoutPage';
 import { Home } from './src/pages/Home';
 import { ItemPage } from './src/pages/ItemPage';
 import { Main } from './src/pages/Main';
+import { PaymentPage } from './src/pages/PaymentPage';
 import { SectionsPage } from './src/pages/SectionsPage';
 import { SortPage } from './src/pages/SortPage';
 import { SubcategoriesPage } from './src/pages/SubcategoriesPage';
@@ -65,6 +66,7 @@ export default function App() {
           />
           <Stack.Screen name="CartPage" component={CartPage} />
           <Stack.Screen name="CheckoutPage" component={CheckoutPage} />
+          <Stack.Screen name="PaymentPage" component={PaymentPage} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
