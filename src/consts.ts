@@ -83,3 +83,9 @@ export const css = {
 
 export const currency = '€';
 export const minDaysDelivery = 3;
+export const timeFramesDelivery = [
+  { label: 'From 9.00 to 12.00', value: '9.00-12.00' },
+  { label: 'From 12.00 to 15.00', value: '12.00-15.00' },
+  { label: 'From 15.00 to 18.00', value: '15.00-18.00' },
+  { label: 'From 18.00 to 21.00', value: '18.00-21.00' },
+];

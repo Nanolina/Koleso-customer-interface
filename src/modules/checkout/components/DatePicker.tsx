@@ -5,12 +5,12 @@ import {
   enGB,
   registerTranslation,
 } from 'react-native-paper-dates';
-import { css, minDaysDelivery } from '../../../consts';
+import { css } from '../../../consts';
 import { minDate } from '../consts';
 
 registerTranslation('en-GB', enGB);
 
-export const DateTimeInput = ({ text, value, onChange, width }: any) => {
+export const DatePicker = ({ value, onChange, width }: any) => {
   const styles = getStyles(width);
 
   const validRange = React.useMemo(() => {
@@ -21,7 +21,7 @@ export const DateTimeInput = ({ text, value, onChange, width }: any) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{text}</Text>
+      <Text style={styles.text}>Date for delivery</Text>
 
       <DatePickerInput
         locale="en-GB"

@@ -11,7 +11,7 @@ const checkoutSlice = createSlice({
     house: null,
     apartment: null,
     date: minDate.toISOString(),
-    time: null,
+    time: { label: 'Anytime', value: 'Anytime' },
     note: null,
   },
   reducers: {

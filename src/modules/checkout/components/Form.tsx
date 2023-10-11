@@ -2,8 +2,9 @@ import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { addField } from '../../../../redux/slices/checkoutSlice';
 import { Note } from '../ui/Note';
-import { DateTimeInput } from './DateTimeInput';
+import { DatePicker } from './DatePicker';
 import { TextWithInput } from './TextWithInput';
+import { TimePicker } from './TimePicker';
 
 export const Form = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ export const Form = () => {
           dispatch(addField({ field: 'phone', value: text }))
         }
         autoComplete="tel"
-        inputmode="tel"
+        inputMode="tel"
       />
       <TextWithInput
         text="City"
@@ -65,8 +66,7 @@ export const Form = () => {
       </View>
 
       <View style={styles.container}>
-        <DateTimeInput
-          text="Date for delivery"
+        <DatePicker
           value={date}
           onChange={(text) =>
             dispatch(
@@ -79,10 +79,9 @@ export const Form = () => {
           width="45%"
         />
 
-        <TextWithInput
-          text="Delivery time"
+        <TimePicker
           value={time}
-          onChangeText={(text) =>
+          onChange={(text) =>
             dispatch(addField({ field: 'time', value: text }))
           }
           width="45%"
