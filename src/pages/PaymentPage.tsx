@@ -15,13 +15,13 @@ export const PaymentPage = () => {
   const dispatch = useDispatch();
 
   // mock data
-  const payment = false;
+  const payment = true;
 
   return (
     <Container>
       {isModalOpen && payment && (
         <>
-          <SafeAreaViewContainer isPadding={true}>
+          <SafeAreaViewContainer>
             <View style={styles.container}>
               <ButtonCloseModal onPress={() => dispatch(toggleModal(false))} />
               <Success />
@@ -32,7 +32,7 @@ export const PaymentPage = () => {
 
       {isModalOpen && !payment && (
         <>
-          <SafeAreaViewContainer isPadding={true}>
+          <SafeAreaViewContainer>
             <View style={styles.container}>
               <ButtonCloseModal onPress={() => dispatch(toggleModal(false))} />
               <Error />
