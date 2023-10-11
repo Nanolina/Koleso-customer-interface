@@ -1,6 +1,7 @@
 export const css = {
   colors: {
     pink: '#FF08C1',
+    lightPink: '#FEEFFF',
     purple: '#8C60FF',
     white: '#fff',
     gray: '#808080',
@@ -8,9 +9,12 @@ export const css = {
     main: '#D404FF',
     yellow: '#FDDC00',
     black: '#000000',
+    green: '#038B09',
+    lightGreen: 'rgba(7, 214, 15, 0.55)',
+
+    // with opacity
     pinkOpacity: '#FF08C18C',
     purpleOpacity: '#8C60FF8C',
-    lightGreen: 'rgba(7, 214, 15, 0.55)',
   },
   size: {
     title: 24,
@@ -19,6 +23,7 @@ export const css = {
     text16: 16,
     text18: 18,
     text20: 20,
+    text30: 30,
     buttonWidth: 150,
   },
   iconSizeMax: 30,
@@ -81,6 +86,14 @@ export const css = {
   },
   modal: {
     paddingHorizontal: 30,
+    statusPayment: {
+      container: {
+        backgroundColor: '#FEEFFF',
+        borderRadius: 12,
+        gap: 20,
+        padding: 20,
+      },
+    },
   },
 };
 
