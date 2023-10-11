@@ -35,7 +35,7 @@ export const Footer: React.FC<any> = () => {
         <TouchableOpacity onPress={() => {}}>
           <IconFooter name="favorite" />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={() => navigation.navigate('MyAccount')}>
           <IconFooter name="person" />
         </TouchableOpacity>
       </SafeAreaView>
