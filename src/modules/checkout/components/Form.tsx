@@ -2,12 +2,39 @@ import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { addField } from '../../../../redux/slices/checkoutSlice';
 import { Note } from '../ui/Note';
+import { DateTimeInput } from './DateTimeInput';
 import { TextWithInput } from './TextWithInput';
 
 export const Form = () => {
   const dispatch = useDispatch();
-  const { name, phone, city, street, house, apartment, day, time, note } =
+  const { name, phone, city, street, house, apartment, date, time, note } =
     useSelector((state: any) => state.checkout);
+
+  const onChangeDate = (selectedDate) => {
+    let currentDate;
+
+    if (selectedDate) {
+      selectedDate.setHours(0, 0, 0, 0);
+      currentDate = selectedDate;
+    } else {
+      try {
+        currentDate = new Date(date);
+        if (isNaN(currentDate.getTime())) {
+          throw new Error('Invalid date string');
+        }
+      } catch (error) {
+        console.error('Error converting date string to Date object:', error);
+        return;
+      }
+    }
+
+    dispatch(
+      addField({
+        field: 'date',
+        value: currentDate.toISOString(),
+      })
+    );
+  };
 
   return (
     <>
@@ -17,6 +44,7 @@ export const Form = () => {
         onChangeText={(text) =>
           dispatch(addField({ field: 'name', value: text }))
         }
+        autoComplete="name"
       />
       <TextWithInput
         text="Phone"
@@ -24,6 +52,8 @@ export const Form = () => {
         onChangeText={(text) =>
           dispatch(addField({ field: 'phone', value: text }))
         }
+        autoComplete="tel"
+        inputmode="tel"
       />
       <TextWithInput
         text="City"
@@ -38,6 +68,7 @@ export const Form = () => {
         onChangeText={(text) =>
           dispatch(addField({ field: 'street', value: text }))
         }
+        autoComplete="street-address"
       />
 
       <View style={styles.container}>
@@ -60,14 +91,13 @@ export const Form = () => {
       </View>
 
       <View style={styles.container}>
-        <TextWithInput
-          text="Day for delivery"
-          value={day}
-          onChangeText={(text) =>
-            dispatch(addField({ field: 'day', value: text }))
-          }
+        <DateTimeInput
+          text="Date for delivery"
+          value={date}
+          onChange={onChangeDate}
           width="45%"
         />
+
         <TextWithInput
           text="Delivery time"
           value={time}

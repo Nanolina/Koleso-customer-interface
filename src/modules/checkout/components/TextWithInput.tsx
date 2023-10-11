@@ -1,7 +1,14 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { css } from '../../../consts';
 
-export const TextWithInput = ({ text, value, onChangeText, width }: any) => {
+export const TextWithInput = ({
+  text,
+  value,
+  onChangeText,
+  width,
+  onFocus,
+  inputMode = 'text',
+}: any) => {
   const styles = getStyles(width);
   return (
     <View style={styles.container}>
@@ -10,6 +17,8 @@ export const TextWithInput = ({ text, value, onChangeText, width }: any) => {
         style={styles.input}
         value={value}
         onChangeText={onChangeText}
+        onFocus={onFocus}
+        inputMode={inputMode}
       />
     </View>
   );

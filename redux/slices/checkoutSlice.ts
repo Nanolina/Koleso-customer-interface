@@ -9,7 +9,7 @@ const checkoutSlice = createSlice({
     street: null,
     house: null,
     apartment: null,
-    day: null,
+    date: new Date().toISOString(),
     time: null,
     note: null,
   },

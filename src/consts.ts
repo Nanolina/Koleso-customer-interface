@@ -82,3 +82,4 @@ export const css = {
 };
 
 export const currency = '€';
+export const minDaysDelivery = 3;
