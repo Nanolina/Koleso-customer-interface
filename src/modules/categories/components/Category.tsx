@@ -45,22 +45,17 @@ export const Category: React.FC<any> = ({ category }) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection: 'row',
-    gap: 20,
-    justifyContent: 'flex-start',
     alignItems: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: Platform.OS === 'web' ? 100 : 10,
+    justifyContent: 'flex-start',
+    ...css.cards.container,
   },
   image: {
-    width: Platform.OS === 'web' ? 100 : 50,
-    height: Platform.OS === 'web' ? 100 : 50,
     resizeMode: 'cover',
-    borderRadius: css.borderRadiusMax,
+    ...css.cards.image,
   },
   text: {
-    fontSize: Platform.OS === 'web' ? css.size.text20 : css.size.text16,
     fontWeight: 'bold',
+    ...css.cards.text,
   },
 });

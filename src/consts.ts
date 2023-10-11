@@ -110,6 +110,23 @@ export const css = {
       },
     },
   },
+  cards: {
+    container: {
+      flex: 1,
+      gap: 20,
+      paddingVertical: 10,
+      paddingHorizontal: Platform.OS === 'web' ? 100 : 10,
+    },
+    image: {
+      width: Platform.OS === 'web' ? 100 : 50,
+      height: Platform.OS === 'web' ? 100 : 50,
+
+      borderRadius: 12,
+    },
+    text: {
+      fontSize: Platform.OS === 'web' ? 20 : 16,
+    },
+  },
 };
 
 export const currency = '€';
