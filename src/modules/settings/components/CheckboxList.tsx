@@ -1,0 +1,47 @@
+import React, { useCallback } from 'react';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { addGender, resetGender } from '../../../../redux/slices/settingsSlice';
+import { css } from '../../../consts';
+import { ButtonGradient } from '../../../ui/ButtonGradient';
+import { CheckboxItem } from '../../../ui/CheckboxItem';
+
+export const CheckboxList = ({ items }) => {
+  const dispatch = useDispatch();
+  const { gender } = useSelector((state: any) => state.settings);
+
+  const renderItem = useCallback(
+    (item) => {
+      const isSelected = gender === item;
+
+      return (
+        <CheckboxItem
+          key={item}
+          item={item}
+          isSelected={isSelected}
+          onToggle={() => dispatch(addGender(item))}
+        />
+      );
+    },
+    [gender, dispatch, addGender]
+  );
+
+  return (
+    <ScrollView style={styles.container}>
+      <View style={styles.button}>
+        <ButtonGradient text="Reset" onPress={() => dispatch(resetGender())} />
+      </View>
+      {items.map(renderItem)}
+    </ScrollView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: css.padding,
+    paddingVertical: css.padding,
+  },
+  button: {
+    alignItems: 'flex-end',
+  },
+});

@@ -18,12 +18,13 @@ import { Main } from './src/pages/Main';
 import { MyAccount } from './src/pages/MyAccount';
 import { PaymentPage } from './src/pages/PaymentPage';
 import { SectionsPage } from './src/pages/SectionsPage';
-import { SettingsPage } from './src/pages/SettingsPage';
 import { SortPage } from './src/pages/SortPage';
 import { SubcategoriesPage } from './src/pages/SubcategoriesPage';
 import { FilterCheckboxPage } from './src/pages/filter/FilterCheckboxPage';
 import { FilterPage } from './src/pages/filter/FilterPage';
 import { FilterWheatherPage } from './src/pages/filter/FilterWheatherPage';
+import { SettingsCheckboxPage } from './src/pages/settings/SettingsCheckboxPage';
+import { SettingsPage } from './src/pages/settings/SettingsPage';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -71,6 +72,10 @@ export default function App() {
           <Stack.Screen name="PaymentPage" component={PaymentPage} />
           <Stack.Screen name="MyAccount" component={MyAccount} />
           <Stack.Screen name="SettingsPage" component={SettingsPage} />
+          <Stack.Screen
+            name="SettingsCheckboxPage"
+            component={SettingsCheckboxPage}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>
