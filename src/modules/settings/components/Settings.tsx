@@ -6,11 +6,17 @@ import { data } from '../data';
 import { Row } from './Row';
 
 export const Settings: React.FC = () => {
-  const { gender } = useSelector((state: any) => state.settings);
+  const { name, gender } = useSelector((state: any) => state.settings);
 
   return (
     <View style={styles.container}>
-      <Row items={data.genders} title="Gender" selectedItem={gender} />
+      <Row type="input" title="Name" selectedItem={name} />
+      <Row
+        type="checkbox"
+        items={data.genders}
+        title="Gender"
+        selectedItem={gender}
+      />
     </View>
   );
 };
@@ -19,5 +25,6 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: css.padding,
     paddingVertical: css.padding,
+    gap: 20,
   },
 });

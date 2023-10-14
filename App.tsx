@@ -24,6 +24,7 @@ import { FilterCheckboxPage } from './src/pages/filter/FilterCheckboxPage';
 import { FilterPage } from './src/pages/filter/FilterPage';
 import { FilterWheatherPage } from './src/pages/filter/FilterWheatherPage';
 import { SettingsCheckboxPage } from './src/pages/settings/SettingsCheckboxPage';
+import { SettingsInputPage } from './src/pages/settings/SettingsInputPage';
 import { SettingsPage } from './src/pages/settings/SettingsPage';
 
 export default function App() {
@@ -75,6 +76,10 @@ export default function App() {
           <Stack.Screen
             name="SettingsCheckboxPage"
             component={SettingsCheckboxPage}
+          />
+          <Stack.Screen
+            name="SettingsInputPage"
+            component={SettingsInputPage}
           />
         </Stack.Navigator>
       </NavigationContainer>

@@ -3,9 +3,13 @@ import { createSlice } from '@reduxjs/toolkit';
 const settingsSlice = createSlice({
   name: 'settings',
   initialState: {
+    name: null,
     gender: null,
   },
   reducers: {
+    addName(state, action) {
+      state.name = action.payload;
+    },
     addGender(state, action) {
       state.gender = action.payload;
     },
@@ -16,4 +20,4 @@ const settingsSlice = createSlice({
 });
 
 export default settingsSlice.reducer;
-export const { addGender, resetGender } = settingsSlice.actions;
+export const { addName, addGender, resetGender } = settingsSlice.actions;

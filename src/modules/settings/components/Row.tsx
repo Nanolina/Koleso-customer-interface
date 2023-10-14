@@ -4,7 +4,12 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { css } from '../../../consts';
 
-export const Row = ({ items = [], title, selectedItem = null }: any) => {
+export const Row = ({
+  type = 'checkbox',
+  items = [],
+  title,
+  selectedItem = null,
+}: any) => {
   const navigation: any = useNavigation();
 
   let handlePress = () => {
@@ -13,6 +18,14 @@ export const Row = ({ items = [], title, selectedItem = null }: any) => {
       items,
     });
   };
+
+  if (type === 'input') {
+    handlePress = () => {
+      navigation.navigate('SettingsInputPage', {
+        title,
+      });
+    };
+  }
 
   return (
     <TouchableOpacity style={styles.container} onPress={handlePress}>
