@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
-import { addName, addPhone } from '../../../redux/slices/settingsSlice';
+import { setValue } from '../../../redux/slices/settingsSlice';
 
-export const getDataForInput = (title, name, phone) => {
+export const getDataForInput = (title, name, phone, email) => {
   const dispatch = useDispatch();
 
   let value;
@@ -10,13 +10,18 @@ export const getDataForInput = (title, name, phone) => {
 
   if (title === 'Name') {
     value = name;
-    onChangeText = (value) => dispatch(addName(value));
+    onChangeText = (value) => dispatch(setValue({ value, key: 'name' }));
   }
 
   if (title === 'Phone') {
     value = phone;
-    onChangeText = (value) => dispatch(addPhone(value));
+    onChangeText = (value) => dispatch(setValue({ value, key: 'phone' }));
     inputMode = 'tel';
+  }
+
+  if (title === 'Email') {
+    value = email;
+    onChangeText = (value) => dispatch(setValue({ value, key: 'email' }));
   }
 
   return {

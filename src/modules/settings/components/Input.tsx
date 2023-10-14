@@ -6,12 +6,13 @@ import { css } from '../../../consts';
 import { getDataForInput } from '../functions';
 
 export const Input = ({ title }) => {
-  const { name, phone } = useSelector((state: any) => state.settings);
+  const { name, phone, email } = useSelector((state: any) => state.settings);
 
   const { value, onChangeText, inputMode } = getDataForInput(
     title,
     name,
-    phone
+    phone,
+    email
   );
 
   return (

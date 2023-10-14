@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { addGender, resetGender } from '../../../../redux/slices/settingsSlice';
+import { resetGender, setValue } from '../../../../redux/slices/settingsSlice';
 import { css } from '../../../consts';
 import { ButtonGradient } from '../../../ui/ButtonGradient';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
@@ -19,11 +19,11 @@ export const CheckboxList = ({ items }) => {
           key={item}
           item={item}
           isSelected={isSelected}
-          onToggle={() => dispatch(addGender(item))}
+          onToggle={() => dispatch(setValue({ key: 'gender', value: item }))}
         />
       );
     },
-    [gender, dispatch, addGender]
+    [gender, dispatch, setValue]
   );
 
   return (

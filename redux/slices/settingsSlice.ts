@@ -6,23 +6,18 @@ const settingsSlice = createSlice({
     name: null,
     gender: null,
     phone: null,
+    email: null,
   },
   reducers: {
-    addName(state, action) {
-      state.name = action.payload;
+    setValue: (state, action) => {
+      const { key, value } = action.payload;
+      state[key] = value;
     },
-    addGender(state, action) {
-      state.gender = action.payload;
-    },
-    resetGender(state) {
+    resetGender: (state) => {
       state.gender = null;
-    },
-    addPhone(state, action) {
-      state.phone = action.payload;
     },
   },
 });
 
 export default settingsSlice.reducer;
-export const { addName, addGender, resetGender, addPhone } =
-  settingsSlice.actions;
+export const { setValue, resetGender } = settingsSlice.actions;
