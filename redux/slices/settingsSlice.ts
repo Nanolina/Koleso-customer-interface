@@ -5,6 +5,7 @@ const settingsSlice = createSlice({
   initialState: {
     name: null,
     gender: null,
+    phone: null,
   },
   reducers: {
     addName(state, action) {
@@ -16,8 +17,12 @@ const settingsSlice = createSlice({
     resetGender(state) {
       state.gender = null;
     },
+    addPhone(state, action) {
+      state.phone = action.payload;
+    },
   },
 });
 
 export default settingsSlice.reducer;
-export const { addName, addGender, resetGender } = settingsSlice.actions;
+export const { addName, addGender, resetGender, addPhone } =
+  settingsSlice.actions;

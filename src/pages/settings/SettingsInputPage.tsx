@@ -13,7 +13,7 @@ export const SettingsInputPage = () => {
     <Container>
       <Header title={title} />
       <CentralContainer isPadding={true}>
-        <Input />
+        <Input title={title} />
       </CentralContainer>
       <Footer />
     </Container>

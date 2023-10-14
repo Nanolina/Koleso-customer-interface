@@ -1,19 +1,25 @@
 import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { addName } from '../../../../redux/slices/settingsSlice';
+import { useSelector } from 'react-redux';
 import { TextWithInput } from '../../../components/TextWithInput';
 import { css } from '../../../consts';
+import { getDataForInput } from '../functions';
 
-export const Input = () => {
-  const dispatch = useDispatch();
-  const { name } = useSelector((state: any) => state.settings);
+export const Input = ({ title }) => {
+  const { name, phone } = useSelector((state: any) => state.settings);
+
+  const { value, onChangeText, inputMode } = getDataForInput(
+    title,
+    name,
+    phone
+  );
 
   return (
     <ScrollView style={styles.container}>
       <TextWithInput
-        value={name}
-        onChangeText={(value) => dispatch(addName(value))}
+        value={value}
+        onChangeText={onChangeText}
+        inputMode={inputMode}
       />
     </ScrollView>
   );
