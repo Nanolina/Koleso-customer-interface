@@ -1,5 +1,10 @@
 export const services = [
   {
+    id: 'cf1010b1-0739-426a-bf3c-18ca8d2299da',
+    title: 'Settings',
+    image: require('./assets/settings.png'),
+  },
+  {
     id: 'b17a0737-0257-4bb5-b517-cccc3c86e5ad',
     title: 'Purchases',
     image: require('./assets/purchases.png'),
