@@ -1,10 +1,22 @@
 import { FlatList, StyleSheet, View } from 'react-native';
+import { useSelector } from 'react-redux';
+import { createRequest, myRequests } from '../../../../consts';
 import { ButtonsRequest } from './ButtonsRequest';
+import { Delivery } from './Delivery';
 import { Return } from './Return';
 
 export const Returns = ({ data }) => {
-  const renderReturns = ({ item }) =>
-    item.return && <Return item={item} key={item.id} />;
+  const { request } = useSelector((state: any) => state.return);
+
+  const renderReturns = ({ item }) => {
+    if (item.return && request === myRequests) {
+      return <Return item={item} key={item.id} />;
+    }
+
+    if (item.delivery && request === createRequest) {
+      return <Delivery item={item} key={item.id} />;
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -13,7 +25,6 @@ export const Returns = ({ data }) => {
         data={data}
         renderItem={renderReturns}
         keyExtractor={(item) => item.id}
-        style={styles.listContainer}
       />
     </View>
   );
@@ -22,9 +33,5 @@ export const Returns = ({ data }) => {
 const styles = StyleSheet.create({
   container: {
     gap: 10,
-  },
-  listContainer: {
-    gap: 20,
-    paddingBottom: 20,
   },
 });

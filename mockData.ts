@@ -63,7 +63,10 @@ Don't miss the opportunity to add this gorgeous pantsuit to your closet! It will
     oldPrice: '80',
     seller: 'Eldorado',
     title: 'Laptop',
-    dateDelivered: '02.03.2023',
+    delivery: {
+      number: '0137033693-0022',
+      date: '02.03.2023',
+    },
   },
   {
     id: '4',
@@ -72,6 +75,10 @@ Don't miss the opportunity to add this gorgeous pantsuit to your closet! It will
     oldPrice: '80',
     seller: 'Eldorado',
     title: 'Laptop',
+    delivery: {
+      number: '0234033693-0034',
+      date: '12.01.2022',
+    },
   },
 ];
 

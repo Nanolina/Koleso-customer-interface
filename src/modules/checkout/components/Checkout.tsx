@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
+import { courier } from '../../../../consts';
 import { toggleModal } from '../../../../redux/slices/paymentSlice';
 import { css } from '../../../consts';
 import { ButtonGradient } from '../../../ui/ButtonGradient';
@@ -26,7 +27,7 @@ export const Checkout = () => {
     >
       <ScrollView style={{ flex: 1 }} contentContainerStyle={styles.container}>
         <View style={styles.buttonContainer}>
-          <ButtonGradient text="Courier" />
+          <ButtonGradient text={courier} />
         </View>
 
         <Form />

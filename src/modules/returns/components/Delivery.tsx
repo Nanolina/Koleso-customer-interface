@@ -1,20 +1,20 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { css } from '../../../consts';
-import { BottomText } from '../ui/BottomText';
+import { ButtonsBottom } from '../ui/ButtonsBottom';
 import { UpperText } from '../ui/UpperText';
 import { ImageContainer } from './ImageContainer';
 import { TextContainer } from './TextContainer';
 
-export const Return = ({ item }) => {
+export const Delivery = ({ item }) => {
   return (
     <View style={styles.container}>
-      <UpperText number={item.return.number} date={item.return.date} />
+      <UpperText number={item.delivery.number} date={item.delivery.date} />
       <View style={styles.centerContainer}>
         <ImageContainer image={item.image} />
         <TextContainer item={item} />
       </View>
-      <BottomText statusMoney={item.return.statusMoney} />
+      <ButtonsBottom />
     </View>
   );
 };

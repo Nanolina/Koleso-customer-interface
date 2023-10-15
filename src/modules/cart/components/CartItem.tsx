@@ -9,6 +9,7 @@ import { DetailsContainer } from './DetailsContainer';
 import { IconContainer } from './IconContainer';
 import { StoreDetails } from './StoreDetails';
 import { StoreDetailsButton } from './StoreDetailsButton';
+import { selfDelivery } from '../../../../consts';
 
 export const CartItem = ({ item, quantity = 1 }: any) => {
   const [storeDetails, setStoreDetails] = useState(false);
@@ -23,11 +24,11 @@ export const CartItem = ({ item, quantity = 1 }: any) => {
         <IconContainer quantity={quantity} />
       </View>
 
-      {delivery === 'Self-delivery' && (
+      {delivery === selfDelivery && (
         <StoreDetailsButton onPress={() => setStoreDetails(!storeDetails)} />
       )}
 
-      {storeDetails && delivery === 'Self-delivery' && (
+      {storeDetails && delivery === selfDelivery && (
         <StoreDetails item={item} />
       )}
       <Hr />

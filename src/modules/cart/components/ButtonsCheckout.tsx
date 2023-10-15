@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { css } from '../../../consts';
 import { ButtonGreen } from '../../../ui/ButtonGreen';
+import { selfDelivery } from '../../../../consts';
 
 export const ButtonsCheckout = () => {
   const { delivery } = useSelector((state: any) => state.cart);
@@ -10,7 +11,7 @@ export const ButtonsCheckout = () => {
 
   return (
     <View style={styles.container}>
-      {delivery === 'Self-delivery' ? (
+      {delivery === selfDelivery ? (
         <ButtonGreen text="Book" onPress={() => {}} />
       ) : (
         <ButtonGreen

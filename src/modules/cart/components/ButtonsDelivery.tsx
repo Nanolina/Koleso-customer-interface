@@ -1,5 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { courier, selfDelivery } from '../../../../consts';
 import { toggleDelivery } from '../../../../redux/slices/cartSlice';
 import { css } from '../../../consts';
 import { ButtonGradient } from '../../../ui/ButtonGradient';
@@ -9,27 +10,27 @@ export const ButtonsDelivery = () => {
   const { delivery } = useSelector((state: any) => state.cart);
   const dispatch = useDispatch();
 
-  return delivery === 'Self-delivery' ? (
+  return delivery === selfDelivery ? (
     <View style={styles.container}>
       <ButtonGradient
-        text="Self-delivery"
-        onPress={() => dispatch(toggleDelivery('Self-delivery'))}
+        text={selfDelivery}
+        onPress={() => dispatch(toggleDelivery({ selfDelivery }))}
         style={styles.button}
       />
       <ButtonWithBorder
-        text="Courier"
-        onPress={() => dispatch(toggleDelivery('Courier'))}
+        text={courier}
+        onPress={() => dispatch(toggleDelivery({ courier }))}
       />
     </View>
   ) : (
     <View style={styles.container}>
       <ButtonWithBorder
-        text="Self-delivery"
-        onPress={() => dispatch(toggleDelivery('Self-delivery'))}
+        text={selfDelivery}
+        onPress={() => dispatch(toggleDelivery({ selfDelivery }))}
       />
       <ButtonGradient
-        text="Courier"
-        onPress={() => dispatch(toggleDelivery('Courier'))}
+        text={courier}
+        onPress={() => dispatch(toggleDelivery({ courier }))}
         style={styles.button}
       />
     </View>
