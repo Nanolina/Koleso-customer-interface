@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
 import { TextWithInput } from '../../../components/TextWithInput';
 import { css } from '../../../consts';
-import { getDataForInput } from '../functions';
+import { getAutoComplete, getDataForInput } from '../functions';
 
 export const Input = ({ title }) => {
   const { name, phone, email } = useSelector((state: any) => state.settings);
@@ -15,12 +15,15 @@ export const Input = ({ title }) => {
     email
   );
 
+  const autoComplete = getAutoComplete(title);
+
   return (
     <ScrollView style={styles.container}>
       <TextWithInput
         value={value}
         onChangeText={onChangeText}
         inputMode={inputMode}
+        autoComplete={autoComplete}
       />
     </ScrollView>
   );

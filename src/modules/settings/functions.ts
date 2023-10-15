@@ -59,3 +59,22 @@ export const getDisplayItem = (title, selectedItem) => {
 
   return selectedItem;
 };
+
+export const getAutoComplete = (title) => {
+  let autoComplete = 'off';
+
+  if (title === 'Name') {
+    autoComplete = 'name';
+  }
+
+  if (title === 'Email') {
+    autoComplete = 'email';
+  }
+
+  if (title === 'Phone') {
+    autoComplete = 'tel';
+  }
+
+  console.log('autoComplete', autoComplete);
+  return autoComplete;
+};

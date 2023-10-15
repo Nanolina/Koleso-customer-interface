@@ -9,8 +9,10 @@ export const TextWithInput = ({
   onFocus,
   inputMode = 'text',
   secureTextEntry,
+  autoComplete,
 }: any) => {
   const styles = getStyles(width);
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{text}</Text>
@@ -21,6 +23,7 @@ export const TextWithInput = ({
         onFocus={onFocus}
         inputMode={inputMode}
         secureTextEntry={secureTextEntry}
+        autoComplete={autoComplete}
       />
     </View>
   );
