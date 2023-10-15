@@ -16,6 +16,7 @@ export const css = {
     red: '#ff0000',
 
     // with opacity
+    mainOpacity: 'rgba(212, 4, 255, 0.5)',
     pinkOpacity: '#FF08C18C',
     purpleOpacity: '#8C60FF8C',
   },
@@ -30,6 +31,7 @@ export const css = {
     buttonWidth: 150,
   },
   iconSizeMax: 30,
+  iconSizeMiddle: 25,
   iconSizeMin: 20,
   borderRadiusMax: 12,
   borderRadiusMin: 8,
@@ -128,6 +130,9 @@ export const css = {
       fontSize: Platform.OS === 'web' ? 20 : 16,
     },
   },
+  signUp: {
+    gapBetweenButton: 50,
+  }
 };
 
 export const currency = '€';

@@ -2,15 +2,18 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { css } from '../../../consts';
 import { ButtonGradient } from '../../../ui/ButtonGradient';
-import { data } from '../data';
-import { Card } from './Card';
+import { registrationMethods } from '../data';
+import { RegistrationMethod } from './RegistrationMethod';
 
 export const SignUp: React.FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.cardsContainer}>
-        {data.map((card) => (
-          <Card card={card} key={card.id} />
+        {registrationMethods.map((registrationMethod) => (
+          <RegistrationMethod
+            registrationMethod={registrationMethod}
+            key={registrationMethod.id}
+          />
         ))}
       </View>
 
@@ -27,12 +30,12 @@ export const SignUp: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    gap: 50,
+    gap: css.signUp.gapBetweenButton,
+    paddingVertical: css.padding,
   },
   cardsContainer: {
     gap: 30,
     justifyContent: 'center',
-    paddingHorizontal: css.padding,
   },
   text: {
     fontWeight: 'bold',

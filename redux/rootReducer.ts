@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import authSlice from './slices/authSlice';
 import cartSlice from './slices/cartSlice';
 import catalogSlice from './slices/catalogSlice';
 import checkoutSlice from './slices/checkoutSlice';
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   checkout: checkoutSlice,
   payment: paymentSlice,
   settings: settingsSlice,
+  auth: authSlice,
 });
 
 export default rootReducer;

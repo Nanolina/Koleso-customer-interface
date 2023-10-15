@@ -1,15 +1,15 @@
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { SignUp } from '../modules/auth';
+import { SignUpPhoneEmail } from '../modules/auth';
 import { CentralContainer } from '../ui/CentralContainer';
 
-export const SignUpPage = () => {
+export const SignUpPhoneEmailPage = () => {
   return (
     <Container>
-      <Header title="Sign up" hasButton={false} />
+      <Header title="Sign up" />
       <CentralContainer isPadding={true}>
-        <SignUp />
+        <SignUpPhoneEmail />
       </CentralContainer>
       <Footer />
     </Container>

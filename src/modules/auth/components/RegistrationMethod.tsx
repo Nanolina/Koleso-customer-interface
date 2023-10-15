@@ -1,11 +1,17 @@
+import { useNavigation } from '@react-navigation/native';
 import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { css } from '../../../consts';
 
-export const Card = ({ card }) => {
+export const RegistrationMethod = ({ registrationMethod }) => {
+  const navigation: any = useNavigation();
+
   return (
-    <TouchableOpacity style={styles.container}>
-      <Image source={card.image} style={styles.image} />
-      <Text style={styles.text}>{card.text}</Text>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigation.navigate(registrationMethod.navigateTo)}
+    >
+      <Image source={registrationMethod.image} style={styles.image} />
+      <Text style={styles.text}>{registrationMethod.text}</Text>
     </TouchableOpacity>
   );
 };
