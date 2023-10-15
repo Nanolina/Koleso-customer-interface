@@ -36,7 +36,9 @@ export const formatPhone = (phone) => {
 
   const start = phone.substring(0, 2);
   const end = phone.substring(phone.length - 2);
-  const middleStars = new Array(phone.length - 4).fill('*').join('');
+  const middleStarsLength = Math.max(0, phone.length - 4);
+  const middleStars = new Array(middleStarsLength).fill('*').join('');
+
 
   return start + middleStars + end;
 };
