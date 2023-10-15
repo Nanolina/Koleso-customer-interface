@@ -13,32 +13,21 @@ export const Row = ({
 }: any) => {
   const navigation: any = useNavigation();
 
-  let handlePress = () => {
-    navigation.navigate('SettingsCheckboxPage', {
-      title,
-      items,
-    });
+  const navigateTo = {
+    checkbox: 'SettingsCheckboxPage',
+    input: 'SettingsInputPage',
+    birthday: 'SettingsBirthdayPage',
+    password: 'SettingsPasswordPage',
   };
 
-  if (type === 'input') {
-    handlePress = () => {
-      navigation.navigate('SettingsInputPage', {
+  const handlePress = () => {
+    if (navigateTo[type]) {
+      navigation.navigate(navigateTo[type], {
         title,
+        items,
       });
-    };
-  }
-
-  if (type === 'birthday') {
-    handlePress = () => {
-      navigation.navigate('SettingsBirthdayPage');
-    };
-  }
-
-  if (type === 'password') {
-    handlePress = () => {
-      navigation.navigate('SettingsPasswordPage');
-    };
-  }
+    }
+  };
 
   const displayItem = getDisplayItem(title, selectedItem);
 
