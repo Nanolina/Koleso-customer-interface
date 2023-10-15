@@ -8,7 +8,7 @@ import { TextContainer } from './TextContainer';
 
 export const Return = ({ item }) => {
   return (
-    <View style={styles.container}>
+    <View style={css.return.container}>
       <UpperText number={item.return.number} date={item.return.date} />
       <View style={styles.centerContainer}>
         <ImageContainer image={item.image} />
@@ -20,15 +20,9 @@ export const Return = ({ item }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: css.colors.lightPink,
-    borderRadius: css.borderRadiusMax,
-    gap: 10,
-    padding: 10,
-  },
   centerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10,
+    ...css.return.centerContainer,
   },
 });

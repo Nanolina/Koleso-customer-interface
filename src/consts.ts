@@ -137,6 +137,18 @@ export const css = {
       gap: 30,
     },
   },
+  return: {
+    container: {
+      backgroundColor: '#FEEFFF',
+      borderRadius: 12,
+      gap: 10,
+      padding: 10,
+      marginBottom: 10,
+    },
+    centerContainer: {
+      gap: 10,
+    },
+  },
 };
 
 export const currency = '€';
