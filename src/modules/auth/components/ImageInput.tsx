@@ -7,6 +7,7 @@ export const ImageInput = ({
   icon,
   value,
   onChangeText,
+  onFocus,
   inputMode = 'text',
   secureTextEntry,
   autoComplete,
@@ -22,6 +23,7 @@ export const ImageInput = ({
         placeholder={placeholder}
         value={value}
         onChangeText={onChangeText}
+        onFocus={onFocus}
         inputMode={inputMode}
         secureTextEntry={secureTextEntry}
         autoComplete={autoComplete}
@@ -43,10 +45,11 @@ const getStyles = (isTwoIcons) =>
       paddingHorizontal: 10,
     },
     input: {
-      flex: 1,
-      padding: isTwoIcons ? 0 : 20,
       fontSize: css.size.text16,
       color: css.colors.black,
       height: 40,
+      ...(isTwoIcons && {
+        padding: 20,
+      }),
     },
   });

@@ -1,4 +1,4 @@
-import { Platform, StyleSheet } from 'react-native';
+import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-virtualized-view';
 import { css } from '../consts';
 
@@ -8,7 +8,14 @@ export const CentralContainer = ({
   children,
 }: any) => {
   const styles = getStyles(isPadding, isMinPadding);
-  return <ScrollView style={styles.mainContent}>{children}</ScrollView>;
+  return (
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={{ flex: 1 }}
+    >
+      <ScrollView style={styles.mainContent}>{children}</ScrollView>
+    </KeyboardAvoidingView>
+  );
 };
 
 const getStyles = (isPadding, isMinPadding) =>
