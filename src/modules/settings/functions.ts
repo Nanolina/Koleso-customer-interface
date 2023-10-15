@@ -75,6 +75,5 @@ export const getAutoComplete = (title) => {
     autoComplete = 'tel';
   }
 
-  console.log('autoComplete', autoComplete);
   return autoComplete;
 };

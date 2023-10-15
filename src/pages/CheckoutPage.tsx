@@ -8,7 +8,7 @@ export const CheckoutPage = () => {
   return (
     <Container>
       <Header title="Checkout" />
-      <CentralContainer isPadding={true}>
+      <CentralContainer isPadding={true} isMinPadding={true}>
         <Checkout />
       </CentralContainer>
       <Footer />

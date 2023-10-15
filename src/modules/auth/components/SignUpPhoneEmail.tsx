@@ -103,8 +103,6 @@ export const SignUpPhoneEmail: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: css.padding,
-    paddingVertical: css.padding,
     gap: css.signUp.gapBetweenButton,
   },
   inputsContainer: {

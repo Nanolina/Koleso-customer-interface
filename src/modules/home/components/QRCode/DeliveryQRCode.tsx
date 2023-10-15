@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     borderRadius: css.borderRadiusMax,
     overflow: 'hidden',
     backgroundColor: 'transparent',
-    marginHorizontal: Platform.OS === 'web' ? css.paddingWeb : css.padding,
+    marginHorizontal: Platform.OS === 'web' ? css.paddingMax : css.padding,
   },
   flexRow: {
     flexDirection: 'row',

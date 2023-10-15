@@ -8,7 +8,7 @@ export const MyAccount = () => {
   return (
     <Container>
       <Header title="My account" />
-      <CentralContainer isPadding={true}>
+      <CentralContainer isPadding={true} isMinPadding={true}>
         <Services />
       </CentralContainer>
       <Footer />

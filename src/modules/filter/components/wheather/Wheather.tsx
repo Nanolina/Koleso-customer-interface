@@ -55,8 +55,6 @@ export const Wheather = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: css.padding,
-    paddingVertical: css.padding,
     gap: 20,
   },
   title: {

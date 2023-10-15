@@ -15,7 +15,7 @@ export const Main = () => {
       <HeaderWithFilterSort
         title={(subcategory && subcategory.title) || category.title}
       />
-      <CentralContainer isPadding={true}>
+      <CentralContainer isPadding={true} isMinPadding={true}>
         <ProductList data={productCards} />
       </CentralContainer>
       <Footer />

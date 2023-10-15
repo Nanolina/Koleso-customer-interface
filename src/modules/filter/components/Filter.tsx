@@ -60,8 +60,6 @@ export const Filter = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: css.padding,
-    paddingVertical: css.padding,
     gap: 30,
   },
   buttonsContainer: {

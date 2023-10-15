@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     gap: css.signUp.gapBetweenButton,
-    paddingVertical: css.padding,
   },
   cardsContainer: {
     gap: 30,

@@ -27,7 +27,7 @@ export const CheckboxList = ({ items }) => {
   );
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView>
       <View style={styles.button}>
         <ButtonGradient
           text="Reset"
@@ -40,10 +40,6 @@ export const CheckboxList = ({ items }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: css.padding,
-    paddingVertical: css.padding,
-  },
   button: {
     alignItems: 'flex-end',
   },

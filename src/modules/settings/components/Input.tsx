@@ -1,8 +1,7 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native';
 import { useSelector } from 'react-redux';
 import { TextWithInput } from '../../../components/TextWithInput';
-import { css } from '../../../consts';
 import { getAutoComplete, getDataForInput } from '../functions';
 
 export const Input = ({ title }) => {
@@ -18,7 +17,7 @@ export const Input = ({ title }) => {
   const autoComplete = getAutoComplete(title);
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView>
       <TextWithInput
         value={value}
         onChangeText={onChangeText}
@@ -28,10 +27,3 @@ export const Input = ({ title }) => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: css.padding,
-    paddingVertical: css.padding,
-  },
-});

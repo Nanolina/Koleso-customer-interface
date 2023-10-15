@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { TextWithInput } from '../../../components/TextWithInput';
-import { css } from '../../../consts';
 import { ButtonGradient } from '../../../ui/ButtonGradient';
 
 export const ChangePassword = () => {
@@ -23,7 +22,10 @@ export const ChangePassword = () => {
         secureTextEntry={true}
       />
       <View style={styles.buttonContainer}>
-        <ButtonGradient text="Change password" onPress={() => {}} />
+        <ButtonGradient
+          text="Change password"
+          onPress={() => {}}
+        />
       </View>
     </View>
   );
@@ -31,8 +33,6 @@ export const ChangePassword = () => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: css.padding,
-    paddingVertical: css.padding,
     gap: 20,
   },
   buttonContainer: {

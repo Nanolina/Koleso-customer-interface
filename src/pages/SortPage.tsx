@@ -8,7 +8,7 @@ export const SortPage = () => {
   return (
     <Container>
       <Header title="Sort" />
-      <CentralContainer isPadding={true}>
+      <CentralContainer isPadding={true} isMinPadding={true}>
         <SortComponents />
       </CentralContainer>
       <Footer />

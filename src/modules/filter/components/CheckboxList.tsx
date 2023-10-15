@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { css } from '../../../consts';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { getItems } from '../functions';
 import { Buttons } from './Buttons';
@@ -39,7 +38,7 @@ export const CheckboxList = ({ title, items }) => {
   );
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView>
       <Buttons
         items={items}
         selectedItems={selectedItems}
@@ -50,10 +49,3 @@ export const CheckboxList = ({ title, items }) => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: css.padding,
-    paddingVertical: css.padding,
-  },
-});

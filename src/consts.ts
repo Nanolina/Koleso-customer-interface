@@ -36,7 +36,7 @@ export const css = {
   borderRadiusMax: 12,
   borderRadiusMin: 8,
   padding: 10,
-  paddingWeb: 30,
+  paddingMax: 30,
   paddingBottom: 20,
   productCard: {
     iconSize: 18,

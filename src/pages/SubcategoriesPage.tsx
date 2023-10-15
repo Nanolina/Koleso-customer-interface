@@ -11,7 +11,7 @@ export const SubcategoriesPage = () => {
   return (
     <Container>
       <Header title={category} />
-      <CentralContainer isPadding={true}>
+      <CentralContainer isPadding={true} isMinPadding={true}>
         <Subcategories />
       </CentralContainer>
       <Footer />
