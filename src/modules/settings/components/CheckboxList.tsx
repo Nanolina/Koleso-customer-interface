@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { resetGender, setValue } from '../../../../redux/slices/settingsSlice';
+import { resetValue, setValue } from '../../../../redux/slices/settingsSlice';
 import { css } from '../../../consts';
 import { ButtonGradient } from '../../../ui/ButtonGradient';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
@@ -29,7 +29,10 @@ export const CheckboxList = ({ items }) => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.button}>
-        <ButtonGradient text="Reset" onPress={() => dispatch(resetGender())} />
+        <ButtonGradient
+          text="Reset"
+          onPress={() => dispatch(resetValue({ key: 'gender' }))}
+        />
       </View>
       {items.map(renderItem)}
     </ScrollView>

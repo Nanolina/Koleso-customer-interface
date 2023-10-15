@@ -1,3 +1,4 @@
+import { DateTime } from 'luxon';
 import { useDispatch } from 'react-redux';
 import { setValue } from '../../../redux/slices/settingsSlice';
 
@@ -42,9 +43,18 @@ const formatPhone = (phone) => {
   return start + middleStars + end;
 };
 
+export const formatBirthday = (birthday) => {
+  const dt = DateTime.fromISO(birthday);
+  return dt.toFormat('dd.MM.yyyy');
+};
+
 export const getDisplayItem = (title, selectedItem) => {
   if (title === 'Phone') {
     return formatPhone(selectedItem);
+  }
+
+  if (title === 'Date of birth' && selectedItem) {
+    return formatBirthday(selectedItem);
   }
 
   return selectedItem;

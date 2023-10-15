@@ -14,11 +14,12 @@ const settingsSlice = createSlice({
       const { key, value } = action.payload;
       state[key] = value;
     },
-    resetGender: (state) => {
-      state.gender = null;
+    resetValue: (state, action) => {
+      const { key } = action.payload;
+      state[key] = null;
     },
   },
 });
 
 export default settingsSlice.reducer;
-export const { setValue, resetGender } = settingsSlice.actions;
+export const { setValue, resetValue } = settingsSlice.actions;

@@ -5,27 +5,26 @@ import {
   enGB,
   registerTranslation,
 } from 'react-native-paper-dates';
-import { css } from '../../../consts';
-import { minDate } from '../consts';
+import { css } from '../consts';
 
 registerTranslation('en-GB', enGB);
 
-export const DatePicker = ({ value, onChange, width }: any) => {
+export const DatePicker = ({
+  text,
+  value,
+  onChange,
+  width,
+  validRange,
+}: any) => {
   const styles = getStyles(width);
-
-  const validRange = React.useMemo(() => {
-    return {
-      startDate: minDate,
-    };
-  }, []);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Date for delivery</Text>
+      {text && <Text style={styles.text}>{text}</Text>}
 
       <DatePickerInput
         locale="en-GB"
-        value={new Date(value)}
+        value={value ? new Date(value) : undefined}
         onChange={onChange}
         inputMode="start"
         style={styles.input}
@@ -45,7 +44,7 @@ const getStyles = (width) =>
     },
     input: {
       borderRadius: css.borderRadiusMin,
-      fontSize: css.size.text16,
+      fontSize: css.size.text18,
       color: css.colors.black,
       height: 50,
       backgroundColor: css.colors.white,

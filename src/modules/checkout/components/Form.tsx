@@ -1,15 +1,23 @@
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { addField } from '../../../../redux/slices/checkoutSlice';
+import { DatePicker } from '../../../components/DatePicker';
 import { TextWithInput } from '../../../components/TextWithInput';
+import { minDate } from '../consts';
 import { Note } from '../ui/Note';
-import { DatePicker } from './DatePicker';
 import { TimePicker } from './TimePicker';
 
 export const Form = () => {
   const dispatch = useDispatch();
   const { name, phone, city, street, house, apartment, date, time, note } =
     useSelector((state: any) => state.checkout);
+
+  const validRangeDate = React.useMemo(() => {
+    return {
+      startDate: minDate,
+    };
+  }, [minDate]);
 
   return (
     <>
@@ -67,6 +75,7 @@ export const Form = () => {
 
       <View style={styles.container}>
         <DatePicker
+          text="Date for delivery"
           value={date}
           onChange={(text) =>
             dispatch(
@@ -76,6 +85,7 @@ export const Form = () => {
               })
             )
           }
+          validRange={validRangeDate}
           width="45%"
         />
 
