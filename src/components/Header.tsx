@@ -5,27 +5,30 @@ import { css } from '../consts';
 import { ButtonBack } from '../ui/ButtonBack';
 import { GradientHeaderFooter } from '../ui/GradientHeaderFooter';
 
-export const Header = ({ title }) => {
+export const Header = ({ title, hasButton = true }) => {
   const navigation: any = useNavigation();
+
+  const styles = getStyles(hasButton);
 
   return (
     <View style={css.header.container}>
       <GradientHeaderFooter type="header" isBorder={true} />
       <SafeAreaView style={styles.buttonWithText}>
-        <ButtonBack navigation={navigation} />
+        {hasButton && <ButtonBack navigation={navigation} />}
         <Text style={styles.title}>{title}</Text>
       </SafeAreaView>
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  buttonWithText: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  title: {
-    fontWeight: 'bold',
-    ...css.header.title,
-  },
-});
+const getStyles = (hasButton) =>
+  StyleSheet.create({
+    buttonWithText: {
+      flexDirection: 'row',
+      justifyContent: hasButton ? 'space-between' : 'center',
+    },
+    title: {
+      fontWeight: 'bold',
+      ...css.header.title,
+    },
+  });

@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -10,6 +11,8 @@ export const Settings: React.FC = () => {
   const { name, gender, phone, email, birthday } = useSelector(
     (state: any) => state.settings
   );
+
+  const navigation: any = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -26,7 +29,7 @@ export const Settings: React.FC = () => {
       <Row type="password" title="Password" />
 
       <View style={styles.buttonsContainer}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('SignUpPage')}>
           <Text style={styles.signOut}>Sign out of account</Text>
         </TouchableOpacity>
         <TouchableOpacity>

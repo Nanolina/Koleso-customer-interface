@@ -19,6 +19,7 @@ import { Main } from './src/pages/Main';
 import { MyAccount } from './src/pages/MyAccount';
 import { PaymentPage } from './src/pages/PaymentPage';
 import { SectionsPage } from './src/pages/SectionsPage';
+import { SignUpPage } from './src/pages/SignUpPage';
 import { SortPage } from './src/pages/SortPage';
 import { SubcategoriesPage } from './src/pages/SubcategoriesPage';
 import { FilterCheckboxPage } from './src/pages/filter/FilterCheckboxPage';
@@ -93,6 +94,7 @@ export default function App() {
               name="SettingsPasswordPage"
               component={SettingsPasswordPage}
             />
+            <Stack.Screen name="SignUpPage" component={SignUpPage} />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>
