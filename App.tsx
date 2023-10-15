@@ -19,10 +19,11 @@ import { Main } from './src/pages/Main';
 import { MyAccount } from './src/pages/MyAccount';
 import { PaymentPage } from './src/pages/PaymentPage';
 import { SectionsPage } from './src/pages/SectionsPage';
-import { SignUpPage } from './src/pages/SignUpPage';
-import { SignUpPhoneEmailPage } from './src/pages/SignUpPhoneEmailPage';
 import { SortPage } from './src/pages/SortPage';
 import { SubcategoriesPage } from './src/pages/SubcategoriesPage';
+import { LoginPage } from './src/pages/auth/LoginPage';
+import { SignUpPage } from './src/pages/auth/SignUpPage';
+import { SignUpPhoneEmailPage } from './src/pages/auth/SignUpPhoneEmailPage';
 import { FilterCheckboxPage } from './src/pages/filter/FilterCheckboxPage';
 import { FilterPage } from './src/pages/filter/FilterPage';
 import { FilterWheatherPage } from './src/pages/filter/FilterWheatherPage';
@@ -100,6 +101,7 @@ export default function App() {
               name="SignUpPhoneEmailPage"
               component={SignUpPhoneEmailPage}
             />
+            <Stack.Screen name="LoginPage" component={LoginPage} />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

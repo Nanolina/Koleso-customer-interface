@@ -7,11 +7,13 @@ export const ImageInput = ({
   icon,
   value,
   onChangeText,
-  onFocus,
   inputMode = 'text',
   secureTextEntry,
   autoComplete,
+  isTwoIcons,
 }: any) => {
+  const styles = getStyles(isTwoIcons);
+
   return (
     <View style={styles.container}>
       <View style={styles.iconContainer}>{icon}</View>
@@ -20,7 +22,6 @@ export const ImageInput = ({
         placeholder={placeholder}
         value={value}
         onChangeText={onChangeText}
-        onFocus={onFocus}
         inputMode={inputMode}
         secureTextEntry={secureTextEntry}
         autoComplete={autoComplete}
@@ -29,22 +30,23 @@ export const ImageInput = ({
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: css.colors.main,
-    borderRadius: css.borderRadiusMin,
-  },
-  iconContainer: {
-    paddingHorizontal: 10,
-  },
-  input: {
-    flex: 1,
-    padding: 10,
-    fontSize: css.size.text16,
-    color: css.colors.black,
-    height: 40,
-  },
-});
+const getStyles = (isTwoIcons) =>
+  StyleSheet.create({
+    container: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      borderWidth: 1,
+      borderColor: css.colors.main,
+      borderRadius: css.borderRadiusMin,
+    },
+    iconContainer: {
+      paddingHorizontal: 10,
+    },
+    input: {
+      flex: 1,
+      padding: isTwoIcons ? 0 : 20,
+      fontSize: css.size.text16,
+      color: css.colors.black,
+      height: 40,
+    },
+  });

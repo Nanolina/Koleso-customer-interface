@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { css } from '../../../consts';
@@ -6,6 +7,8 @@ import { registrationMethods } from '../data';
 import { RegistrationMethod } from './RegistrationMethod';
 
 export const SignUp: React.FC = () => {
+  const navigation: any = useNavigation();
+
   return (
     <View style={styles.container}>
       <View style={styles.cardsContainer}>
@@ -20,7 +23,10 @@ export const SignUp: React.FC = () => {
       <View style={styles.logInContainer}>
         <Text style={styles.text}>Already have an account?</Text>
         <View>
-          <ButtonGradient text="Log in" />
+          <ButtonGradient
+            text="Log in"
+            onPress={() => navigation.navigate('LoginPage')}
+          />
         </View>
       </View>
     </View>
@@ -30,7 +36,7 @@ export const SignUp: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    gap: css.signUp.gapBetweenButton,
+    gap: css.auth.gap,
   },
   cardsContainer: {
     gap: 30,

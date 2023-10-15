@@ -130,9 +130,12 @@ export const css = {
       fontSize: Platform.OS === 'web' ? 20 : 16,
     },
   },
-  signUp: {
-    gapBetweenButton: 50,
-  }
+  auth: {
+    gap: 50,
+    inputContainer: {
+      gap: 30,
+    },
+  },
 };
 
 export const currency = '€';

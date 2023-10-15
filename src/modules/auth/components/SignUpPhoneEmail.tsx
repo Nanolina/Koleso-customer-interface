@@ -16,7 +16,7 @@ export const SignUpPhoneEmail: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.inputsContainer}>
+      <View style={css.auth.inputContainer}>
         <ImageInput
           placeholder="Email"
           icon={
@@ -103,10 +103,7 @@ export const SignUpPhoneEmail: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    gap: css.signUp.gapBetweenButton,
-  },
-  inputsContainer: {
-    gap: 30,
+    gap: css.auth.gap,
   },
   buttonContainer: {
     alignItems: 'center',
