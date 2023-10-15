@@ -13,6 +13,7 @@ export const css = {
     black: '#000000',
     green: '#038B09',
     lightGreen: 'rgba(7, 214, 15, 0.55)',
+    red: '#ff0000',
 
     // with opacity
     pinkOpacity: '#FF08C18C',

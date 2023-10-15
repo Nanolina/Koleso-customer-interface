@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: css.padding,
     paddingVertical: css.padding,
-    gap: 20,
+    gap: 30,
   },
   buttonsContainer: {
     paddingTop: 20,

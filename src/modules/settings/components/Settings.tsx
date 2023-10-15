@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useSelector } from 'react-redux';
 import { css } from '../../../consts';
 import { data } from '../data';
@@ -23,6 +24,15 @@ export const Settings: React.FC = () => {
       <Row type="input" title="Email" selectedItem={email} />
       <Row type="birthday" title="Date of birth" selectedItem={birthday} />
       <Row type="password" title="Password" />
+
+      <View style={styles.buttonsContainer}>
+        <TouchableOpacity>
+          <Text style={styles.signOut}>Sign out of account</Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={styles.delete}>Delete account</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -31,6 +41,19 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: css.padding,
     paddingVertical: css.padding,
+    gap: 30,
+  },
+  buttonsContainer: {
+    alignItems: 'center',
+    paddingTop: 60,
     gap: 20,
+  },
+  signOut: {
+    color: css.colors.red,
+    fontSize: css.size.text18,
+  },
+  delete: {
+    color: css.colors.gray,
+    fontSize: css.size.text18,
   },
 });
