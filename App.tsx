@@ -7,6 +7,7 @@ import {
 } from '@expo-google-fonts/open-sans';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { PaperProvider } from 'react-native-paper';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import { CartPage } from './src/pages/CartPage';
@@ -23,6 +24,7 @@ import { SubcategoriesPage } from './src/pages/SubcategoriesPage';
 import { FilterCheckboxPage } from './src/pages/filter/FilterCheckboxPage';
 import { FilterPage } from './src/pages/filter/FilterPage';
 import { FilterWheatherPage } from './src/pages/filter/FilterWheatherPage';
+import { SettingsBirthdayPage } from './src/pages/settings/SettingsBirthdayPage';
 import { SettingsCheckboxPage } from './src/pages/settings/SettingsCheckboxPage';
 import { SettingsInputPage } from './src/pages/settings/SettingsInputPage';
 import { SettingsPage } from './src/pages/settings/SettingsPage';
@@ -43,46 +45,52 @@ export default function App() {
   }
 
   return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator
-          initialRouteName="Home"
-          screenOptions={{ headerShown: false }}
-        >
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Main" component={Main} />
-          <Stack.Screen name="SectionsPage" component={SectionsPage} />
-          <Stack.Screen name="CategoriesPage" component={CategoriesPage} />
-          <Stack.Screen
-            name="SubcategoriesPage"
-            component={SubcategoriesPage}
-          />
-          <Stack.Screen name="ItemPage" component={ItemPage} />
-          <Stack.Screen name="SortPage" component={SortPage} />
-          <Stack.Screen name="FilterPage" component={FilterPage} />
-          <Stack.Screen
-            name="FilterCheckboxPage"
-            component={FilterCheckboxPage}
-          />
-          <Stack.Screen
-            name="FilterWheatherPage"
-            component={FilterWheatherPage}
-          />
-          <Stack.Screen name="CartPage" component={CartPage} />
-          <Stack.Screen name="CheckoutPage" component={CheckoutPage} />
-          <Stack.Screen name="PaymentPage" component={PaymentPage} />
-          <Stack.Screen name="MyAccount" component={MyAccount} />
-          <Stack.Screen name="SettingsPage" component={SettingsPage} />
-          <Stack.Screen
-            name="SettingsCheckboxPage"
-            component={SettingsCheckboxPage}
-          />
-          <Stack.Screen
-            name="SettingsInputPage"
-            component={SettingsInputPage}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </Provider>
+    <PaperProvider>
+      <Provider store={store}>
+        <NavigationContainer>
+          <Stack.Navigator
+            initialRouteName="Home"
+            screenOptions={{ headerShown: false }}
+          >
+            <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Main" component={Main} />
+            <Stack.Screen name="SectionsPage" component={SectionsPage} />
+            <Stack.Screen name="CategoriesPage" component={CategoriesPage} />
+            <Stack.Screen
+              name="SubcategoriesPage"
+              component={SubcategoriesPage}
+            />
+            <Stack.Screen name="ItemPage" component={ItemPage} />
+            <Stack.Screen name="SortPage" component={SortPage} />
+            <Stack.Screen name="FilterPage" component={FilterPage} />
+            <Stack.Screen
+              name="FilterCheckboxPage"
+              component={FilterCheckboxPage}
+            />
+            <Stack.Screen
+              name="FilterWheatherPage"
+              component={FilterWheatherPage}
+            />
+            <Stack.Screen name="CartPage" component={CartPage} />
+            <Stack.Screen name="CheckoutPage" component={CheckoutPage} />
+            <Stack.Screen name="PaymentPage" component={PaymentPage} />
+            <Stack.Screen name="MyAccount" component={MyAccount} />
+            <Stack.Screen name="SettingsPage" component={SettingsPage} />
+            <Stack.Screen
+              name="SettingsCheckboxPage"
+              component={SettingsCheckboxPage}
+            />
+            <Stack.Screen
+              name="SettingsInputPage"
+              component={SettingsInputPage}
+            />
+            <Stack.Screen
+              name="SettingsBirthdayPage"
+              component={SettingsBirthdayPage}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </Provider>
+    </PaperProvider>
   );
 }

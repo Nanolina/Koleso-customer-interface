@@ -28,6 +28,12 @@ export const Row = ({
     };
   }
 
+  if (type === 'birthday') {
+    handlePress = () => {
+      navigation.navigate('SettingsBirthdayPage');
+    };
+  }
+
   const displayItem =
     title === 'Phone' ? formatPhone(selectedItem) : selectedItem;
 

@@ -7,6 +7,7 @@ const settingsSlice = createSlice({
     gender: null,
     phone: null,
     email: null,
+    birthday: null,
   },
   reducers: {
     setValue: (state, action) => {

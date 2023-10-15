@@ -6,7 +6,7 @@ import { data } from '../data';
 import { Row } from './Row';
 
 export const Settings: React.FC = () => {
-  const { name, gender, phone, email } = useSelector(
+  const { name, gender, phone, email, birthday } = useSelector(
     (state: any) => state.settings
   );
 
@@ -21,6 +21,7 @@ export const Settings: React.FC = () => {
       />
       <Row type="input" title="Phone" selectedItem={phone} />
       <Row type="input" title="Email" selectedItem={email} />
+      <Row type="birthday" title="Date of birth" selectedItem={birthday} />
     </View>
   );
 };
