@@ -7,8 +7,8 @@ export const DateText = ({ item }) => {
       {item.dateDelivered && (
         <Text style={styles.delivered}>Delivered: {item.dateDelivered}</Text>
       )}
-      {item.dateReturned && (
-        <Text style={styles.returned}>Returned: {item.dateReturned}</Text>
+      {item?.return?.date && (
+        <Text style={styles.returned}>Returned: {item?.return?.date}</Text>
       )}
     </>
   );

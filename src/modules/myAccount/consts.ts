@@ -15,7 +15,7 @@ export const services = [
     id: 'e3055e68-4198-44f1-a5cc-d0a836e295a3',
     title: 'Returns',
     image: require('./assets/returns.png'),
-    redirectPage: '',
+    redirectPage: 'ReturnsPage',
   },
   {
     id: '3874ec55-8463-4de4-9c1a-30d9d93e96d5',

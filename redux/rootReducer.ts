@@ -5,6 +5,7 @@ import catalogSlice from './slices/catalogSlice';
 import checkoutSlice from './slices/checkoutSlice';
 import filterSlice from './slices/filterSlice';
 import paymentSlice from './slices/paymentSlice';
+import returnSlice from './slices/returnSlice';
 import searchSlice from './slices/searchSlice';
 import settingsSlice from './slices/settingsSlice';
 
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   payment: paymentSlice,
   settings: settingsSlice,
   auth: authSlice,
+  return: returnSlice,
 });
 
 export default rootReducer;
