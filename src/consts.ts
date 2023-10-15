@@ -14,6 +14,7 @@ export const css = {
     green: '#038B09',
     lightGreen: 'rgba(7, 214, 15, 0.55)',
     red: '#ff0000',
+    darkRed: '#C80303',
 
     // with opacity
     mainOpacity: 'rgba(212, 4, 255, 0.5)',

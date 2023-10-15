@@ -2,20 +2,25 @@ import { StyleSheet, View } from 'react-native';
 import { css } from '../consts';
 import { Price } from '../ui/Price';
 
-export const PriceContainer = ({ price, oldPrice, priceSize }: any) => {
-  const styles = getStyles(priceSize);
+export const PriceContainer = ({
+  price,
+  oldPrice,
+  priceSize,
+  hasBackground = true,
+}: any) => {
+  const styles = getStyles(priceSize, hasBackground);
 
   return (
     <View style={styles.centeredContent}>
       <View style={styles.container}>
         <Price price={price} style={styles.currentPrice} />
       </View>
-      <Price price={oldPrice} style={styles.oldPrice} />
+      {oldPrice && <Price price={oldPrice} style={styles.oldPrice} />}
     </View>
   );
 };
 
-const getStyles = (priceSize) =>
+const getStyles = (priceSize, hasBackground) =>
   StyleSheet.create({
     centeredContent: {
       flexDirection: 'row',
@@ -27,7 +32,7 @@ const getStyles = (priceSize) =>
       flexDirection: 'row',
       alignItems: 'center',
       borderRadius: css.borderRadiusMin,
-      backgroundColor: css.colors.lightGreen,
+      backgroundColor: hasBackground ? css.colors.lightGreen : '',
       paddingHorizontal: 10,
       paddingVertical: 5,
     },

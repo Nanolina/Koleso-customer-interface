@@ -13,7 +13,7 @@ export const Row = ({
 }: any) => {
   const navigation: any = useNavigation();
 
-  const navigateTo = {
+  const redirectPages = {
     checkbox: 'SettingsCheckboxPage',
     input: 'SettingsInputPage',
     birthday: 'SettingsBirthdayPage',
@@ -21,8 +21,8 @@ export const Row = ({
   };
 
   const handlePress = () => {
-    if (navigateTo[type]) {
-      navigation.navigate(navigateTo[type], {
+    if (redirectPages[type]) {
+      navigation.navigate(redirectPages[type], {
         title,
         items,
       });

@@ -29,6 +29,7 @@ export const productCards = [
     size: 36,
     possibleSizes: [35, 36, 37, 38, 39, 40, 41],
     missingSizes: [38, 39, 41],
+    dateDelivered: '02.03.2023',
     description: `Pantsuit - An Elegant Choice for the Modern Woman
 Mesmerizing and fashionable, our pantsuit is the perfect addition to your closet! Consisting of pants and jacket, this stylish set is designed to make you feel confident and comfortable in any situation, whether it's a business meeting or an after-work party.
 Features:
@@ -45,6 +46,7 @@ Don't miss the opportunity to add this gorgeous pantsuit to your closet! It will
     oldPrice: '60',
     seller: 'Wolli',
     title: 'Dress',
+    dateReturned: '12.05.2023',
   },
   {
     id: '3',

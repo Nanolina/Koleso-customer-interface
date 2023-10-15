@@ -18,6 +18,7 @@ import { ItemPage } from './src/pages/ItemPage';
 import { Main } from './src/pages/Main';
 import { MyAccount } from './src/pages/MyAccount';
 import { PaymentPage } from './src/pages/PaymentPage';
+import { PurchasesPage } from './src/pages/PurchasesPage';
 import { SectionsPage } from './src/pages/SectionsPage';
 import { SortPage } from './src/pages/SortPage';
 import { SubcategoriesPage } from './src/pages/SubcategoriesPage';
@@ -102,6 +103,7 @@ export default function App() {
               component={SignUpPhoneEmailPage}
             />
             <Stack.Screen name="LoginPage" component={LoginPage} />
+            <Stack.Screen name="PurchasesPage" component={PurchasesPage} />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

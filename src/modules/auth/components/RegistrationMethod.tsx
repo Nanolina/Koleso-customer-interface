@@ -8,7 +8,7 @@ export const RegistrationMethod = ({ registrationMethod }) => {
   return (
     <TouchableOpacity
       style={styles.container}
-      onPress={() => navigation.navigate(registrationMethod.navigateTo)}
+      onPress={() => navigation.navigate(registrationMethod.redirectPage)}
     >
       <Image source={registrationMethod.image} style={styles.image} />
       <Text style={styles.text}>{registrationMethod.text}</Text>
