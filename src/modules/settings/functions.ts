@@ -31,7 +31,7 @@ export const getDataForInput = (title, name, phone, email) => {
   };
 };
 
-export const formatPhone = (phone) => {
+const formatPhone = (phone) => {
   if (!phone || phone.length < 3) return phone;
 
   const start = phone.substring(0, 2);
@@ -39,6 +39,13 @@ export const formatPhone = (phone) => {
   const middleStarsLength = Math.max(0, phone.length - 4);
   const middleStars = new Array(middleStarsLength).fill('*').join('');
 
-
   return start + middleStars + end;
+};
+
+export const getDisplayItem = (title, selectedItem) => {
+  if (title === 'Phone') {
+    return formatPhone(selectedItem);
+  }
+
+  return selectedItem;
 };

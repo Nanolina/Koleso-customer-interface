@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { css } from '../../../consts';
-import { formatPhone } from '../functions';
+import { getDisplayItem } from '../functions';
 
 export const Row = ({
   type = 'checkbox',
@@ -34,8 +34,7 @@ export const Row = ({
     };
   }
 
-  const displayItem =
-    title === 'Phone' ? formatPhone(selectedItem) : selectedItem;
+  const displayItem = getDisplayItem(title, selectedItem);
 
   return (
     <TouchableOpacity style={styles.container} onPress={handlePress}>
