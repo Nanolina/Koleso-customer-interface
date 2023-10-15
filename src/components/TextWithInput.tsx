@@ -8,6 +8,7 @@ export const TextWithInput = ({
   width,
   onFocus,
   inputMode = 'text',
+  secureTextEntry,
 }: any) => {
   const styles = getStyles(width);
   return (
@@ -19,6 +20,7 @@ export const TextWithInput = ({
         onChangeText={onChangeText}
         onFocus={onFocus}
         inputMode={inputMode}
+        secureTextEntry={secureTextEntry}
       />
     </View>
   );

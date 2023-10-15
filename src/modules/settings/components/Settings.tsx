@@ -22,6 +22,7 @@ export const Settings: React.FC = () => {
       <Row type="input" title="Phone" selectedItem={phone} />
       <Row type="input" title="Email" selectedItem={email} />
       <Row type="birthday" title="Date of birth" selectedItem={birthday} />
+      <Row type="password" title="Password" />
     </View>
   );
 };

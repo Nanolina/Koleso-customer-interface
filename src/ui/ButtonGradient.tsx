@@ -24,5 +24,6 @@ const getStyles = (width) =>
     text: {
       fontWeight: 'bold',
       fontSize: css.size.text16,
+      textAlign: 'center',
     },
   });

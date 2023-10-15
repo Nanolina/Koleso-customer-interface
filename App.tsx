@@ -28,6 +28,7 @@ import { SettingsBirthdayPage } from './src/pages/settings/SettingsBirthdayPage'
 import { SettingsCheckboxPage } from './src/pages/settings/SettingsCheckboxPage';
 import { SettingsInputPage } from './src/pages/settings/SettingsInputPage';
 import { SettingsPage } from './src/pages/settings/SettingsPage';
+import { SettingsPasswordPage } from './src/pages/settings/SettingsPasswordPage';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -87,6 +88,10 @@ export default function App() {
             <Stack.Screen
               name="SettingsBirthdayPage"
               component={SettingsBirthdayPage}
+            />
+            <Stack.Screen
+              name="SettingsPasswordPage"
+              component={SettingsPasswordPage}
             />
           </Stack.Navigator>
         </NavigationContainer>

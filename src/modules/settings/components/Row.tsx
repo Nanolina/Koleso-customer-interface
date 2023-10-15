@@ -34,6 +34,12 @@ export const Row = ({
     };
   }
 
+  if (type === 'password') {
+    handlePress = () => {
+      navigation.navigate('SettingsPasswordPage');
+    };
+  }
+
   const displayItem = getDisplayItem(title, selectedItem);
 
   return (
@@ -43,7 +49,9 @@ export const Row = ({
         {displayItem ? (
           <Text style={styles.extraFilled}>{displayItem}</Text>
         ) : (
-          <Text style={styles.extra}>Add {title.toLowerCase()}</Text>
+          <Text style={styles.extra}>
+            {type === 'password' ? 'Change' : 'Add'} {title.toLowerCase()}
+          </Text>
         )}
         <AntDesign
           name="right"
