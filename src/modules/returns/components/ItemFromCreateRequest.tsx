@@ -6,7 +6,7 @@ import { UpperText } from '../ui/UpperText';
 import { ImageContainer } from './ImageContainer';
 import { TextContainer } from './TextContainer';
 
-export const Delivery = ({ item }) => {
+export const ItemFromCreateRequest = ({ item }) => {
   return (
     <View style={css.return.container}>
       <UpperText number={item.delivery.number} date={item.delivery.date} />
@@ -14,7 +14,7 @@ export const Delivery = ({ item }) => {
         <ImageContainer image={item.image} />
         <TextContainer item={item} />
       </View>
-      <ButtonsBottom />
+      <ButtonsBottom item={item} />
     </View>
   );
 };

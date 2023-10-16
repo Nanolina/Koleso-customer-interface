@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { Image, Platform, StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
+import { selfDelivery } from '../../../../consts';
+import { StoreDetails } from '../../../components/StoreDetails';
 import { css } from '../../../consts';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { Hr } from '../../../ui/Hr';
 import { heightImage, widthImage } from '../consts';
 import { DetailsContainer } from './DetailsContainer';
 import { IconContainer } from './IconContainer';
-import { StoreDetails } from './StoreDetails';
 import { StoreDetailsButton } from './StoreDetailsButton';
-import { selfDelivery } from '../../../../consts';
 
 export const CartItem = ({ item, quantity = 1 }: any) => {
   const [storeDetails, setStoreDetails] = useState(false);

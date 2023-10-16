@@ -159,3 +159,9 @@ export const timeFramesDelivery = [
   { label: 'From 15.00 to 18.00', value: '15.00-18.00' },
   { label: 'From 18.00 to 21.00', value: '18.00-21.00' },
 ];
+
+export const imagesSocialMedia = {
+  telegram: require('./assets/telegram.png'),
+  instagram: require('./assets/instagram.png'),
+  whatsApp: require('./assets/whatsApp.png'),
+};

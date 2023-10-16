@@ -19,6 +19,7 @@ import { Main } from './src/pages/Main';
 import { MyAccount } from './src/pages/MyAccount';
 import { PaymentPage } from './src/pages/PaymentPage';
 import { PurchasesPage } from './src/pages/PurchasesPage';
+import { ReturnWayPage } from './src/pages/ReturnWayPage';
 import { ReturnsPage } from './src/pages/ReturnsPage';
 import { SectionsPage } from './src/pages/SectionsPage';
 import { SortPage } from './src/pages/SortPage';
@@ -106,6 +107,7 @@ export default function App() {
             <Stack.Screen name="LoginPage" component={LoginPage} />
             <Stack.Screen name="PurchasesPage" component={PurchasesPage} />
             <Stack.Screen name="ReturnsPage" component={ReturnsPage} />
+            <Stack.Screen name="ReturnWayPage" component={ReturnWayPage} />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

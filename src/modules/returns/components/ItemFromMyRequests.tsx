@@ -6,7 +6,7 @@ import { UpperText } from '../ui/UpperText';
 import { ImageContainer } from './ImageContainer';
 import { TextContainer } from './TextContainer';
 
-export const Return = ({ item }) => {
+export const ItemFromMyRequests = ({ item }) => {
   return (
     <View style={css.return.container}>
       <UpperText number={item.return.number} date={item.return.date} />

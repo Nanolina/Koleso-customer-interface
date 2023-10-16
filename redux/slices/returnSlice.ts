@@ -1,17 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { myRequests } from '../../consts';
+import { myRequests, selfReturn } from '../../consts';
 
 const returnSlice = createSlice({
   name: 'return',
   initialState: {
-    request: myRequests,
+    // My Requests | Create a request
+    returns: myRequests,
+
+    // Self-return | Courier
+    way: selfReturn,
   },
   reducers: {
-    toggleReturn(state, action) {
-      state.request = action.payload;
+    toggleReturns(state, action) {
+      state.returns = action.payload;
+    },
+    toggleReturnWay(state, action) {
+      state.way = action.payload;
     },
   },
 });
 
 export default returnSlice.reducer;
-export const { toggleReturn } = returnSlice.actions;
+export const { toggleReturns, toggleReturnWay } = returnSlice.actions;
