@@ -14,23 +14,23 @@ export const ButtonsDelivery = () => {
     <View style={styles.container}>
       <ButtonGradient
         text={selfDelivery}
-        onPress={() => dispatch(toggleDelivery({ selfDelivery }))}
+        onPress={() => dispatch(toggleDelivery(selfDelivery))}
         style={styles.button}
       />
       <ButtonWithBorder
         text={courier}
-        onPress={() => dispatch(toggleDelivery({ courier }))}
+        onPress={() => dispatch(toggleDelivery(courier))}
       />
     </View>
   ) : (
     <View style={styles.container}>
       <ButtonWithBorder
         text={selfDelivery}
-        onPress={() => dispatch(toggleDelivery({ selfDelivery }))}
+        onPress={() => dispatch(toggleDelivery(selfDelivery))}
       />
       <ButtonGradient
         text={courier}
-        onPress={() => dispatch(toggleDelivery({ courier }))}
+        onPress={() => dispatch(toggleDelivery(courier))}
         style={styles.button}
       />
     </View>
