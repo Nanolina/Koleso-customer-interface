@@ -32,7 +32,7 @@ export const Footer: React.FC<any> = () => {
         <TouchableOpacity onPress={() => navigation.navigate('CartPage')}>
           <IconFooter name="shopping-cart" />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={() => navigation.navigate('Favorites')}>
           <IconFooter name="favorite" />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('MyAccount')}>
