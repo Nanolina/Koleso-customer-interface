@@ -110,3 +110,24 @@ export const queries = [
   },
   { id: '3', name: 'Cherry' },
 ];
+
+export const finances = [
+  {
+    id: 'b16e5377-ad5e-481c-b115-05d45d13cbc0',
+    text: 'Payment for the order',
+    orderNumber: '0135033693-0023',
+    paymentAmount: 50,
+    date: '27.09.2023',
+    time: '23:38',
+    status: 'successful',
+  },
+  {
+    id: '847319b3-1a7b-49c6-9017-ee7667744ff0',
+    text: 'Return of goods on order',
+    orderNumber: '0256033693-0023',
+    paymentAmount: 124,
+    date: '02.10.2023',
+    time: '10:40',
+    status: 'rejected',
+  },
+];

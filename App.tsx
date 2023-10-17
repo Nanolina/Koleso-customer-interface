@@ -13,6 +13,7 @@ import store from './redux/store';
 import { CartPage } from './src/pages/CartPage';
 import { CategoriesPage } from './src/pages/CategoriesPage';
 import { CheckoutPage } from './src/pages/CheckoutPage';
+import { FinancesPage } from './src/pages/FinancesPage';
 import { Home } from './src/pages/Home';
 import { ItemPage } from './src/pages/ItemPage';
 import { Main } from './src/pages/Main';
@@ -113,6 +114,7 @@ export default function App() {
               name="ReturnByCourierFormPage"
               component={ReturnByCourierFormPage}
             />
+            <Stack.Screen name="FinancesPage" component={FinancesPage} />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

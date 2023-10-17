@@ -27,7 +27,7 @@ export const services = [
     id: 'b35d2126-177e-4447-84ec-6abac528bd76',
     title: 'Finances',
     image: require('./assets/finances.png'),
-    redirectPage: '',
+    redirectPage: 'FinancesPage',
   },
   {
     id: '73b368dc-6d88-447e-ae3f-1ebc6d10e84b',
