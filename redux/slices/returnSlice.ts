@@ -14,6 +14,7 @@ const returnSlice = createSlice({
     // "Didn't fit" | 'Bad quality' | 'Warranty case']
     reason: reasonsForReturn[0],
     photos: [],
+    comment: '',
   },
   reducers: {
     toggleReturns(state, action) {
@@ -31,6 +32,9 @@ const returnSlice = createSlice({
     removePhoto(state, action) {
       state.photos.splice(action.payload, 1);
     },
+    addComment(state, action) {
+      state.comment = action.payload;
+    },
   },
 });
 
@@ -41,4 +45,5 @@ export const {
   toggleReason,
   addPhoto,
   removePhoto,
+  addComment,
 } = returnSlice.actions;

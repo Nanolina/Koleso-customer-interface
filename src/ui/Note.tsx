@@ -1,16 +1,16 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import { css } from '../../../consts';
+import { css } from '../consts';
 
-export const Note = ({ value, onChangeText }) => {
+export const Note = ({ title, placeholder, value, onChangeText }: any) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Note</Text>
+      {title && <Text style={styles.text}>{title}</Text>}
       <TextInput
         style={styles.textArea}
         multiline={true}
         numberOfLines={4}
-        placeholder="Write wishes for the store or courier..."
+        placeholder={placeholder}
         value={value}
         onChangeText={onChangeText}
       />

@@ -1,12 +1,17 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { addComment } from '../../../../redux/slices/returnSlice';
 import { css } from '../../../consts';
+import { Hr } from '../../../ui/Hr';
+import { Note } from '../../../ui/Note';
+import { BottomInfo } from './BottomInfo';
 import { ItemFromCreateRequest } from './ItemFromCreateRequest';
 import { PhotoUpload } from './PhotoUpload';
 import ReasonContainer from './ReasonContainer';
 
 export const ReturnByCourier = ({ item }) => {
-  const { reason } = useSelector((state: any) => state.return);
+  const { reason, comment } = useSelector((state: any) => state.return);
+  const dispatch = useDispatch();
 
   return (
     <View>
@@ -24,6 +29,21 @@ export const ReturnByCourier = ({ item }) => {
           </View>
           <PhotoUpload />
         </View>
+
+        <View style={styles.container}>
+          <View style={styles.textContainer}>
+            <Text style={styles.text}>Comment</Text>
+          </View>
+          <Note
+            placeholder="Describe the reason for returning the product..."
+            value={comment}
+            onChangeText={(text) => dispatch(addComment(text))}
+          />
+        </View>
+
+        <Hr />
+
+        <BottomInfo />
       </View>
     </View>
   );

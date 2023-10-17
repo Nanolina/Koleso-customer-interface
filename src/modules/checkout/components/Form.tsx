@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addField } from '../../../../redux/slices/checkoutSlice';
 import { DatePicker } from '../../../components/DatePicker';
 import { TextWithInput } from '../../../components/TextWithInput';
+import { Note } from '../../../ui/Note';
 import { minDate } from '../consts';
-import { Note } from '../ui/Note';
 import { TimePicker } from './TimePicker';
 
 export const Form = () => {
@@ -99,6 +99,8 @@ export const Form = () => {
       </View>
 
       <Note
+        title="Note"
+        placeholder="Write wishes for the store or courier..."
         value={note}
         onChangeText={(text) =>
           dispatch(addField({ field: 'note', value: text }))
