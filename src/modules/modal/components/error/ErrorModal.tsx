@@ -4,7 +4,7 @@ import { TextError } from '../../ui/TextError';
 import { CustomModal } from '../CustomModal';
 import { StatusErrorPayment } from './StatusErrorPayment';
 
-export const Error = ({ onClose }) => {
+export const ErrorModal = ({ onClose }) => {
   return (
     <CustomModal onClose={onClose}>
       <View style={styles.container}>

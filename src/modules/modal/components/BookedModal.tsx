@@ -1,17 +1,18 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../../consts';
-import { images } from '../../consts';
-import { CustomModal } from '../CustomModal';
-import { StatusSuccessPayment } from './StatusSuccessPayment';
+import { css } from '../../../consts';
+import { images } from '../consts';
+import { CustomModal } from './CustomModal';
 
-export const Success = ({ onClose }) => {
+export const BookedModal = ({ onClose }) => {
   return (
     <CustomModal onClose={onClose}>
       <View style={styles.container}>
-        <Text style={styles.text}>Thank you for you purchase!</Text>
+        <Text style={styles.text}>Thank you for booking!</Text>
         <Image source={images.success} style={styles.image} />
       </View>
-      <StatusSuccessPayment />
+      <Text style={styles.text}>
+        All necessary information can be found in the "Booked items" section
+      </Text>
     </CustomModal>
   );
 };

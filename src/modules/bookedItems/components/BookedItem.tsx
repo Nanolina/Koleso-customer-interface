@@ -5,13 +5,15 @@ import { StoreDetails } from '../../../components/StoreDetails';
 import { StoreDetailsButton } from '../../../components/StoreDetailsButton';
 import { TextInfoContainer } from '../../../components/TextInfoContainer';
 import { css } from '../../../consts';
+import { BookedModal } from '../../modal';
 import { UpperText } from '../../returns/ui/UpperText';
 
-export const BookedItem = ({ item }) => {
+export const BookedItem = ({ item, isModalVisible, onClose }) => {
   const [storeDetails, setStoreDetails] = useState(false);
 
   return (
     <View style={css.return.container}>
+      {isModalVisible && <BookedModal onClose={onClose} />}
       <UpperText
         number={item.book.number}
         date={item.book.date}

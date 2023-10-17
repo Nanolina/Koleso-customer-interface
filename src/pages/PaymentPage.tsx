@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { Error, Success } from '../modules/modal';
+import { ErrorModal, SuccessModal } from '../modules/modal';
 import { Payment } from '../modules/payment';
 import { CentralContainer } from '../ui/CentralContainer';
 import { SafeAreaViewContainer } from '../ui/SafeAreaViewContainer';
@@ -21,7 +21,7 @@ export const PaymentPage = () => {
         <>
           <SafeAreaViewContainer>
             <View style={styles.container}>
-              <Success onClose={() => setModalVisible(false)} />
+              <SuccessModal onClose={() => setModalVisible(false)} />
             </View>
           </SafeAreaViewContainer>
         </>
@@ -31,7 +31,7 @@ export const PaymentPage = () => {
         <>
           <SafeAreaViewContainer>
             <View style={styles.container}>
-              <Error onClose={() => setModalVisible(false)} />
+              <ErrorModal onClose={() => setModalVisible(false)} />
             </View>
           </SafeAreaViewContainer>
         </>

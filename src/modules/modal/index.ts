@@ -1,3 +1,4 @@
+export { BookedModal } from './components/BookedModal';
 export { ModalPhotoUpload } from './components/ModalPhotoUpload';
-export { Error } from './components/error/Error';
-export { Success } from './components/success/Success';
+export { ErrorModal } from './components/error/ErrorModal';
+export { SuccessModal } from './components/success/SuccessModal';
