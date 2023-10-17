@@ -31,7 +31,6 @@ export const Login: React.FC = () => {
           }
           value={login}
           onChangeText={(text) => setLogin(text)}
-          isTwoIcons
         />
 
         <ImageInput
