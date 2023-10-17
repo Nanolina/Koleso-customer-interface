@@ -1,12 +1,12 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import React, { useState } from 'react';
-import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPhoto, removePhoto } from '../../../../redux/slices/returnSlice';
+import { addPhoto } from '../../../../redux/slices/returnSlice';
 import { css } from '../../../consts';
 import { ModalPhotoUpload } from '../../modal';
-import { ButtonRemovePhoto } from '../ui/ButtonRemovePhoto';
+import { Photo } from '../ui/Photo';
 
 export const PhotoUpload = () => {
   const photos = useSelector((state: any) => state.return.photos);
@@ -66,7 +66,15 @@ export const PhotoUpload = () => {
         style={styles.firstPhotoContainer}
         onPress={openCameraOrGallery}
       >
-        <MaterialIcons name="photo-camera" size={28} color={css.colors.main} />
+        {photos.length < 5 ? (
+          <MaterialIcons
+            name="photo-camera"
+            size={css.iconSizeMax}
+            color={css.colors.main}
+          />
+        ) : (
+          <Photo index={4} />
+        )}
       </TouchableOpacity>
 
       {isModalVisible && (
@@ -79,16 +87,7 @@ export const PhotoUpload = () => {
 
       {[...new Array(4)].map((_, index) => (
         <View key={index} style={styles.emptyPhotoContainer}>
-          {photos[index] && (
-            <View>
-              <Image source={{ uri: photos[index] }} style={css.return.photo} />
-              <ButtonRemovePhoto
-                onPress={() => {
-                  dispatch(removePhoto(index));
-                }}
-              />
-            </View>
-          )}
+          {photos[index] && <Photo index={index} />}
         </View>
       ))}
     </View>

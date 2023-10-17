@@ -1,25 +1,17 @@
 {
   "expo": {
     "name": "Koleso",
-    "slug": "Koleso",
+    "slug": "koleso",
     "version": "1.0.0",
     "orientation": "portrait",
-    "userInterfaceStyle": "light",
-    "assetBundlePatterns": ["**/*"],
-    "permissions": ["CAMERA", "CAMERA_ROLL"],
+    "userInterfaceStyle": "automatic",
+    "assetBundlePatterns": ["assets/**/*"],
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
         "NSCameraUsageDescription": "This app would like to access your camera",
         "NSPhotoLibraryUsageDescription": "This app would like to access your photos"
       }
-    },
-    "android": {
-      "permissions": [
-        "CAMERA",
-        "READ_EXTERNAL_STORAGE",
-        "WRITE_EXTERNAL_STORAGE"
-      ]
     }
   }
 }

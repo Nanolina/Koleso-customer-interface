@@ -163,14 +163,14 @@ export const css = {
       },
     },
     photoContainer: {
-      width: 60,
+      width: 70,
       height: 100,
       borderWidth: 1,
       borderColor: '#c9c7c7',
       borderRadius: 8,
     },
     photo: {
-      width: 60,
+      width: 70,
       height: 100,
       borderRadius: 8,
     },
