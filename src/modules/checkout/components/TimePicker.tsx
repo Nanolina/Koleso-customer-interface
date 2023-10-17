@@ -3,12 +3,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import { css, timeFramesDelivery } from '../../../consts';
 
-export const TimePicker = ({ value, onChange, width }) => {
+export const TimePicker = ({ text, value, onChange, width }) => {
   const styles = getStyles(width);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Delivery time</Text>
+      <Text style={styles.text}>{text}</Text>
 
       <View style={styles.picker}>
         <RNPickerSelect

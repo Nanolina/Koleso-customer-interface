@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { minDate } from '../../src/modules/checkout/consts';
+import { minDate } from '../../src/consts';
 
 const checkoutSlice = createSlice({
   name: 'checkout',

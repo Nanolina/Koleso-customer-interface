@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { myRequests, selfReturn } from '../../consts';
-import { reasonsForReturn } from '../../src/consts';
+import { minDate, reasonsForReturn } from '../../src/consts';
 
 const returnSlice = createSlice({
   name: 'return',
@@ -15,6 +15,15 @@ const returnSlice = createSlice({
     reason: reasonsForReturn[0],
     photos: [],
     comment: '',
+    name: null,
+    phone: null,
+    city: null,
+    street: null,
+    house: null,
+    apartment: null,
+    date: minDate.toISOString(),
+    time: { label: 'Anytime', value: 'Anytime' },
+    note: null,
   },
   reducers: {
     toggleReturns(state, action) {
@@ -32,8 +41,9 @@ const returnSlice = createSlice({
     removePhoto(state, action) {
       state.photos.splice(action.payload, 1);
     },
-    addComment(state, action) {
-      state.comment = action.payload;
+    addFieldReturn(state, action) {
+      const { field, value } = action.payload;
+      state[field] = value;
     },
   },
 });
@@ -45,5 +55,5 @@ export const {
   toggleReason,
   addPhoto,
   removePhoto,
-  addComment,
+  addFieldReturn,
 } = returnSlice.actions;

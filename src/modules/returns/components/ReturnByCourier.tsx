@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { addComment } from '../../../../redux/slices/returnSlice';
+import { addFieldReturn } from '../../../../redux/slices/returnSlice';
 import { css } from '../../../consts';
 import { Hr } from '../../../ui/Hr';
 import { Note } from '../../../ui/Note';
@@ -37,7 +37,9 @@ export const ReturnByCourier = ({ item }) => {
           <Note
             placeholder="Describe the reason for returning the product..."
             value={comment}
-            onChangeText={(text) => dispatch(addComment(text))}
+            onChangeText={(text) =>
+              dispatch(addFieldReturn({ field: 'comment', value: text }))
+            }
           />
         </View>
 

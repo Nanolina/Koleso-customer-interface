@@ -175,10 +175,22 @@ export const css = {
       borderRadius: 8,
     },
   },
+  form: {
+    container: {
+      gap: 20,
+      paddingBottom: 20,
+    },
+  },
 };
 
 export const currency = '€';
-export const minDaysDelivery = 3;
+
+// delivery, return
+const minDaysDelivery = 3;
+const currentDate = new Date();
+export const minDate = new Date(
+  currentDate.setDate(currentDate.getDate() + minDaysDelivery)
+);
 export const timeFramesDelivery = [
   { label: 'From 9.00 to 12.00', value: '9.00-12.00' },
   { label: 'From 12.00 to 15.00', value: '12.00-15.00' },

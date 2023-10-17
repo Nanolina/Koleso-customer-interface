@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
 import { PriceContainer } from '../../../components/PriceContainer';
 import { css } from '../../../consts';
@@ -8,13 +9,18 @@ const quantity = 1;
 const totalPrice = 230;
 
 export const BottomInfo = () => {
+  const navigation: any = useNavigation();
+
   return (
     <View style={styles.container}>
       <Text style={styles.text}>
         {quantity} {quantity > 1 ? 'items' : 'item'}
       </Text>
       <PriceContainer price={totalPrice} priceSize={css.size.text16} />
-      <ButtonGradient text="Make a request" />
+      <ButtonGradient
+        text="Make a request"
+        onPress={() => navigation.navigate('ReturnByCourierFormPage')}
+      />
     </View>
   );
 };
