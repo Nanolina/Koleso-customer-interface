@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { Image, Platform, StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { selfDelivery } from '../../../../consts';
+import { QuantityContainer } from '../../../components/QuantityContainer';
 import { StoreDetails } from '../../../components/StoreDetails';
 import { css } from '../../../consts';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { Hr } from '../../../ui/Hr';
-import { heightImage, widthImage } from '../consts';
+import { gapBetweenIcons, heightImage, widthImage } from '../consts';
 import { DetailsContainer } from './DetailsContainer';
 import { IconContainer } from './IconContainer';
 import { StoreDetailsButton } from './StoreDetailsButton';
@@ -21,7 +22,10 @@ export const CartItem = ({ item, quantity = 1 }: any) => {
         <CheckboxItem onToggle={() => {}} />
         <Image source={{ uri: item.image }} style={styles.image} />
         <DetailsContainer item={item} />
-        <IconContainer quantity={quantity} />
+        <View style={styles.iconContainer}>
+          <IconContainer />
+          <QuantityContainer quantity={quantity} />
+        </View>
       </View>
 
       {delivery === selfDelivery && (
@@ -50,5 +54,9 @@ const styles = StyleSheet.create({
     width: widthImage,
     height: heightImage,
     borderRadius: css.borderRadiusMax,
+  },
+  iconContainer: {
+    alignItems: 'flex-end',
+    gap: gapBetweenIcons,
   },
 });

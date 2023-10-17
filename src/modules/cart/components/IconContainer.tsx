@@ -1,14 +1,12 @@
 import { StyleSheet, View } from 'react-native';
 import { Icon } from '../../../ui/Icon';
-import { gapBetweenDetails } from '../consts';
-import { QuantityContainer } from './QuantityContainer';
+import { gapBetweenIcons } from '../consts';
 
-export const IconContainer = ({ quantity }) => {
+export const IconContainer = () => {
   return (
     <View style={styles.container}>
       <Icon name="delete" />
       <Icon name="favorite-border" />
-      <QuantityContainer quantity={quantity} />
     </View>
   );
 };
@@ -16,6 +14,6 @@ export const IconContainer = ({ quantity }) => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'flex-end',
-    gap: gapBetweenDetails,
+    gap: gapBetweenIcons,
   },
 });

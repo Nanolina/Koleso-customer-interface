@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { css } from '../../../consts';
-import { Gradient } from '../../../ui/Gradient';
+import { css } from '../consts';
+import { Gradient } from './Gradient';
 
 const colorsWithOpacity = [css.colors.pinkOpacity, css.colors.purpleOpacity];
 

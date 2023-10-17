@@ -1,5 +1,5 @@
 import { StoreDetails } from '../../../components/StoreDetails';
 
-export const ReturnWay = ({ item }) => {
+export const SelfReturn = ({ item }) => {
   return <StoreDetails item={item} page="return" />;
 };
