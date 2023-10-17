@@ -26,7 +26,9 @@ export const Footer: React.FC<any> = () => {
         <TouchableOpacity onPress={() => navigation.navigate('SectionsPage')}>
           <IconFooter name="search" />
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('NotificationsPage')}
+        >
           <IconFooter name="notifications" />
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('CartPage')}>

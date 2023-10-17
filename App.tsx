@@ -21,6 +21,7 @@ import { Home } from './src/pages/Home';
 import { ItemPage } from './src/pages/ItemPage';
 import { Main } from './src/pages/Main';
 import { MyAccount } from './src/pages/MyAccount';
+import { NotificationsPage } from './src/pages/NotificationsPage';
 import { PaymentPage } from './src/pages/PaymentPage';
 import { PurchasesPage } from './src/pages/PurchasesPage';
 import { ReturnByCourierFormPage } from './src/pages/ReturnByCourierFormPage';
@@ -121,6 +122,10 @@ export default function App() {
             <Stack.Screen name="ContactsPage" component={ContactsPage} />
             <Stack.Screen name="BookedItemsPage" component={BookedItemsPage} />
             <Stack.Screen name="Favorites" component={Favorites} />
+            <Stack.Screen
+              name="NotificationsPage"
+              component={NotificationsPage}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

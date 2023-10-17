@@ -143,3 +143,13 @@ export const finances = [
     status: 'rejected',
   },
 ];
+
+export const notifications = [
+  {
+    id: '1',
+    title: 'The money has been sent',
+    date: '02.10.2023',
+    time: '10:40',
+    text: 'Refund of 59 euros has been sent to the card. Refund transaction №453628173 .Refer it to your bank if the money does not reach your account within 5 days',
+  },
+];
