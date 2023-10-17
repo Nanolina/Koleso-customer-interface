@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { myRequests, selfReturn } from '../../consts';
+import { reasonsForReturn } from '../../src/consts';
 
 const returnSlice = createSlice({
   name: 'return',
@@ -9,6 +10,9 @@ const returnSlice = createSlice({
 
     // Self-return | Courier
     way: selfReturn,
+
+    // "Didn't fit" | 'Bad quality' | 'Warranty case']
+    reason: reasonsForReturn[0],
   },
   reducers: {
     toggleReturns(state, action) {
@@ -17,8 +21,12 @@ const returnSlice = createSlice({
     toggleReturnWay(state, action) {
       state.way = action.payload;
     },
+    toggleReason(state, action) {
+      state.reason = action.payload;
+    },
   },
 });
 
 export default returnSlice.reducer;
-export const { toggleReturns, toggleReturnWay } = returnSlice.actions;
+export const { toggleReturns, toggleReturnWay, toggleReason } =
+  returnSlice.actions;

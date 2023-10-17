@@ -148,6 +148,20 @@ export const css = {
     centerContainer: {
       gap: 10,
     },
+    reason: {
+      box: {
+        borderRadius: 8,
+        width: Platform.OS === 'web' ? 200 : 95,
+        height: 60,
+        padding: 5,
+      },
+      gradientBox: {
+        borderRadius: 6,
+        width: Platform.OS === 'web' ? 195 : 90,
+        height: 55,
+        padding: 5,
+      },
+    },
   },
 };
 
@@ -165,3 +179,5 @@ export const imagesSocialMedia = {
   instagram: require('./assets/instagram.png'),
   whatsApp: require('./assets/whatsApp.png'),
 };
+
+export const reasonsForReturn = ["Didn't fit", 'Bad quality', 'Warranty case'];
