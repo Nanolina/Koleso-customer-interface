@@ -13,7 +13,7 @@ const returnSlice = createSlice({
 
     // "Didn't fit" | 'Bad quality' | 'Warranty case']
     reason: reasonsForReturn[0],
-    images: [],
+    photos: [],
   },
   reducers: {
     toggleReturns(state, action) {
@@ -25,11 +25,11 @@ const returnSlice = createSlice({
     toggleReason(state, action) {
       state.reason = action.payload;
     },
-    addImage(state, action) {
-      state.images = [action.payload, ...state.images].slice(0, 5);
+    addPhoto(state, action) {
+      state.photos = [action.payload, ...state.photos].slice(0, 5);
     },
-    removeImage(state, action) {
-      state.images.splice(action.payload, 1);
+    removePhoto(state, action) {
+      state.photos.splice(action.payload, 1);
     },
   },
 });
@@ -39,6 +39,6 @@ export const {
   toggleReturns,
   toggleReturnWay,
   toggleReason,
-  addImage,
-  removeImage,
+  addPhoto,
+  removePhoto,
 } = returnSlice.actions;

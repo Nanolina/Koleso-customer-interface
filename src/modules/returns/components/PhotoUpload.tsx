@@ -3,16 +3,16 @@ import * as ImagePicker from 'expo-image-picker';
 import React from 'react';
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { addImage, removeImage } from '../../../../redux/slices/returnSlice';
+import { addPhoto, removePhoto } from '../../../../redux/slices/returnSlice';
 import { css } from '../../../consts';
 import { ButtonRemovePhoto } from '../ui/ButtonRemovePhoto';
 
-export const ImageUpload = () => {
-  const images = useSelector((state: any) => state.return.images);
+export const PhotoUpload = () => {
+  const photos = useSelector((state: any) => state.return.photos);
   const dispatch = useDispatch();
 
-  const pickImage = async () => {
-    if (images.length >= 5) return;
+  const pickPhoto = async () => {
+    if (photos.length >= 5) return;
 
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -21,31 +21,31 @@ export const ImageUpload = () => {
     });
 
     if (!result.canceled && result.assets && result.assets.length > 0) {
-      dispatch(addImage(result.assets[0].uri));
+      dispatch(addPhoto(result.assets[0].uri));
     }
   };
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.firstImageContainer} onPress={pickImage}>
-        {images.length < 5 ? (
+      <TouchableOpacity style={styles.firstPhotoContainer} onPress={pickPhoto}>
+        {photos.length < 5 ? (
           <MaterialIcons
             name="photo-camera"
             size={28}
             color={css.colors.main}
           />
         ) : (
-          <Image source={{ uri: images[4] }} style={css.return.image} />
+          <Image source={{ uri: photos[4] }} style={css.return.photo} />
         )}
       </TouchableOpacity>
       {[...new Array(4)].map((_, index) => (
-        <View key={index} style={styles.emptyImageContainer}>
-          {images[index] && (
+        <View key={index} style={styles.emptyPhotoContainer}>
+          {photos[index] && (
             <View>
-              <Image source={{ uri: images[index] }} style={css.return.image} />
+              <Image source={{ uri: photos[index] }} style={css.return.photo} />
               <ButtonRemovePhoto
                 onPress={() => {
-                  dispatch(removeImage(index));
+                  dispatch(removePhoto(index));
                 }}
               />
             </View>
@@ -61,16 +61,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  firstImageContainer: {
+  firstPhotoContainer: {
     backgroundColor: css.colors.lightGray,
     alignItems: 'center',
     justifyContent: 'center',
-    ...css.return.imageContainer,
+    ...css.return.photoContainer,
   },
-  emptyImageContainer: {
+  emptyPhotoContainer: {
     borderStyle: 'dashed',
     alignItems: 'center',
     justifyContent: 'center',
-    ...css.return.imageContainer,
+    ...css.return.photoContainer,
   },
 });

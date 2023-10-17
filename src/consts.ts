@@ -162,16 +162,17 @@ export const css = {
         padding: 5,
       },
     },
-    imageContainer: {
+    photoContainer: {
       width: 60,
       height: 100,
       borderWidth: 1,
       borderColor: '#c9c7c7',
       borderRadius: 8,
     },
-    image: {
+    photo: {
       width: 60,
       height: 100,
+      borderRadius: 8,
     },
   },
 };
