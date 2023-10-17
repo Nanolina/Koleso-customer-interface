@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { css } from '../../../consts';
+import { ImageUpload } from './ImageUpload';
 import { ItemFromCreateRequest } from './ItemFromCreateRequest';
 import ReasonContainer from './ReasonContainer';
 
@@ -13,6 +14,7 @@ export const ReturnByCourier = ({ item }) => {
       <View style={styles.container}>
         <Text style={styles.text}>Reason</Text>
         <ReasonContainer selectedReason={reason} />
+        <ImageUpload />
       </View>
     </View>
   );
