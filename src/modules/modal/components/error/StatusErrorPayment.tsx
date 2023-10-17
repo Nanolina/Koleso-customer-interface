@@ -1,18 +1,23 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { css } from '../../../../consts';
 import { images } from '../../consts';
+import { Button } from '../../ui/Button';
 
 export const StatusErrorPayment = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Image source={images.exclamation} style={styles.image} />
-        <Text style={styles.text}>Insufficient funds on the card</Text>
-      </View>
+    <Button onPress={() => {}}>
+      <View style={styles.container}>
+        <View style={styles.header}>
+          <Image source={images.exclamation} style={styles.image} />
+          <Text style={styles.text}>Insufficient funds on the card</Text>
+        </View>
 
-      <Text style={styles.text}>The order was not generated</Text>
-      <Text style={styles.green}>Please try again</Text>
-    </View>
+        <View style={styles.bottomContainer}>
+          <Text style={styles.text}>The order was not generated</Text>
+          <Text style={styles.green}>Please try again</Text>
+        </View>
+      </View>
+    </Button>
   );
 };
 
@@ -20,7 +25,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    ...css.modal.statusPayment.container,
+    gap: 30,
   },
   header: {
     flexDirection: 'row',
@@ -40,5 +45,9 @@ const styles = StyleSheet.create({
     color: css.colors.green,
     fontSize: css.size.text16,
     fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  bottomContainer: {
+    gap: 10,
   },
 });

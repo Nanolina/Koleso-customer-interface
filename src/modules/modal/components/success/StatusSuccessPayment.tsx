@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { css } from '../../../../consts';
+import { Button } from '../../ui/Button';
 
 export const StatusSuccessPayment = () => {
   return (
-    <View style={styles.container}>
-      <View>
+    <Button onPress={() => {}}>
+      <View style={styles.container}>
         <Text style={styles.boldText}>
           Payment was <Text style={styles.green}>successful</Text>
         </Text>
@@ -23,7 +24,7 @@ export const StatusSuccessPayment = () => {
           </View>
         </Text>
       </View> */}
-    </View>
+    </Button>
   );
 };
 
@@ -31,7 +32,7 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
     alignItems: 'center',
-    ...css.modal.statusPayment.container,
+    gap: 30,
   },
   boldText: {
     fontSize: css.size.text16,

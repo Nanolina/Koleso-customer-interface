@@ -6,10 +6,9 @@ import {
   StyleSheet,
   View,
 } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { courier } from '../../../../consts';
 import { addField } from '../../../../redux/slices/checkoutSlice';
-import { toggleModal } from '../../../../redux/slices/paymentSlice';
 import { Form } from '../../../components/Form';
 import { PriceInfoContainer } from '../../../components/PriceInfoContainer';
 import { css } from '../../../consts';
@@ -19,7 +18,6 @@ import { Hr } from '../../../ui/Hr';
 
 export const Checkout = () => {
   const navigation: any = useNavigation();
-  const dispatch = useDispatch();
 
   const { name, phone, city, street, house, apartment, date, time, note } =
     useSelector((state: any) => state.checkout);
@@ -66,10 +64,7 @@ export const Checkout = () => {
         <View style={styles.buttonPayment}>
           <ButtonGreen
             text="Proceed payment"
-            onPress={() => {
-              dispatch(toggleModal(true));
-              navigation.navigate('PaymentPage');
-            }}
+            onPress={() => navigation.navigate('PaymentPage')}
             width="50%"
           />
         </View>

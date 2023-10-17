@@ -1,47 +1,43 @@
+import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleModal } from '../../redux/slices/paymentSlice';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { Error, Success } from '../modules/modal';
 import { Payment } from '../modules/payment';
-import { ButtonCloseModal } from '../ui/ButtonCloseModal';
 import { CentralContainer } from '../ui/CentralContainer';
 import { SafeAreaViewContainer } from '../ui/SafeAreaViewContainer';
 
 export const PaymentPage = () => {
-  const { isModalOpen } = useSelector((state: any) => state.payment);
-  const dispatch = useDispatch();
+  // true = mock data
+  const [isModalVisible, setModalVisible] = useState(true);
 
   // mock data
   const payment = true;
 
   return (
     <Container>
-      {isModalOpen && payment && (
+      {isModalVisible && payment && (
         <>
           <SafeAreaViewContainer>
             <View style={styles.container}>
-              <ButtonCloseModal onPress={() => dispatch(toggleModal(false))} />
-              <Success />
+              <Success onClose={() => setModalVisible(false)} />
             </View>
           </SafeAreaViewContainer>
         </>
       )}
 
-      {isModalOpen && !payment && (
+      {isModalVisible && !payment && (
         <>
           <SafeAreaViewContainer>
             <View style={styles.container}>
-              <ButtonCloseModal onPress={() => dispatch(toggleModal(false))} />
-              <Error />
+              <Error onClose={() => setModalVisible(false)} />
             </View>
           </SafeAreaViewContainer>
         </>
       )}
 
-      {!isModalOpen && (
+      {!isModalVisible && (
         <>
           <Header title="Payment" />
           <CentralContainer isPadding={true}>

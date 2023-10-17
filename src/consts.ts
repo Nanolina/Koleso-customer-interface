@@ -103,17 +103,6 @@ export const css = {
     gap: 10,
     paddingVertical: 10,
   },
-  modal: {
-    paddingHorizontal: 30,
-    statusPayment: {
-      container: {
-        backgroundColor: '#FEEFFF',
-        borderRadius: 12,
-        gap: 20,
-        padding: 20,
-      },
-    },
-  },
   cards: {
     container: {
       flex: 1,
