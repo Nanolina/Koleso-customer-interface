@@ -97,7 +97,13 @@ Don't miss the opportunity to add this gorgeous pantsuit to your closet! It will
       saturday: '09.00 - 14.00',
       sunday: 'day off',
     },
-    reservationDays: 5,
+    book: {
+      number: '137033693-2342',
+      date: '12.05.2023',
+      days: 5,
+      quantity: 1,
+      statusPayment: 'Not paid', // | 'Not paid' | 'Amount paid in the amount of ...'
+    },
     delivery: {
       number: '0234033693-0034',
       date: '12.01.2022',

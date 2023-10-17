@@ -5,7 +5,6 @@ import { StoreDetails } from '../../../components/StoreDetails';
 import { StoreDetailsButton } from '../../../components/StoreDetailsButton';
 import { TextInfoContainer } from '../../../components/TextInfoContainer';
 import { css } from '../../../consts';
-import { ButtonGreen } from '../../../ui/ButtonGreen';
 import { UpperText } from '../../returns/ui/UpperText';
 
 export const BookedItem = ({ item }) => {
@@ -27,7 +26,13 @@ export const BookedItem = ({ item }) => {
         <Text style={styles.text}>
           {item.book.quantity} {item.book.quantity > 1 ? 'pcs' : 'pc'}
         </Text>
-        <ButtonGreen text={item.book.statusPayment} />
+        {item.book.statusPayment === 'Paid' && (
+          <Text style={styles.paid}>{item.book.statusPayment}</Text>
+        )}
+
+        {item.book.statusPayment === 'Not paid' && (
+          <Text style={styles.notPaid}>{item.book.statusPayment}</Text>
+        )}
       </View>
 
       <StoreDetailsButton onPress={() => setStoreDetails(!storeDetails)} />
@@ -51,5 +56,15 @@ const styles = StyleSheet.create({
   bottomContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  paid: {
+    fontSize: css.size.text18,
+    fontWeight: 'bold',
+    color: css.colors.green,
+  },
+  notPaid: {
+    fontSize: css.size.text18,
+    fontWeight: 'bold',
+    color: css.colors.darkRed,
   },
 });
