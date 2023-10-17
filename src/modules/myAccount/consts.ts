@@ -39,6 +39,6 @@ export const services = [
     id: 'e48a3892-7b30-4784-8ee1-b16a866dbcef',
     title: 'Contacts',
     image: require('./assets/contacts.png'),
-    redirectPage: '',
+    redirectPage: 'ContactsPage',
   },
 ];
