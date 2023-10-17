@@ -38,6 +38,7 @@ import { SettingsCheckboxPage } from './src/pages/settings/SettingsCheckboxPage'
 import { SettingsInputPage } from './src/pages/settings/SettingsInputPage';
 import { SettingsPage } from './src/pages/settings/SettingsPage';
 import { SettingsPasswordPage } from './src/pages/settings/SettingsPasswordPage';
+import { BookedItemsPage } from './src/pages/BookedItemsPage';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -117,6 +118,7 @@ export default function App() {
             />
             <Stack.Screen name="FinancesPage" component={FinancesPage} />
             <Stack.Screen name="ContactsPage" component={ContactsPage} />
+            <Stack.Screen name="BookedItemsPage" component={BookedItemsPage} />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

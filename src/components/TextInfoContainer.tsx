@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { css, currency } from '../../../consts';
-import { Info } from '../ui/Info';
+import { css, currency } from '../consts';
+import { Info } from '../modules/returns/ui/Info';
 
-export const TextContainer = ({ item }) => {
+export const TextInfoContainer = ({ item }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{item.title}</Text>

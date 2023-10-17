@@ -21,7 +21,13 @@ export const productCards = [
       saturday: '09.00 - 14.00',
       sunday: 'day off',
     },
-    reservationDays: 5,
+    book: {
+      number: '137033693-2342',
+      date: '12.05.2023',
+      days: 5,
+      quantity: 1,
+      statusPayment: 'Paid', // | 'Not paid' | 'Amount paid in the amount of ...'
+    },
     title: 'Pantsuit',
     color: 'beige',
     composition: 'cotton 100%',

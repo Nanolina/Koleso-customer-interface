@@ -17,6 +17,7 @@ export const css = {
     darkRed: '#C80303',
 
     // with opacity
+    withOpacity: ['#FF08C18C', '#8C60FF8C'], // pinkOpacity + purpleOpacity
     mainOpacity: 'rgba(212, 4, 255, 0.5)',
     pinkOpacity: '#FF08C18C',
     purpleOpacity: '#8C60FF8C',

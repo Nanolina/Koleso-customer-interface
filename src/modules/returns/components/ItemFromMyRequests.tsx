@@ -1,18 +1,22 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { ImageContainer } from '../../../components/ImageContainer';
+import { TextInfoContainer } from '../../../components/TextInfoContainer';
 import { css } from '../../../consts';
 import { BottomText } from '../ui/BottomText';
 import { UpperText } from '../ui/UpperText';
-import { ImageContainer } from './ImageContainer';
-import { TextContainer } from './TextContainer';
 
 export const ItemFromMyRequests = ({ item }) => {
   return (
     <View style={css.return.container}>
-      <UpperText number={item.return.number} date={item.return.date} />
+      <UpperText
+        number={item.return.number}
+        date={item.return.date}
+        text="Return request from"
+      />
       <View style={styles.centerContainer}>
         <ImageContainer image={item.image} />
-        <TextContainer item={item} />
+        <TextInfoContainer item={item} />
       </View>
       <BottomText statusMoney={item.return.statusMoney} />
     </View>

@@ -1,15 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { useSelector } from 'react-redux';
-import { myRequests } from '../../../../consts';
 
-export const UpperText = ({ number, date }) => {
-  const { request } = useSelector((state: any) => state.return);
-
+export const UpperText = ({ number, date, text }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>№{number}</Text>
       <Text>
-        {request === myRequests ? 'Return request from ' : 'Order from '}
+        {text}&nbsp;
         <Text style={styles.text}>{date}</Text>
       </Text>
     </View>

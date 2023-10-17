@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
-import { css } from '../../../consts';
-import { ButtonWithBorder } from '../../../ui/ButtonWithBorder';
+import { css } from '../consts';
+import { ButtonWithBorder } from '../ui/ButtonWithBorder';
 
 export const StoreDetailsButton = ({ onPress }) => {
   return (

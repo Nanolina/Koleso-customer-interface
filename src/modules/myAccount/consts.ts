@@ -12,6 +12,12 @@ export const services = [
     redirectPage: 'PurchasesPage',
   },
   {
+    id: 'c28a0737-0257-4bb5-b517-cccc3c86e5ad',
+    title: 'Booked items',
+    image: require('./assets/bookedItems.png'),
+    redirectPage: 'BookedItemsPage',
+  },
+  {
     id: 'e3055e68-4198-44f1-a5cc-d0a836e295a3',
     title: 'Returns',
     image: require('./assets/returns.png'),

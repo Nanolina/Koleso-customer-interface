@@ -15,9 +15,9 @@ export const StoreDetails = ({ item, page = '' }) => {
         )}
       </View>
       {item.workingHours && <OpeningHours days={item.workingHours} />}
-      {item.reservationDays && page !== 'return' && (
+      {item.book && page !== 'return' && (
         <Text>
-          The reservation will be held for {item.reservationDays} working days
+          The reservation will be held for {item.book.days} working days
         </Text>
       )}
     </View>

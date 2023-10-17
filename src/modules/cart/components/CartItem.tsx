@@ -3,13 +3,13 @@ import { Image, Platform, StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { selfDelivery } from '../../../../consts';
 import { StoreDetails } from '../../../components/StoreDetails';
+import { StoreDetailsButton } from '../../../components/StoreDetailsButton';
 import { css } from '../../../consts';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { Hr } from '../../../ui/Hr';
 import { gapBetweenIcons, heightImage, widthImage } from '../consts';
 import { DetailsContainer } from './DetailsContainer';
 import { IconContainer } from './IconContainer';
-import { StoreDetailsButton } from './StoreDetailsButton';
 import { QuantityContainer } from './QuantityContainer';
 
 export const CartItem = ({ item, quantity = 1 }: any) => {
