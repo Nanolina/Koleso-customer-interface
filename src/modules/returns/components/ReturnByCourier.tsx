@@ -11,13 +11,13 @@ export const ReturnByCourier = ({ item }) => {
   return (
     <View>
       <ItemFromCreateRequest item={item} quantity={true} />
-      <View style={styles.container}>
-        <View style={styles.itemContainer}>
+      <View style={styles.mainContainer}>
+        <View style={styles.container}>
           <Text style={styles.text}>Reason</Text>
           <ReasonContainer selectedReason={reason} />
         </View>
 
-        <View style={styles.itemContainer}>
+        <View style={styles.container}>
           <View style={styles.textContainer}>
             <Text style={styles.text}>Photos</Text>
             <Text style={styles.extra}>Up to 5</Text>
@@ -30,8 +30,11 @@ export const ReturnByCourier = ({ item }) => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  mainContainer: {
     gap: 30,
+  },
+  container: {
+    gap: 5,
   },
   text: {
     fontSize: css.size.text20,
@@ -46,8 +49,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-  },
-  itemContainer: {
-    gap: 5,
   },
 });

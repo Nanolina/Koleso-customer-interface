@@ -6,6 +6,7 @@
     "orientation": "portrait",
     "userInterfaceStyle": "light",
     "assetBundlePatterns": ["**/*"],
+    "permissions": ["CAMERA", "CAMERA_ROLL"],
     "ios": {
       "supportsTablet": true,
       "infoPlist": {
