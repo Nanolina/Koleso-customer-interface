@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Image, Platform, StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { selfDelivery } from '../../../../consts';
-import { QuantityContainer } from '../../../components/QuantityContainer';
 import { StoreDetails } from '../../../components/StoreDetails';
 import { css } from '../../../consts';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
@@ -11,6 +10,7 @@ import { gapBetweenIcons, heightImage, widthImage } from '../consts';
 import { DetailsContainer } from './DetailsContainer';
 import { IconContainer } from './IconContainer';
 import { StoreDetailsButton } from './StoreDetailsButton';
+import { QuantityContainer } from './QuantityContainer';
 
 export const CartItem = ({ item, quantity = 1 }: any) => {
   const [storeDetails, setStoreDetails] = useState(false);

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { QuantityContainer } from '../../../components/QuantityContainer';
 import { css } from '../../../consts';
+import { QuantityContainer } from '../../cart';
 import { ButtonsBottom } from '../ui/ButtonsBottom';
 import { UpperText } from '../ui/UpperText';
 import { ImageContainer } from './ImageContainer';
