@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Image, Platform, StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
-import { selfDelivery } from '../../../../consts';
-import { StoreDetails } from '../../../components/StoreDetails';
-import { StoreDetailsButton } from '../../../components/StoreDetailsButton';
+
 import { css } from '../../../consts';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { Hr } from '../../../ui/Hr';
@@ -13,7 +11,6 @@ import { IconContainer } from './IconContainer';
 import { QuantityContainer } from './QuantityContainer';
 
 export const CartItem = ({ item, quantity = 1 }: any) => {
-  const [storeDetails, setStoreDetails] = useState(false);
   const { delivery } = useSelector((state: any) => state.cart);
 
   return (
@@ -27,14 +24,6 @@ export const CartItem = ({ item, quantity = 1 }: any) => {
           <QuantityContainer quantity={quantity} />
         </View>
       </View>
-
-      {delivery === selfDelivery && (
-        <StoreDetailsButton onPress={() => setStoreDetails(!storeDetails)} />
-      )}
-
-      {storeDetails && delivery === selfDelivery && (
-        <StoreDetails item={item} />
-      )}
       <Hr />
     </View>
   );

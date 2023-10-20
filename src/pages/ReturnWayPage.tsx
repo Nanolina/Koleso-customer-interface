@@ -1,10 +1,10 @@
 import { useRoute } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
-import { selfReturn } from '../../consts';
+import { deliveryPoint } from '../../consts';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { ReturnByCourier, SelfReturn } from '../modules/returns';
+import { DeliveryPoint, ReturnByCourier } from '../modules/returns';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const ReturnWayPage = () => {
@@ -15,10 +15,12 @@ export const ReturnWayPage = () => {
 
   return (
     <Container>
-      <Header title={way === selfReturn ? selfReturn : 'Return by courier'} />
+      <Header
+        title={way === deliveryPoint ? deliveryPoint : 'Return by courier'}
+      />
       <CentralContainer isPadding={true} isMinPadding={true}>
-        {way === selfReturn ? (
-          <SelfReturn item={item} />
+        {way === deliveryPoint ? (
+          <DeliveryPoint item={item} />
         ) : (
           <ReturnByCourier item={item} />
         )}

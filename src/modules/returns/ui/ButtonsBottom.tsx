@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { courier, selfReturn } from '../../../../consts';
+import { courier, deliveryPoint } from '../../../../consts';
 import { toggleReturnWay } from '../../../../redux/slices/returnSlice';
 import { ButtonWithBorder } from '../../../ui/ButtonWithBorder';
 
@@ -12,9 +12,9 @@ export const ButtonsBottom = ({ item }) => {
   return (
     <View style={styles.container}>
       <ButtonWithBorder
-        text={selfReturn}
+        text={deliveryPoint}
         onPress={() => {
-          dispatch(toggleReturnWay(selfReturn));
+          dispatch(toggleReturnWay(deliveryPoint));
           navigation.navigate('ReturnWayPage', {
             item,
           });

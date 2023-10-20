@@ -10,7 +10,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { PaperProvider } from 'react-native-paper';
 import { Provider } from 'react-redux';
 import store from './redux/store';
-import { BookedItemsPage } from './src/pages/BookedItemsPage';
 import { CartPage } from './src/pages/CartPage';
 import { CategoriesPage } from './src/pages/CategoriesPage';
 import { CheckoutPage } from './src/pages/CheckoutPage';
@@ -120,7 +119,6 @@ export default function App() {
             />
             <Stack.Screen name="FinancesPage" component={FinancesPage} />
             <Stack.Screen name="ContactsPage" component={ContactsPage} />
-            <Stack.Screen name="BookedItemsPage" component={BookedItemsPage} />
             <Stack.Screen name="Favorites" component={Favorites} />
             <Stack.Screen
               name="NotificationsPage"

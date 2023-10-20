@@ -4,30 +4,7 @@ export const productCards = [
     image: 'https://ae04.alicdn.com/kf/H07516981ed7d4b5bb3cc6a39ecea7115P.jpg',
     price: '20',
     oldPrice: '40',
-    seller: 'Estetico', //shop
-    address: 'Grivas Digenis Street 84, Neapolis, Limassol',
-    phone: '+357 25584709',
-    socialMedia: {
-      telegram: '',
-      whatsApp: '',
-      instagram: '',
-    },
-    workingHours: {
-      monday: '09.00 - 19.00',
-      tuesday: '09.00 - 19.00',
-      wednesday: '09.00 - 14.00',
-      thursday: '09.00 - 19.00',
-      friday: '09.00 - 19.00',
-      saturday: '09.00 - 14.00',
-      sunday: 'day off',
-    },
-    book: {
-      number: '137033693-2342',
-      date: '12.05.2023',
-      days: 5,
-      quantity: 1,
-      statusPayment: 'Paid', // | 'Not paid' | 'Amount paid in the amount of ...'
-    },
+    seller: 'Leoe',
     title: 'Pantsuit',
     color: 'beige',
     composition: 'cotton 100%',
@@ -53,7 +30,7 @@ Don't miss the opportunity to add this gorgeous pantsuit to your closet! It will
     image: 'https://13not.ru/img/letnie-platya-s-volanami-na-plechah.jpg',
     price: '30',
     oldPrice: '60',
-    seller: 'Wolli',
+    seller: 'Sldek',
     title: 'Dress',
     return: {
       number: '137033693-R2',
@@ -67,7 +44,7 @@ Don't miss the opportunity to add this gorgeous pantsuit to your closet! It will
       'https://marketpro-demo.ru/upload/products_pictures_demo/c7b/b9dp2462keos5hlnrqo4zqavaba3ircv/fg6vrukxrq1.jpg',
     price: '40',
     oldPrice: '80',
-    seller: 'Eldorado',
+    seller: 'Hdadn',
     title: 'Laptop',
     delivery: {
       number: '0137033693-0022',
@@ -80,30 +57,6 @@ Don't miss the opportunity to add this gorgeous pantsuit to your closet! It will
     price: '40',
     oldPrice: '80',
     seller: 'Eneda',
-    title: 'Dress',
-    address: 'Grivas Digenis Street 84, Neapolis, Limassol',
-    phone: '+357 25584709',
-    socialMedia: {
-      telegram: 'www.telegram.com',
-      whatsApp: 'www.whatsapp.com',
-      instagram: 'www.instagram.com',
-    },
-    workingHours: {
-      monday: '09.00 - 19.00',
-      tuesday: '09.00 - 19.00',
-      wednesday: '09.00 - 14.00',
-      thursday: '09.00 - 19.00',
-      friday: '09.00 - 19.00',
-      saturday: '09.00 - 14.00',
-      sunday: 'day off',
-    },
-    book: {
-      number: '137033693-2342',
-      date: '12.05.2023',
-      days: 5,
-      quantity: 1,
-      statusPayment: 'Not paid', // | 'Not paid' | 'Amount paid in the amount of ...'
-    },
     delivery: {
       number: '0234033693-0034',
       date: '12.01.2022',
