@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { css } from '../../../consts';
-import { ButtonGradient } from '../../../ui/ButtonGradient';
+import { Button } from '../../../ui/Button';
 
 export const Buttons = ({ items, selectedItems, resetAll, selectAll }) => {
   const dispatch = useDispatch();
@@ -10,12 +10,9 @@ export const Buttons = ({ items, selectedItems, resetAll, selectAll }) => {
     <View style={styles.container}>
       <Text style={styles.text}>Selected items: {selectedItems.length}</Text>
       {selectedItems.length === items.length ? (
-        <ButtonGradient text="Reset all" onPress={() => dispatch(resetAll())} />
+        <Button text="Reset all" onPress={() => dispatch(resetAll())} />
       ) : (
-        <ButtonGradient
-          text="Select all"
-          onPress={() => dispatch(selectAll())}
-        />
+        <Button text="Select all" onPress={() => dispatch(selectAll())} />
       )}
     </View>
   );

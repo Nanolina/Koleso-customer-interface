@@ -1,24 +1,24 @@
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { css } from '../../../consts';
-import { Gradient } from '../../../ui/Gradient';
 
 export const Quantity = ({ quantity }) => {
   return (
-    <Gradient style={styles.gradient}>
+    <View style={styles.container}>
       <Text style={styles.quantity}>{quantity}</Text>
-    </Gradient>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+  },
   quantity: {
     fontWeight: 'bold',
     fontSize: css.size.text20,
-    color: css.colors.white,
-  },
-  gradient: {
-    borderRadius: css.borderRadiusMin,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
+    color: css.colors.main,
+    textAlign: 'center',
   },
 });

@@ -3,7 +3,6 @@ import React from 'react';
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { css } from '../consts';
 import { ButtonBack } from '../ui/ButtonBack';
-import { GradientHeaderFooter } from '../ui/GradientHeaderFooter';
 
 export const Header = ({ title, hasButton = true }) => {
   const navigation: any = useNavigation();
@@ -12,7 +11,6 @@ export const Header = ({ title, hasButton = true }) => {
 
   return (
     <View style={css.header.container}>
-      <GradientHeaderFooter type="header" isBorder={true} />
       <SafeAreaView style={styles.buttonWithText}>
         {hasButton && <ButtonBack navigation={navigation} />}
         <Text style={styles.title}>{title}</Text>

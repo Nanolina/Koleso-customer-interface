@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createRequest, myRequests } from '../../../../consts';
 import { toggleReturns } from '../../../../redux/slices/returnSlice';
 import { css } from '../../../consts';
-import { ButtonGradient } from '../../../ui/ButtonGradient';
-import { ButtonWithBorder } from '../../../ui/ButtonWithBorder';
+import { Button } from '../../../ui/Button';
 
 export const ButtonsRequest = () => {
   const { returns } = useSelector((state: any) => state.return);
@@ -12,23 +11,29 @@ export const ButtonsRequest = () => {
 
   return returns === myRequests ? (
     <View style={styles.container}>
-      <ButtonGradient
+      <Button
         text={myRequests}
         onPress={() => dispatch(toggleReturns(myRequests))}
         style={styles.button}
       />
-      <ButtonWithBorder
+      <Button
         text={createRequest}
         onPress={() => dispatch(toggleReturns(createRequest))}
+        border={true}
+        backgroundColor={css.colors.white}
+        textColor={css.colors.black}
       />
     </View>
   ) : (
     <View style={styles.container}>
-      <ButtonWithBorder
+      <Button
         text={myRequests}
         onPress={() => dispatch(toggleReturns(myRequests))}
+        border={true}
+        backgroundColor={css.colors.white}
+        textColor={css.colors.black}
       />
-      <ButtonGradient
+      <Button
         text={createRequest}
         onPress={() => dispatch(toggleReturns(createRequest))}
         style={styles.button}

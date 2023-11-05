@@ -3,7 +3,8 @@ import { StyleSheet, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { courier, pickupPoint } from '../../../../consts';
 import { toggleReturnWay } from '../../../../redux/slices/returnSlice';
-import { ButtonWithBorder } from '../../../ui/ButtonWithBorder';
+import { css } from '../../../consts';
+import { Button } from '../../../ui/Button';
 
 export const ButtonsBottom = ({ item }) => {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ export const ButtonsBottom = ({ item }) => {
 
   return (
     <View style={styles.container}>
-      <ButtonWithBorder
+      <Button
         text={pickupPoint}
         onPress={() => {
           dispatch(toggleReturnWay(pickupPoint));
@@ -19,8 +20,11 @@ export const ButtonsBottom = ({ item }) => {
             item,
           });
         }}
+        border={true}
+        backgroundColor={css.colors.white}
+        textColor={css.colors.black}
       />
-      <ButtonWithBorder
+      <Button
         text={courier}
         onPress={() => {
           dispatch(toggleReturnWay(courier));
@@ -28,6 +32,9 @@ export const ButtonsBottom = ({ item }) => {
             item,
           });
         }}
+        border={true}
+        backgroundColor={css.colors.white}
+        textColor={css.colors.black}
       />
     </View>
   );

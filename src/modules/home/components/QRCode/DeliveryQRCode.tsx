@@ -1,18 +1,15 @@
 import { Platform, StyleSheet, View } from 'react-native';
 import { css } from '../../../../consts';
-import { Gradient } from '../../../../ui/Gradient';
 import { InfoQRCodeSection } from './InfoQRCodeSection';
 import { QRCodeSection } from './QRCodeSection';
 
 export const DeliveryQRCode = () => {
   return (
     <View style={styles.container}>
-      <Gradient>
-        <View style={styles.flexRow}>
-          <InfoQRCodeSection />
-          <QRCodeSection code="27300" />
-        </View>
-      </Gradient>
+      <View style={styles.flexRow}>
+        <InfoQRCodeSection />
+        <QRCodeSection code="27300" />
+      </View>
     </View>
   );
 };

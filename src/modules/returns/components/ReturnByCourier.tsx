@@ -14,49 +14,44 @@ export const ReturnByCourier = ({ item }) => {
   const dispatch = useDispatch();
 
   return (
-    <View>
+    <View style={styles.mainContainer}>
       <ItemFromCreateRequest item={item} quantity={true} />
-      <View style={styles.mainContainer}>
-        <View style={styles.container}>
-          <Text style={styles.text}>Reason</Text>
-          <ReasonContainer selectedReason={reason} />
-        </View>
 
-        <View style={styles.container}>
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>Photos</Text>
-            <Text style={styles.extra}>Up to 5</Text>
-          </View>
-          <PhotoUpload />
-        </View>
+      <Text style={styles.text}>Reason</Text>
+      <ReasonContainer selectedReason={reason} />
 
-        <View style={styles.container}>
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>Comment</Text>
-          </View>
-          <Note
-            placeholder="Describe the reason for returning the product..."
-            value={comment}
-            onChangeText={(text) =>
-              dispatch(addFieldReturn({ field: 'comment', value: text }))
-            }
-          />
-        </View>
-
-        <Hr />
-
-        <BottomInfo />
+      <View style={styles.container}>
+        <Text style={styles.text}>Photos</Text>
+        <Text style={styles.extra}>Up to 5</Text>
       </View>
+      <PhotoUpload />
+
+      <View style={styles.container}>
+        <Text style={styles.text}>Comment</Text>
+      </View>
+      <Note
+        placeholder="Describe the reason for returning the product..."
+        value={comment}
+        onChangeText={(text) =>
+          dispatch(addFieldReturn({ field: 'comment', value: text }))
+        }
+      />
+
+      <Hr />
+
+      <BottomInfo />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   mainContainer: {
-    gap: 30,
+    gap: 20,
   },
   container: {
-    gap: 5,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   text: {
     fontSize: css.size.text20,
@@ -66,10 +61,5 @@ const styles = StyleSheet.create({
   extra: {
     color: css.colors.gray,
     fontSize: css.size.text16,
-  },
-  textContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
   },
 });

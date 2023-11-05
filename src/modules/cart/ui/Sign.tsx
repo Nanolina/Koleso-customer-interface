@@ -1,23 +1,22 @@
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { css } from '../../../consts';
-import { Gradient } from '../../../ui/Gradient';
-
 
 export const Sign = ({ type }) => {
   return (
     <TouchableOpacity>
-      <Gradient colors={css.colors.withOpacity} style={styles.gradient}>
+      <View style={styles.container}>
         <Text style={styles.sign}>{type}</Text>
-      </Gradient>
+      </View>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  gradient: {
+  container: {
+    backgroundColor: css.colors.mainOpacity,
     borderRadius: css.borderRadiusMin,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
   sign: {
     fontWeight: 'bold',

@@ -18,9 +18,7 @@ export const StatusSuccessPayment = () => {
         <Text style={styles.mainText}>
           You can track the status of your order
           <View style={styles.mainTextContainer}>
-            <Gradient style={styles.gradient}>
-              <Text style={styles.mainText}>here</Text>
-            </Gradient>
+            <Text style={styles.mainText}>here</Text>
           </View>
         </Text>
       </View> */}
@@ -51,10 +49,5 @@ const styles = StyleSheet.create({
   //   fontSize: css.size.text30,
   //   fontWeight: 'bold',
   //   textAlign: 'center',
-  // },
-  // gradient: {
-  //   width: 100,
-  //   height: 60,
-  //   borderRadius: css.borderRadiusMax,
   // },
 });

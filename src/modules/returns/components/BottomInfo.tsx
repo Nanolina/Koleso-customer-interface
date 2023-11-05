@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
 import { PriceContainer } from '../../../components/PriceContainer';
 import { css } from '../../../consts';
-import { ButtonGradient } from '../../../ui/ButtonGradient';
+import { Button } from '../../../ui/Button';
 
 // mock data
 const quantity = 1;
@@ -17,9 +17,10 @@ export const BottomInfo = () => {
         {quantity} {quantity > 1 ? 'items' : 'item'}
       </Text>
       <PriceContainer price={totalPrice} priceSize={css.size.text16} />
-      <ButtonGradient
+      <Button
         text="Make a request"
         onPress={() => navigation.navigate('ReturnByCourierFormPage')}
+        backgroundColor={css.colors.orange}
       />
     </View>
   );

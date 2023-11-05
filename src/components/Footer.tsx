@@ -7,8 +7,8 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { GradientHeaderFooter } from '../ui/GradientHeaderFooter';
 import { IconFooter } from '../ui/IconFooter';
+import { css } from '../consts';
 
 const { height } = Dimensions.get('window');
 const footerHeight = height / 10;
@@ -18,7 +18,6 @@ export const Footer: React.FC<any> = () => {
 
   return (
     <View style={styles.footer}>
-      <GradientHeaderFooter type="footer" isBorder={true} />
       <SafeAreaView style={styles.iconContainer}>
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <IconFooter name="home" />
@@ -54,6 +53,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 15,
     borderTopRightRadius: 15,
     position: 'relative',
+    backgroundColor: css.colors.main,
   },
   iconContainer: {
     flexDirection: 'row',

@@ -8,18 +8,19 @@ export const css = {
     white: '#fff',
     gray: '#808080',
     lightGray: '#c9c7c7',
-    main: '#D404FF',
+    main: '#6C00B0',
     yellow: '#FDDC00',
     black: '#000000',
-    green: '#038B09',
-    lightGreen: 'rgba(7, 214, 15, 0.55)',
+    orange: '#FF7700',
+    green: '#00B377',
     red: '#ff0000',
     darkRed: '#C80303',
+    new: '#00B377',
 
     // with opacity
-    withOpacity: ['#FF08C18C', '#8C60FF8C'], // pinkOpacity + purpleOpacity
-    mainOpacity: 'rgba(212, 4, 255, 0.5)',
+    mainOpacity: '#6C00B06C',
     pinkOpacity: '#FF08C18C',
+    grayOpacity: 'rgba(223, 218, 218, 0.55)',
     purpleOpacity: '#8C60FF8C',
   },
   size: {
@@ -51,6 +52,7 @@ export const css = {
       paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 20,
       borderBottomLeftRadius: 15,
       borderBottomRightRadius: 15,
+      backgroundColor: '#6C00B0',
     },
     title: {
       fontSize: 24,
@@ -64,29 +66,19 @@ export const css = {
         width: 45,
         height: 40,
       },
-      gradientBox: {
-        borderRadius: 6,
-        width: 40,
-        height: 35,
-      },
     },
   },
   filter: {
     checkbox: {
       width: 30,
       height: 30,
-      borderRadius: 10,
+      borderRadius: 8,
     },
     wheather: {
       box: {
         borderRadius: 8,
         width: 70,
         height: 55,
-      },
-      gradientBox: {
-        borderRadius: 6,
-        width: 65,
-        height: 50,
       },
     },
   },
@@ -133,12 +125,6 @@ export const css = {
         borderRadius: 8,
         width: Platform.OS === 'web' ? 200 : 95,
         height: 60,
-        padding: 5,
-      },
-      gradientBox: {
-        borderRadius: 6,
-        width: Platform.OS === 'web' ? 195 : 90,
-        height: 55,
         padding: 5,
       },
     },

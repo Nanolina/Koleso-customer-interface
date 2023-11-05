@@ -1,18 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { css } from '../../../../consts';
-import { Gradient } from '../../../../ui/Gradient';
 
 const SelectedSizeBox = ({ size }) => {
   return (
-    <Gradient style={styles.gradientBox}>
+    <TouchableOpacity style={styles.box}>
       <Text style={styles.text}>{size}</Text>
-    </Gradient>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  gradientBox: {
+  box: {
+    backgroundColor: css.colors.main,
     alignItems: 'center',
     justifyContent: 'center',
     ...css.item.size.box,

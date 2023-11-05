@@ -2,8 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { togglePayment } from '../../../../redux/slices/paymentSlice';
 import { css } from '../../../consts';
-import { ButtonGradient } from '../../../ui/ButtonGradient';
-import { ButtonWithBorder } from '../../../ui/ButtonWithBorder';
+import { Button } from '../../../ui/Button';
 
 export const ButtonsPayment = () => {
   const { payment } = useSelector((state: any) => state.payment);
@@ -11,23 +10,27 @@ export const ButtonsPayment = () => {
 
   return payment === 'Card' ? (
     <View style={styles.container}>
-      <ButtonGradient
+      <Button
         text="Card"
         onPress={() => dispatch(togglePayment('Card'))}
         style={styles.button}
       />
-      <ButtonWithBorder
+      <Button
         text="Apple pay"
         onPress={() => dispatch(togglePayment('Apple pay'))}
+        border={true}
+        backgroundColor={css.colors.white}
       />
     </View>
   ) : (
     <View style={styles.container}>
-      <ButtonWithBorder
+      <Button
         text="Card"
         onPress={() => dispatch(togglePayment('Card'))}
+        border={true}
+        backgroundColor={css.colors.white}
       />
-      <ButtonGradient
+      <Button
         text="Apple pay"
         onPress={() => dispatch(togglePayment('Apple pay'))}
         style={styles.button}

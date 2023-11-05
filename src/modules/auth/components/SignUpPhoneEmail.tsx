@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { setValueAuth } from '../../../../redux/slices/authSlice';
 import { css } from '../../../consts';
-import { ButtonGradient } from '../../../ui/ButtonGradient';
+import { Button } from '../../../ui/Button';
 import { ImageInput } from './ImageInput';
 
 export const SignUpPhoneEmail: React.FC = () => {
@@ -95,7 +95,7 @@ export const SignUpPhoneEmail: React.FC = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <ButtonGradient text="Sign up" />
+        <Button text="Sign up" />
       </View>
     </View>
   );

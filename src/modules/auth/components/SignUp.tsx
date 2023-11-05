@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { css } from '../../../consts';
-import { ButtonGradient } from '../../../ui/ButtonGradient';
+import { Button } from '../../../ui/Button';
 import { registrationMethods } from '../data';
 import { RegistrationMethod } from './RegistrationMethod';
 
@@ -23,7 +23,7 @@ export const SignUp: React.FC = () => {
       <View style={styles.logInContainer}>
         <Text style={styles.text}>Already have an account?</Text>
         <View>
-          <ButtonGradient
+          <Button
             text="Log in"
             onPress={() => navigation.navigate('LoginPage')}
           />

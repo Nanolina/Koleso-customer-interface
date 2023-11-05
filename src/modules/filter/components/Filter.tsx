@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearAllFilters } from '../../../../redux/slices/filterSlice';
 import { css } from '../../../consts';
-import { ButtonGradient } from '../../../ui/ButtonGradient';
+import { Button } from '../../../ui/Button';
 import { data } from '../data';
 import { Row } from './Row';
 import { RowRange } from './RowRange';
@@ -48,11 +48,16 @@ export const Filter = () => {
       <RowRange title="Price" from={priceFrom} to={priceTo} />
       <Row title="Wheather" />
       <View style={styles.buttonsContainer}>
-        <ButtonGradient
+        <Button
           text="Clear all"
           onPress={() => dispatch(clearAllFilters())}
+          backgroundColor={css.colors.green}
         />
-        <ButtonGradient text="Apply" onPress={() => {}} />
+        <Button
+          text="Apply"
+          onPress={() => {}}
+          backgroundColor={css.colors.orange}
+        />
       </View>
     </View>
   );

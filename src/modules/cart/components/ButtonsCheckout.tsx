@@ -1,16 +1,17 @@
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, View } from 'react-native';
 import { css } from '../../../consts';
-import { ButtonGreen } from '../../../ui/ButtonGreen';
+import { Button } from '../../../ui/Button';
 
 export const ButtonsCheckout = () => {
   const navigation: any = useNavigation();
 
   return (
     <View style={styles.container}>
-      <ButtonGreen
+      <Button
         text="Checkout"
         onPress={() => navigation.navigate('CheckoutPage')}
+        backgroundColor={css.colors.orange}
       />
     </View>
   );

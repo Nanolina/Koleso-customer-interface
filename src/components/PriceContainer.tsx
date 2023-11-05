@@ -32,7 +32,6 @@ const getStyles = (priceSize, hasBackground) =>
       flexDirection: 'row',
       alignItems: 'center',
       borderRadius: css.borderRadiusMin,
-      backgroundColor: hasBackground ? css.colors.lightGreen : '',
       paddingHorizontal: 10,
       paddingVertical: 5,
     },

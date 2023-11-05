@@ -4,8 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { resetValue, setValue } from '../../../../redux/slices/settingsSlice';
 import { DatePicker } from '../../../components/DatePicker';
-import { css } from '../../../consts';
-import { ButtonGradient } from '../../../ui/ButtonGradient';
+import { Button } from '../../../ui/Button';
 import { maxBirthDate } from '../consts';
 
 export const Birthday = () => {
@@ -21,7 +20,7 @@ export const Birthday = () => {
   return (
     <View style={styles.container}>
       <View style={styles.button}>
-        <ButtonGradient
+        <Button
           text="Reset"
           onPress={() => dispatch(resetValue({ key: 'birthday' }))}
         />

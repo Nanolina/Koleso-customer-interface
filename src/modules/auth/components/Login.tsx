@@ -2,7 +2,7 @@ import { FontAwesome, Fontisto } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { css } from '../../../consts';
-import { ButtonGradient } from '../../../ui/ButtonGradient';
+import { Button } from '../../../ui/Button';
 import { SignUpButton } from '../ui/SignUpButton';
 import { ImageInput } from './ImageInput';
 
@@ -49,7 +49,7 @@ export const Login: React.FC = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <ButtonGradient text="Log in" />
+        <Button text="Log in" />
       </View>
 
       <SignUpButton />

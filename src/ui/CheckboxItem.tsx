@@ -1,16 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { css } from '../consts';
-import { Gradient } from './Gradient';
 
 export const CheckboxItem = ({ item, isSelected, onToggle }: any) => (
   <TouchableOpacity style={styles.item} onPress={onToggle}>
     {isSelected ? (
-      <Gradient style={styles.gradient}>
+      <View style={styles.checkbox}>
         <Text style={styles.check}>✓</Text>
-      </Gradient>
+      </View>
     ) : (
-      <View style={styles.checkbox}></View>
+      <View style={styles.checkboxEmpty}></View>
     )}
     <Text style={styles.text}>{item}</Text>
   </TouchableOpacity>
@@ -26,18 +25,19 @@ const styles = StyleSheet.create({
   checkbox: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: css.colors.lightGray,
+    backgroundColor: css.colors.main,
     ...css.filter.checkbox,
   },
-  gradient: {
-    alignItems: 'center',
+  checkboxEmpty: {
     justifyContent: 'center',
-    padding: 0,
+    alignItems: 'center',
+    backgroundColor: css.colors.lightGray,
     ...css.filter.checkbox,
   },
   check: {
     fontSize: css.size.text15,
     fontWeight: 'bold',
+    color: css.colors.white,
   },
   text: {
     fontSize: css.size.text16,

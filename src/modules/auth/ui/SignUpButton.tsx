@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
 import { css } from '../../../consts';
-import { ButtonGradient } from '../../../ui/ButtonGradient';
+import { Button } from '../../../ui/Button';
 
 export const SignUpButton = () => {
   const navigation: any = useNavigation();
@@ -9,7 +9,7 @@ export const SignUpButton = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Don't have an account yet?</Text>
-      <ButtonGradient
+      <Button
         text="Sign up"
         onPress={() => navigation.navigate('SignUpPage')}
       />

@@ -4,7 +4,7 @@ import { addFieldReturn } from '../../../../redux/slices/returnSlice';
 import { Form } from '../../../components/Form';
 import { PriceInfoContainer } from '../../../components/PriceInfoContainer';
 import { css } from '../../../consts';
-import { ButtonGreen } from '../../../ui/ButtonGreen';
+import { Button } from '../../../ui/Button';
 import { Hr } from '../../../ui/Hr';
 
 export const ReturnByCourierForm = () => {
@@ -39,7 +39,12 @@ export const ReturnByCourierForm = () => {
       />
 
       <View style={styles.button}>
-        <ButtonGreen text="Return" onPress={() => {}} width="50%" />
+        <Button
+          text="Return"
+          onPress={() => {}}
+          width="50%"
+          backgroundColor={css.colors.orange}
+        />
       </View>
     </View>
   );

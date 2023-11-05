@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 import { css } from '../consts';
 import { ButtonBack } from '../ui/ButtonBack';
-import { GradientHeaderFooter } from '../ui/GradientHeaderFooter';
 
 const { height } = Dimensions.get('window');
 const headerHeight = height / 8;
@@ -21,7 +20,6 @@ export const HeaderWithFilterSort = ({ title }) => {
 
   return (
     <View style={css.header.container}>
-      <GradientHeaderFooter type="header" isBorder={true} />
       <SafeAreaView style={styles.buttonWithText}>
         <ButtonBack navigation={navigation} />
         <Text style={styles.title}>{title}</Text>

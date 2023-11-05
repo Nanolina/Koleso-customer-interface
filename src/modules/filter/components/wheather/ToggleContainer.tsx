@@ -1,6 +1,5 @@
 import { StyleSheet, View } from 'react-native';
 import { css } from '../../../../consts';
-import { GradientTemperatureSign } from '../../ui/GradientTemperatureSign';
 import { TemperatureSign } from '../../ui/TemperatureSign';
 
 export const ToggleContainer = ({
@@ -10,8 +9,7 @@ export const ToggleContainer = ({
   return (
     <View style={styles.container}>
       {temperatureToggle === '+' ? (
-        <GradientTemperatureSign
-          type="left"
+        <TemperatureSign
           sign="+"
           handleTemperatureToggle={handleTemperatureToggle}
         />
@@ -24,8 +22,7 @@ export const ToggleContainer = ({
       )}
 
       {temperatureToggle === '-' ? (
-        <GradientTemperatureSign
-          type="right"
+        <TemperatureSign
           sign="-"
           handleTemperatureToggle={handleTemperatureToggle}
         />

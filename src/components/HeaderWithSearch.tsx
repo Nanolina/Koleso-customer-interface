@@ -12,9 +12,8 @@ import {
   turnOffSearch,
 } from '../../redux/slices/searchSlice';
 import { css } from '../consts';
+import { Button } from '../ui/Button';
 import { ButtonBack } from '../ui/ButtonBack';
-import { ButtonGradient } from '../ui/ButtonGradient';
-import { GradientHeaderFooter } from '../ui/GradientHeaderFooter';
 import { SearchBar } from './SearchBar';
 
 const { height } = Dimensions.get('window');
@@ -26,7 +25,6 @@ export const HeaderWithSearch = () => {
 
   return (
     <View style={css.header.container}>
-      <GradientHeaderFooter type="header" isBorder={true} />
       <SafeAreaView style={styles.searchBarContainer}>
         {isEnabled && (
           <ButtonBack
@@ -41,9 +39,7 @@ export const HeaderWithSearch = () => {
 
         <SearchBar />
 
-        {isEnabled && (
-          <ButtonGradient text="Search" onPress={() => {}} width={80} />
-        )}
+        {isEnabled && <Button text="Search" onPress={() => {}} width={80} />}
       </SafeAreaView>
     </View>
   );

@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { courier, pickupPoint } from '../../../../consts';
 import { toggleDelivery } from '../../../../redux/slices/cartSlice';
 import { css } from '../../../consts';
-import { ButtonGradient } from '../../../ui/ButtonGradient';
-import { ButtonWithBorder } from '../../../ui/ButtonWithBorder';
+import { Button } from '../../../ui/Button';
 
 export const ButtonsDelivery = () => {
   const { delivery } = useSelector((state: any) => state.cart);
@@ -12,26 +11,36 @@ export const ButtonsDelivery = () => {
 
   return delivery === pickupPoint ? (
     <View style={styles.container}>
-      <ButtonGradient
+      <Button
         text={pickupPoint}
         onPress={() => dispatch(toggleDelivery(pickupPoint))}
         style={styles.button}
+        width="40%"
       />
-      <ButtonWithBorder
+      <Button
         text={courier}
         onPress={() => dispatch(toggleDelivery(courier))}
+        width="40%"
+        border={true}
+        backgroundColor={css.colors.white}
+        textColor={css.colors.black}
       />
     </View>
   ) : (
     <View style={styles.container}>
-      <ButtonWithBorder
+      <Button
         text={pickupPoint}
         onPress={() => dispatch(toggleDelivery(pickupPoint))}
+        width="40%"
+        border={true}
+        backgroundColor={css.colors.white}
+        textColor={css.colors.black}
       />
-      <ButtonGradient
+      <Button
         text={courier}
         onPress={() => dispatch(toggleDelivery(courier))}
         style={styles.button}
+        width="40%"
       />
     </View>
   );

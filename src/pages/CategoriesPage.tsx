@@ -10,7 +10,7 @@ export const CategoriesPage = () => {
 
   return (
     <Container>
-      <Header title={section} />
+      <Header title={section || ''} />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Categories />
       </CentralContainer>

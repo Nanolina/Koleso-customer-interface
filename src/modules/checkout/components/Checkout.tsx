@@ -12,8 +12,7 @@ import { addField } from '../../../../redux/slices/checkoutSlice';
 import { Form } from '../../../components/Form';
 import { PriceInfoContainer } from '../../../components/PriceInfoContainer';
 import { css } from '../../../consts';
-import { ButtonGradient } from '../../../ui/ButtonGradient';
-import { ButtonGreen } from '../../../ui/ButtonGreen';
+import { Button } from '../../../ui/Button';
 import { Hr } from '../../../ui/Hr';
 
 export const Checkout = () => {
@@ -32,7 +31,7 @@ export const Checkout = () => {
         contentContainerStyle={css.form.container}
       >
         <View style={styles.buttonContainer}>
-          <ButtonGradient text={courier} />
+          <Button text={courier} />
         </View>
 
         <Form
@@ -62,10 +61,11 @@ export const Checkout = () => {
         />
 
         <View style={styles.buttonPayment}>
-          <ButtonGreen
+          <Button
             text="Proceed payment"
             onPress={() => navigation.navigate('PaymentPage')}
             width="50%"
+            backgroundColor={css.colors.orange}
           />
         </View>
       </ScrollView>

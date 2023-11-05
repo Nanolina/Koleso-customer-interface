@@ -1,15 +1,21 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { css } from '../../../consts';
-import { ButtonWithBorder } from '../../../ui/ButtonWithBorder';
+import { Button } from '../../../ui/Button';
 
 export const Contact = ({ contact }) => {
   return (
-    <ButtonWithBorder widthBox={230} heightBox={60}>
-      <View style={styles.container}>
-        <Image source={contact.image} style={styles.image} />
-        <Text style={styles.text}>{contact.text}</Text>
-      </View>
-    </ButtonWithBorder>
+    <Button
+      width={230}
+      border={true}
+      backgroundColor={css.colors.white}
+      textColor={css.colors.black}
+      text={
+        <View style={styles.container}>
+          <Image source={contact.image} style={styles.image} />
+          <Text style={styles.text}>{contact.text}</Text>
+        </View>
+      }
+    />
   );
 };
 

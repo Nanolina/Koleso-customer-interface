@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { TextWithInput } from '../../../components/TextWithInput';
 import { getAutoComplete, getDataForInput } from '../functions';
@@ -17,13 +17,13 @@ export const Input = ({ title }) => {
   const autoComplete = getAutoComplete(title);
 
   return (
-    <ScrollView>
+    <View>
       <TextWithInput
         value={value}
         onChangeText={onChangeText}
         inputMode={inputMode}
         autoComplete={autoComplete}
       />
-    </ScrollView>
+    </View>
   );
 };
