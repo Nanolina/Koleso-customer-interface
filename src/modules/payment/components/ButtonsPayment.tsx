@@ -14,12 +14,15 @@ export const ButtonsPayment = () => {
         text="Card"
         onPress={() => dispatch(togglePayment('Card'))}
         style={styles.button}
+        width="40%"
       />
       <Button
         text="Apple pay"
         onPress={() => dispatch(togglePayment('Apple pay'))}
         border={true}
         backgroundColor={css.colors.white}
+        textColor={css.colors.black}
+        width="40%"
       />
     </View>
   ) : (
@@ -29,11 +32,14 @@ export const ButtonsPayment = () => {
         onPress={() => dispatch(togglePayment('Card'))}
         border={true}
         backgroundColor={css.colors.white}
+        textColor={css.colors.black}
+        width="40%"
       />
       <Button
         text="Apple pay"
         onPress={() => dispatch(togglePayment('Apple pay'))}
         style={styles.button}
+        width="40%"
       />
     </View>
   );

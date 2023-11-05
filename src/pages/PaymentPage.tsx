@@ -13,7 +13,7 @@ export const PaymentPage = () => {
   const [isModalVisible, setModalVisible] = useState(true);
 
   // mock data
-  const payment = true;
+  const payment = false;
 
   return (
     <Container>

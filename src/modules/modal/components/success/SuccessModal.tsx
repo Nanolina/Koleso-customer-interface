@@ -34,5 +34,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     position: 'relative',
+    color: css.colors.yellow,
   },
 });

@@ -1,28 +1,16 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { css } from '../../../../consts';
-import { Button } from '../../ui/Button';
 
 export const StatusSuccessPayment = () => {
   return (
-    <Button onPress={() => {}}>
-      <View style={styles.container}>
-        <Text style={styles.boldText}>
-          Payment was <Text style={styles.green}>successful</Text>
-        </Text>
-        <Text style={styles.text}>
-          Your order number: <Text style={styles.boldText}>32345678523456</Text>
-        </Text>
-      </View>
-
-      {/* <View style={styles.mainTextContainer}>
-        <Text style={styles.mainText}>
-          You can track the status of your order
-          <View style={styles.mainTextContainer}>
-            <Text style={styles.mainText}>here</Text>
-          </View>
-        </Text>
-      </View> */}
-    </Button>
+    <View style={styles.container}>
+      <Text style={styles.boldText}>
+        Payment was <Text style={styles.green}>successful</Text>
+      </Text>
+      <Text style={styles.text}>
+        Your order number: <Text style={styles.boldText}>32345678523456</Text>
+      </Text>
+    </View>
   );
 };
 
@@ -35,19 +23,13 @@ const styles = StyleSheet.create({
   boldText: {
     fontSize: css.size.text16,
     fontWeight: 'bold',
+    color: css.colors.white,
   },
   green: {
     color: css.colors.green,
   },
   text: {
     fontSize: css.size.text16,
+    color: css.colors.white,
   },
-  // mainTextContainer: {
-  //   paddingTop: 10,
-  // },
-  // mainText: {
-  //   fontSize: css.size.text30,
-  //   fontWeight: 'bold',
-  //   textAlign: 'center',
-  // },
 });

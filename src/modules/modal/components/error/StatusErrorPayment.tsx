@@ -1,23 +1,20 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { css } from '../../../../consts';
 import { images } from '../../consts';
-import { Button } from '../../ui/Button';
 
 export const StatusErrorPayment = () => {
   return (
-    <Button onPress={() => {}}>
-      <View style={styles.container}>
-        <View style={styles.header}>
-          <Image source={images.exclamation} style={styles.image} />
-          <Text style={styles.text}>Insufficient funds on the card</Text>
-        </View>
-
-        <View style={styles.bottomContainer}>
-          <Text style={styles.text}>The order was not generated</Text>
-          <Text style={styles.green}>Please try again</Text>
-        </View>
+    <View style={styles.container}>
+      <View style={styles.header}>
+        <Image source={images.exclamation} style={styles.image} />
+        <Text style={styles.text}>Insufficient funds on the card</Text>
       </View>
-    </Button>
+
+      <View style={styles.bottomContainer}>
+        <Text style={styles.text}>The order was not generated</Text>
+        <Text style={styles.green}>Please try again</Text>
+      </View>
+    </View>
   );
 };
 
@@ -40,6 +37,7 @@ const styles = StyleSheet.create({
     fontSize: css.size.text18,
     fontWeight: 'bold',
     flexShrink: 1,
+    color: css.colors.white,
   },
   green: {
     color: css.colors.green,
