@@ -1,15 +1,25 @@
 import { StyleSheet, View } from 'react-native';
+import { courier, pickupPoint } from '../../../../consts';
+import { toggleDelivery } from '../../../../redux/slices/cartSlice';
+import { ButtonsGroup } from '../../../components/ButtonsGroup';
 import { PriceInfo } from '../../../components/PriceInfo';
 import { css } from '../../../consts';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { Hr } from '../../../ui/Hr';
-import { ButtonsDelivery } from './ButtonsDelivery';
 import { CartItems } from './CartItems';
 
 export const Cart = () => {
   return (
     <View style={styles.container}>
-      <ButtonsDelivery />
+      <ButtonsGroup
+        options={[
+          { text: pickupPoint, value: pickupPoint },
+          { text: courier, value: courier },
+        ]}
+        currentState="delivery"
+        toggleFunction={toggleDelivery}
+        slice="cart"
+      />
       <CheckboxItem item="Select all" onPress={() => {}} />
       <CartItems />
       <View style={css.priceInfoContainer}>

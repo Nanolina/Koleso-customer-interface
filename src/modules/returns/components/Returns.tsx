@@ -1,7 +1,8 @@
 import { FlatList, StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { createRequest, myRequests } from '../../../../consts';
-import { ButtonsRequest } from './ButtonsRequest';
+import { toggleReturns } from '../../../../redux/slices/returnSlice';
+import { ButtonsGroup } from '../../../components/ButtonsGroup';
 import { ItemFromCreateRequest } from './ItemFromCreateRequest';
 import { ItemFromMyRequests } from './ItemFromMyRequests';
 
@@ -20,7 +21,15 @@ export const Returns = ({ data }) => {
 
   return (
     <View style={styles.container}>
-      <ButtonsRequest />
+      <ButtonsGroup
+        options={[
+          { text: myRequests, value: myRequests },
+          { text: createRequest, value: createRequest },
+        ]}
+        currentState="returns"
+        toggleFunction={toggleReturns}
+        slice="return"
+      />
       <FlatList
         data={data}
         renderItem={renderReturns}
