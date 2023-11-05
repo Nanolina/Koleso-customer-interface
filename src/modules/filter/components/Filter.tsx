@@ -51,7 +51,9 @@ export const Filter = () => {
         <Button
           text="Clear all"
           onPress={() => dispatch(clearAllFilters())}
-          backgroundColor={css.colors.green}
+          border={true}
+          backgroundColor={css.colors.white}
+          textColor={css.colors.black}
         />
         <Button
           text="Apply"

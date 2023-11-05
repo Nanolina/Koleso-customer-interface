@@ -13,7 +13,7 @@ export const Item = ({ item }) => {
       <PriceContainer
         price={item.price}
         oldPrice={item.oldPrice}
-        priceSize={css.size.text20}
+        priceSize={css.size.title}
       />
       <TitleContainer title={item.title} seller={item.seller} />
       <Properties

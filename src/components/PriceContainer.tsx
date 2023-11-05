@@ -6,9 +6,8 @@ export const PriceContainer = ({
   price,
   oldPrice,
   priceSize,
-  hasBackground = true,
 }: any) => {
-  const styles = getStyles(priceSize, hasBackground);
+  const styles = getStyles(priceSize);
 
   return (
     <View style={styles.centeredContent}>
@@ -20,7 +19,7 @@ export const PriceContainer = ({
   );
 };
 
-const getStyles = (priceSize, hasBackground) =>
+const getStyles = (priceSize) =>
   StyleSheet.create({
     centeredContent: {
       flexDirection: 'row',
@@ -32,8 +31,6 @@ const getStyles = (priceSize, hasBackground) =>
       flexDirection: 'row',
       alignItems: 'center',
       borderRadius: css.borderRadiusMin,
-      paddingHorizontal: 10,
-      paddingVertical: 5,
     },
     currentPrice: {
       fontWeight: 'bold',

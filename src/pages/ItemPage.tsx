@@ -15,7 +15,7 @@ export const ItemPage = () => {
       <IconContainer />
       <CentralContainer isPadding={false}>
         <ImageContainer image={item.image} />
-        <CentralContainer isPadding>
+        <CentralContainer isPadding isMinPadding>
           <Item item={item} />
         </CentralContainer>
       </CentralContainer>

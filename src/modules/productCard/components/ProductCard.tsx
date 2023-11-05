@@ -32,7 +32,7 @@ export const ProductCard = ({ item }) => {
         <PriceContainer
           price={item.price}
           oldPrice={item.oldPrice}
-          priceSize={css.size.text16}
+          priceSize={css.size.text20}
         />
         <TitleContainer seller={item.seller} title={item.title} />
       </TouchableOpacity>

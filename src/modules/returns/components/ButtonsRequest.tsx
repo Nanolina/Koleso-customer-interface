@@ -15,6 +15,7 @@ export const ButtonsRequest = () => {
         text={myRequests}
         onPress={() => dispatch(toggleReturns(myRequests))}
         style={styles.button}
+        width="40%"
       />
       <Button
         text={createRequest}
@@ -22,6 +23,7 @@ export const ButtonsRequest = () => {
         border={true}
         backgroundColor={css.colors.white}
         textColor={css.colors.black}
+        width="40%"
       />
     </View>
   ) : (
@@ -32,11 +34,13 @@ export const ButtonsRequest = () => {
         border={true}
         backgroundColor={css.colors.white}
         textColor={css.colors.black}
+        width="40%"
       />
       <Button
         text={createRequest}
         onPress={() => dispatch(toggleReturns(createRequest))}
         style={styles.button}
+        width="40%"
       />
     </View>
   );
