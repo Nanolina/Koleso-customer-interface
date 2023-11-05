@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { deliveryPoint, myRequests } from '../../consts';
+import { pickupPoint, myRequests } from '../../consts';
 import { minDate, reasonsForReturn } from '../../src/consts';
 
 const returnSlice = createSlice({
@@ -8,8 +8,8 @@ const returnSlice = createSlice({
     // My Requests | Create a request
     returns: myRequests,
 
-    // deliveryPoint-return | Courier
-    way: deliveryPoint,
+    // pick-up Point-return | Courier
+    way: pickupPoint,
 
     // "Didn't fit" | 'Bad quality' | 'Warranty case']
     reason: reasonsForReturn[0],

@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { deliveryPoint } from './../../consts';
+import { pickupPoint } from './../../consts';
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {
-    delivery: deliveryPoint,
+    delivery: pickupPoint,
   },
   reducers: {
     toggleDelivery(state, action) {

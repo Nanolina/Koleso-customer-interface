@@ -1,6 +1,6 @@
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { courier, deliveryPoint } from '../../../../consts';
+import { courier, pickupPoint } from '../../../../consts';
 import { toggleDelivery } from '../../../../redux/slices/cartSlice';
 import { css } from '../../../consts';
 import { ButtonGradient } from '../../../ui/ButtonGradient';
@@ -10,11 +10,11 @@ export const ButtonsDelivery = () => {
   const { delivery } = useSelector((state: any) => state.cart);
   const dispatch = useDispatch();
 
-  return delivery === deliveryPoint ? (
+  return delivery === pickupPoint ? (
     <View style={styles.container}>
       <ButtonGradient
-        text={deliveryPoint}
-        onPress={() => dispatch(toggleDelivery(deliveryPoint))}
+        text={pickupPoint}
+        onPress={() => dispatch(toggleDelivery(pickupPoint))}
         style={styles.button}
       />
       <ButtonWithBorder
@@ -25,8 +25,8 @@ export const ButtonsDelivery = () => {
   ) : (
     <View style={styles.container}>
       <ButtonWithBorder
-        text={deliveryPoint}
-        onPress={() => dispatch(toggleDelivery(deliveryPoint))}
+        text={pickupPoint}
+        onPress={() => dispatch(toggleDelivery(pickupPoint))}
       />
       <ButtonGradient
         text={courier}
