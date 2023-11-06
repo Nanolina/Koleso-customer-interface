@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { TextWithInput } from '../../../components/TextWithInput';
-import { Button } from '../../../ui/Button';
 import { css } from '../../../consts';
+import { Button } from '../../../ui/Button';
 
 export const ChangePassword = () => {
   const [currentPassword, setCurrentPassword] = useState('');
@@ -23,7 +23,11 @@ export const ChangePassword = () => {
         secureTextEntry={true}
       />
       <View style={styles.buttonContainer}>
-        <Button text="Change password" onPress={() => {}} backgroundColor={css.colors.orange} />
+        <Button
+          text="Change password"
+          onPress={() => {}}
+          backgroundColor={css.colors.orange}
+        />
       </View>
     </View>
   );
@@ -35,5 +39,6 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignItems: 'flex-end',
+    paddingTop: 10,
   },
 });
