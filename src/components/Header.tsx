@@ -23,7 +23,7 @@ const getStyles = (hasButton) =>
   StyleSheet.create({
     buttonWithText: {
       flexDirection: 'row',
-      justifyContent: hasButton ? 'space-between' : 'center',
+      justifyContent: hasButton ? 'space-between' : 'flex-end',
     },
     title: {
       fontWeight: 'bold',

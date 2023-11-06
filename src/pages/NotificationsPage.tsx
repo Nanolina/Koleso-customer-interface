@@ -7,7 +7,7 @@ import { CentralContainer } from '../ui/CentralContainer';
 export const NotificationsPage = () => {
   return (
     <Container>
-      <Header title="Notifications" />
+      <Header title="Notifications" hasButton={false} />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Notifications />
       </CentralContainer>

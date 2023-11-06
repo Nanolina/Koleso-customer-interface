@@ -7,38 +7,42 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { IconFooter } from '../ui/IconFooter';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleActiveIcon } from '../../redux/slices/footerSlice';
 import { css } from '../consts';
+import { IconFooter } from '../ui/IconFooter';
 
 const { height } = Dimensions.get('window');
 const footerHeight = height / 10;
 
-export const Footer: React.FC<any> = () => {
+export const Footer = () => {
   const navigation: any = useNavigation();
+  const dispatch = useDispatch();
+  const activeIcon = useSelector((state: any) => state.footer.activeIcon);
+
+  const handlePress = (routeName, iconName) => {
+    dispatch(toggleActiveIcon(iconName));
+    navigation.navigate(routeName);
+  };
 
   return (
     <View style={styles.footer}>
       <SafeAreaView style={styles.iconContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-          <IconFooter name="home" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('SectionsPage')}>
-          <IconFooter name="search" />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('NotificationsPage')}
-        >
-          <IconFooter name="notifications" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('CartPage')}>
-          <IconFooter name="shopping-cart" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Favorites')}>
-          <IconFooter name="favorite" />
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('MyAccount')}>
-          <IconFooter name="person" />
-        </TouchableOpacity>
+        {[
+          { name: 'home', route: 'Home' },
+          { name: 'search', route: 'SectionsPage' },
+          { name: 'notifications', route: 'NotificationsPage' },
+          { name: 'shopping-cart', route: 'CartPage' },
+          { name: 'favorite', route: 'Favorites' },
+          { name: 'person', route: 'MyAccount' },
+        ].map((icon) => (
+          <TouchableOpacity
+            key={icon.route}
+            onPress={() => handlePress(icon.route, icon.name)}
+          >
+            <IconFooter name={icon.name} active={activeIcon === icon.name} />
+          </TouchableOpacity>
+        ))}
       </SafeAreaView>
     </View>
   );
@@ -50,10 +54,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 10,
-    borderTopLeftRadius: 15,
-    borderTopRightRadius: 15,
     position: 'relative',
-    backgroundColor: css.colors.main,
+    backgroundColor: css.colors.white,
+    shadowOpacity: 0.05,
+    shadowRadius: 4,
+    elevation: 4, // for Android
   },
   iconContainer: {
     flexDirection: 'row',

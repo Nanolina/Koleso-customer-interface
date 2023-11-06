@@ -7,7 +7,7 @@ import { CentralContainer } from '../ui/CentralContainer';
 export const CartPage = () => {
   return (
     <Container>
-      <Header title="Cart" />
+      <Header title="Cart" hasButton={false} />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Cart />
       </CentralContainer>

@@ -5,8 +5,10 @@ import { Button } from '../../../ui/Button';
 export const Buttons = () => {
   return (
     <View style={styles.container}>
-      <Button text="Buy now" backgroundColor={css.colors.orange} width="45%" />
-      <Button text="Add to cart" backgroundColor={css.colors.new} width="45%" />
+      <Button
+        text="Add to cart"
+        width="100%"
+      />
     </View>
   );
 };
