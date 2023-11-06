@@ -76,5 +76,5 @@ export const data = {
     'Microfiber',
     'Jersey',
   ],
-  wheatherConditions: ['Wind', 'Sun', 'Snow', 'Rain'],
+  seasons: ['Winter', 'Summer', 'Demiseason'],
 };

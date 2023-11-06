@@ -1,4 +1,3 @@
-import { Text } from 'react-native';
 import {
   addAgeFrom,
   addAgeTo,
@@ -9,6 +8,7 @@ import {
   resetAllColors,
   resetAllCompositions,
   resetAllGenders,
+  resetAllSeasons,
   resetAllSellers,
   resetAllSizes,
   selectAllBrands,
@@ -16,6 +16,7 @@ import {
   selectAllColors,
   selectAllCompositions,
   selectAllGenders,
+  selectAllSeasons,
   selectAllSellers,
   selectAllSizes,
   toggleBrand,
@@ -23,6 +24,7 @@ import {
   toggleColor,
   toggleComposition,
   toggleGender,
+  toggleSeason,
   toggleSeller,
   toggleSize,
 } from '../../../redux/slices/filterSlice';
@@ -36,7 +38,8 @@ export const getItems = (
   categories,
   brands,
   sellers,
-  compositions
+  compositions,
+  seasons
 ) => {
   let items;
 
@@ -103,6 +106,15 @@ export const getItems = (
     };
   }
 
+  if (title === 'Season') {
+    items = {
+      selectedItems: seasons,
+      onToggleItem: toggleSeason,
+      resetAll: resetAllSeasons,
+      selectAll: selectAllSeasons,
+    };
+  }
+
   return items;
 };
 
@@ -125,59 +137,6 @@ export const getFromToFunctions = (title) => {
   }
 
   return functions;
-};
-
-// For wheather
-const getWheatherConditionsSmiles = (condition) => {
-  if (condition === 'Wind') {
-    return '🌬';
-  } else if (condition === 'Sun') {
-    return '☀️';
-  } else if (condition === 'Snow') {
-    return '❄';
-  } else if (condition === 'Rain') {
-    return '🌧';
-  } else {
-    return '';
-  }
-};
-
-export const getExtraText = (
-  fromArg,
-  toArg,
-  signFirst,
-  signSecond,
-  wheatherCondition
-) => {
-  const from = signFirst ? `${signFirst}${fromArg}` : fromArg;
-  const to = signSecond ? `${signSecond}${toArg}` : toArg;
-
-  if (fromArg !== '0' && toArg === '0') {
-    return (
-      <Text>
-        From {from}&nbsp;
-        {getWheatherConditionsSmiles(wheatherCondition)}
-      </Text>
-    );
-  } else if (fromArg === '0' && toArg !== '0') {
-    return (
-      <Text>
-        To {to}&nbsp;
-        {getWheatherConditionsSmiles(wheatherCondition)}
-      </Text>
-    );
-  } else if (fromArg !== '0' && toArg !== '0') {
-    return (
-      <Text>
-        From {from} to {to}&nbsp;
-        {getWheatherConditionsSmiles(wheatherCondition)}
-      </Text>
-    );
-  } else if (wheatherCondition) {
-    return <Text>&nbsp;{getWheatherConditionsSmiles(wheatherCondition)}</Text>;
-  } else {
-    return `Add wheather`;
-  }
 };
 
 export const getNumericData = (text) => {

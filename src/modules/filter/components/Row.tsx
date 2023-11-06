@@ -2,9 +2,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { useSelector } from 'react-redux';
 import { css } from '../../../consts';
-import { getExtraText } from '../functions';
 
 export const Row = ({ items = [], title, selectedItems = [] }: any) => {
   const navigation: any = useNavigation();
@@ -18,38 +16,7 @@ export const Row = ({ items = [], title, selectedItems = [] }: any) => {
       selectedItems,
     });
   };
-
   let extraText = selectedItems.length;
-
-  // Wheather
-  const {
-    temperatureFrom,
-    temperatureTo,
-    wheatherCondition,
-    temperatureFromToggle,
-    temperatureToToggle,
-  } = useSelector((state: any) => state.filter);
-
-  if (title === 'Wheather') {
-    isFilled =
-      temperatureFrom !== '0' || temperatureTo !== '0' || wheatherCondition
-        ? true
-        : false;
-
-    handlePress = () => {
-      navigation.navigate('FilterWheatherPage', {
-        title,
-      });
-    };
-
-    extraText = getExtraText(
-      temperatureFrom,
-      temperatureTo,
-      temperatureFromToggle,
-      temperatureToToggle,
-      wheatherCondition
-    );
-  }
 
   return (
     <TouchableOpacity style={styles.container} onPress={handlePress}>

@@ -18,6 +18,7 @@ export const Filter = () => {
     sellers,
     compositions,
 
+    seasons,
     // From-To
     ageFrom,
     ageTo,
@@ -46,7 +47,7 @@ export const Filter = () => {
       />
       <RowRange title="Age" from={ageFrom} to={ageTo} />
       <RowRange title="Price" from={priceFrom} to={priceTo} />
-      <Row title="Wheather" />
+      <Row items={data.seasons} title="Season" selectedItems={seasons} />
       <View style={styles.buttonsContainer}>
         <Button
           text="Clear all"

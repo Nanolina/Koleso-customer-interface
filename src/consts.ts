@@ -74,13 +74,6 @@ export const css = {
       height: 30,
       borderRadius: 8,
     },
-    wheather: {
-      box: {
-        borderRadius: 8,
-        width: 70,
-        height: 55,
-      },
-    },
   },
   priceInfoContainer: {
     gap: 10,

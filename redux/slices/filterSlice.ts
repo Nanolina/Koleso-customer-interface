@@ -11,17 +11,11 @@ const filterSlice = createSlice({
     brands: [],
     sellers: [],
     compositions: [],
+    seasons: [],
     ageFrom: null,
     ageTo: null,
     priceFrom: null,
     priceTo: null,
-
-    // Wheather
-    temperatureFrom: '0',
-    temperatureTo: '0',
-    temperatureFromToggle: '+',
-    temperatureToToggle: '+',
-    wheatherCondition: null,
   },
   reducers: {
     // Colors
@@ -136,6 +130,22 @@ const filterSlice = createSlice({
       state.compositions = data.compositions;
     },
 
+    // Seasons
+    toggleSeason(state, action) {
+      const seasonIndex = state.seasons.indexOf(action.payload);
+      if (seasonIndex === -1) {
+        state.seasons.push(action.payload);
+      } else {
+        state.seasons.splice(seasonIndex, 1);
+      }
+    },
+    resetAllSeasons(state) {
+      state.seasons = [];
+    },
+    selectAllSeasons(state) {
+      state.seasons = data.seasons;
+    },
+
     // Age
     addAgeFrom(state, action) {
       state.ageFrom = action.payload;
@@ -152,30 +162,6 @@ const filterSlice = createSlice({
       state.priceTo = action.payload;
     },
 
-    // Wheather
-    toggleTemperatureFrom(state, action) {
-      state.temperatureFromToggle = action.payload;
-    },
-    toggleTemperatureTo(state, action) {
-      state.temperatureToToggle = action.payload;
-    },
-    handleTemperatureFrom(state, action) {
-      state.temperatureFrom = action.payload;
-    },
-    handleTemperatureTo(state, action) {
-      state.temperatureTo = action.payload;
-    },
-    toggleWheatherCondition(state, action) {
-      state.wheatherCondition = action.payload;
-    },
-    resetAllWheather(state) {
-      state.temperatureFrom = '0';
-      state.temperatureTo = '0';
-      state.temperatureFromToggle = '+';
-      state.temperatureToToggle = '+';
-      state.wheatherCondition = null;
-    },
-
     // For all
     clearAllFilters(state) {
       state.colors = [];
@@ -185,16 +171,11 @@ const filterSlice = createSlice({
       state.brands = [];
       state.sellers = [];
       state.compositions = [];
+      state.seasons = [];
       state.ageFrom = null;
       state.ageTo = null;
       state.priceFrom = null;
       state.priceTo = null;
-
-      state.temperatureFrom = '0';
-      state.temperatureTo = '0';
-      state.temperatureFromToggle = '+';
-      state.temperatureToToggle = '+';
-      state.wheatherCondition = null;
     },
   },
 });
@@ -236,6 +217,11 @@ export const {
   resetAllCompositions,
   selectAllCompositions,
 
+  // Seasons
+  toggleSeason,
+  resetAllSeasons,
+  selectAllSeasons,
+
   // Age
   addAgeFrom,
   addAgeTo,
@@ -243,14 +229,6 @@ export const {
   // Price
   addPriceFrom,
   addPriceTo,
-
-  // Wheather
-  toggleTemperatureFrom,
-  toggleTemperatureTo,
-  handleTemperatureFrom,
-  handleTemperatureTo,
-  toggleWheatherCondition,
-  resetAllWheather,
 
   // For all
   clearAllFilters,

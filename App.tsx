@@ -34,7 +34,6 @@ import { SignUpPage } from './src/pages/auth/SignUpPage';
 import { SignUpPhoneEmailPage } from './src/pages/auth/SignUpPhoneEmailPage';
 import { FilterCheckboxPage } from './src/pages/filter/FilterCheckboxPage';
 import { FilterPage } from './src/pages/filter/FilterPage';
-import { FilterWheatherPage } from './src/pages/filter/FilterWheatherPage';
 import { SettingsBirthdayPage } from './src/pages/settings/SettingsBirthdayPage';
 import { SettingsCheckboxPage } from './src/pages/settings/SettingsCheckboxPage';
 import { SettingsInputPage } from './src/pages/settings/SettingsInputPage';
@@ -78,10 +77,6 @@ export default function App() {
             <Stack.Screen
               name="FilterCheckboxPage"
               component={FilterCheckboxPage}
-            />
-            <Stack.Screen
-              name="FilterWheatherPage"
-              component={FilterWheatherPage}
             />
             <Stack.Screen name="CartPage" component={CartPage} />
             <Stack.Screen name="CheckoutPage" component={CheckoutPage} />
