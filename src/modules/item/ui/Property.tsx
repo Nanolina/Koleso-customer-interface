@@ -1,7 +1,7 @@
 import { StyleSheet, Text } from 'react-native';
 import { css } from '../../../consts';
 
-export const Property = ({ label, text }) => {
+export const Property = ({ label, text }: any) => {
   return (
     <Text style={styles.text}>
       <Text style={styles.label}>{label}</Text> {text}

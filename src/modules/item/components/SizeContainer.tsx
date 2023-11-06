@@ -1,18 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import MissingSizeBox from '../ui/size/MissingSizeBox';
-import SelectedSizeBox from '../ui/size/SelectedSizeBox';
-import SizeBox from '../ui/size/SizeBox';
+import Box from '../../../ui/Box';
+import { css } from '../../../consts';
 
-const SizeContainer = ({ itemSize, possibleSizes, missingSizes }) => {
+const SizeContainer = ({ possibleSizes, missingSizes }) => {
+  const [selectedSize, setSelectedSize] = useState(null);
+
+  const handlePress = (size) => {
+    setSelectedSize(size);
+  };
+
   const renderSizeBox = (size) => {
-    if (itemSize === size) {
-      return <SelectedSizeBox size={itemSize} />;
+
+    // Selected
+    if (selectedSize === size) {
+      return (
+        <Box
+          label={size}
+          boxStyle={{ backgroundColor: css.colors.main, ...css.item.sizeBox }}
+          textStyle={{ color: css.colors.white }}
+          onPress={() => handlePress(size)}
+        />
+      );
     }
+
+    // Missing
     if (missingSizes.includes(size)) {
-      return <MissingSizeBox size={size} />;
+      return (
+        <Box
+          label={size}
+          boxStyle={{
+            backgroundColor: css.colors.lightGray,
+            ...css.item.sizeBox,
+          }}
+          textStyle={{ color: css.colors.black }}
+        />
+      );
     }
-    return <SizeBox size={size} />;
+
+    // Other
+    return (
+      <Box
+        label={size}
+        boxStyle={{
+          backgroundColor: css.colors.white,
+          borderColor: css.colors.main,
+          borderWidth: 1,
+          ...css.item.sizeBox,
+        }}
+        textStyle={{ color: css.colors.main }}
+        onPress={() => handlePress(size)}
+      />
+    );
   };
 
   return (

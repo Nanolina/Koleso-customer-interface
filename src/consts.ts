@@ -59,12 +59,8 @@ export const css = {
     },
   },
   item: {
-    size: {
-      box: {
-        borderRadius: 8,
-        width: 45,
-        height: 40,
-      },
+    sizeBox: {
+      width: 45,
     },
   },
   filter: {

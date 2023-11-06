@@ -9,7 +9,6 @@ export const productCards = [
     color: 'beige',
     composition: 'cotton 100%',
     gender: 'female',
-    size: 36,
     possibleSizes: [35, 36, 37, 38, 39, 40, 41],
     missingSizes: [38, 39, 41],
     description: `Pantsuit - An Elegant Choice for the Modern Woman

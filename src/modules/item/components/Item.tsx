@@ -20,10 +20,8 @@ export const Item = ({ item }) => {
         color={item.color}
         composition={item.composition}
         gender={item.gender}
-        size={item.size}
       />
       <SizeContainer
-        itemSize={item.size}
         possibleSizes={item.possibleSizes}
         missingSizes={item.missingSizes}
       />

@@ -1,25 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { useDispatch } from 'react-redux';
-import { toggleReason } from '../../../../redux/slices/returnSlice';
 import { css, reasonsForReturn } from '../../../consts';
-import { Button } from '../../../ui/Button';
+import Box from '../../../ui/Box';
 
-const ReasonContainer = ({ selectedReason }) => {
-  const dispatch = useDispatch();
+const ReasonContainer = () => {
+  const [selectedReason, setSelectedReason] = useState(null);
+
+  const handlePress = (reason) => {
+    setSelectedReason(reason);
+  };
 
   const renderReasonBox = (reason) => {
     if (selectedReason === reason) {
-      return <Button text={selectedReason} />;
+      return (
+        <Box
+          label={reason}
+          boxStyle={{ backgroundColor: css.colors.main }}
+          textStyle={{ color: css.colors.white }}
+          onPress={() => handlePress(reason)}
+        />
+      );
     }
 
     return (
-      <Button
-        text={reason}
-        onPress={() => dispatch(toggleReason(reason))}
-        border={true}
-        backgroundColor={css.colors.white}
-        textColor={css.colors.black}
+      <Box
+        label={reason}
+        boxStyle={{
+          backgroundColor: css.colors.white,
+          borderColor: css.colors.main,
+          borderWidth: 1,
+        }}
+        textStyle={{ color: css.colors.main }}
+        onPress={() => handlePress(reason)}
       />
     );
   };
@@ -36,18 +48,7 @@ const ReasonContainer = ({ selectedReason }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: 10,
-    width: '100%',
-    flexWrap: 'wrap'
-  },
-  selectedReason: {
-    backgroundColor: css.colors.main,
-    padding: 10,
-  },
-  text: {
-    color: css.colors.white,
-    fontWeight: 'bold',
+    justifyContent: 'space-around',
   },
 });
 
