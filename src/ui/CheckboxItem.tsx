@@ -17,6 +17,7 @@ export const CheckboxItem = ({ item, isSelected, onToggle }: any) => (
 
 const styles = StyleSheet.create({
   item: {
+    marginTop: -10,
     flexDirection: 'row',
     alignItems: 'center',
     paddingVertical: 8,

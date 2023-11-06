@@ -3,8 +3,9 @@ import { PriceContainer } from '../../../components/PriceContainer';
 import { css } from '../../../consts';
 import { gapBetweenDetails } from '../consts';
 import { Detail } from '../ui/Detail';
+import { QuantityContainer } from './QuantityContainer';
 
-export const DetailsContainer = ({ item }) => {
+export const DetailsContainer = ({ item, quantity }) => {
   return (
     <View style={styles.container}>
       <PriceContainer
@@ -18,6 +19,8 @@ export const DetailsContainer = ({ item }) => {
         <Detail name="Size" detail={item.size} />
         <Detail name="Color" detail={item.color} />
       </View>
+
+      <QuantityContainer quantity={quantity} />
     </View>
   );
 };
@@ -27,6 +30,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'flex-start',
     gap: gapBetweenDetails,
+    paddingLeft: 10,
   },
   title: {
     fontWeight: 'bold',

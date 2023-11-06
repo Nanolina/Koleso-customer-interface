@@ -11,14 +11,13 @@ export const Quantity = ({ quantity }) => {
 
 const styles = StyleSheet.create({
   container: {
+    paddingHorizontal: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingHorizontal: 10,
   },
   quantity: {
     fontWeight: 'bold',
-    fontSize: css.size.text20,
+    fontSize: css.size.text18,
     color: css.colors.main,
-    textAlign: 'center',
   },
 });

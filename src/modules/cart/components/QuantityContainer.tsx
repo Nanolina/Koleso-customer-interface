@@ -1,4 +1,6 @@
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { css } from '../../../consts';
 import { Quantity } from '../ui/Quantity';
 import { Sign } from '../ui/Sign';
 
@@ -15,7 +17,8 @@ export const QuantityContainer = ({ quantity }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    justifyContent: 'flex-end',
-    gap: 5,
+    backgroundColor: css.colors.lightGray,
+    borderRadius: css.borderRadiusMax,
+    alignItems: 'center',
   },
 });

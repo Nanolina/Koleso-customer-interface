@@ -1,26 +1,27 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { css } from '../../../consts';
 
 export const Sign = ({ type }) => {
   return (
-    <TouchableOpacity>
-      <View style={styles.container}>
-        <Text style={styles.sign}>{type}</Text>
-      </View>
+    <TouchableOpacity style={styles.container}>
+      <Text style={styles.sign}>{type}</Text>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: css.colors.mainOpacity,
+    paddingVertical: 6,
+    width: 30,
+    margin: 3,
+    backgroundColor: css.colors.white,
+    justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: css.borderRadiusMin,
-    paddingHorizontal: 8,
-    paddingVertical: 4,
   },
   sign: {
     fontWeight: 'bold',
-    fontSize: css.size.text20,
-    color: css.colors.white,
+    fontSize: css.size.text18,
+    color: css.colors.main,
   },
 });

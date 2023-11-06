@@ -5,10 +5,9 @@ import { useSelector } from 'react-redux';
 import { css } from '../../../consts';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { Hr } from '../../../ui/Hr';
-import { gapBetweenIcons, heightImage, widthImage } from '../consts';
+import { heightImage, widthImage } from '../consts';
 import { DetailsContainer } from './DetailsContainer';
-import { IconContainer } from './IconContainer';
-import { QuantityContainer } from './QuantityContainer';
+import { Menu } from './Menu';
 
 export const CartItem = ({ item, quantity = 1 }: any) => {
   const { delivery } = useSelector((state: any) => state.cart);
@@ -18,11 +17,8 @@ export const CartItem = ({ item, quantity = 1 }: any) => {
       <View style={styles.itemContainer}>
         <CheckboxItem onToggle={() => {}} />
         <Image source={{ uri: item.image }} style={styles.image} />
-        <DetailsContainer item={item} />
-        <View style={styles.iconContainer}>
-          <IconContainer />
-          <QuantityContainer quantity={quantity} />
-        </View>
+        <DetailsContainer item={item} quantity={quantity} />
+        <Menu />
       </View>
       <Hr />
     </View>
@@ -43,9 +39,5 @@ const styles = StyleSheet.create({
     width: widthImage,
     height: heightImage,
     borderRadius: css.borderRadiusMax,
-  },
-  iconContainer: {
-    alignItems: 'flex-end',
-    gap: gapBetweenIcons,
   },
 });
