@@ -2,18 +2,25 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { css } from '../consts';
 
-export const CheckboxItem = ({ item, isSelected, onToggle }: any) => (
-  <TouchableOpacity style={styles.item} onPress={onToggle}>
-    {isSelected ? (
-      <View style={styles.checkbox}>
-        <Text style={styles.check}>✓</Text>
-      </View>
-    ) : (
-      <View style={styles.checkboxEmpty}></View>
-    )}
-    <Text style={styles.text}>{item}</Text>
-  </TouchableOpacity>
-);
+export const CheckboxItem = ({
+  item,
+  isSelected,
+  onToggle,
+  styleText,
+}: any) => {
+  return (
+    <TouchableOpacity style={styles.item} onPress={onToggle}>
+      {isSelected ? (
+        <View style={styles.checkbox}>
+          <Text style={styles.check}>✓</Text>
+        </View>
+      ) : (
+        <View style={styles.checkboxEmpty}></View>
+      )}
+      <Text style={styleText || styles.text}>{item}</Text>
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   item: {
@@ -45,5 +52,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: css.size.text16,
     fontWeight: 'bold',
+    flexShrink: 1,
+    flexWrap: 'wrap',
   },
 });

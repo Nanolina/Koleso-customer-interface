@@ -43,6 +43,7 @@ export const css = {
   padding: 10,
   paddingMax: 30,
   paddingBottom: 20,
+  paddingTop: 10,
   productCard: {
     iconSize: 18,
     borderRadius: 5,
@@ -160,3 +161,8 @@ export const imagesSocialMedia = {
 };
 
 export const reasonsForReturn = ["Didn't fit", 'Bad quality', 'Warranty case'];
+export const addressPickUpPoint = {
+  id: 'f0ff3d68-ebcd-43c1-a470-37ce063089a4',
+  address: 'Limassol, Mesa Geitonia',
+};
+export const courierServices = 5;

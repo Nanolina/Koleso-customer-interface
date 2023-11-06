@@ -1,4 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
+import { StyleSheet, View } from 'react-native';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
@@ -16,13 +17,25 @@ export const CartPage = () => {
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Cart />
       </CentralContainer>
-      <Button
-        text="Checkout"
-        onPress={() => navigation.navigate('CheckoutPage')}
-        backgroundColor={css.colors.orange}
-        extra={`50 ${currency}`}
-      />
+      <View style={styles.buttonContainer}>
+        <Button
+          text="Checkout"
+          onPress={() => navigation.navigate('CheckoutPage')}
+          backgroundColor={css.colors.orange}
+          width="90%"
+          extra={`50 ${currency}`}
+        />
+      </View>
       <Footer />
     </Container>
   );
 };
+
+const styles = StyleSheet.create({
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: css.colors.white,
+  },
+});

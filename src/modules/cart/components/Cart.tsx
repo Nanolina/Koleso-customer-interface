@@ -11,15 +11,6 @@ import { CartItems } from './CartItems';
 export const Cart = () => {
   return (
     <View style={styles.container}>
-      <ButtonsGroup
-        options={[
-          { text: pickupPoint, value: pickupPoint },
-          { text: courier, value: courier },
-        ]}
-        currentState="delivery"
-        toggleFunction={toggleDelivery}
-        slice="cart"
-      />
       <CheckboxItem item="Select all" onPress={() => {}} />
       <CartItems />
       <View style={css.priceInfoContainer}>
@@ -36,6 +27,7 @@ export const Cart = () => {
 
 const styles = StyleSheet.create({
   container: {
+    paddingTop: css.paddingTop,
     paddingBottom: css.paddingBottom,
   },
 });

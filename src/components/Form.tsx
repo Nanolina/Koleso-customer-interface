@@ -1,33 +1,11 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { minDate } from '../consts';
-import { TimePicker } from '../modules/checkout/components/TimePicker';
-import { Note } from '../ui/Note';
-import { DatePicker } from './DatePicker';
+import { css } from '../consts';
 import { TextWithInput } from './TextWithInput';
 
-export const Form = ({
-  name,
-  phone,
-  city,
-  street,
-  house,
-  apartment,
-  date,
-  time,
-  note,
-  addField,
-  textDate,
-  textTime,
-}) => {
+export const Form = ({ name, city, street, house, apartment, addField }) => {
   const dispatch = useDispatch();
-
-  const validRangeDate = React.useMemo(() => {
-    return {
-      startDate: minDate,
-    };
-  }, [minDate]);
 
   return (
     <View style={styles.mainContainer}>
@@ -39,15 +17,7 @@ export const Form = ({
         }
         autoComplete="name"
       />
-      <TextWithInput
-        text="Phone"
-        value={phone}
-        onChangeText={(text) =>
-          dispatch(addField({ field: 'phone', value: text }))
-        }
-        autoComplete="tel"
-        inputMode="tel"
-      />
+
       <TextWithInput
         text="City"
         value={city}
@@ -82,41 +52,6 @@ export const Form = ({
           width="45%"
         />
       </View>
-
-      <View style={styles.container}>
-        <DatePicker
-          text={textDate}
-          value={date}
-          onChange={(text) =>
-            dispatch(
-              addField({
-                field: 'date',
-                value: text.toISOString(),
-              })
-            )
-          }
-          validRange={validRangeDate}
-          width="45%"
-        />
-
-        <TimePicker
-          text={textTime}
-          value={time}
-          onChange={(text) =>
-            dispatch(addField({ field: 'time', value: text }))
-          }
-          width="45%"
-        />
-      </View>
-
-      <Note
-        title="Note"
-        placeholder="Write notes for the store or courier..."
-        value={note}
-        onChangeText={(text) =>
-          dispatch(addField({ field: 'note', value: text }))
-        }
-      />
     </View>
   );
 };
@@ -124,6 +59,7 @@ export const Form = ({
 const styles = StyleSheet.create({
   mainContainer: {
     gap: 10,
+    paddingTop: css.paddingTop,
   },
   container: {
     flexDirection: 'row',

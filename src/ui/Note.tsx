@@ -24,10 +24,9 @@ const styles = StyleSheet.create({
   },
   textArea: {
     height: 100,
-    borderColor: css.colors.main,
-    borderWidth: 1,
     padding: 10,
     borderRadius: css.borderRadiusMin,
+    backgroundColor: css.colors.lightGray,
   },
   text: {
     fontSize: css.size.text16,

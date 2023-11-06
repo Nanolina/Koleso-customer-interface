@@ -105,3 +105,15 @@ export const notifications = [
     text: 'Refund of 59 euros has been sent to the card. Refund transaction №453628173 .Refer it to your bank if the money does not reach your account within 5 days',
   },
 ];
+
+export const savedAddresses = [
+  {
+    id: '1',
+    address: 'Piazza Gentile 58, Appartamento 88, Borgo Laerte, CT 00986',
+  },
+  {
+    id: '2',
+    address:
+      'Puerta 594 Masía Homero Estrada, 17 Esc. 517, La Línea de la Concepción, Ast 28576',
+  },
+];

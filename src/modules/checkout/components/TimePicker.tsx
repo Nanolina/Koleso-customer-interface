@@ -30,11 +30,9 @@ const getStyles = (width) =>
       justifyContent: 'center',
     },
     picker: {
-      borderWidth: 1,
-      borderColor: css.colors.main,
+      backgroundColor: css.colors.lightGray,
       borderRadius: css.borderRadiusMin,
       fontSize: css.size.text16,
-      color: css.colors.black,
       height: 50,
       paddingHorizontal: 15,
       justifyContent: 'center',

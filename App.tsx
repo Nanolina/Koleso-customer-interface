@@ -10,6 +10,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { PaperProvider } from 'react-native-paper';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import { AddressForm } from './src/pages/AddressForm';
 import { CartPage } from './src/pages/CartPage';
 import { CategoriesPage } from './src/pages/CategoriesPage';
 import { CheckoutPage } from './src/pages/CheckoutPage';
@@ -119,6 +120,7 @@ export default function App() {
               name="NotificationsPage"
               component={NotificationsPage}
             />
+            <Stack.Screen name="AddressForm" component={AddressForm} />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

@@ -1,25 +1,21 @@
 import { useNavigation } from '@react-navigation/native';
-import {
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  View,
-} from 'react-native';
+import React from 'react';
+import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { useSelector } from 'react-redux';
-import { courier } from '../../../../consts';
-import { addField } from '../../../../redux/slices/checkoutSlice';
-import { Form } from '../../../components/Form';
+import { courier, pickupPoint } from '../../../../consts';
+import { savedAddresses } from '../../../../mockData';
+import { toggleDelivery } from '../../../../redux/slices/cartSlice';
+import { ButtonsGroup } from '../../../components/ButtonsGroup';
 import { PriceInfoContainer } from '../../../components/PriceInfoContainer';
-import { css } from '../../../consts';
-import { Button } from '../../../ui/Button';
+import { addressPickUpPoint, courierServices, css } from '../../../consts';
 import { Hr } from '../../../ui/Hr';
+import { Address } from '../ui/Address';
+import { ExtraInfoCourier } from './ExtraInfoCourier';
 
 export const Checkout = () => {
   const navigation: any = useNavigation();
 
-  const { name, phone, city, street, house, apartment, date, time, note } =
-    useSelector((state: any) => state.checkout);
+  const { delivery } = useSelector((state: any) => state.cart);
 
   return (
     <KeyboardAvoidingView
@@ -30,54 +26,37 @@ export const Checkout = () => {
         style={{ flex: 1 }}
         contentContainerStyle={css.form.container}
       >
-        <View style={styles.buttonContainer}>
-          <Button text={courier} />
-        </View>
-
-        <Form
-          name={name}
-          phone={phone}
-          city={city}
-          street={street}
-          house={house}
-          apartment={apartment}
-          date={date}
-          time={time}
-          note={note}
-          addField={addField}
-          textDate="Date for delivery"
-          textTime="Delivery time"
+        <ButtonsGroup
+          options={[
+            { text: pickupPoint, value: pickupPoint },
+            { text: courier, value: courier },
+          ]}
+          currentState="delivery"
+          toggleFunction={toggleDelivery}
+          slice="cart"
         />
-        <Hr />
 
+        {delivery === pickupPoint ? (
+          <Address address={addressPickUpPoint} hasMarker />
+        ) : (
+          savedAddresses.map((address) => (
+            <Address address={address} key={address.id} />
+          ))
+        )}
+
+        {delivery === courier && <ExtraInfoCourier />}
+
+        <Hr />
         <PriceInfoContainer
           isPurchase={true}
           quantity={1}
           priceForProducts={100}
           hasDiscount={true}
           discount={50}
-          courierServices={5}
+          courierServices={delivery === courier && courierServices}
           totalPrice={55}
         />
-
-        <View style={styles.buttonPayment}>
-          <Button
-            text="Proceed payment"
-            onPress={() => navigation.navigate('PaymentPage')}
-            width="50%"
-            backgroundColor={css.colors.orange}
-          />
-        </View>
       </ScrollView>
     </KeyboardAvoidingView>
   );
 };
-
-const styles = StyleSheet.create({
-  buttonContainer: {
-    alignItems: 'flex-end',
-  },
-  buttonPayment: {
-    alignItems: 'flex-end',
-  },
-});

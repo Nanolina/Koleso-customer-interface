@@ -36,12 +36,11 @@ const getStyles = (width) =>
       width: width || '100%',
     },
     input: {
-      borderWidth: 1,
-      borderColor: css.colors.main,
+      backgroundColor: css.colors.lightGray,
       borderRadius: css.borderRadiusMin,
       textAlign: 'center',
       fontSize: css.size.text16,
-      color: css.colors.black,
+      color: css.colors.main,
       height: 40,
     },
     text: {
