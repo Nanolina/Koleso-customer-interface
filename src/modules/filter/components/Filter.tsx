@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import { clearAllFilters } from '../../../../redux/slices/filterSlice';
+import { useSelector } from 'react-redux';
 import { css } from '../../../consts';
 import { Button } from '../../../ui/Button';
 import { data } from '../data';
+import { ResetAll } from '../ui/ResetAll';
 import { Row } from './Row';
 import { RowRange } from './RowRange';
 
@@ -26,10 +26,10 @@ export const Filter = () => {
     priceTo,
   } = useSelector((state: any) => state.filter);
 
-  const dispatch = useDispatch();
-
   return (
     <View style={styles.container}>
+      <ResetAll />
+
       <Row items={data.colors} title="Color" selectedItems={colors} />
       <Row items={data.genders} title="Gender" selectedItems={genders} />
       <Row items={data.sizes} title="Size" selectedItems={sizes} />
@@ -50,13 +50,6 @@ export const Filter = () => {
       <Row items={data.seasons} title="Season" selectedItems={seasons} />
       <View style={styles.buttonsContainer}>
         <Button
-          text="Clear all"
-          onPress={() => dispatch(clearAllFilters())}
-          border={true}
-          backgroundColor={css.colors.white}
-          textColor={css.colors.black}
-        />
-        <Button
           text="Apply"
           onPress={() => {}}
           backgroundColor={css.colors.orange}
@@ -68,7 +61,8 @@ export const Filter = () => {
 
 const styles = StyleSheet.create({
   container: {
-    gap: 30,
+    gap: 25,
+    paddingBottom: css.paddingBottom,
   },
   buttonsContainer: {
     paddingTop: 20,

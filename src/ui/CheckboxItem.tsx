@@ -26,7 +26,9 @@ const styles = StyleSheet.create({
   checkbox: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: css.colors.main,
+    backgroundColor: css.colors.white,
+    borderWidth: 1,
+    borderColor: css.colors.main,
     ...css.filter.checkbox,
   },
   checkboxEmpty: {
@@ -38,7 +40,7 @@ const styles = StyleSheet.create({
   check: {
     fontSize: css.size.text15,
     fontWeight: 'bold',
-    color: css.colors.white,
+    color: css.colors.main,
   },
   text: {
     fontSize: css.size.text16,

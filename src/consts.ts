@@ -8,6 +8,7 @@ export const css = {
     white: '#fff',
     gray: '#c6c5d7',
     lightGray: '#E0E0E9',
+    darkGray: '#ADACB7',
     main: '#6c00ad',
     lightMain: '#a534fd',
     yellow: '#FDDC00',

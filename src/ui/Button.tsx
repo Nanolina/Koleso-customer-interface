@@ -8,9 +8,10 @@ export const Button = ({
   backgroundColor,
   border = false,
   textColor,
+  isBold = true,
   extra,
 }: any) => {
-  const styles = getStyles(width, backgroundColor, border, textColor);
+  const styles = getStyles(width, backgroundColor, border, textColor, isBold);
 
   return (
     <TouchableOpacity onPress={onPress} style={styles.container}>
@@ -20,7 +21,7 @@ export const Button = ({
   );
 };
 
-const getStyles = (width, backgroundColor, border, textColor) =>
+const getStyles = (width, backgroundColor, border, textColor, isBold) =>
   StyleSheet.create({
     container: {
       width: width || '100%',
@@ -30,12 +31,12 @@ const getStyles = (width, backgroundColor, border, textColor) =>
       padding: 10,
       backgroundColor: backgroundColor || css.colors.orange,
       ...(border && {
-        borderWidth: 2,
+        borderWidth: 1,
         borderColor: css.colors.main,
       }),
     },
     text: {
-      fontWeight: 'bold',
+      fontWeight: isBold ? 'bold' : 'normal',
       fontSize: css.size.text16,
       textAlign: 'center',
       color: textColor || css.colors.white,
