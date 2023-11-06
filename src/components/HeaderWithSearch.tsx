@@ -4,6 +4,8 @@ import {
   Keyboard,
   SafeAreaView,
   StyleSheet,
+  Text,
+  TouchableOpacity,
   View,
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
@@ -12,7 +14,6 @@ import {
   turnOffSearch,
 } from '../../redux/slices/searchSlice';
 import { css } from '../consts';
-import { Button } from '../ui/Button';
 import { ButtonBack } from '../ui/ButtonBack';
 import { SearchBar } from './SearchBar';
 
@@ -39,7 +40,11 @@ export const HeaderWithSearch = () => {
 
         <SearchBar />
 
-        {isEnabled && <Button text="Search" onPress={() => {}} width={80} />}
+        {isEnabled && (
+          <TouchableOpacity>
+            <Text style={styles.text}>Search</Text>
+          </TouchableOpacity>
+        )}
       </SafeAreaView>
     </View>
   );
@@ -53,4 +58,8 @@ const styles = StyleSheet.create({
     gap: 10,
     justifyContent: 'center',
   },
+  text: {
+    color: css.colors.white,
+    fontSize: css.size.text18,
+  }
 });

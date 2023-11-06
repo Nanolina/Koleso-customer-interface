@@ -22,12 +22,10 @@ export const SignUp: React.FC = () => {
 
       <View style={styles.logInContainer}>
         <Text style={styles.text}>Already have an account?</Text>
-        <View>
-          <Button
-            text="Log in"
-            onPress={() => navigation.navigate('LoginPage')}
-          />
-        </View>
+        <Button
+          text="Log in"
+          onPress={() => navigation.navigate('LoginPage')}
+        />
       </View>
     </View>
   );
@@ -49,5 +47,6 @@ const styles = StyleSheet.create({
   logInContainer: {
     gap: 20,
     alignItems: 'center',
+    width: '100%',
   },
 });
