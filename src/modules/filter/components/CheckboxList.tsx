@@ -29,7 +29,7 @@ export const CheckboxList = ({ title, items }) => {
       return (
         <CheckboxItem
           key={item}
-          item={item}
+          text={item}
           isSelected={isSelected}
           onToggle={() => dispatch(onToggleItem(item))}
         />

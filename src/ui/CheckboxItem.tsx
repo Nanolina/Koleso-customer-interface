@@ -2,12 +2,19 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors, css, sizes } from '../consts';
 
-export const CheckboxItem = ({
-  item,
+interface ICheckboxItemProps {
+  text?: string;
+  isSelected?: boolean;
+  onToggle: () => void;
+  styleText?: object;
+}
+
+export const CheckboxItem: React.FC<ICheckboxItemProps> = ({
+  text,
   isSelected,
   onToggle,
   styleText,
-}: any) => {
+}) => {
   return (
     <TouchableOpacity style={styles.item} onPress={onToggle}>
       {isSelected ? (
@@ -17,7 +24,7 @@ export const CheckboxItem = ({
       ) : (
         <View style={styles.checkboxEmpty}></View>
       )}
-      <Text style={styleText || styles.text}>{item}</Text>
+      <Text style={styleText || styles.text}>{text}</Text>
     </TouchableOpacity>
   );
 };

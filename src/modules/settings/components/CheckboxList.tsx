@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { resetValue, setValue } from '../../../../redux/slices/settingsSlice';
-import { colors, css } from '../../../consts';
+import { colors } from '../../../consts';
 import { Button } from '../../../ui/Button';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 
@@ -17,7 +17,7 @@ export const CheckboxList = ({ items }) => {
       return (
         <CheckboxItem
           key={item}
-          item={item}
+          text={item}
           isSelected={isSelected}
           onToggle={() => dispatch(setValue({ key: 'gender', value: item }))}
         />

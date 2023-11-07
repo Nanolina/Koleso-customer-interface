@@ -1,3 +1,10 @@
+export interface IRegistrationMethod {
+  id: string;
+  text: string;
+  image: number; // Using only local images via require
+  redirectPage: string;
+}
+
 export const registrationMethods = [
   {
     id: '767bddf6-e948-4437-a48c-94749a6b075c',
@@ -9,5 +16,6 @@ export const registrationMethods = [
     id: '8d2b59b0-92ed-40db-a17a-1e7c7320c615',
     text: 'Continue with Google',
     image: require('./assets/google.png'),
+    redirectPage: '',
   },
 ];

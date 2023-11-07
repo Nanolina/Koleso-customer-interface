@@ -8,7 +8,7 @@ export const TextInfoContainer = ({ item }) => {
       <Text style={styles.title}>{item.title}</Text>
 
       {item.color && <Info text="Color" info={item.color} />}
-      {item.size && <Info text="Size" info={item.size} />}
+      {item.selectedSize && <Info text="Size" info={item.selectedSize} />}
 
       <Text style={styles.price}>
         {item.price} {currency}

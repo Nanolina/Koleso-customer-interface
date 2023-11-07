@@ -1,16 +1,20 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { colors, sizes } from '../../../consts';
 import { Icon } from '../../../ui/Icon';
 import { gapBetweenDetails } from '../consts';
 
-export const Menu = () => {
+export const Menu: React.FC = () => {
   const [openMenu, setOpenMenu] = useState(false);
+
+  const toggleMenu = useCallback(() => {
+    setOpenMenu((prevOpenMenu) => !prevOpenMenu);
+  }, []);
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={() => setOpenMenu(!openMenu)}>
+      <TouchableOpacity onPress={toggleMenu}>
         <MaterialCommunityIcons
           name="dots-horizontal"
           size={sizes.iconSizeMax}

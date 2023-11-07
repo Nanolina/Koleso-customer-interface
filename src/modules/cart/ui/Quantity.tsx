@@ -1,7 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, sizes } from '../../../consts';
 
-export const Quantity = ({ quantity }) => {
+interface IQuantityProps {
+  quantity: number;
+}
+
+export const Quantity: React.FC<IQuantityProps> = ({ quantity }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.quantity}>{quantity}</Text>

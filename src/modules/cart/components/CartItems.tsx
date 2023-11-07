@@ -1,12 +1,27 @@
 import { StyleSheet, View } from 'react-native';
-import { productCards } from '../../../../mockData';
+import { IItemProps, productCards } from '../../../../mockData';
 import { CartItem } from './CartItem';
 
-export const CartItems = () => {
+interface ICartItemsProps {
+  items: IItemProps[];
+  selectedItems: { [key: string]: boolean };
+  toggleItemSelection: (id: string) => void;
+}
+
+export const CartItems: React.FC<ICartItemsProps> = ({
+  items,
+  selectedItems,
+  toggleItemSelection,
+}) => {
   return (
     <View style={styles.container}>
-      {productCards.map((item) => (
-        <CartItem item={item} key={item.id} />
+      {items.map((item) => (
+        <CartItem
+          item={item}
+          key={item.id}
+          isSelected={!!selectedItems[item.id]}
+          toggleItemSelection={() => toggleItemSelection(item.id)}
+        />
       ))}
     </View>
   );

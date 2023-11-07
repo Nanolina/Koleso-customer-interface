@@ -4,7 +4,13 @@ import { colors, css } from '../../../consts';
 import { Quantity } from '../ui/Quantity';
 import { Sign } from '../ui/Sign';
 
-export const QuantityContainer = ({ quantity }) => {
+interface IQuantityContainerProps {
+  quantity: number;
+}
+
+export const QuantityContainer: React.FC<IQuantityContainerProps> = ({
+  quantity,
+}) => {
   return (
     <View style={styles.container}>
       <Sign type="-" />

@@ -1,14 +1,39 @@
+export interface IReturnProps {
+  number: string;
+  date: string;
+}
+
+export interface IItemProps {
+  id: string;
+  image: string;
+  price: number;
+  oldPrice: number;
+  seller: string;
+  title: string;
+  color: string;
+  gender: string;
+  quantity: number;
+  description?: string;
+  composition?: string;
+  selectedSize?: number;
+  possibleSizes?: number[];
+  missingSizes?: number[];
+  return?: IReturnProps;
+}
+
 export const productCards = [
   {
     id: '1',
     image: 'https://ae04.alicdn.com/kf/H07516981ed7d4b5bb3cc6a39ecea7115P.jpg',
-    price: '20',
-    oldPrice: '40',
+    price: 20,
+    oldPrice: 40,
     seller: 'Leoe',
     title: 'Pantsuit',
     color: 'beige',
+    selectedSize: 35,
     composition: 'cotton 100%',
     gender: 'female',
+    quantity: 1,
     possibleSizes: [35, 36, 37, 38, 39, 40, 41],
     missingSizes: [38, 39, 41],
     description: `Pantsuit - An Elegant Choice for the Modern Woman
@@ -27,10 +52,13 @@ Don't miss the opportunity to add this gorgeous pantsuit to your closet! It will
   {
     id: '2',
     image: 'https://13not.ru/img/letnie-platya-s-volanami-na-plechah.jpg',
-    price: '30',
-    oldPrice: '60',
+    price: 30,
+    oldPrice: 60,
     seller: 'Sldek',
     title: 'Dress',
+    color: 'beige',
+    gender: 'male',
+    quantity: 1,
     return: {
       number: '137033693-R2',
       date: '12.05.2023',
@@ -41,10 +69,13 @@ Don't miss the opportunity to add this gorgeous pantsuit to your closet! It will
     id: '3',
     image:
       'https://marketpro-demo.ru/upload/products_pictures_demo/c7b/b9dp2462keos5hlnrqo4zqavaba3ircv/fg6vrukxrq1.jpg',
-    price: '40',
-    oldPrice: '80',
+    price: 34,
+    oldPrice: 67,
     seller: 'Hdadn',
     title: 'Laptop',
+    color: 'blue',
+    gender: 'female',
+    quantity: 1,
     delivery: {
       number: '0137033693-0022',
       date: '02.03.2023',
@@ -53,9 +84,13 @@ Don't miss the opportunity to add this gorgeous pantsuit to your closet! It will
   {
     id: '4',
     image: 'https://13not.ru/img/letnie-platya-s-volanami-na-plechah.jpg',
-    price: '40',
-    oldPrice: '80',
+    price: 29,
+    oldPrice: 65,
     seller: 'Eneda',
+    title: 'Phone',
+    color: 'red',
+    gender: 'female',
+    quantity: 1,
     delivery: {
       number: '0234033693-0034',
       date: '12.01.2022',

@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { Image, Platform, StyleSheet, View } from 'react-native';
-import { useSelector } from 'react-redux';
-
+import { IItemProps } from '../../../../mockData';
 import { css } from '../../../consts';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { Hr } from '../../../ui/Hr';
@@ -9,15 +8,24 @@ import { heightImage, widthImage } from '../consts';
 import { DetailsContainer } from './DetailsContainer';
 import { Menu } from './Menu';
 
-export const CartItem = ({ item, quantity = 1 }: any) => {
-  const { delivery } = useSelector((state: any) => state.cart);
+interface ICartItemProps {
+  item: IItemProps;
+  isSelected: boolean;
+  toggleItemSelection: () => void;
+}
+
+export const CartItem: React.FC<ICartItemProps> = ({
+  item,
+  isSelected,
+  toggleItemSelection,
+}) => {
 
   return (
     <View style={styles.container}>
       <View style={styles.itemContainer}>
-        <CheckboxItem onToggle={() => {}} />
+        <CheckboxItem isSelected={isSelected} onToggle={toggleItemSelection} />
         <Image source={{ uri: item.image }} style={styles.image} />
-        <DetailsContainer item={item} quantity={quantity} />
+        <DetailsContainer item={item} quantity={item.quantity} />
         <Menu />
       </View>
       <Hr />

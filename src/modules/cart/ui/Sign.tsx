@@ -1,7 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { colors, css, sizes } from '../../../consts';
 
-export const Sign = ({ type }) => {
+interface ISignProps {
+  type: string;
+}
+
+export const Sign: React.FC<ISignProps> = ({ type }) => {
   return (
     <TouchableOpacity style={styles.container}>
       <Text style={styles.sign}>{type}</Text>

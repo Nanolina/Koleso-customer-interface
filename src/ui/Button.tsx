@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { colors, css, sizes } from '../consts';
 
-interface ButtonProps {
+interface IButtonProps {
   text: any;
   onPress: () => void;
   width?: string | number;
@@ -12,7 +12,7 @@ interface ButtonProps {
   extra?: string;
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<IButtonProps> = ({
   text,
   onPress,
   width = '100%',

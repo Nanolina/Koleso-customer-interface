@@ -14,9 +14,9 @@ export const TextContainer = ({ item }) => {
             Color: <Text style={styles.boldText}>{item.color}</Text>
           </Text>
         )}
-        {item.size && (
+        {item.selectedSize && (
           <Text style={styles.italicText}>
-            Size: <Text style={styles.boldText}>{item.size}</Text>
+            Size: <Text style={styles.boldText}>{item.selectedSize}</Text>
           </Text>
         )}
       </View>

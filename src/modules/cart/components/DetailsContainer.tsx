@@ -1,11 +1,20 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { IItemProps } from '../../../../mockData';
 import { PriceContainer } from '../../../components/PriceContainer';
 import { sizes } from '../../../consts';
 import { gapBetweenDetails } from '../consts';
 import { Detail } from '../ui/Detail';
 import { QuantityContainer } from './QuantityContainer';
 
-export const DetailsContainer = ({ item, quantity }) => {
+interface IDetailsContainerProps {
+  item: IItemProps;
+  quantity: number;
+}
+
+export const DetailsContainer: React.FC<IDetailsContainerProps> = ({
+  item,
+  quantity,
+}) => {
   return (
     <View style={styles.container}>
       <PriceContainer
@@ -16,7 +25,7 @@ export const DetailsContainer = ({ item, quantity }) => {
 
       <Text style={styles.title}>{item.title}</Text>
       <View>
-        <Detail name="Size" detail={item.size} />
+        <Detail name="Size" detail={item.selectedSize} />
         <Detail name="Color" detail={item.color} />
       </View>
 

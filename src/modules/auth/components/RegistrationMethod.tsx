@@ -2,8 +2,15 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { colors, css, sizes } from '../../../consts';
+import { IRegistrationMethod } from '../data';
 
-const RegistrationMethod = ({ registrationMethod }) => {
+interface IRegistrationMethodProps {
+  registrationMethod: IRegistrationMethod;
+}
+
+const RegistrationMethod: React.FC<IRegistrationMethodProps> = ({
+  registrationMethod,
+}) => {
   const navigation: any = useNavigation();
 
   const handlePress = useCallback(() => {

@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 import { colors, css, sizes } from '../../../consts';
 
-interface ImageInputProps {
+interface IImageInputProps {
   placeholder: string;
   icon: JSX.Element;
   value: string;
@@ -12,7 +12,7 @@ interface ImageInputProps {
   inputMode?: string;
 }
 
-export const ImageInput: React.FC<ImageInputProps> = ({
+export const ImageInput: React.FC<IImageInputProps> = ({
   placeholder,
   icon,
   value,

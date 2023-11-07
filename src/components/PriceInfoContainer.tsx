@@ -49,7 +49,7 @@ export const PriceInfoContainer = ({
         <PriceInfo text={'Total amount'} price={totalPrice} />
       </View>
       <CheckboxItem
-        item="I agree to the terms and conditions of the Marketplace Terms of Use and Return Policy"
+        text="I agree to the terms and conditions of the Marketplace Terms of Use and Return Policy"
         isSelected={isChecked}
         onToggle={toggleCheckbox}
         styleText={styles.text}
