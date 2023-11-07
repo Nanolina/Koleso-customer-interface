@@ -6,13 +6,13 @@ import { Hr } from '../ui/Hr';
 import { PriceInfo } from './PriceInfo';
 
 export const PriceInfoContainer = ({
-  isPurchase = true,
   quantity,
   priceForProducts,
   hasDiscount = false,
-  discount = 0,
+  discount,
   courierServices,
   totalPrice,
+  isReturn = false,
 }) => {
   const [isChecked, setIsChecked] = useState(false);
 
@@ -24,26 +24,29 @@ export const PriceInfoContainer = ({
     <>
       <View style={css.priceInfoContainer}>
         <PriceInfo
-          text={`Price for ${quantity} ${
-            quantity === 1 ? 'product' : 'products'
-          }`}
+          text={
+            isReturn
+              ? 'Refundable amount'
+              : `Price for ${quantity} ${
+                  quantity === 1 ? 'product' : 'products'
+                }`
+          }
           price={priceForProducts}
         />
-        {hasDiscount && isPurchase && (
+        {hasDiscount && !isReturn && (
           <PriceInfo text="Discount" price={`-${discount}`} />
         )}
         {courierServices ? (
           <PriceInfo text="Courier services" price={courierServices} />
         ) : (
-          <PriceInfo text="Delivery" price="Free" hasCurrency={false} />
+          !isReturn && (
+            <PriceInfo text="Delivery" price="Free" hasCurrency={false} />
+          )
         )}
       </View>
       <Hr />
       <View style={css.priceInfoContainer}>
-        <PriceInfo
-          text={isPurchase ? 'Total cost' : 'Full price to refund'}
-          price={totalPrice}
-        />
+        <PriceInfo text={'Total amount'} price={totalPrice} />
       </View>
       <CheckboxItem
         item="I agree to the terms and conditions of the Marketplace Terms of Use and Return Policy"

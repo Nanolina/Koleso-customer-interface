@@ -31,6 +31,7 @@ export const TextContainer = ({ item }) => {
 const styles = StyleSheet.create({
   container: {
     gap: 2,
+    paddingBottom: 5,
   },
   infoContainer: {
     height: 100,

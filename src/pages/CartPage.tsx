@@ -20,7 +20,9 @@ export const CartPage = () => {
       <View style={styles.buttonContainer}>
         <Button
           text="Checkout"
-          onPress={() => navigation.navigate('CheckoutPage')}
+          onPress={() =>
+            navigation.navigate('OrderProcessingPage', { title: 'Checkout' })
+          }
           backgroundColor={css.colors.orange}
           width="90%"
           extra={`50 ${currency}`}

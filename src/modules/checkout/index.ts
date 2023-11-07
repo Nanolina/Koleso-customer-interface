@@ -1,1 +1,1 @@
-export { Checkout } from './components/Checkout';
+export { OrderProcessing } from './components/OrderProcessing';

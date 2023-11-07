@@ -1,13 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { pickupPoint, myRequests } from '../../consts';
+import { pickupPoint } from '../../consts';
 import { minDate, reasonsForReturn } from '../../src/consts';
 
 const returnSlice = createSlice({
   name: 'return',
   initialState: {
-    // My Requests | Create a request
-    returns: myRequests,
-
     // pick-up Point-return | Courier
     way: pickupPoint,
 
@@ -26,9 +23,6 @@ const returnSlice = createSlice({
     note: null,
   },
   reducers: {
-    toggleReturns(state, action) {
-      state.returns = action.payload;
-    },
     toggleReturnWay(state, action) {
       state.way = action.payload;
     },
@@ -50,7 +44,6 @@ const returnSlice = createSlice({
 
 export default returnSlice.reducer;
 export const {
-  toggleReturns,
   toggleReturnWay,
   toggleReason,
   addPhoto,

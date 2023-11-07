@@ -2,23 +2,18 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFieldReturn } from '../../../../redux/slices/returnSlice';
 import { css } from '../../../consts';
-import { Hr } from '../../../ui/Hr';
 import { Note } from '../../../ui/Note';
-import { BottomInfo } from './BottomInfo';
-import { ItemFromCreateRequest } from './ItemFromCreateRequest';
 import { PhotoUpload } from './PhotoUpload';
 import ReasonContainer from './ReasonContainer';
 
-export const ReturnByCourier = ({ item }) => {
+export const ReturnForm = ({ item }) => {
   const { reason, comment } = useSelector((state: any) => state.return);
   const dispatch = useDispatch();
 
   return (
     <View style={styles.mainContainer}>
-      <ItemFromCreateRequest item={item} quantity={true} />
-
       <Text style={styles.text}>Reason</Text>
-      <ReasonContainer selectedReason={reason} />
+      <ReasonContainer />
 
       <View style={styles.container}>
         <Text style={styles.text}>Photos</Text>
@@ -36,10 +31,6 @@ export const ReturnByCourier = ({ item }) => {
           dispatch(addFieldReturn({ field: 'comment', value: text }))
         }
       />
-
-      <Hr />
-
-      <BottomInfo />
     </View>
   );
 };

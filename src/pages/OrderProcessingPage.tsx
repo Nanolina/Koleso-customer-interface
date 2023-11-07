@@ -1,32 +1,53 @@
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { css, currency } from '../consts';
-import { Checkout } from '../modules/checkout';
+import { OrderProcessing } from '../modules/checkout';
+import { ReturnModal } from '../modules/modal';
 import { Button } from '../ui/Button';
 import { CentralContainer } from '../ui/CentralContainer';
 
-export const CheckoutPage = () => {
+export const OrderProcessingPage = () => {
   const navigation: any = useNavigation();
+  const [openModal, setOpenModal] = useState(false);
+
+  const route: any = useRoute();
+  const { title, item } = route.params;
+
+  const isReturn = title === 'Return';
 
   return (
     <Container>
-      <Header title="Checkout" />
+      <Header title={title} />
       <CentralContainer isPadding={true} isMinPadding={true}>
-        <Checkout />
+        <OrderProcessing item={item} isReturn={isReturn} />
       </CentralContainer>
       <View style={styles.buttonContainer}>
         <Button
-          text="Proceed payment"
-          onPress={() => navigation.navigate('PaymentPage')}
+          text={isReturn ? 'Return' : 'Proceed payment'}
+          onPress={
+            isReturn
+              ? () => setOpenModal(!openModal)
+              : () => navigation.navigate('PaymentPage')
+          }
           backgroundColor={css.colors.orange}
           width="90%"
           extra={`55 ${currency}`}
         />
       </View>
       <Footer />
+
+      {openModal && (
+        <ReturnModal
+          onClose={() => {
+            setOpenModal(!openModal);
+            navigation.navigate('ReturnsPage');
+          }}
+        />
+      )}
     </Container>
   );
 };

@@ -13,7 +13,6 @@ import store from './redux/store';
 import { AddressForm } from './src/pages/AddressForm';
 import { CartPage } from './src/pages/CartPage';
 import { CategoriesPage } from './src/pages/CategoriesPage';
-import { CheckoutPage } from './src/pages/CheckoutPage';
 import { ContactsPage } from './src/pages/ContactsPage';
 import { Favorites } from './src/pages/Favorites';
 import { FinancesPage } from './src/pages/FinancesPage';
@@ -22,10 +21,9 @@ import { ItemPage } from './src/pages/ItemPage';
 import { Main } from './src/pages/Main';
 import { MyAccount } from './src/pages/MyAccount';
 import { NotificationsPage } from './src/pages/NotificationsPage';
+import { OrderProcessingPage } from './src/pages/OrderProcessingPage';
 import { PaymentPage } from './src/pages/PaymentPage';
 import { PurchasesPage } from './src/pages/PurchasesPage';
-import { ReturnByCourierFormPage } from './src/pages/ReturnByCourierFormPage';
-import { ReturnWayPage } from './src/pages/ReturnWayPage';
 import { ReturnsPage } from './src/pages/ReturnsPage';
 import { SectionsPage } from './src/pages/SectionsPage';
 import { SortPage } from './src/pages/SortPage';
@@ -80,7 +78,10 @@ export default function App() {
               component={FilterCheckboxPage}
             />
             <Stack.Screen name="CartPage" component={CartPage} />
-            <Stack.Screen name="CheckoutPage" component={CheckoutPage} />
+            <Stack.Screen
+              name="OrderProcessingPage"
+              component={OrderProcessingPage}
+            />
             <Stack.Screen name="PaymentPage" component={PaymentPage} />
             <Stack.Screen name="MyAccount" component={MyAccount} />
             <Stack.Screen name="SettingsPage" component={SettingsPage} />
@@ -108,11 +109,6 @@ export default function App() {
             <Stack.Screen name="LoginPage" component={LoginPage} />
             <Stack.Screen name="PurchasesPage" component={PurchasesPage} />
             <Stack.Screen name="ReturnsPage" component={ReturnsPage} />
-            <Stack.Screen name="ReturnWayPage" component={ReturnWayPage} />
-            <Stack.Screen
-              name="ReturnByCourierFormPage"
-              component={ReturnByCourierFormPage}
-            />
             <Stack.Screen name="FinancesPage" component={FinancesPage} />
             <Stack.Screen name="ContactsPage" component={ContactsPage} />
             <Stack.Screen name="Favorites" component={Favorites} />

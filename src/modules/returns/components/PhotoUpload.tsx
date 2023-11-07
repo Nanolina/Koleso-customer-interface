@@ -30,6 +30,7 @@ export const PhotoUpload = () => {
 
     if (!result.canceled && result.assets && result.assets.length > 0) {
       dispatch(addPhoto(result.assets[0].uri));
+      setModalVisible(false);
     }
   };
 
@@ -53,6 +54,7 @@ export const PhotoUpload = () => {
 
     if (!result.canceled && result.assets && result.assets.length > 0) {
       dispatch(addPhoto(result.assets[0].uri));
+      setModalVisible(false);
     }
   };
 

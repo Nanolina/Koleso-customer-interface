@@ -1,4 +1,3 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { useSelector } from 'react-redux';
@@ -9,12 +8,11 @@ import { ButtonsGroup } from '../../../components/ButtonsGroup';
 import { PriceInfoContainer } from '../../../components/PriceInfoContainer';
 import { addressPickUpPoint, courierServices, css } from '../../../consts';
 import { Hr } from '../../../ui/Hr';
+import { ReturnForm } from '../../returns';
 import { Address } from '../ui/Address';
 import { ExtraInfoCourier } from './ExtraInfoCourier';
 
-export const Checkout = () => {
-  const navigation: any = useNavigation();
-
+export const OrderProcessing = ({ item, isReturn }) => {
   const { delivery } = useSelector((state: any) => state.cart);
 
   return (
@@ -46,15 +44,17 @@ export const Checkout = () => {
 
         {delivery === courier && <ExtraInfoCourier />}
 
+        {isReturn && <ReturnForm item={item} />}
+
         <Hr />
         <PriceInfoContainer
-          isPurchase={true}
           quantity={1}
           priceForProducts={100}
           hasDiscount={true}
           discount={50}
           courierServices={delivery === courier && courierServices}
           totalPrice={55}
+          isReturn={isReturn}
         />
       </ScrollView>
     </KeyboardAvoidingView>

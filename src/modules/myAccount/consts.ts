@@ -18,12 +18,6 @@ export const services = [
     redirectPage: 'ReturnsPage',
   },
   {
-    id: '3874ec55-8463-4de4-9c1a-30d9d93e96d5',
-    title: 'Ask a question',
-    image: require('./assets/questions.png'),
-    redirectPage: '',
-  },
-  {
     id: 'b35d2126-177e-4447-84ec-6abac528bd76',
     title: 'Finances',
     image: require('./assets/finances.png'),

@@ -35,7 +35,7 @@ export const ExtraInfoCourier = () => {
       <Hr />
       <View style={styles.container}>
         <DatePicker
-          text="Date for delivery"
+          text='Date'
           value={date}
           onChange={(text) =>
             dispatch(
@@ -50,7 +50,7 @@ export const ExtraInfoCourier = () => {
         />
 
         <TimePicker
-          text="Delivery time"
+          text="Time"
           value={time}
           onChange={(text) =>
             dispatch(addField({ field: 'time', value: text }))
@@ -61,7 +61,7 @@ export const ExtraInfoCourier = () => {
 
       <Note
         title="Note"
-        placeholder="Write notes for the store or courier..."
+        placeholder="Write notes for the courier..."
         value={note}
         onChangeText={(text) =>
           dispatch(addField({ field: 'note', value: text }))
