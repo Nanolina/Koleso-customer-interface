@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
   Dimensions,
   Image,
@@ -15,17 +15,27 @@ import { WebCardWrapper } from '../../../ui/WebCardWrapper';
 
 const { width } = Dimensions.get('window');
 
-export const Category: React.FC<any> = ({ category }) => {
+interface CategoryType {
+  id: string;
+  title: string;
+  image: number; // Using only local images via require
+  subcategories?: CategoryType[];
+}
+
+export const Category: React.FC<{ category: CategoryType }> = ({ category }) => {
   const dispatch = useDispatch();
   const navigation: any = useNavigation();
 
-  const handleRedirections = (category) => {
-    if (category.subcategories) {
-      navigation.navigate('SubcategoriesPage');
-    } else {
-      navigation.navigate('Main');
-    }
-  };
+  const handleRedirections = useCallback(
+    (category) => {
+      if (category.subcategories) {
+        navigation.navigate('SubcategoriesPage');
+      } else {
+        navigation.navigate('Main');
+      }
+    },
+    [navigation, category.subcategories]
+  );
 
   return (
     <WebCardWrapper cardWidth={width}>

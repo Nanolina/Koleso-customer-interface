@@ -1,12 +1,16 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+export interface IPaymentState {
+  payment: string;
+}
 
 const paymentSlice = createSlice({
   name: 'payment',
   initialState: {
     payment: 'Card',
-  },
+  } as IPaymentState,
   reducers: {
-    togglePayment(state, action) {
+    togglePayment(state, action: PayloadAction<string>) {
       state.payment = action.payload;
     },
   },

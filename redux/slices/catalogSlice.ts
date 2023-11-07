@@ -1,4 +1,30 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+interface ISection {
+  id: string;
+  title: string;
+  image: number;
+  categories?: ICategory[];
+}
+
+interface ICategory {
+  id: string;
+  title: string;
+  image: number;
+  subcategories?: ISubcategory[];
+}
+
+interface ISubcategory {
+  id: string;
+  title: string;
+  image: number;
+}
+
+export interface ICatalogState {
+  section: ISection | null;
+  category: ICategory | null;
+  subcategory: ISubcategory | null;
+}
 
 const catalogSlice = createSlice({
   name: 'catalog',
@@ -6,15 +32,15 @@ const catalogSlice = createSlice({
     section: null,
     category: null,
     subcategory: null,
-  },
+  } as ICatalogState,
   reducers: {
-    selectSection(state, action) {
+    selectSection(state, action: PayloadAction<ISection>) {
       state.section = action.payload;
     },
-    selectCategory(state, action) {
+    selectCategory(state, action: PayloadAction<ICategory>) {
       state.category = action.payload;
     },
-    selectSubcategory(state, action) {
+    selectSubcategory(state, action: PayloadAction<ISubcategory>) {
       state.subcategory = action.payload;
     },
   },

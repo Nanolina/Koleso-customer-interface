@@ -1,5 +1,22 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { minDate } from '../../src/consts';
+
+export interface ICheckoutState {
+  name: string | null;
+  phone: string | null;
+  city: string | null;
+  street: string | null;
+  house: string | null;
+  apartment: string | null;
+  date: string; // ISO string for date
+  time: { label: string; value: string };
+  note: string | null;
+}
+
+interface AddFieldPayload {
+  field: keyof ICheckoutState;
+  value: any; // `any` can be replaced with a more specific type depending on the field
+}
 
 const checkoutSlice = createSlice({
   name: 'checkout',
@@ -13,9 +30,9 @@ const checkoutSlice = createSlice({
     date: minDate.toISOString(),
     time: { label: 'Anytime', value: 'Anytime' },
     note: null,
-  },
+  } as ICheckoutState,
   reducers: {
-    addField(state, action) {
+    addField(state, action: PayloadAction<AddFieldPayload>) {
       const { field, value } = action.payload;
       state[field] = value;
     },

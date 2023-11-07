@@ -1,4 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+
+export interface ISettingsState {
+  name: string | null;
+  gender: string | null;
+  phone: string | null;
+  email: string | null;
+  birthday: string | null;
+}
+
+interface ISetValuePayload {
+  key: keyof ISettingsState;
+  value: any;
+}
 
 const settingsSlice = createSlice({
   name: 'settings',
@@ -8,9 +21,9 @@ const settingsSlice = createSlice({
     phone: null,
     email: null,
     birthday: null,
-  },
+  } as ISettingsState,
   reducers: {
-    setValue: (state, action) => {
+    setValue: (state, action: PayloadAction<ISetValuePayload>) => {
       const { key, value } = action.payload;
       state[key] = value;
     },

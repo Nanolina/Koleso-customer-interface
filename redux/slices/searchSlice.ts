@@ -1,6 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { queries } from '../../mockData';
 
+export interface ISearchState {
+  queries: string[];
+  text: string;
+  isEnabled: boolean;
+}
+
 const searchSlice = createSlice({
   name: 'search',
   initialState: {

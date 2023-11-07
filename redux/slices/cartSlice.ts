@@ -1,18 +1,28 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { savedAddresses } from '../../mockData';
 import { pickupPoint } from './../../consts';
+
+interface IAddress {
+  id: string;
+  address: string;
+}
+
+export interface ICartState {
+  delivery: string;
+  addressDelivery: IAddress;
+}
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState: {
     delivery: pickupPoint,
     addressDelivery: savedAddresses[0],
-  },
+  } as ICartState,
   reducers: {
-    toggleDelivery(state, action) {
+    toggleDelivery(state, action: PayloadAction<string>) {
       state.delivery = action.payload;
     },
-    setAddressDelivery(state, action) {
+    setAddressDelivery(state, action: PayloadAction<IAddress>) {
       state.addressDelivery = action.payload;
     },
   },
