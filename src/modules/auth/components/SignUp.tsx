@@ -1,13 +1,17 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { css, sizes } from '../../../consts';
 import { Button } from '../../../ui/Button';
 import { registrationMethods } from '../data';
-import { RegistrationMethod } from './RegistrationMethod';
+import RegistrationMethod from './RegistrationMethod';
 
 export const SignUp: React.FC = () => {
   const navigation: any = useNavigation();
+
+  const handlePressLogin = useCallback(() => {
+    navigation.navigate('LoginPage');
+  }, [navigation]);
 
   return (
     <View style={styles.container}>
@@ -22,10 +26,7 @@ export const SignUp: React.FC = () => {
 
       <View style={styles.logInContainer}>
         <Text style={styles.text}>Already have an account?</Text>
-        <Button
-          text="Log in"
-          onPress={() => navigation.navigate('LoginPage')}
-        />
+        <Button text="Log in" onPress={handlePressLogin} />
       </View>
     </View>
   );

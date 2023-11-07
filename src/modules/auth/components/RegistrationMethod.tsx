@@ -1,15 +1,17 @@
 import { useNavigation } from '@react-navigation/native';
+import React, { useCallback } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { colors, css, sizes } from '../../../consts';
 
-export const RegistrationMethod = ({ registrationMethod }) => {
+const RegistrationMethod = ({ registrationMethod }) => {
   const navigation: any = useNavigation();
 
+  const handlePress = useCallback(() => {
+    navigation.navigate(registrationMethod.redirectPage);
+  }, [navigation]);
+
   return (
-    <TouchableOpacity
-      style={styles.container}
-      onPress={() => navigation.navigate(registrationMethod.redirectPage)}
-    >
+    <TouchableOpacity style={styles.container} onPress={handlePress}>
       <Image source={registrationMethod.image} style={styles.image} />
       <Text style={styles.text}>{registrationMethod.text}</Text>
     </TouchableOpacity>
@@ -35,3 +37,5 @@ const styles = StyleSheet.create({
     height: 40,
   },
 });
+
+export default React.memo(RegistrationMethod);

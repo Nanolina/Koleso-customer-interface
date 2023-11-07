@@ -1,48 +1,65 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { colors, css, sizes } from '../consts';
 
-export const Button = ({
+interface ButtonProps {
+  text: any;
+  onPress: () => void;
+  width?: string | number;
+  backgroundColor?: string;
+  border?: boolean;
+  textColor?: string;
+  isBold?: boolean;
+  extra?: string;
+}
+
+export const Button: React.FC<ButtonProps> = ({
   text,
   onPress,
-  width,
-  backgroundColor,
+  width = '100%',
+  backgroundColor = colors.orange,
   border = false,
-  textColor,
+  textColor = colors.white,
   isBold = true,
   extra,
 }: any) => {
-  const styles = getStyles(width, backgroundColor, border, textColor, isBold);
-
   return (
-    <TouchableOpacity onPress={onPress} style={styles.container}>
-      <Text style={styles.text}>{text}</Text>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[
+        styles.container,
+        {
+          width,
+          backgroundColor,
+          borderColor: border ? colors.main : undefined,
+        },
+      ]}
+    >
+      <Text
+        style={[
+          styles.text,
+          { color: textColor, fontWeight: isBold ? 'bold' : 'normal' },
+        ]}
+      >
+        {text}
+      </Text>
       {extra && <Text style={styles.extra}>{extra}</Text>}
     </TouchableOpacity>
   );
 };
 
-const getStyles = (width, backgroundColor, border, textColor, isBold) =>
-  StyleSheet.create({
-    container: {
-      width: width || '100%',
-      borderRadius: css.borderRadiusMax,
-      justifyContent: 'center',
-      alignItems: 'center',
-      padding: 10,
-      backgroundColor: backgroundColor || colors.orange,
-      ...(border && {
-        borderWidth: 1,
-        borderColor: colors.main,
-      }),
-    },
-    text: {
-      fontWeight: isBold ? 'bold' : 'normal',
-      fontSize: sizes.text16,
-      textAlign: 'center',
-      color: textColor || colors.white,
-    },
-    extra: {
-      fontSize: sizes.text15,
-      color: colors.white,
-    },
-  });
+const styles = StyleSheet.create({
+  container: {
+    borderRadius: css.borderRadiusMax,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+  },
+  text: {
+    fontSize: sizes.text16,
+    textAlign: 'center',
+  },
+  extra: {
+    fontSize: sizes.text15,
+    color: colors.white,
+  },
+});

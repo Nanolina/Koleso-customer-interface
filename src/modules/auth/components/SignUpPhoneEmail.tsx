@@ -1,5 +1,5 @@
 import { FontAwesome, Fontisto } from '@expo/vector-icons';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { setValueAuth } from '../../../../redux/slices/authSlice';
@@ -14,6 +14,21 @@ export const SignUpPhoneEmail: React.FC = () => {
   const { email, phone, name } = useSelector((state: any) => state.auth);
   const dispatch = useDispatch();
 
+  const onChangeEmail = useCallback(
+    (text) => dispatch(setValueAuth({ key: 'email', value: text })),
+    [dispatch]
+  );
+
+  const onChangePhone = useCallback(
+    (text) => dispatch(setValueAuth({ key: 'phone', value: text })),
+    [dispatch]
+  );
+
+  const onChangeUsername = useCallback(
+    (text) => dispatch(setValueAuth({ key: 'name', value: text })),
+    [dispatch]
+  );
+
   return (
     <View style={styles.container}>
       <View style={css.auth.inputContainer}>
@@ -27,9 +42,7 @@ export const SignUpPhoneEmail: React.FC = () => {
             />
           }
           value={email}
-          onChangeText={(text) =>
-            dispatch(setValueAuth({ key: 'email', value: text }))
-          }
+          onChangeText={onChangeEmail}
         />
 
         <ImageInput
@@ -42,9 +55,7 @@ export const SignUpPhoneEmail: React.FC = () => {
             />
           }
           value={phone}
-          onChangeText={(text) =>
-            dispatch(setValueAuth({ key: 'phone', value: text }))
-          }
+          onChangeText={onChangePhone}
           autoComplete="tel"
           inputMode="tel"
         />
@@ -59,9 +70,7 @@ export const SignUpPhoneEmail: React.FC = () => {
             />
           }
           value={name}
-          onChangeText={(text) =>
-            dispatch(setValueAuth({ key: 'name', value: text }))
-          }
+          onChangeText={onChangeUsername}
           autoComplete="name"
         />
 
@@ -95,7 +104,7 @@ export const SignUpPhoneEmail: React.FC = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button text="Sign up" />
+        <Button text="Sign up" onPress={() => {}} />
       </View>
     </View>
   );

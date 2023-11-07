@@ -9,6 +9,7 @@ export const Contact = ({ contact }) => {
       border={true}
       backgroundColor={colors.white}
       textColor={colors.black}
+      onPress={() => {}}
       text={
         <View style={styles.container}>
           <Image source={contact.image} style={styles.image} />

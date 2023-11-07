@@ -49,7 +49,7 @@ export const Login: React.FC = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button text="Log in" />
+        <Button text="Log in" onPress={() => {}} />
       </View>
 
       <SignUpButton />
