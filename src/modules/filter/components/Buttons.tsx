@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { colors, css } from '../../../consts';
+import { colors, sizes } from '../../../consts';
 import { Button } from '../../../ui/Button';
 
 export const Buttons = ({ items, selectedItems, resetAll, selectAll }) => {
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   text: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
     fontWeight: 'bold',
   },
 });

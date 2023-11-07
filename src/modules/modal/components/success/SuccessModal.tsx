@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { colors, css } from '../../../../consts';
+import { colors, sizes } from '../../../../consts';
 import { images } from '../../consts';
 import { CustomModal } from '../CustomModal';
 import { StatusSuccessPayment } from './StatusSuccessPayment';
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     right: -50,
   },
   text: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
     fontWeight: 'bold',
     textAlign: 'center',
     position: 'relative',

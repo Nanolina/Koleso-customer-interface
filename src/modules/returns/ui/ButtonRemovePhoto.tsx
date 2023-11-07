@@ -1,12 +1,12 @@
 import { Entypo } from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import { colors, css } from '../../../consts';
+import { colors, sizes } from '../../../consts';
 
 export const ButtonRemovePhoto = ({ onPress }) => {
   return (
     <TouchableOpacity style={styles.circle} onPress={onPress}>
-      <Entypo name="cross" size={css.iconSizeMin} color={colors.white} />
+      <Entypo name="cross" size={sizes.iconSizeMin} color={colors.white} />
     </TouchableOpacity>
   );
 };

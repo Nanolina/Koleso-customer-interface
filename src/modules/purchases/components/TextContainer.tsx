@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, css } from '../../../consts';
+import { colors, sizes } from '../../../consts';
 import { Hr } from '../../../ui/Hr';
 import { DateText } from '../ui/DateText';
 
@@ -37,17 +37,17 @@ const styles = StyleSheet.create({
     height: 100,
   },
   seller: {
-    fontSize: css.size.text15,
+    fontSize: sizes.text15,
     textAlign: 'center',
     fontFamily: 'OpenSans_400Regular_Italic',
     color: colors.gray,
   },
   title: {
-    fontSize: css.size.text15,
+    fontSize: sizes.text15,
     textAlign: 'center',
   },
   italicText: {
-    fontSize: css.size.text15,
+    fontSize: sizes.text15,
     fontStyle: 'italic',
     textAlign: 'center',
   },

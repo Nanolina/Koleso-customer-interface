@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
-import { colors, css } from '../../../consts';
+import { colors, css, sizes } from '../../../consts';
 
 export const ImageInput = ({
   placeholder,
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
     color: colors.black,
     height: 40,
   },

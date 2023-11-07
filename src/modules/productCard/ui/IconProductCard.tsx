@@ -1,6 +1,6 @@
 import { Platform, StyleSheet, View } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { colors, css } from '../../../consts';
+import { colors, css, sizes } from '../../../consts';
 
 export const IconProductCard = ({ name }) => {
   return (
@@ -8,7 +8,7 @@ export const IconProductCard = ({ name }) => {
       <Icon
         name={name}
         size={
-          Platform.OS === 'web' ? css.iconSizeMax : css.productCard.iconSize
+          Platform.OS === 'web' ? sizes.iconSizeMax : css.productCard.iconSize
         }
         color={colors.white}
       />

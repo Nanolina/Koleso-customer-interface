@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../consts';
+import { css, sizes } from '../../../consts';
 import { Button } from '../../../ui/Button';
 import { registrationMethods } from '../data';
 import { RegistrationMethod } from './RegistrationMethod';
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
-    fontSize: css.size.text20,
+    fontSize: sizes.text20,
   },
   logInContainer: {
     gap: 20,

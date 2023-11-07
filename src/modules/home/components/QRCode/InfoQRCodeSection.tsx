@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, css } from '../../../../consts';
+import { colors, sizes } from '../../../../consts';
 
 export const InfoQRCodeSection = () => (
   <View style={styles.container}>
@@ -16,13 +16,13 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   title: {
-    fontSize: css.size.title,
+    fontSize: sizes.title,
     fontWeight: 'bold',
     color: colors.yellow,
     textAlign: 'left',
   },
   text: {
-    fontSize: css.size.text15,
+    fontSize: sizes.text15,
     textAlign: 'left',
   },
 });

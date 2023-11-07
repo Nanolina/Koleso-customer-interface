@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { colors, css } from '../../../../consts';
+import { colors, sizes } from '../../../../consts';
 import { images } from '../../consts';
 
 export const StatusErrorPayment = () => {
@@ -34,14 +34,14 @@ const styles = StyleSheet.create({
     height: 80,
   },
   text: {
-    fontSize: css.size.text18,
+    fontSize: sizes.text18,
     fontWeight: 'bold',
     flexShrink: 1,
     color: colors.white,
   },
   green: {
     color: colors.green,
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
     fontWeight: 'bold',
     textAlign: 'center',
   },

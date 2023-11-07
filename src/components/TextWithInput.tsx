@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import { colors, css } from '../consts';
+import { colors, css, sizes } from '../consts';
 
 export const TextWithInput = ({
   text,
@@ -39,12 +39,12 @@ const getStyles = (width) =>
       backgroundColor: colors.lightGray,
       borderRadius: css.borderRadiusMin,
       textAlign: 'center',
-      fontSize: css.size.text16,
+      fontSize: sizes.text16,
       color: colors.main,
       height: 40,
     },
     text: {
-      fontSize: css.size.text16,
+      fontSize: sizes.text16,
       fontWeight: 'bold',
       textAlign: 'center',
     },

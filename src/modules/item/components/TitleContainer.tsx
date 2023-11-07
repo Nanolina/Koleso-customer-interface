@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, css } from '../../../consts';
+import { colors, sizes } from '../../../consts';
 
 export const TitleContainer = ({ title, seller }) => {
   return (
@@ -15,11 +15,11 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   title: {
-    fontSize: css.size.title,
+    fontSize: sizes.title,
     fontWeight: 'bold',
   },
   seller: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
     fontFamily: 'OpenSans_400Regular_Italic',
     color: colors.gray,
   },

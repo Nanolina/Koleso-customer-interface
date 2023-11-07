@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { colors, css } from '../../../consts';
+import { colors, css, sizes } from '../../../consts';
 
 export const RegistrationMethod = ({ registrationMethod }) => {
   const navigation: any = useNavigation();
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     padding: css.padding,
   },
   text: {
-    fontSize: css.size.text18,
+    fontSize: sizes.text18,
     fontWeight: 'bold',
   },
   image: {

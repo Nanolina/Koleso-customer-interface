@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../consts';
+import { sizes } from '../../../consts';
 
 export const WorkingDay = ({ text, hours }) => {
   return (
@@ -16,6 +16,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   text: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
   },
 });

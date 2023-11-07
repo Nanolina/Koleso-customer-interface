@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useSelector } from 'react-redux';
-import { colors, css } from '../../../consts';
+import { colors, sizes } from '../../../consts';
 import { data } from '../data';
 import { Row } from './Row';
 
@@ -51,10 +51,10 @@ const styles = StyleSheet.create({
   },
   signOut: {
     color: colors.red,
-    fontSize: css.size.text18,
+    fontSize: sizes.text18,
   },
   delete: {
     color: colors.gray,
-    fontSize: css.size.text18,
+    fontSize: sizes.text18,
   },
 });

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPhoto } from '../../../../redux/slices/returnSlice';
-import { colors, css } from '../../../consts';
+import { colors, css, sizes } from '../../../consts';
 import { ModalPhotoUpload } from '../../modal';
 import { Photo } from '../ui/Photo';
 
@@ -71,7 +71,7 @@ export const PhotoUpload = () => {
         {photos.length < 5 ? (
           <MaterialIcons
             name="photo-camera"
-            size={css.iconSizeMax}
+            size={sizes.iconSizeMax}
             color={colors.main}
           />
         ) : (

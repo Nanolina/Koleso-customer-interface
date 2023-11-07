@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../consts';
+import { sizes } from '../../../consts';
 import { getFromToFunctions } from '../functions';
 import { Range } from './Range';
 
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    fontSize: css.size.text20,
+    fontSize: sizes.text20,
     fontWeight: 'bold',
   },
   right: {

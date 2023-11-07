@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { clearAllFilters } from '../../../../redux/slices/filterSlice';
-import { colors, css } from '../../../consts';
+import { colors, sizes } from '../../../consts';
 
 export const ResetAll = () => {
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   text: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
     color: colors.darkGray,
     textDecorationLine: 'underline',
   },

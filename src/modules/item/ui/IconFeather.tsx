@@ -1,11 +1,11 @@
 import { Feather } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native';
-import { colors, css } from '../../../consts';
+import { colors, sizes } from '../../../consts';
 
 export const IconFeather = ({ name }) => {
   return (
     <TouchableOpacity>
-      <Feather name={name} size={css.iconSizeMiddle} color={colors.white} />
+      <Feather name={name} size={sizes.iconSizeMiddle} color={colors.white} />
     </TouchableOpacity>
   );
 };

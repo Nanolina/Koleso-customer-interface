@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, css } from '../../../consts';
+import { colors, css, sizes } from '../../../consts';
 
 export const Notification = ({ notification }) => {
   return (
@@ -26,13 +26,13 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.green,
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
     fontWeight: 'bold',
   },
   date: {
     color: colors.gray,
   },
   text: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
   },
 });

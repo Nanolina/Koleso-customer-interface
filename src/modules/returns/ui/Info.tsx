@@ -1,5 +1,5 @@
 import { StyleSheet, Text } from 'react-native';
-import { css } from '../../../consts';
+import { sizes } from '../../../consts';
 
 export const Info = ({ text, info }) => {
   return (
@@ -11,7 +11,7 @@ export const Info = ({ text, info }) => {
 
 const styles = StyleSheet.create({
   italic: {
-    fontSize: css.size.text15,
+    fontSize: sizes.text15,
     fontStyle: 'italic',
     textAlign: 'left',
   },

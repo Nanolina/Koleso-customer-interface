@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../consts';
+import { sizes } from '../../../consts';
 import { contacts } from '../consts';
 import { Contact } from './Contact';
 
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
-    fontSize: css.size.text20,
+    fontSize: sizes.text20,
     textAlign: 'center',
   },
 });

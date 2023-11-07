@@ -1,13 +1,13 @@
 import { EvilIcons } from '@expo/vector-icons';
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, css } from '../../../../consts';
+import { colors, sizes } from '../../../../consts';
 import { DeleteText } from '../../ui/search/DeleteText';
 
 export const SearchQuery = ({ query }) => {
   return (
     <View key={query.id} style={styles.queryRow}>
       <View style={styles.textWithIcon}>
-        <EvilIcons name="clock" size={css.iconSizeMin} color={colors.main} />
+        <EvilIcons name="clock" size={sizes.iconSizeMin} color={colors.main} />
         <Text style={styles.queryText}>{query.name}</Text>
       </View>
       <DeleteText query={query} />
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   queryText: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
   },
   textWithIcon: {
     flexDirection: 'row',

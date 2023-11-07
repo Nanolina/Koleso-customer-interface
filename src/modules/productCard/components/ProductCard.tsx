@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { PriceContainer } from '../../../components/PriceContainer';
-import { css } from '../../../consts';
+import { css, sizes } from '../../../consts';
 import { WebCardWrapper } from '../../../ui/WebCardWrapper';
 import { ImageContainer } from './ImageContainer';
 import { TitleContainer } from './TitleContainer';
@@ -32,7 +32,7 @@ export const ProductCard = ({ item }) => {
         <PriceContainer
           price={item.price}
           oldPrice={item.oldPrice}
-          priceSize={css.size.text20}
+          priceSize={sizes.text20}
         />
         <TitleContainer seller={item.seller} title={item.title} />
       </TouchableOpacity>

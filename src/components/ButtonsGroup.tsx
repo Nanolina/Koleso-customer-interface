@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { colors, css } from '../consts';
+import { colors, css, sizes } from '../consts';
 
 export const ButtonsGroup = ({
   options,
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
     borderRadius: css.borderRadiusMax - 2,
   },
   buttonText: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
   },
   textActive: {
     color: colors.main,

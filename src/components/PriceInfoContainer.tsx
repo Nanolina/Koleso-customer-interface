@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { css } from '../consts';
+import { css, sizes } from '../consts';
 import { CheckboxItem } from '../ui/CheckboxItem';
 import { Hr } from '../ui/Hr';
 import { PriceInfo } from './PriceInfo';
@@ -60,7 +60,7 @@ export const PriceInfoContainer = ({
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: css.size.text15,
+    fontSize: sizes.text15,
     flexShrink: 1,
     flexWrap: 'wrap',
   },

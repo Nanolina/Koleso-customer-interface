@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { PriceContainer } from '../../../components/PriceContainer';
-import { css } from '../../../consts';
+import { sizes } from '../../../consts';
 import { gapBetweenDetails } from '../consts';
 import { Detail } from '../ui/Detail';
 import { QuantityContainer } from './QuantityContainer';
@@ -11,7 +11,7 @@ export const DetailsContainer = ({ item, quantity }) => {
       <PriceContainer
         price={item.price}
         oldPrice={item.oldPrice}
-        priceSize={css.size.text16}
+        priceSize={sizes.text16}
       />
 
       <Text style={styles.title}>{item.title}</Text>
@@ -34,6 +34,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: 'bold',
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
   },
 });

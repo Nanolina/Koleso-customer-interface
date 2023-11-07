@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { css, currency } from '../consts';
+import { currency, sizes } from '../consts';
 import { Info } from '../modules/returns/ui/Info';
 
 export const TextInfoContainer = ({ item }) => {
@@ -22,12 +22,12 @@ const styles = StyleSheet.create({
     gap: 2,
   },
   title: {
-    fontSize: css.size.text15,
+    fontSize: sizes.text15,
     textAlign: 'left',
     fontWeight: 'bold',
   },
   price: {
-    fontSize: css.size.text18,
+    fontSize: sizes.text18,
     fontWeight: 'bold',
   },
 });

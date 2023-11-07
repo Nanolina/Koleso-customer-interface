@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import { colors, css } from '../consts';
+import { colors, css, sizes } from '../consts';
 
 export const Note = ({ title, placeholder, value, onChangeText }: any) => {
   return (
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.lightGray,
   },
   text: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
     fontWeight: 'bold',
     textAlign: 'center',
   },

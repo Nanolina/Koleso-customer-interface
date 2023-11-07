@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, css } from '../../../consts';
+import { colors, sizes } from '../../../consts';
 
 export const TextError = () => {
   return (
@@ -16,12 +16,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontSize: css.size.title,
+    fontSize: sizes.title,
     fontWeight: 'bold',
     color: colors.yellow,
   },
   text: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
     fontWeight: 'bold',
     color: colors.yellow,
   },

@@ -1,5 +1,5 @@
 import { StyleSheet, Text } from 'react-native';
-import { css } from '../../../consts';
+import { sizes } from '../../../consts';
 
 export const Property = ({ label, text }: any) => {
   return (
@@ -11,7 +11,7 @@ export const Property = ({ label, text }: any) => {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
   },
   label: {
     fontWeight: 'bold',

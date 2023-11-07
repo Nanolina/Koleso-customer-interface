@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { colors, css } from '../consts';
+import { colors, css, sizes } from '../consts';
 
 export const CheckboxItem = ({
   item,
@@ -45,12 +45,12 @@ const styles = StyleSheet.create({
     ...css.filter.checkbox,
   },
   check: {
-    fontSize: css.size.text15,
+    fontSize: sizes.text15,
     fontWeight: 'bold',
     color: colors.main,
   },
   text: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
     fontWeight: 'bold',
     flexShrink: 1,
     flexWrap: 'wrap',

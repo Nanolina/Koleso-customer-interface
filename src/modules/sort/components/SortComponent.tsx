@@ -7,7 +7,7 @@ import {
   Text,
   TouchableOpacity,
 } from 'react-native';
-import { css } from '../../../consts';
+import { css, sizes } from '../../../consts';
 import { WebCardWrapper } from '../../../ui/WebCardWrapper';
 
 const { width } = Dimensions.get('window');
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     borderRadius: css.borderRadiusMax,
   },
   text: {
-    fontSize: Platform.OS === 'web' ? css.size.text20 : css.size.text16,
+    fontSize: Platform.OS === 'web' ? sizes.text20 : sizes.text16,
     fontWeight: 'bold',
   },
 });

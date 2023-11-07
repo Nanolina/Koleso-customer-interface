@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { colors, css } from '../../../consts';
+import { colors, sizes } from '../../../consts';
 import { Button } from '../../../ui/Button';
 
 export const Contact = ({ contact }) => {
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
-    fontSize: css.size.text15,
+    fontSize: sizes.text15,
   },
   image: {
     width: 40,

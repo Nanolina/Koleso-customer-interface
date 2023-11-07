@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../consts';
+import { sizes } from '../../../consts';
 import { WorkingDay } from './WorkingDay';
 
 export const OpeningHours = ({ days }) => {
@@ -29,13 +29,13 @@ const styles = StyleSheet.create({
   },
   label: {
     fontWeight: 'bold',
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
   },
   rowDay: {
     flexDirection: 'row',
     gap: 30,
   },
   text: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
   },
 });

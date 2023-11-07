@@ -5,7 +5,7 @@ import {
   enGB,
   registerTranslation,
 } from 'react-native-paper-dates';
-import { colors, css } from '../consts';
+import { colors, css, sizes } from '../consts';
 
 registerTranslation('en-GB', enGB);
 
@@ -44,13 +44,13 @@ const getStyles = (width) =>
     },
     input: {
       borderRadius: css.borderRadiusMin,
-      fontSize: css.size.text18,
+      fontSize: sizes.text18,
       color: colors.black,
       height: 50,
       backgroundColor: colors.white,
     },
     text: {
-      fontSize: css.size.text16,
+      fontSize: sizes.text16,
       fontWeight: 'bold',
       textAlign: 'center',
     },

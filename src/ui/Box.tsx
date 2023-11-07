@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { css } from '../consts';
+import { css, sizes } from '../consts';
 
 const Box = ({ label, onPress, boxStyle, textStyle }: any) => {
   return onPress ? (
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     borderRadius: css.borderRadiusMin,
   },
   text: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
   },
 });
 

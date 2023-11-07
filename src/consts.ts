@@ -19,20 +19,19 @@ export const colors = {
   grayOpacity: 'rgba(223, 218, 218, 0.55)',
 };
 
-export const css = {
-  size: {
-    title: 24,
-    text12: 12,
-    text15: 15,
-    text16: 16,
-    text18: 18,
-    text20: 20,
-    text30: 30,
-    buttonWidth: 150,
-  },
+export const sizes = {
+  title: 24,
+  text12: 12,
+  text15: 15,
+  text16: 16,
+  text18: 18,
+  text20: 20,
   iconSizeMax: 30,
   iconSizeMiddle: 25,
   iconSizeMin: 20,
+};
+
+export const css = {
   borderRadiusMax: 12,
   borderRadiusMin: 8,
   padding: 10,
@@ -48,11 +47,11 @@ export const css = {
       paddingHorizontal: 15,
       paddingBottom: 5,
       paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 20,
-      backgroundColor: '#6c00ad',
+      backgroundColor: colors.main,
     },
     title: {
       fontSize: 24,
-      color: '#fff',
+      color: colors.white,
     },
   },
   item: {
@@ -81,7 +80,6 @@ export const css = {
     image: {
       width: Platform.OS === 'web' ? 100 : 50,
       height: Platform.OS === 'web' ? 100 : 50,
-
       borderRadius: 12,
     },
     text: {
@@ -96,7 +94,7 @@ export const css = {
   },
   return: {
     container: {
-      backgroundColor: '#FEEFFF',
+      backgroundColor: colors.pink,
       borderRadius: 12,
       gap: 10,
       padding: 10,
@@ -117,7 +115,7 @@ export const css = {
       width: 70,
       height: 100,
       borderWidth: 1,
-      borderColor: '#c9c7c7',
+      borderColor: colors.lightGray,
       borderRadius: 8,
     },
     photo: {

@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { colors, css } from '../../../../consts';
+import { colors, css, sizes } from '../../../../consts';
 import { images } from '../../consts';
 import { CustomModal } from '../CustomModal';
 
@@ -38,13 +38,13 @@ const styles = StyleSheet.create({
     height: 60,
   },
   title: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
     fontWeight: 'bold',
     textAlign: 'center',
     color: colors.yellow,
   },
   text: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
     textAlign: 'center',
     color: colors.white,
   },

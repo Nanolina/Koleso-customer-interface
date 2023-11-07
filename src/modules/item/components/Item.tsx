@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 import { PriceContainer } from '../../../components/PriceContainer';
-import { css } from '../../../consts';
+import { sizes } from '../../../consts';
 import { Description } from './Description';
 import { Properties } from './Properties';
 import SizeContainer from './SizeContainer';
@@ -13,7 +13,7 @@ export const Item = ({ item }) => {
       <PriceContainer
         price={item.price}
         oldPrice={item.oldPrice}
-        priceSize={css.size.title}
+        priceSize={sizes.title}
       />
       <TitleContainer title={item.title} seller={item.seller} />
       <Properties

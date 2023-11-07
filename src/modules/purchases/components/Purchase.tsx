@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Dimensions, Platform, StyleSheet, View } from 'react-native';
 import { PriceContainer } from '../../../components/PriceContainer';
-import { colors, css } from '../../../consts';
+import { colors, css, sizes } from '../../../consts';
 import { Button } from '../../../ui/Button';
 import { ImageContainer } from './ImageContainer';
 import { TextContainer } from './TextContainer';
@@ -19,7 +19,7 @@ export const Purchase = ({ item }) => {
       <TextContainer item={item} />
       <PriceContainer
         price={item.price}
-        priceSize={css.size.text16}
+        priceSize={sizes.text16}
         hasBackground={false}
       />
 

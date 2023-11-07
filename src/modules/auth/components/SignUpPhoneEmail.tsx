@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { setValueAuth } from '../../../../redux/slices/authSlice';
-import { colors, css } from '../../../consts';
+import { colors, css, sizes } from '../../../consts';
 import { Button } from '../../../ui/Button';
 import { ImageInput } from './ImageInput';
 
@@ -22,7 +22,7 @@ export const SignUpPhoneEmail: React.FC = () => {
           icon={
             <Fontisto
               name="email"
-              size={css.iconSizeMiddle}
+              size={sizes.iconSizeMiddle}
               color={colors.mainOpacity}
             />
           }
@@ -37,7 +37,7 @@ export const SignUpPhoneEmail: React.FC = () => {
           icon={
             <FontAwesome
               name="phone"
-              size={css.iconSizeMiddle}
+              size={sizes.iconSizeMiddle}
               color={colors.mainOpacity}
             />
           }
@@ -54,7 +54,7 @@ export const SignUpPhoneEmail: React.FC = () => {
           icon={
             <FontAwesome
               name="user-circle-o"
-              size={css.iconSizeMiddle}
+              size={sizes.iconSizeMiddle}
               color={colors.mainOpacity}
             />
           }
@@ -70,7 +70,7 @@ export const SignUpPhoneEmail: React.FC = () => {
           icon={
             <FontAwesome
               name="lock"
-              size={css.iconSizeMax}
+              size={sizes.iconSizeMax}
               color={colors.mainOpacity}
             />
           }
@@ -84,7 +84,7 @@ export const SignUpPhoneEmail: React.FC = () => {
           icon={
             <FontAwesome
               name="lock"
-              size={css.iconSizeMax}
+              size={sizes.iconSizeMax}
               color={colors.mainOpacity}
             />
           }

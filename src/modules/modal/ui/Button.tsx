@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { colors, css } from '../../../consts';
+import { colors, css, sizes } from '../../../consts';
 
 export const Button = ({ onPress, children }) => (
   <TouchableOpacity style={styles.container} onPress={onPress}>
@@ -17,6 +17,6 @@ const styles = StyleSheet.create({
   text: {
     color: colors.white,
     fontWeight: 'bold',
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
   },
 });

@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFieldReturn } from '../../../../redux/slices/returnSlice';
-import { colors, css } from '../../../consts';
+import { colors, sizes } from '../../../consts';
 import { Note } from '../../../ui/Note';
 import { PhotoUpload } from './PhotoUpload';
 import ReasonContainer from './ReasonContainer';
@@ -45,12 +45,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    fontSize: css.size.text20,
+    fontSize: sizes.text20,
     fontWeight: 'bold',
     textAlign: 'left',
   },
   extra: {
     color: colors.gray,
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
   },
 });

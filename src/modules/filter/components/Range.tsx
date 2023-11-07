@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { colors, css } from '../../../consts';
+import { colors, css, sizes } from '../../../consts';
 import { getNumericData } from '../functions';
 
 export const Range = ({ text, value, onChangeText }) => {
@@ -32,10 +32,10 @@ const styles = StyleSheet.create({
     padding: 5,
     width: 60,
     height: 30,
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
   },
   text: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
     color: colors.gray,
   },
 });

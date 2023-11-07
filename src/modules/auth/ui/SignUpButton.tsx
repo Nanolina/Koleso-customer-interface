@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../consts';
+import { sizes } from '../../../consts';
 import { Button } from '../../../ui/Button';
 
 export const SignUpButton = () => {
@@ -24,6 +24,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 'bold',
-    fontSize: css.size.text18,
+    fontSize: sizes.text18,
   },
 });

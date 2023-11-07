@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { colors, css } from '../consts';
+import { colors, css, sizes } from '../consts';
 import { ButtonBack } from '../ui/ButtonBack';
 
 const { height } = Dimensions.get('window');
@@ -27,7 +27,7 @@ export const HeaderWithFilterSort = ({ title }) => {
           <TouchableOpacity onPress={() => navigation.navigate('SortPage')}>
             <MaterialCommunityIcons
               name="sort"
-              size={css.iconSizeMax}
+              size={sizes.iconSizeMax}
               color={colors.white}
             />
           </TouchableOpacity>
@@ -35,7 +35,7 @@ export const HeaderWithFilterSort = ({ title }) => {
           <TouchableOpacity onPress={() => navigation.navigate('FilterPage')}>
             <MaterialCommunityIcons
               name="filter"
-              size={css.iconSizeMax}
+              size={sizes.iconSizeMax}
               color={colors.white}
             />
           </TouchableOpacity>

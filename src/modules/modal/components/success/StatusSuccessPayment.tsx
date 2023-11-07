@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, css } from '../../../../consts';
+import { colors, sizes } from '../../../../consts';
 
 export const StatusSuccessPayment = () => {
   return (
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
     gap: 30,
   },
   boldText: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
     fontWeight: 'bold',
     color: colors.white,
   },
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     color: colors.green,
   },
   text: {
-    fontSize: css.size.text16,
+    fontSize: sizes.text16,
     color: colors.white,
   },
 });

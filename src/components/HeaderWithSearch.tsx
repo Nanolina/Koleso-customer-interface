@@ -13,7 +13,7 @@ import {
   removeSearchText,
   turnOffSearch,
 } from '../../redux/slices/searchSlice';
-import { colors, css } from '../consts';
+import { colors, css, sizes } from '../consts';
 import { ButtonBack } from '../ui/ButtonBack';
 import { SearchBar } from './SearchBar';
 
@@ -60,6 +60,6 @@ const styles = StyleSheet.create({
   },
   text: {
     color: colors.white,
-    fontSize: css.size.text18,
-  }
+    fontSize: sizes.text18,
+  },
 });

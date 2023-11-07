@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { colors, css } from '../consts';
+import { colors, css, sizes } from '../consts';
 
 export const Button = ({
   text,
@@ -37,12 +37,12 @@ const getStyles = (width, backgroundColor, border, textColor, isBold) =>
     },
     text: {
       fontWeight: isBold ? 'bold' : 'normal',
-      fontSize: css.size.text16,
+      fontSize: sizes.text16,
       textAlign: 'center',
       color: textColor || colors.white,
     },
     extra: {
-      fontSize: css.size.text15,
+      fontSize: sizes.text15,
       color: colors.white,
     },
   });
