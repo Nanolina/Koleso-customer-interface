@@ -1,11 +1,11 @@
 import { AntDesign } from '@expo/vector-icons';
 import { StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../consts';
+import { colors } from '../../../consts';
 
 export const AddingAddressText = () => {
   return (
     <View style={styles.container}>
-      <AntDesign name="plus" size={12} color={css.colors.black} />
+      <AntDesign name="plus" size={12} color={colors.black} />
       <Text>Add an address</Text>
     </View>
   );

@@ -2,7 +2,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAddressDelivery } from '../../../../redux/slices/cartSlice';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 
 export const Address = ({ address, hasMarker }: any) => {
   const { addressDelivery } = useSelector((state: any) => state.cart);
@@ -15,7 +15,7 @@ export const Address = ({ address, hasMarker }: any) => {
           <FontAwesome5
             name="map-marker-alt"
             size={css.iconSizeMin}
-            color={css.colors.main}
+            color={colors.main}
           />
         ) : null}
         <Text style={styles.text}>{address.address}</Text>

@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 
 export const TextError = () => {
   return (
@@ -18,11 +18,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: css.size.title,
     fontWeight: 'bold',
-    color: css.colors.yellow,
+    color: colors.yellow,
   },
   text: {
     fontSize: css.size.text16,
     fontWeight: 'bold',
-    color: css.colors.yellow,
+    color: colors.yellow,
   },
 });

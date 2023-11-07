@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../../consts';
+import { colors, css } from '../../../../consts';
 import { images } from '../../consts';
 import { CustomModal } from '../CustomModal';
 import { StatusSuccessPayment } from './StatusSuccessPayment';
@@ -34,6 +34,6 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
     position: 'relative',
-    color: css.colors.yellow,
+    color: colors.yellow,
   },
 });

@@ -2,7 +2,7 @@ import { Platform, StyleSheet, TextInput, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
 import { handleSearchText, turnOnSearch } from '../../redux/slices/searchSlice';
-import { css } from '../consts';
+import { colors, css } from '../consts';
 
 const getWidthInput = (isEnabled) => {
   if (isEnabled) {
@@ -19,11 +19,11 @@ export const SearchBar: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Icon name="search" size={css.iconSizeMax} color={css.colors.main} />
+      <Icon name="search" size={css.iconSizeMax} color={colors.main} />
       <TextInput
         style={styles.input}
         placeholder="Search..."
-        placeholderTextColor={css.colors.gray}
+        placeholderTextColor={colors.gray}
         onFocus={() => dispatch(turnOnSearch())}
         value={text}
         onChangeText={(inputText) => dispatch(handleSearchText(inputText))}
@@ -38,7 +38,7 @@ const getStyles = (isEnabled) =>
       flexDirection: 'row',
       alignItems: 'center',
       borderWidth: 2,
-      borderColor: css.colors.main,
+      borderColor: colors.main,
       borderRadius: css.borderRadiusMax,
       paddingLeft: 10,
       backgroundColor: 'white',

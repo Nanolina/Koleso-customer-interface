@@ -1,12 +1,8 @@
 import { StyleSheet, View } from 'react-native';
-import { css } from '../consts';
+import { colors, css } from '../consts';
 import { Price } from '../ui/Price';
 
-export const PriceContainer = ({
-  price,
-  oldPrice,
-  priceSize,
-}: any) => {
+export const PriceContainer = ({ price, oldPrice, priceSize }: any) => {
   const styles = getStyles(priceSize);
 
   return (
@@ -38,6 +34,6 @@ const getStyles = (priceSize) =>
     },
     oldPrice: {
       textDecorationLine: 'line-through',
-      color: css.colors.gray,
+      color: colors.gray,
     },
   });

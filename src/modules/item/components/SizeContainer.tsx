@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import Box from '../../../ui/Box';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 
 const SizeContainer = ({ possibleSizes, missingSizes }) => {
   const [selectedSize, setSelectedSize] = useState(null);
@@ -17,8 +17,8 @@ const SizeContainer = ({ possibleSizes, missingSizes }) => {
       return (
         <Box
           label={size}
-          boxStyle={{ backgroundColor: css.colors.main, ...css.item.sizeBox }}
-          textStyle={{ color: css.colors.white }}
+          boxStyle={{ backgroundColor: colors.main, ...css.item.sizeBox }}
+          textStyle={{ color: colors.white }}
           onPress={() => handlePress(size)}
         />
       );
@@ -30,10 +30,10 @@ const SizeContainer = ({ possibleSizes, missingSizes }) => {
         <Box
           label={size}
           boxStyle={{
-            backgroundColor: css.colors.lightGray,
+            backgroundColor: colors.lightGray,
             ...css.item.sizeBox,
           }}
-          textStyle={{ color: css.colors.black }}
+          textStyle={{ color: colors.black }}
         />
       );
     }
@@ -43,12 +43,12 @@ const SizeContainer = ({ possibleSizes, missingSizes }) => {
       <Box
         label={size}
         boxStyle={{
-          backgroundColor: css.colors.white,
-          borderColor: css.colors.main,
+          backgroundColor: colors.white,
+          borderColor: colors.main,
           borderWidth: 1,
           ...css.item.sizeBox,
         }}
-        textStyle={{ color: css.colors.main }}
+        textStyle={{ color: colors.main }}
         onPress={() => handlePress(size)}
       />
     );

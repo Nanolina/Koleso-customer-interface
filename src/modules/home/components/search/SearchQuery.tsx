@@ -1,17 +1,13 @@
 import { EvilIcons } from '@expo/vector-icons';
 import { StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../../consts';
+import { colors, css } from '../../../../consts';
 import { DeleteText } from '../../ui/search/DeleteText';
 
 export const SearchQuery = ({ query }) => {
   return (
     <View key={query.id} style={styles.queryRow}>
       <View style={styles.textWithIcon}>
-        <EvilIcons
-          name="clock"
-          size={css.iconSizeMin}
-          color={css.colors.main}
-        />
+        <EvilIcons name="clock" size={css.iconSizeMin} color={colors.main} />
         <Text style={styles.queryText}>{query.name}</Text>
       </View>
       <DeleteText query={query} />

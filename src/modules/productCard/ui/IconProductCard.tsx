@@ -1,6 +1,6 @@
 import { Platform, StyleSheet, View } from 'react-native';
 import { Icon } from 'react-native-elements';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 
 export const IconProductCard = ({ name }) => {
   return (
@@ -10,7 +10,7 @@ export const IconProductCard = ({ name }) => {
         size={
           Platform.OS === 'web' ? css.iconSizeMax : css.productCard.iconSize
         }
-        color={css.colors.white}
+        color={colors.white}
       />
     </View>
   );
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     width: Platform.OS === 'web' ? 40 : 25,
     height: Platform.OS === 'web' ? 40 : 25,
     overflow: 'hidden',
-    backgroundColor: css.colors.grayOpacity,
+    backgroundColor: colors.grayOpacity,
     justifyContent: 'center',
     alignItems: 'center',
   },

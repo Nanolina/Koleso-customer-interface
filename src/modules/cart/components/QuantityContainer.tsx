@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 import { Quantity } from '../ui/Quantity';
 import { Sign } from '../ui/Sign';
 
@@ -17,7 +17,7 @@ export const QuantityContainer = ({ quantity }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    backgroundColor: css.colors.lightGray,
+    backgroundColor: colors.lightGray,
     borderRadius: css.borderRadiusMax,
     alignItems: 'center',
   },

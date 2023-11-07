@@ -1,6 +1,6 @@
 import React from 'react';
 import { Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 
 export const CustomModal = ({ children, onClose }) => {
   return (
@@ -35,10 +35,10 @@ const styles = StyleSheet.create({
     borderRadius: css.borderRadiusMax,
     alignItems: 'center',
     gap: 30,
-    backgroundColor: css.colors.main,
+    backgroundColor: colors.main,
   },
   text: {
-    color: css.colors.white,
+    color: colors.white,
     textDecorationLine: 'underline',
   },
 });

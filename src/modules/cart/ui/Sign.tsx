@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 
 export const Sign = ({ type }) => {
   return (
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     paddingVertical: 6,
     width: 30,
     margin: 3,
-    backgroundColor: css.colors.white,
+    backgroundColor: colors.white,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: css.borderRadiusMin,
@@ -22,6 +22,6 @@ const styles = StyleSheet.create({
   sign: {
     fontWeight: 'bold',
     fontSize: css.size.text18,
-    color: css.colors.main,
+    color: colors.main,
   },
 });

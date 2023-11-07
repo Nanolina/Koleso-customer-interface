@@ -1,6 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 
 export const RegistrationMethod = ({ registrationMethod }) => {
   const navigation: any = useNavigation();
@@ -19,7 +19,7 @@ export const RegistrationMethod = ({ registrationMethod }) => {
 const styles = StyleSheet.create({
   container: {
     borderWidth: 1,
-    borderColor: css.colors.main,
+    borderColor: colors.main,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 20,

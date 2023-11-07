@@ -1,5 +1,5 @@
 import { StyleSheet, View } from 'react-native';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 import { Button } from '../../../ui/Button';
 
 export const Buttons = () => {
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     paddingHorizontal: css.padding,
-    backgroundColor: css.colors.white,
+    backgroundColor: colors.white,
     paddingBottom: 5,
     justifyContent: 'space-between',
   },

@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { addField } from '../../../../redux/slices/checkoutSlice';
 import { DatePicker } from '../../../components/DatePicker';
-import { css, minDate } from '../../../consts';
+import { colors, minDate } from '../../../consts';
 import { Button } from '../../../ui/Button';
 import { Hr } from '../../../ui/Hr';
 import { Note } from '../../../ui/Note';
@@ -27,15 +27,15 @@ export const ExtraInfoCourier = () => {
     <>
       <Button
         text={<AddingAddressText />}
-        backgroundColor={css.colors.lightGray}
-        textColor={css.colors.black}
+        backgroundColor={colors.lightGray}
+        textColor={colors.black}
         isBold={false}
         onPress={() => navigation.navigate('AddressForm')}
       />
       <Hr />
       <View style={styles.container}>
         <DatePicker
-          text='Date'
+          text="Date"
           value={date}
           onChange={(text) =>
             dispatch(

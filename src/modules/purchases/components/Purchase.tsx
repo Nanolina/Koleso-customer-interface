@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Dimensions, Platform, StyleSheet, View } from 'react-native';
 import { PriceContainer } from '../../../components/PriceContainer';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 import { Button } from '../../../ui/Button';
 import { ImageContainer } from './ImageContainer';
 import { TextContainer } from './TextContainer';
@@ -27,8 +27,8 @@ export const Purchase = ({ item }) => {
         <View style={styles.buttonContainer}>
           <Button
             text="Make a return"
-            backgroundColor={css.colors.white}
-            textColor={css.colors.main}
+            backgroundColor={colors.white}
+            textColor={colors.main}
             width="90%"
             onPress={() =>
               navigation.navigate('OrderProcessingPage', {
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     margin: 4,
     paddingBottom: 5,
     maxWidth: Platform.OS === 'web' ? cardWidth : '100%',
-    backgroundColor: css.colors.lightPink,
+    backgroundColor: colors.pink,
     borderRadius: css.borderRadiusMax,
   },
   buttonContainer: {

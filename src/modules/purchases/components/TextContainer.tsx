@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 import { Hr } from '../../../ui/Hr';
 import { DateText } from '../ui/DateText';
 
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     fontSize: css.size.text15,
     textAlign: 'center',
     fontFamily: 'OpenSans_400Regular_Italic',
-    color: css.colors.gray,
+    color: colors.gray,
   },
   title: {
     fontSize: css.size.text15,

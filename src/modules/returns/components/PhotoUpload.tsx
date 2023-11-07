@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPhoto } from '../../../../redux/slices/returnSlice';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 import { ModalPhotoUpload } from '../../modal';
 import { Photo } from '../ui/Photo';
 
@@ -72,7 +72,7 @@ export const PhotoUpload = () => {
           <MaterialIcons
             name="photo-camera"
             size={css.iconSizeMax}
-            color={css.colors.main}
+            color={colors.main}
           />
         ) : (
           <Photo index={4} />
@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   firstPhotoContainer: {
-    backgroundColor: css.colors.lightGray,
+    backgroundColor: colors.lightGray,
     alignItems: 'center',
     justifyContent: 'center',
     ...css.return.photoContainer,
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     ...css.return.photoContainer,
   },
   cameraButton: {
-    backgroundColor: css.colors.lightGray,
+    backgroundColor: colors.lightGray,
     alignItems: 'center',
     justifyContent: 'center',
     ...css.return.photoContainer,

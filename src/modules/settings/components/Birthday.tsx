@@ -6,7 +6,7 @@ import { resetValue, setValue } from '../../../../redux/slices/settingsSlice';
 import { DatePicker } from '../../../components/DatePicker';
 import { Button } from '../../../ui/Button';
 import { maxBirthDate } from '../consts';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 
 export const Birthday = () => {
   const dispatch = useDispatch();
@@ -25,8 +25,8 @@ export const Birthday = () => {
           text="Reset"
           onPress={() => dispatch(resetValue({ key: 'birthday' }))}
           width="50%"
-          backgroundColor={css.colors.white}
-          textColor={css.colors.main}
+          backgroundColor={colors.white}
+          textColor={colors.main}
           border={true}
           isBold={false}
         />

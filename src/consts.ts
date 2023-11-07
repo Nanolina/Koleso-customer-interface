@@ -1,30 +1,25 @@
 import { Platform, StatusBar } from 'react-native';
 
-export const css = {
-  colors: {
-    pink: '#FF08C1',
-    lightPink: '#FEEFFF',
-    purple: '#8C60FF',
-    white: '#fff',
-    gray: '#c6c5d7',
-    lightGray: '#E0E0E9',
-    darkGray: '#ADACB7',
-    main: '#6c00ad',
-    lightMain: '#a534fd',
-    yellow: '#FDDC00',
-    black: '#000000',
-    orange: '#ff7c00',
-    green: '#00B377',
-    red: '#ff0000',
-    darkRed: '#C80303',
-    new: '#00B377',
+export const colors = {
+  white: '#fff',
+  black: '#000000',
+  main: '#6c00ad',
+  mainOpacity: '#6C00B06C',
+  pink: '#FEEFFF',
+  yellow: '#FDDC00',
+  orange: '#ff7c00',
+  green: '#00B377',
+  red: '#ff0000',
+  darkRed: '#C80303',
 
-    // with opacity
-    mainOpacity: '#6C00B06C',
-    pinkOpacity: '#FF08C18C',
-    grayOpacity: 'rgba(223, 218, 218, 0.55)',
-    purpleOpacity: '#8C60FF8C',
-  },
+  // Shades of gray
+  gray: '#c6c5d7',
+  lightGray: '#E0E0E9',
+  darkGray: '#ADACB7',
+  grayOpacity: 'rgba(223, 218, 218, 0.55)',
+};
+
+export const css = {
   size: {
     title: 24,
     text12: 12,

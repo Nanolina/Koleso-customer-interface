@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { css } from '../consts';
+import { colors, css } from '../consts';
 
 export const Button = ({
   text,
@@ -29,20 +29,20 @@ const getStyles = (width, backgroundColor, border, textColor, isBold) =>
       justifyContent: 'center',
       alignItems: 'center',
       padding: 10,
-      backgroundColor: backgroundColor || css.colors.orange,
+      backgroundColor: backgroundColor || colors.orange,
       ...(border && {
         borderWidth: 1,
-        borderColor: css.colors.main,
+        borderColor: colors.main,
       }),
     },
     text: {
       fontWeight: isBold ? 'bold' : 'normal',
       fontSize: css.size.text16,
       textAlign: 'center',
-      color: textColor || css.colors.white,
+      color: textColor || colors.white,
     },
     extra: {
       fontSize: css.size.text15,
-      color: css.colors.white,
+      color: colors.white,
     },
   });

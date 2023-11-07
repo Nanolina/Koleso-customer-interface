@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 import { getNumericData } from '../functions';
 
 export const Range = ({ text, value, onChangeText }) => {
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: css.colors.main,
+    borderColor: colors.main,
     borderRadius: css.borderRadiusMax,
     padding: 5,
     width: 60,
@@ -36,6 +36,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: css.size.text16,
-    color: css.colors.gray,
+    color: colors.gray,
   },
 });

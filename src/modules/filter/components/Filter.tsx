@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
-import { css } from '../../../consts';
+import { colors as commonColors, css } from '../../../consts';
 import { Button } from '../../../ui/Button';
 import { data } from '../data';
 import { ResetAll } from '../ui/ResetAll';
@@ -52,7 +52,7 @@ export const Filter = () => {
         <Button
           text="Apply"
           onPress={() => {}}
-          backgroundColor={css.colors.orange}
+          backgroundColor={commonColors.orange}
         />
       </View>
     </View>

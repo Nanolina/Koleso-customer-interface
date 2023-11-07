@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { css, currency } from '../consts';
+import { colors, css, currency } from '../consts';
 import { OrderProcessing } from '../modules/checkout';
 import { ReturnModal } from '../modules/modal';
 import { Button } from '../ui/Button';
@@ -33,7 +33,7 @@ export const OrderProcessingPage = () => {
               ? () => setOpenModal(!openModal)
               : () => navigation.navigate('PaymentPage')
           }
-          backgroundColor={css.colors.orange}
+          backgroundColor={colors.orange}
           width="90%"
           extra={`55 ${currency}`}
         />
@@ -57,6 +57,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: css.colors.white,
+    backgroundColor: colors.white,
   },
 });

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { css } from '../consts';
+import { colors, css } from '../consts';
 
 export const CheckboxItem = ({
   item,
@@ -33,21 +33,21 @@ const styles = StyleSheet.create({
   checkbox: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: css.colors.white,
+    backgroundColor: colors.white,
     borderWidth: 1,
-    borderColor: css.colors.main,
+    borderColor: colors.main,
     ...css.filter.checkbox,
   },
   checkboxEmpty: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: css.colors.lightGray,
+    backgroundColor: colors.lightGray,
     ...css.filter.checkbox,
   },
   check: {
     fontSize: css.size.text15,
     fontWeight: 'bold',
-    color: css.colors.main,
+    color: colors.main,
   },
   text: {
     fontSize: css.size.text16,

@@ -1,6 +1,6 @@
 import { KeyboardAvoidingView, Platform, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-virtualized-view';
-import { css } from '../consts';
+import { colors, css } from '../consts';
 
 export const CentralContainer = ({
   isPadding,
@@ -22,7 +22,7 @@ const getStyles = (isPadding, isMinPadding) =>
   StyleSheet.create({
     mainContent: {
       flex: 1,
-      backgroundColor: css.colors.white,
+      backgroundColor: colors.white,
       width: '100%',
       ...(isPadding && {
         paddingVertical:

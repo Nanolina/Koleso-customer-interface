@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { css } from '../consts';
+import { colors, css } from '../consts';
 
 export const ButtonsGroup = ({
   options,
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
   buttonsBackground: {
     flexDirection: 'row',
-    backgroundColor: css.colors.lightGray,
+    backgroundColor: colors.lightGray,
     borderRadius: css.borderRadiusMax,
   },
   button: {
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     borderRadius: css.borderRadiusMax,
   },
   buttonActive: {
-    backgroundColor: css.colors.white,
+    backgroundColor: colors.white,
     margin: 2,
     borderRadius: css.borderRadiusMax - 2,
   },
@@ -66,9 +66,9 @@ const styles = StyleSheet.create({
     fontSize: css.size.text16,
   },
   textActive: {
-    color: css.colors.main,
+    color: colors.main,
   },
   textInactive: {
-    color: css.colors.black,
+    color: colors.black,
   },
 });

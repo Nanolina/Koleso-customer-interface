@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 import { Button } from '../ui/Button';
 import { CustomModal } from './CustomModal';
 
@@ -29,6 +29,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: css.size.title,
     fontWeight: 'bold',
-    color: css.colors.white,
+    color: colors.white,
   },
 });

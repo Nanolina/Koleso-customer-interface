@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { TextWithInput } from '../../../components/TextWithInput';
-import { css } from '../../../consts';
+import { colors } from '../../../consts';
 import { Button } from '../../../ui/Button';
 
 export const ChangePassword = () => {
@@ -26,7 +26,7 @@ export const ChangePassword = () => {
         <Button
           text="Change password"
           onPress={() => {}}
-          backgroundColor={css.colors.orange}
+          backgroundColor={colors.orange}
         />
       </View>
     </View>

@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 import { Button } from '../../../ui/Button';
 
 export const Contact = ({ contact }) => {
@@ -7,8 +7,8 @@ export const Contact = ({ contact }) => {
     <Button
       width={230}
       border={true}
-      backgroundColor={css.colors.white}
-      textColor={css.colors.black}
+      backgroundColor={colors.white}
+      textColor={colors.black}
       text={
         <View style={styles.container}>
           <Image source={contact.image} style={styles.image} />

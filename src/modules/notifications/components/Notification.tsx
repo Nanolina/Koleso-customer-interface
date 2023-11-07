@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 
 export const Notification = ({ notification }) => {
   return (
@@ -17,7 +17,7 @@ export const Notification = ({ notification }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: css.colors.lightPink,
+    backgroundColor: colors.pink,
     padding: 10,
     borderRadius: css.borderRadiusMax,
   },
@@ -25,12 +25,12 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
   },
   title: {
-    color: css.colors.green,
+    color: colors.green,
     fontSize: css.size.text16,
     fontWeight: 'bold',
   },
   date: {
-    color: css.colors.gray,
+    color: colors.gray,
   },
   text: {
     fontSize: css.size.text16,

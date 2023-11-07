@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleActiveIcon } from '../../redux/slices/footerSlice';
-import { css } from '../consts';
+import { colors, css } from '../consts';
 import { IconFooter } from '../ui/IconFooter';
 
 const { height } = Dimensions.get('window');
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     position: 'relative',
-    backgroundColor: css.colors.white,
+    backgroundColor: colors.white,
     shadowOpacity: 0.05,
     shadowRadius: 4,
     elevation: 4, // for Android

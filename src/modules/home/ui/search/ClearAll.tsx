@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { handleClearAllQueries } from '../../../../../redux/slices/searchSlice';
-import { css } from '../../../../consts';
+import { colors } from '../../../../consts';
 
 export const ClearAll = () => {
   const dispatch = useDispatch();
@@ -22,6 +22,6 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   text: {
-    color: css.colors.gray,
+    color: colors.gray,
   },
 });

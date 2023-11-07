@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../../consts';
+import { colors, css } from '../../../../consts';
 import { images } from '../../consts';
 import { CustomModal } from '../CustomModal';
 
@@ -41,12 +41,12 @@ const styles = StyleSheet.create({
     fontSize: css.size.text16,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: css.colors.yellow,
+    color: colors.yellow,
   },
   text: {
     fontSize: css.size.text16,
     textAlign: 'center',
-    color: css.colors.white,
+    color: colors.white,
   },
   textWithImage: {
     flexDirection: 'row',

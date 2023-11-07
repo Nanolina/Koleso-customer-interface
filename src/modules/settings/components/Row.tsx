@@ -2,7 +2,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 import { getDisplayItem } from '../functions';
 
 export const Row = ({
@@ -42,11 +42,7 @@ export const Row = ({
             {type === 'password' ? 'Change' : 'Add'} {title.toLowerCase()}
           </Text>
         )}
-        <AntDesign
-          name="right"
-          size={css.iconSizeMin}
-          color={css.colors.gray}
-        />
+        <AntDesign name="right" size={css.iconSizeMin} color={colors.gray} />
       </View>
     </TouchableOpacity>
   );
@@ -68,11 +64,11 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   extra: {
-    color: css.colors.gray,
+    color: colors.gray,
     fontSize: css.size.text20,
   },
   extraFilled: {
-    color: css.colors.black,
+    color: colors.black,
     fontSize: css.size.text20,
   },
 });

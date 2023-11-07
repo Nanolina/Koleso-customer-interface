@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
-import { css } from '../consts';
+import { colors, css } from '../consts';
 
 export const Note = ({ title, placeholder, value, onChangeText }: any) => {
   return (
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     height: 100,
     padding: 10,
     borderRadius: css.borderRadiusMin,
-    backgroundColor: css.colors.lightGray,
+    backgroundColor: colors.lightGray,
   },
   text: {
     fontSize: css.size.text16,

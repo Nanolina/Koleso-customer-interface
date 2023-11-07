@@ -1,5 +1,5 @@
 import { StyleSheet, Text } from 'react-native';
-import { css } from '../../../consts';
+import { colors } from '../../../consts';
 
 export const BottomText = ({ statusMoney }) => {
   return statusMoney === 'sent' ? (
@@ -12,10 +12,10 @@ export const BottomText = ({ statusMoney }) => {
 const styles = StyleSheet.create({
   green: {
     fontWeight: 'bold',
-    color: css.colors.green,
+    color: colors.green,
   },
   red: {
     fontWeight: 'bold',
-    color: css.colors.darkRed,
+    color: colors.darkRed,
   },
 });

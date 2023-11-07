@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { css, currency } from '../consts';
+import { colors, css, currency } from '../consts';
 import { Cart } from '../modules/cart';
 import { Button } from '../ui/Button';
 import { CentralContainer } from '../ui/CentralContainer';
@@ -23,7 +23,7 @@ export const CartPage = () => {
           onPress={() =>
             navigation.navigate('OrderProcessingPage', { title: 'Checkout' })
           }
-          backgroundColor={css.colors.orange}
+          backgroundColor={colors.orange}
           width="90%"
           extra={`50 ${currency}`}
         />
@@ -38,6 +38,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: css.colors.white,
+    backgroundColor: colors.white,
   },
 });

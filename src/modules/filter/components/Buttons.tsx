@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 import { Button } from '../../../ui/Button';
 
 export const Buttons = ({ items, selectedItems, resetAll, selectAll }) => {
@@ -14,8 +14,8 @@ export const Buttons = ({ items, selectedItems, resetAll, selectAll }) => {
           text="Reset all"
           onPress={() => dispatch(resetAll())}
           width="50%"
-          backgroundColor={css.colors.white}
-          textColor={css.colors.main}
+          backgroundColor={colors.white}
+          textColor={colors.main}
           border={true}
           isBold={false}
         />
@@ -24,8 +24,8 @@ export const Buttons = ({ items, selectedItems, resetAll, selectAll }) => {
           text="Select all"
           onPress={() => dispatch(selectAll())}
           width="50%"
-          backgroundColor={css.colors.white}
-          textColor={css.colors.main}
+          backgroundColor={colors.white}
+          textColor={colors.main}
           border={true}
           isBold={false}
         />

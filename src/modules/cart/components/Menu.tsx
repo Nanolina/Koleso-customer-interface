@@ -1,7 +1,7 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 import { Icon } from '../../../ui/Icon';
 import { gapBetweenDetails } from '../consts';
 
@@ -14,7 +14,7 @@ export const Menu = () => {
         <MaterialCommunityIcons
           name="dots-horizontal"
           size={css.iconSizeMax}
-          color={css.colors.gray}
+          color={colors.gray}
         />
       </TouchableOpacity>
 

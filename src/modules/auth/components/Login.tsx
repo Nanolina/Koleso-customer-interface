@@ -1,7 +1,7 @@
 import { FontAwesome, Fontisto } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 import { Button } from '../../../ui/Button';
 import { SignUpButton } from '../ui/SignUpButton';
 import { ImageInput } from './ImageInput';
@@ -20,12 +20,12 @@ export const Login: React.FC = () => {
               <Fontisto
                 name="email"
                 size={css.iconSizeMin}
-                color={css.colors.mainOpacity}
+                color={colors.mainOpacity}
               />
               <FontAwesome
                 name="phone"
                 size={css.iconSizeMin}
-                color={css.colors.mainOpacity}
+                color={colors.mainOpacity}
               />
             </View>
           }
@@ -39,7 +39,7 @@ export const Login: React.FC = () => {
             <FontAwesome
               name="lock"
               size={css.iconSizeMax}
-              color={css.colors.mainOpacity}
+              color={colors.mainOpacity}
             />
           }
           value={password}

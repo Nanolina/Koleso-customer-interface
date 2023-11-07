@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { css, currency } from '../consts';
+import { colors, css, currency } from '../consts';
 
 export const PriceInfo = ({ text, price, hasCurrency = true }) => {
   const styles = getStyles(hasCurrency);
@@ -27,6 +27,6 @@ const getStyles = (hasCurrency) =>
     price: {
       fontSize: css.size.text20,
       fontWeight: 'bold',
-      color: hasCurrency ? css.colors.black : css.colors.green,
+      color: hasCurrency ? colors.black : colors.green,
     },
   });

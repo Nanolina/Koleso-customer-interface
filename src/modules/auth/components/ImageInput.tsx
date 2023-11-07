@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 
 export const ImageInput = ({
   placeholder,
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: css.colors.main,
+    borderColor: colors.main,
     borderRadius: css.borderRadiusMin,
   },
   iconContainer: {
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: css.size.text16,
-    color: css.colors.black,
+    color: colors.black,
     height: 40,
   },
 });

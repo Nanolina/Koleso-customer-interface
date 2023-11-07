@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 
 export const Quantity = ({ quantity }) => {
   return (
@@ -18,6 +18,6 @@ const styles = StyleSheet.create({
   quantity: {
     fontWeight: 'bold',
     fontSize: css.size.text18,
-    color: css.colors.main,
+    color: colors.main,
   },
 });

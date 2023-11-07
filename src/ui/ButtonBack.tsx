@@ -1,6 +1,6 @@
 import { Octicons } from '@expo/vector-icons';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import { css } from '../consts';
+import { colors, css } from '../consts';
 
 export const ButtonBack = ({ navigation, onPress, width }: any) => {
   const styles = getStyles(width);
@@ -13,7 +13,7 @@ export const ButtonBack = ({ navigation, onPress, width }: any) => {
       <Octicons
         name="chevron-left"
         size={css.iconSizeMax}
-        color={css.colors.white}
+        color={colors.white}
       />
     </TouchableOpacity>
   );

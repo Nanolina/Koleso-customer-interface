@@ -1,5 +1,5 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
 
 export const Description = ({ description }) => {
   return (
@@ -17,6 +17,6 @@ const styles = StyleSheet.create({
     fontSize: css.size.text15,
   },
   more: {
-    color: css.colors.purple,
+    color: colors.main,
   },
 });

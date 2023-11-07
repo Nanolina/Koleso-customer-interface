@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { css, currency } from '../../../consts';
+import { colors, css, currency } from '../../../consts';
 import { Hr } from '../../../ui/Hr';
 
 export const Finance = ({ finance }) => {
@@ -54,8 +54,8 @@ const styles = StyleSheet.create({
   },
   amountContainer: {
     borderWidth: 1,
-    backgroundColor: css.colors.lightPink,
-    borderColor: css.colors.lightPink,
+    backgroundColor: colors.pink,
+    borderColor: colors.pink,
     paddingHorizontal: 5,
     borderRadius: css.borderRadiusMin,
   },
@@ -68,10 +68,10 @@ const styles = StyleSheet.create({
   },
   successful: {
     fontSize: css.size.text15,
-    color: css.colors.green,
+    color: colors.green,
   },
   rejected: {
     fontSize: css.size.text15,
-    color: css.colors.darkRed,
+    color: colors.darkRed,
   },
 });

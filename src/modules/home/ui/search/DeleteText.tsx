@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { handleClearQuery } from '../../../../../redux/slices/searchSlice';
-import { css } from '../../../../consts';
+import { colors, css } from '../../../../consts';
 
 export const DeleteText = ({ query }) => {
   const dispatch = useDispatch();
@@ -16,6 +16,6 @@ export const DeleteText = ({ query }) => {
 const styles = StyleSheet.create({
   text: {
     fontSize: css.size.text12,
-    color: css.colors.gray,
+    color: colors.gray,
   },
 });

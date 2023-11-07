@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
-import { css, timeFramesDelivery } from '../../../consts';
+import { colors, css, timeFramesDelivery } from '../../../consts';
 
 export const TimePicker = ({ text, value, onChange, width }) => {
   const styles = getStyles(width);
@@ -30,7 +30,7 @@ const getStyles = (width) =>
       justifyContent: 'center',
     },
     picker: {
-      backgroundColor: css.colors.lightGray,
+      backgroundColor: colors.lightGray,
       borderRadius: css.borderRadiusMin,
       fontSize: css.size.text16,
       height: 50,

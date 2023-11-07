@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { css, reasonsForReturn } from '../../../consts';
+import { colors, css, reasonsForReturn } from '../../../consts';
 import Box from '../../../ui/Box';
 
 const ReasonContainer = () => {
@@ -15,8 +15,8 @@ const ReasonContainer = () => {
       return (
         <Box
           label={reason}
-          boxStyle={{ backgroundColor: css.colors.main }}
-          textStyle={{ color: css.colors.white }}
+          boxStyle={{ backgroundColor: colors.main }}
+          textStyle={{ color: colors.white }}
           onPress={() => handlePress(reason)}
         />
       );
@@ -26,11 +26,11 @@ const ReasonContainer = () => {
       <Box
         label={reason}
         boxStyle={{
-          backgroundColor: css.colors.white,
-          borderColor: css.colors.main,
+          backgroundColor: colors.white,
+          borderColor: colors.main,
           borderWidth: 1,
         }}
-        textStyle={{ color: css.colors.main }}
+        textStyle={{ color: colors.main }}
         onPress={() => handlePress(reason)}
       />
     );

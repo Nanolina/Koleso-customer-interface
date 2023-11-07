@@ -1,5 +1,5 @@
 import { StyleSheet, Text } from 'react-native';
-import { css } from '../../../consts';
+import { colors } from '../../../consts';
 
 export const DateText = ({ item }) => {
   return (
@@ -16,12 +16,12 @@ export const DateText = ({ item }) => {
 
 const styles = StyleSheet.create({
   delivered: {
-    color: css.colors.green,
+    color: colors.green,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   returned: {
-    color: css.colors.darkRed,
+    color: colors.darkRed,
     fontWeight: 'bold',
     textAlign: 'center',
   },

@@ -5,7 +5,7 @@ import {
   enGB,
   registerTranslation,
 } from 'react-native-paper-dates';
-import { css } from '../consts';
+import { colors, css } from '../consts';
 
 registerTranslation('en-GB', enGB);
 
@@ -28,7 +28,7 @@ export const DatePicker = ({
         onChange={onChange}
         inputMode="start"
         style={styles.input}
-        iconColor={css.colors.main}
+        iconColor={colors.main}
         animationType="fade"
         validRange={validRange}
       />
@@ -45,9 +45,9 @@ const getStyles = (width) =>
     input: {
       borderRadius: css.borderRadiusMin,
       fontSize: css.size.text18,
-      color: css.colors.black,
+      color: colors.black,
       height: 50,
-      backgroundColor: css.colors.white,
+      backgroundColor: colors.white,
     },
     text: {
       fontSize: css.size.text16,

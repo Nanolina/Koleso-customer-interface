@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { css } from '../consts';
+import { colors } from '../consts';
 
 export const Hr = () => {
   return <View style={styles.line} />;
@@ -9,6 +9,6 @@ export const Hr = () => {
 const styles = StyleSheet.create({
   line: {
     height: 1,
-    backgroundColor: css.colors.lightGray,
+    backgroundColor: colors.lightGray,
   },
 });
