@@ -4,10 +4,10 @@ import { addFieldReturn } from '../../../../redux/slices/returnSlice';
 import { colors, sizes } from '../../../consts';
 import { Note } from '../../../ui/Note';
 import { PhotoUpload } from './PhotoUpload';
-import ReasonContainer from './ReasonContainer';
+import { ReasonContainer } from './ReasonContainer';
 
 export const ReturnForm = ({ item }) => {
-  const { reason, comment } = useSelector((state: any) => state.return);
+  const { comment } = useSelector((state: any) => state.return);
   const dispatch = useDispatch();
 
   return (

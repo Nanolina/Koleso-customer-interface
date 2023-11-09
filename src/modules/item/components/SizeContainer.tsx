@@ -1,74 +1,60 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import Box from '../../../ui/Box';
 import { colors, css } from '../../../consts';
+import { Box } from '../../../ui/Box';
 
 interface ISizeContainerProps {
   possibleSizes: number[];
   missingSizes: number[];
 }
 
-export const SizeContainer: React.FC<ISizeContainerProps> = React.memo(({
-  possibleSizes,
-  missingSizes,
-}) => {
-  const [selectedSize, setSelectedSize] = useState(null);
+export const SizeContainer: React.FC<ISizeContainerProps> = React.memo(
+  ({ possibleSizes, missingSizes }) => {
+    const [selectedSize, setSelectedSize] = useState<number | null>(null);
 
-  const handlePress = (size) => {
-    setSelectedSize(size);
-  };
+    const handlePress = useCallback((size: number) => {
+      setSelectedSize(size);
+    }, []);
 
-  const renderSizeBox = (size) => {
-    // Selected
-    if (selectedSize === size) {
-      return (
-        <Box
-          label={size}
-          boxStyle={{ backgroundColor: colors.main, ...css.item.sizeBox }}
-          textStyle={{ color: colors.white }}
-          onPress={() => handlePress(size)}
-        />
-      );
-    }
+    const renderSizeBox = useCallback(
+      (size: number) => {
+        const isSelected = selectedSize === size;
+        const isMissing = missingSizes.includes(size);
 
-    // Missing
-    if (missingSizes.includes(size)) {
-      return (
-        <Box
-          label={size}
-          boxStyle={{
-            backgroundColor: colors.lightGray,
-            ...css.item.sizeBox,
-          }}
-          textStyle={{ color: colors.black }}
-        />
-      );
-    }
+        const boxStyle = isSelected
+          ? { backgroundColor: colors.main, ...css.item.sizeBox }
+          : isMissing
+          ? { backgroundColor: colors.lightGray, ...css.item.sizeBox }
+          : {
+              backgroundColor: colors.white,
+              borderColor: colors.main,
+              borderWidth: 1,
+              ...css.item.sizeBox,
+            };
 
-    // Other
-    return (
-      <Box
-        label={size}
-        boxStyle={{
-          backgroundColor: colors.white,
-          borderColor: colors.main,
-          borderWidth: 1,
-          ...css.item.sizeBox,
-        }}
-        textStyle={{ color: colors.main }}
-        onPress={() => handlePress(size)}
-      />
+        const textStyle =
+          isSelected || isMissing
+            ? { color: colors.white }
+            : { color: colors.main };
+
+        return (
+          <Box
+            key={size}
+            label={`${size}`}
+            boxStyle={boxStyle}
+            textStyle={textStyle}
+            onPress={!isMissing ? () => handlePress(size) : undefined}
+          />
+        );
+      },
+      [selectedSize, missingSizes, handlePress]
     );
-  };
 
-  return (
-    <View style={styles.container}>
-      {possibleSizes?.map((size) => (
-        <View key={size}>{renderSizeBox(size)}</View>
-      ))}
-    </View>
-  );
-});
+    return (
+      <View style={styles.container}>{possibleSizes.map(renderSizeBox)}</View>
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {

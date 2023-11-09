@@ -1,18 +1,33 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TextStyle,
+  TouchableOpacity,
+  ViewStyle,
+} from 'react-native';
 import { css, sizes } from '../consts';
 
-const Box = ({ label, onPress, boxStyle, textStyle }: any) => {
-  return onPress ? (
-    <TouchableOpacity style={[styles.box, boxStyle]} onPress={onPress}>
-      <Text style={[styles.text, textStyle]}>{label}</Text>
-    </TouchableOpacity>
-  ) : (
-    <View style={[styles.box, boxStyle]}>
-      <Text style={[styles.text, textStyle]}>{label}</Text>
-    </View>
-  );
-};
+interface IBoxProps {
+  label: string;
+  onPress?: () => void;
+  boxStyle?: ViewStyle;
+  textStyle?: TextStyle;
+}
+
+export const Box: React.FC<IBoxProps> = React.memo(
+  ({ label, onPress, boxStyle, textStyle }) => {
+    return (
+      <TouchableOpacity
+        style={[styles.box, boxStyle]}
+        onPress={onPress}
+        disabled={!onPress} // disable pressing if there is no handler
+      >
+        <Text style={[styles.text, textStyle]}>{label}</Text>
+      </TouchableOpacity>
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   box: {
@@ -25,5 +40,3 @@ const styles = StyleSheet.create({
     fontSize: sizes.text16,
   },
 });
-
-export default React.memo(Box);

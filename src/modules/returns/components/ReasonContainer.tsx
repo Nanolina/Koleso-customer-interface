@@ -1,46 +1,29 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { colors, css, reasonsForReturn } from '../../../consts';
-import Box from '../../../ui/Box';
+import { colors, reasonsForReturn } from '../../../consts';
+import { Box } from '../../../ui/Box';
 
-const ReasonContainer = () => {
+export const ReasonContainer: React.FC = () => {
   const [selectedReason, setSelectedReason] = useState(null);
 
-  const handlePress = (reason) => {
+  const handlePress = useCallback((reason) => {
     setSelectedReason(reason);
-  };
-
-  const renderReasonBox = (reason) => {
-    if (selectedReason === reason) {
-      return (
-        <Box
-          label={reason}
-          boxStyle={{ backgroundColor: colors.main }}
-          textStyle={{ color: colors.white }}
-          onPress={() => handlePress(reason)}
-        />
-      );
-    }
-
-    return (
-      <Box
-        label={reason}
-        boxStyle={{
-          backgroundColor: colors.white,
-          borderColor: colors.main,
-          borderWidth: 1,
-        }}
-        textStyle={{ color: colors.main }}
-        onPress={() => handlePress(reason)}
-      />
-    );
-  };
+  }, []);
 
   return (
     <View style={styles.container}>
-      {reasonsForReturn?.map((reason) => (
-        <View key={reason}>{renderReasonBox(reason)}</View>
-      ))}
+      {reasonsForReturn.map((reason) => {
+        const isSelected = selectedReason === reason;
+        return (
+          <Box
+            key={reason}
+            label={reason}
+            boxStyle={isSelected ? styles.selectedBox : styles.unselectedBox}
+            textStyle={isSelected ? styles.selectedText : styles.unselectedText}
+            onPress={() => handlePress(reason)}
+          />
+        );
+      })}
     </View>
   );
 };
@@ -49,7 +32,21 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+    flexWrap: 'wrap',
+    padding: 10,
+  },
+  selectedBox: {
+    backgroundColor: colors.main,
+  },
+  unselectedBox: {
+    backgroundColor: colors.white,
+    borderColor: colors.main,
+    borderWidth: 1,
+  },
+  selectedText: {
+    color: colors.white,
+  },
+  unselectedText: {
+    color: colors.main,
   },
 });
-
-export default React.memo(ReasonContainer);
