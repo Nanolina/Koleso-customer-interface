@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { clearAllFilters } from '../../../../redux/slices/filterSlice';
-import { colors, sizes } from '../../../consts';
+import { css } from '../../../consts';
 
 export const ResetAll = () => {
   const dispatch = useDispatch();
@@ -9,7 +9,7 @@ export const ResetAll = () => {
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => dispatch(clearAllFilters())}>
-        <Text style={styles.text}>Reset all</Text>
+        <Text style={css.resetAllButton}>Reset all</Text>
       </TouchableOpacity>
     </View>
   );
@@ -18,10 +18,5 @@ export const ResetAll = () => {
 const styles = StyleSheet.create({
   container: {
     alignItems: 'flex-end',
-  },
-  text: {
-    fontSize: sizes.text16,
-    color: colors.darkGray,
-    textDecorationLine: 'underline',
   },
 });

@@ -38,6 +38,10 @@ export const css = {
   paddingMax: 30,
   paddingBottom: 20,
   paddingTop: 10,
+  resetAllButton: {
+    fontSize: sizes.text20,
+    color: colors.gray,
+  },
   shadow: {
     backgroundColor: colors.white,
     shadowOpacity: 0.1,

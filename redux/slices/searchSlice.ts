@@ -7,13 +7,17 @@ export interface ISearchState {
   isEnabled: boolean;
 }
 
+export interface ISearchQueryProps {
+  query: string;
+}
+
 const searchSlice = createSlice({
   name: 'search',
   initialState: {
     queries: queries,
     text: '',
     isEnabled: false,
-  },
+  } as ISearchState,
   reducers: {
     handleClearQuery(state, action: PayloadAction<string>) {
       state.queries = state.queries.filter((query) => action.payload !== query);

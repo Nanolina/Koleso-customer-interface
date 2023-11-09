@@ -2,8 +2,10 @@ import { EvilIcons } from '@expo/vector-icons';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, sizes } from '../../../../consts';
 import { DeleteText } from '../../ui/search/DeleteText';
+import React from 'react';
+import { ISearchQueryProps } from '../../../../../redux/slices/searchSlice';
 
-export const SearchQuery = ({ query }) => {
+export const SearchQuery: React.FC<ISearchQueryProps> = React.memo(({ query }) => {
   return (
     <View style={styles.queryRow}>
       <View style={styles.textWithIcon}>
@@ -13,7 +15,7 @@ export const SearchQuery = ({ query }) => {
       <DeleteText query={query} />
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   queryRow: {

@@ -6,7 +6,7 @@ import { Categories } from '../modules/categories';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const CategoriesPage = () => {
-  const section = useSelector((state: any) => state.catalog.section.title);
+  const section = useSelector((state: any) => state.catalog.section?.title);
 
   return (
     <Container>
