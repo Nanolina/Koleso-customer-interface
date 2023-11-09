@@ -1,11 +1,29 @@
 import { FontAwesome5 } from '@expo/vector-icons';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { setAddressDelivery } from '../../../../redux/slices/cartSlice';
+import {
+  ICartState,
+  setAddressDelivery,
+} from '../../../../redux/slices/cartSlice';
 import { colors, sizes } from '../../../consts';
 
-export const Address = ({ address, hasMarker }: any) => {
-  const { addressDelivery } = useSelector((state: any) => state.cart);
+interface IAddress {
+  id: string;
+  address: string;
+}
+
+interface IAddressProps {
+  address: IAddress;
+  hasMarker?: boolean;
+}
+
+export const Address: React.FC<IAddressProps> = ({
+  address,
+  hasMarker,
+}: any) => {
+  const addressDelivery = useSelector(
+    (state: { cart: ICartState }) => state.cart.addressDelivery
+  );
   const dispatch = useDispatch();
 
   return (

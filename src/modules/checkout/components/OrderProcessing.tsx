@@ -2,8 +2,8 @@ import React from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { useSelector } from 'react-redux';
 import { courier, pickupPoint } from '../../../../consts';
-import { savedAddresses } from '../../../../mockData';
-import { toggleDelivery } from '../../../../redux/slices/cartSlice';
+import { IItemProps, savedAddresses } from '../../../../mockData';
+import { ICartState, toggleDelivery } from '../../../../redux/slices/cartSlice';
 import { ButtonsGroup } from '../../../components/ButtonsGroup';
 import { PriceInfoContainer } from '../../../components/PriceInfoContainer';
 import { addressPickUpPoint, courierServices, css } from '../../../consts';
@@ -12,8 +12,18 @@ import { ReturnForm } from '../../returns';
 import { Address } from '../ui/Address';
 import { ExtraInfoCourier } from './ExtraInfoCourier';
 
-export const OrderProcessing = ({ item, isReturn }) => {
-  const { delivery } = useSelector((state: any) => state.cart);
+interface IOrderProcessingProps {
+  item: IItemProps;
+  isReturn: boolean;
+}
+
+export const OrderProcessing: React.FC<IOrderProcessingProps> = ({
+  item,
+  isReturn,
+}) => {
+  const delivery = useSelector(
+    (state: { cart: ICartState }) => state.cart.delivery
+  );
 
   return (
     <KeyboardAvoidingView

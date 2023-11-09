@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import {
   DatePickerInput,
@@ -9,14 +9,24 @@ import { colors, css, sizes } from '../consts';
 
 registerTranslation('en-GB', enGB);
 
-export const DatePicker = ({
+interface IDatePickerProps {
+  text?: string;
+  value: string;
+  onChange: (date: Date) => void;
+  width?: string;
+  validRange: {
+    startDate: Date;
+  };
+}
+
+export const DatePicker: React.FC<IDatePickerProps> = ({
   text,
   value,
   onChange,
   width,
   validRange,
 }: any) => {
-  const styles = getStyles(width);
+  const styles = useMemo(() => getStyles(width), [width]);
 
   return (
     <View style={styles.container}>

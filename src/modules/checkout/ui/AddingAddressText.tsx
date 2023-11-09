@@ -2,7 +2,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../../consts';
 
-export const AddingAddressText = () => {
+export const AddingAddressText: React.FC = () => {
   return (
     <View style={styles.container}>
       <AntDesign name="plus" size={12} color={colors.black} />

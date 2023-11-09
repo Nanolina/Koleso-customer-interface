@@ -2,7 +2,19 @@ import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { colors, css, sizes } from '../consts';
 
-export const Note = ({ title, placeholder, value, onChangeText }: any) => {
+interface INoteProps {
+  title?: string;
+  placeholder?: string;
+  value: string;
+  onChangeText: (text: string) => void;
+}
+
+export const Note: React.FC<INoteProps> = ({
+  title,
+  placeholder,
+  value,
+  onChangeText,
+}: any) => {
   return (
     <View style={styles.container}>
       {title && <Text style={styles.text}>{title}</Text>}

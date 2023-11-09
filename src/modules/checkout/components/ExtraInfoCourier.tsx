@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { addField } from '../../../../redux/slices/checkoutSlice';
@@ -11,17 +11,56 @@ import { Note } from '../../../ui/Note';
 import { AddingAddressText } from '../ui/AddingAddressText';
 import { TimePicker } from './TimePicker';
 
-export const ExtraInfoCourier = () => {
+interface ICheckoutState {
+  date: string;
+  time: string;
+  note: string;
+}
+
+export const ExtraInfoCourier: React.FC = () => {
   const navigation: any = useNavigation();
   const dispatch = useDispatch();
 
-  const { date, time, note } = useSelector((state: any) => state.checkout);
+  const { date, time, note } = useSelector(
+    (state: { checkout: ICheckoutState }) => state.checkout
+  );
 
-  const validRangeDate = React.useMemo(() => {
-    return {
+  const validRangeDate = useMemo(
+    () => ({
       startDate: minDate,
-    };
-  }, [minDate]);
+    }),
+    [minDate]
+  );
+
+  const handleDateChange = useCallback(
+    (text: Date) => {
+      dispatch(
+        addField({
+          field: 'date',
+          value: text.toISOString(),
+        })
+      );
+    },
+    [dispatch]
+  );
+
+  const handleTimeChange = useCallback(
+    (text: string) => {
+      dispatch(addField({ field: 'time', value: text }));
+    },
+    [dispatch]
+  );
+
+  const handleNoteChange = useCallback(
+    (text: string) => {
+      dispatch(addField({ field: 'note', value: text }));
+    },
+    [dispatch]
+  );
+
+  const handleAddressFormNavigation = useCallback(() => {
+    navigation.navigate('AddressForm');
+  }, [navigation]);
 
   return (
     <>
@@ -30,21 +69,14 @@ export const ExtraInfoCourier = () => {
         backgroundColor={colors.lightGray}
         textColor={colors.black}
         isBold={false}
-        onPress={() => navigation.navigate('AddressForm')}
+        onPress={handleAddressFormNavigation}
       />
       <Hr />
       <View style={styles.container}>
         <DatePicker
           text="Date"
           value={date}
-          onChange={(text) =>
-            dispatch(
-              addField({
-                field: 'date',
-                value: text.toISOString(),
-              })
-            )
-          }
+          onChange={handleDateChange}
           validRange={validRangeDate}
           width="45%"
         />
@@ -52,9 +84,7 @@ export const ExtraInfoCourier = () => {
         <TimePicker
           text="Time"
           value={time}
-          onChange={(text) =>
-            dispatch(addField({ field: 'time', value: text }))
-          }
+          onChange={handleTimeChange}
           width="45%"
         />
       </View>
@@ -63,9 +93,7 @@ export const ExtraInfoCourier = () => {
         title="Note"
         placeholder="Write notes for the courier..."
         value={note}
-        onChangeText={(text) =>
-          dispatch(addField({ field: 'note', value: text }))
-        }
+        onChangeText={handleNoteChange}
       />
     </>
   );

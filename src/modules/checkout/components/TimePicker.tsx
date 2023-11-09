@@ -1,10 +1,22 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import { colors, css, sizes, timeFramesDelivery } from '../../../consts';
 
-export const TimePicker = ({ text, value, onChange, width }) => {
-  const styles = getStyles(width);
+interface ITimePickerProps {
+  text: string;
+  value: string;
+  onChange: (value: string) => void;
+  width?: string;
+}
+
+export const TimePicker: React.FC<ITimePickerProps> = ({
+  text,
+  value,
+  onChange,
+  width,
+}) => {
+  const styles = useMemo(() => getStyles(width), [width]);
 
   return (
     <View style={styles.container}>
