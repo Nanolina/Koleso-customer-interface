@@ -7,7 +7,7 @@ import { CentralContainer } from '../../ui/CentralContainer';
 export const LoginPage = () => {
   return (
     <Container>
-      <Header title="Log in" hasButton={false} />
+      <Header title="Log in" />
       <CentralContainer isPadding={true}>
         <Login />
       </CentralContainer>

@@ -11,12 +11,9 @@ export const FilterCheckboxPage = () => {
 
   return (
     <Container>
-      <Header title={title} />
+      <Header title={title} hasButtonBack />
       <CentralContainer isPadding={true}>
-        <CheckboxList
-          title={title}
-          items={items}
-        />
+        <CheckboxList title={title} items={items} />
       </CentralContainer>
       <Footer />
     </Container>

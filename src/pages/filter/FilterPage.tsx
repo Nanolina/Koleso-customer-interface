@@ -7,7 +7,7 @@ import { CentralContainer } from '../../ui/CentralContainer';
 export const FilterPage = () => {
   return (
     <Container>
-      <Header title="Filter" />
+      <Header title="Filter" hasButtonBack />
       <CentralContainer isPadding={true}>
         <Filter />
       </CentralContainer>

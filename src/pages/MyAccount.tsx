@@ -7,7 +7,7 @@ import { CentralContainer } from '../ui/CentralContainer';
 export const MyAccount = () => {
   return (
     <Container>
-      <Header title="My account" hasButton={false} />
+      <Header title="My account" />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Services />
       </CentralContainer>

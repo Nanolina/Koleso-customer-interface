@@ -1,4 +1,4 @@
-import { Platform, StatusBar } from 'react-native';
+import { Platform } from 'react-native';
 
 export const colors = {
   white: '#fff',
@@ -55,18 +55,6 @@ export const css = {
   productCard: {
     iconSize: 18,
     borderRadius: 5,
-  },
-  header: {
-    container: {
-      paddingHorizontal: 15,
-      paddingBottom: 5,
-      paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 20,
-      backgroundColor: colors.main,
-    },
-    title: {
-      fontSize: 24,
-      color: colors.white,
-    },
   },
   item: {
     sizeBox: {

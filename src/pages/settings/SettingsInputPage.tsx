@@ -11,7 +11,7 @@ export const SettingsInputPage = () => {
 
   return (
     <Container>
-      <Header title={title} />
+      <Header title={title} hasButtonBack />
       <CentralContainer isPadding={true}>
         <Input title={title} />
       </CentralContainer>

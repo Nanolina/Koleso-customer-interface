@@ -8,7 +8,7 @@ import { CentralContainer } from '../ui/CentralContainer';
 export const ReturnsPage = () => {
   return (
     <Container>
-      <Header title="My returns" />
+      <Header title="My returns" hasButtonBack />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Returns data={productCards} />
       </CentralContainer>

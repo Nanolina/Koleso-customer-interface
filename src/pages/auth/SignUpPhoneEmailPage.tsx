@@ -7,7 +7,7 @@ import { CentralContainer } from '../../ui/CentralContainer';
 export const SignUpPhoneEmailPage = () => {
   return (
     <Container>
-      <Header title="Sign up" />
+      <Header title="Sign up" hasButtonBack />
       <CentralContainer isPadding={true}>
         <SignUpPhoneEmail />
       </CentralContainer>

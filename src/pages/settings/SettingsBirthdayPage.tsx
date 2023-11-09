@@ -7,7 +7,7 @@ import { CentralContainer } from '../../ui/CentralContainer';
 export const SettingsBirthdayPage = () => {
   return (
     <Container>
-      <Header title="Date of birthday" />
+      <Header title="Date of birthday" hasButtonBack />
       <CentralContainer isPadding={true}>
         <Birthday />
       </CentralContainer>

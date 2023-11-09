@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { colors, css, currency } from '../consts';
+import { colors, currency } from '../consts';
 import { OrderProcessing } from '../modules/checkout';
 import { ReturnModal } from '../modules/modal';
 import { Button } from '../ui/Button';
@@ -21,7 +21,7 @@ export const OrderProcessingPage = () => {
 
   return (
     <Container>
-      <Header title={title} />
+      <Header title={title} hasButtonBack={true} />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <OrderProcessing item={item} isReturn={isReturn} />
       </CentralContainer>

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { productCards } from '../../mockData';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
-import { HeaderWithSearch } from '../components/HeaderWithSearch';
+import { Header } from '../components/Header';
 import { DeliveryQRCode, SearchQueries } from '../modules/home';
 import { ProductList } from '../modules/productCard';
 import { CentralContainer } from '../ui/CentralContainer';
@@ -12,7 +12,8 @@ export const Home = () => {
 
   return (
     <Container>
-      <HeaderWithSearch
+      <Header
+        showSearchBar={true}
         isEnabledSearch={isEnabledSearch}
         setIsEnabledSearch={setIsEnabledSearch}
       />

@@ -11,7 +11,7 @@ export const SettingsCheckboxPage = () => {
 
   return (
     <Container>
-      <Header title={title} />
+      <Header title={title} hasButtonBack />
       <CentralContainer isPadding={true}>
         <CheckboxList items={items} />
       </CentralContainer>

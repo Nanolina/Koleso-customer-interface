@@ -7,7 +7,7 @@ import { CentralContainer } from '../../ui/CentralContainer';
 export const SettingsPage = () => {
   return (
     <Container>
-      <Header title="Settings" />
+      <Header title="Settings" hasButtonBack />
       <CentralContainer isPadding={true}>
         <Settings />
       </CentralContainer>

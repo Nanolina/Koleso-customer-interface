@@ -13,7 +13,7 @@ export const CartPage = () => {
 
   return (
     <Container>
-      <Header title="Cart" hasButton={false} />
+      <Header title="Cart" />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Cart />
       </CentralContainer>

@@ -7,7 +7,7 @@ import { CentralContainer } from '../../ui/CentralContainer';
 export const SettingsPasswordPage = () => {
   return (
     <Container>
-      <Header title="Change password" />
+      <Header title="Change password" hasButtonBack />
       <CentralContainer isPadding={true}>
         <ChangePassword />
       </CentralContainer>

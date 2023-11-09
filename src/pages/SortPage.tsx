@@ -7,7 +7,7 @@ import { CentralContainer } from '../ui/CentralContainer';
 export const SortPage = () => {
   return (
     <Container>
-      <Header title="Sort" />
+      <Header title="Sort" hasButtonBack />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <SortComponents />
       </CentralContainer>

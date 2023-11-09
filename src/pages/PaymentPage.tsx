@@ -39,7 +39,7 @@ export const PaymentPage = () => {
 
       {!isModalVisible && (
         <>
-          <Header title="Payment" />
+          <Header title="Payment" hasButtonBack />
           <CentralContainer isPadding={true}>
             <Payment />
           </CentralContainer>

@@ -7,7 +7,7 @@ import { CentralContainer } from '../ui/CentralContainer';
 export const FinancesPage = () => {
   return (
     <Container>
-      <Header title="Finances" />
+      <Header title="Finances" hasButtonBack />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Finances />
       </CentralContainer>

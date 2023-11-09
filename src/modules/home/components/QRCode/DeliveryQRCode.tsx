@@ -17,7 +17,8 @@ export const DeliveryQRCode: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     borderRadius: css.borderRadiusMax,
-    paddingVertical: 20,
+    paddingTop: 10,
+    paddingBottom: 20,
   },
   flexRow: {
     flexDirection: 'row',

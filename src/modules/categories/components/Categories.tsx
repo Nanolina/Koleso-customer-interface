@@ -7,7 +7,7 @@ import { Category } from './Category';
 
 export const Categories: React.FC = () => {
   const categories = useSelector(
-    (state: RootState) => state.catalog.section.categories
+    (state: RootState) => state.catalog.section?.categories
   );
 
   return (

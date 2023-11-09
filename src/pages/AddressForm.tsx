@@ -13,7 +13,7 @@ export const AddressForm = () => {
 
   return (
     <Container>
-      <Header title="Add an address" />
+      <Header title="Add an address" hasButtonBack />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Form
           name={name}

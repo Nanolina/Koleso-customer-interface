@@ -8,7 +8,7 @@ import { CentralContainer } from '../ui/CentralContainer';
 export const Favorites = () => {
   return (
     <Container>
-      <Header title="Favorites" hasButton={false} />
+      <Header title="Favorites" />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <ProductList data={productCards} />
       </CentralContainer>
