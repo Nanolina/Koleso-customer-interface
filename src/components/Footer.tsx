@@ -55,10 +55,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
     position: 'relative',
-    backgroundColor: colors.white,
-    shadowOpacity: 0.05,
-    shadowRadius: 4,
-    elevation: 4, // for Android
+    ...css.shadow,
   },
   iconContainer: {
     flexDirection: 'row',

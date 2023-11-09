@@ -38,6 +38,16 @@ export const css = {
   paddingMax: 30,
   paddingBottom: 20,
   paddingTop: 10,
+  shadow: {
+    backgroundColor: colors.white,
+    shadowOpacity: 0.1,
+    shadowRadius: 8,
+    elevation: 4, // for Android
+    shadowOffset: {
+      width: 1,
+      height: 1,
+    },
+  },
   productCard: {
     iconSize: 18,
     borderRadius: 5,

@@ -1,9 +1,9 @@
-import { Platform, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { css } from '../../../../consts';
 import { InfoQRCodeSection } from './InfoQRCodeSection';
 import { QRCodeSection } from './QRCodeSection';
 
-export const DeliveryQRCode = () => {
+export const DeliveryQRCode: React.FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.flexRow}>
@@ -17,12 +17,14 @@ export const DeliveryQRCode = () => {
 const styles = StyleSheet.create({
   container: {
     borderRadius: css.borderRadiusMax,
-    overflow: 'hidden',
-    backgroundColor: 'transparent',
-    marginHorizontal: Platform.OS === 'web' ? css.paddingMax : css.padding,
+    paddingVertical: 20,
   },
   flexRow: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
     alignItems: 'center',
+    padding: 20,
+    borderRadius: css.borderRadiusMax,
+    ...css.shadow,
   },
 });

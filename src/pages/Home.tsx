@@ -15,7 +15,7 @@ export const Home = () => {
       <CentralContainer isPadding={true} isMinPadding={true}>
         {!isEnabledSearch && (
           <>
-            {/* <DeliveryQRCode /> */}
+            <DeliveryQRCode />
             <ProductList data={productCards} />
           </>
         )}
