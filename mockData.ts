@@ -21,6 +21,16 @@ export interface IItemProps {
   return?: IReturnProps;
 }
 
+export interface IFinanceProps {
+  id: string;
+  text: string;
+  orderNumber: string;
+  paymentAmount: number;
+  date: string;
+  time: string;
+  status: 'successful' | 'rejected';
+}
+
 export const productCards = [
   {
     id: '1',

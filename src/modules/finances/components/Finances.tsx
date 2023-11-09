@@ -1,11 +1,11 @@
 import { StyleSheet, View } from 'react-native';
-import { finances } from '../../../../mockData';
+import { IFinanceProps, finances } from '../../../../mockData';
 import { Finance } from './Finance';
 
-export const Finances = () => {
+export const Finances: React.FC = () => {
   return (
     <View style={styles.container}>
-      {finances.map((finance) => (
+      {finances.map((finance: IFinanceProps) => (
         <Finance finance={finance} key={finance.id} />
       ))}
     </View>

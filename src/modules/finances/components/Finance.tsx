@@ -1,8 +1,9 @@
 import { StyleSheet, Text, View } from 'react-native';
+import { IFinanceProps } from '../../../../mockData';
 import { colors, css, currency, sizes } from '../../../consts';
 import { Hr } from '../../../ui/Hr';
 
-export const Finance = ({ finance }) => {
+export const Finance: React.FC<{ finance: IFinanceProps }> = ({ finance }) => {
   return (
     <View>
       <View style={styles.row}>
