@@ -1,14 +1,11 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { colors, css } from '../../../consts';
+import { IQuantityProps } from '../types';
 import { Quantity } from '../ui/Quantity';
 import { Sign } from '../ui/Sign';
 
-interface IQuantityContainerProps {
-  quantity: number;
-}
-
-export const QuantityContainer: React.FC<IQuantityContainerProps> = React.memo(
+export const QuantityContainer: React.FC<IQuantityProps> = React.memo(
   ({ quantity }) => {
     return (
       <View style={styles.container}>

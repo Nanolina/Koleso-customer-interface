@@ -6,10 +6,6 @@ export interface ISearchState {
   text: string;
 }
 
-export interface ISearchQueryProps {
-  query: string;
-}
-
 const searchSlice = createSlice({
   name: 'search',
   initialState: {

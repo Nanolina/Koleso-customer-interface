@@ -1,5 +1,6 @@
 import { StyleSheet, View } from 'react-native';
-import { IFinanceProps, finances } from '../../../../mockData';
+import { finances } from '../../../../mockData';
+import { IFinanceProps } from '../types';
 import { Finance } from './Finance';
 
 export const Finances: React.FC = () => {

@@ -1,7 +1,8 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { colors, sizes } from '../../../../consts';
 import { images } from '../../consts';
-import { CustomModal, IModalProps } from '../CustomModal';
+import { IModalProps } from '../../types';
+import { CustomModal } from '../CustomModal';
 import { StatusSuccessPayment } from './StatusSuccessPayment';
 
 export const SuccessModal: React.FC<IModalProps> = ({ onClose }) => {

@@ -2,10 +2,7 @@ import { Feather } from '@expo/vector-icons';
 import React from 'react';
 import { TouchableOpacity } from 'react-native';
 import { colors, sizes } from '../../../consts';
-
-interface IIconFeatherProps {
-  name: any;
-}
+import { IIconFeatherProps } from '../types';
 
 export const IconFeather: React.FC<IIconFeatherProps> = React.memo(
   ({ name }) => {

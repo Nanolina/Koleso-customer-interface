@@ -11,17 +11,11 @@ import { useDispatch } from 'react-redux';
 import { selectCategory } from '../../../../redux/slices/catalogSlice';
 import { css } from '../../../consts';
 import { WebCardWrapper } from '../../../ui/WebCardWrapper';
+import { ICategoryType } from '../types';
 
 const { width } = Dimensions.get('window');
 
-interface CategoryType {
-  id: string;
-  title: string;
-  image: number; // Using only local images via require
-  subcategories?: CategoryType[];
-}
-
-export const Category: React.FC<{ category: CategoryType }> = React.memo(
+export const Category: React.FC<{ category: ICategoryType }> = React.memo(
   ({ category }) => {
     const dispatch = useDispatch();
     const navigation: any = useNavigation();

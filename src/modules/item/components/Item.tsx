@@ -1,8 +1,8 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { IItemProps } from '../../../../mockData';
 import { PriceContainer } from '../../../components/PriceContainer';
 import { sizes } from '../../../consts';
+import { IItemProps } from '../../../types';
 import { Description } from './Description';
 import { Properties } from './Properties';
 import { SizeContainer } from './SizeContainer';

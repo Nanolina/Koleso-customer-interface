@@ -1,10 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, sizes } from '../../../consts';
-
-interface IQuantityProps {
-  quantity: number;
-}
+import { IQuantityProps } from '../types';
 
 export const Quantity: React.FC<IQuantityProps> = React.memo(({ quantity }) => {
   return (

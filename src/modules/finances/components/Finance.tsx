@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { IFinanceProps } from '../../../../mockData';
 import { colors, css, currency, sizes } from '../../../consts';
 import { Hr } from '../../../ui/Hr';
+import { IFinanceProps } from '../types';
 
 export const Finance: React.FC<{ finance: IFinanceProps }> = React.memo(
   ({ finance }) => {

@@ -3,12 +3,8 @@ import { ScrollView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { getItems } from '../functions';
+import { ICheckboxListProps } from '../types';
 import { Buttons } from './Buttons';
-
-interface ICheckboxListProps {
-  title: string;
-  items: string[];
-}
 
 export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
   ({ title, items }) => {

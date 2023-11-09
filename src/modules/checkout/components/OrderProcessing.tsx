@@ -2,20 +2,16 @@ import React from 'react';
 import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { useSelector } from 'react-redux';
 import { courier, pickupPoint } from '../../../../consts';
-import { IItemProps, savedAddresses } from '../../../../mockData';
+import { savedAddresses } from '../../../../mockData';
 import { ICartState, toggleDelivery } from '../../../../redux/slices/cartSlice';
 import { ButtonsGroup } from '../../../components/ButtonsGroup';
 import { PriceInfoContainer } from '../../../components/PriceInfoContainer';
 import { addressPickUpPoint, courierServices, css } from '../../../consts';
 import { Hr } from '../../../ui/Hr';
 import { ReturnForm } from '../../returns';
+import { IOrderProcessingProps } from '../types';
 import { Address } from '../ui/Address';
 import { ExtraInfoCourier } from './ExtraInfoCourier';
-
-interface IOrderProcessingProps {
-  item: IItemProps;
-  isReturn: boolean;
-}
 
 export const OrderProcessing: React.FC<IOrderProcessingProps> = React.memo(
   ({ item, isReturn }) => {

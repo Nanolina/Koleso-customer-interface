@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { colors, sizes } from '../../../consts';
 import { Button } from '../../../ui/Button';
-import { IContactProps } from '../consts';
+import { IContactProps } from '../types';
 
 export const Contact: React.FC<{ contact: IContactProps }> = React.memo(
   ({ contact }) => {

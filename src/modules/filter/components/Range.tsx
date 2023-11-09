@@ -3,12 +3,7 @@ import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { colors, css, sizes } from '../../../consts';
 import { getNumericData } from '../functions';
-
-interface IRangeProps {
-  text: string;
-  value: string;
-  onChangeText: (value: string) => { type: string; payload: number };
-}
+import { IRangeProps } from '../types';
 
 export const Range: React.FC<IRangeProps> = React.memo(
   ({ text, value, onChangeText }) => {

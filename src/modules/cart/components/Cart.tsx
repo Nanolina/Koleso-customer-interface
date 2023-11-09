@@ -3,15 +3,15 @@ import { StyleSheet, View } from 'react-native';
 import { productCards } from '../../../../mockData';
 import { PriceInfo } from '../../../components/PriceInfo';
 import { css } from '../../../consts';
+import { IItemProps } from '../../../types';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { Hr } from '../../../ui/Hr';
+import { ISelectedItemsState } from '../types';
 import { CartItems } from './CartItems';
 
 export const Cart: React.FC = () => {
   const [isSelectedAll, setIsSelectedAll] = useState(false);
-  const [selectedItems, setSelectedItems] = useState<{
-    [key: string]: boolean;
-  }>({});
+  const [selectedItems, setSelectedItems] = useState<ISelectedItemsState>({});
 
   const toggleSelectAll = useCallback(() => {
     if (isSelectedAll) {
@@ -19,8 +19,10 @@ export const Cart: React.FC = () => {
       setSelectedItems({});
     } else {
       setIsSelectedAll(true);
-      const newSelectedItems: { [key: string]: boolean } = {};
-      productCards.forEach((item) => {
+
+      const newSelectedItems: ISelectedItemsState = {};
+
+      productCards.forEach((item: IItemProps) => {
         newSelectedItems[item.id] = true;
       });
       setSelectedItems(newSelectedItems);

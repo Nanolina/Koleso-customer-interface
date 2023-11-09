@@ -2,13 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, sizes } from '../../../consts';
 import { Button } from '../../../ui/Button';
+import { IModalPhotoProps } from '../types';
 import { CustomModal } from './CustomModal';
-
-interface IModalPhotoProps {
-  onClose: () => void;
-  onCameraSelect: () => void;
-  onGallerySelect: () => void;
-}
 
 export const ModalPhotoUpload: React.FC<IModalPhotoProps> = React.memo(
   ({ onClose, onCameraSelect, onGallerySelect }) => {

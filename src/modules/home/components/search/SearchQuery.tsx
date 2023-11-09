@@ -1,21 +1,27 @@
 import { EvilIcons } from '@expo/vector-icons';
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, sizes } from '../../../../consts';
+import { ISearchQueryProps } from '../../types';
 import { DeleteText } from '../../ui/search/DeleteText';
-import React from 'react';
-import { ISearchQueryProps } from '../../../../../redux/slices/searchSlice';
 
-export const SearchQuery: React.FC<ISearchQueryProps> = React.memo(({ query }) => {
-  return (
-    <View style={styles.queryRow}>
-      <View style={styles.textWithIcon}>
-        <EvilIcons name="clock" size={sizes.iconSizeMin} color={colors.main} />
-        <Text style={styles.queryText}>{query}</Text>
+export const SearchQuery: React.FC<ISearchQueryProps> = React.memo(
+  ({ query }) => {
+    return (
+      <View style={styles.queryRow}>
+        <View style={styles.textWithIcon}>
+          <EvilIcons
+            name="clock"
+            size={sizes.iconSizeMin}
+            color={colors.main}
+          />
+          <Text style={styles.queryText}>{query}</Text>
+        </View>
+        <DeleteText query={query} />
       </View>
-      <DeleteText query={query} />
-    </View>
-  );
-});
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   queryRow: {

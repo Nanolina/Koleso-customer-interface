@@ -1,12 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
+import { IPropertiesProps } from '../types';
 import { Property } from '../ui/Property';
-
-interface IPropertiesProps {
-  color: string;
-  composition: string;
-  gender: string;
-}
 
 export const Properties: React.FC<IPropertiesProps> = React.memo(
   ({ color, composition, gender }) => {

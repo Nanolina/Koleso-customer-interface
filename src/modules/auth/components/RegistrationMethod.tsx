@@ -2,11 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { colors, css, sizes } from '../../../consts';
-import { IRegistrationMethod } from '../data';
-
-interface IRegistrationMethodProps {
-  registrationMethod: IRegistrationMethod;
-}
+import { IRegistrationMethodProps } from '../types';
 
 const RegistrationMethod: React.FC<IRegistrationMethodProps> = React.memo(
   ({ registrationMethod }) => {

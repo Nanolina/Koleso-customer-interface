@@ -1,11 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 import { sizes } from '../../../consts';
-
-interface IPropertyProps {
-  label: string;
-  text?: string;
-}
+import { IPropertyProps } from '../types';
 
 export const Property: React.FC<IPropertyProps> = React.memo(
   ({ label, text }) => {

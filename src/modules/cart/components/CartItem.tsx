@@ -1,18 +1,12 @@
 import React from 'react';
 import { Image, Platform, StyleSheet, View } from 'react-native';
-import { IItemProps } from '../../../../mockData';
 import { css } from '../../../consts';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { Hr } from '../../../ui/Hr';
 import { heightImage, widthImage } from '../consts';
+import { ICartItemProps } from '../types';
 import { DetailsContainer } from './DetailsContainer';
 import { Menu } from './Menu';
-
-interface ICartItemProps {
-  item: IItemProps;
-  isSelected: boolean;
-  toggleItemSelection: () => void;
-}
 
 export const CartItem: React.FC<ICartItemProps> = React.memo(
   ({ item, isSelected, toggleItemSelection }) => {

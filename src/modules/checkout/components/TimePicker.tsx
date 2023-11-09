@@ -2,13 +2,7 @@ import React, { useMemo } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import { colors, css, sizes, timeFramesDelivery } from '../../../consts';
-
-interface ITimePickerProps {
-  text: string;
-  value: string;
-  onChange: (value: string) => void;
-  width?: string;
-}
+import { ITimePickerProps } from '../types';
 
 export const TimePicker: React.FC<ITimePickerProps> = React.memo(
   ({ text, value, onChange, width }) => {

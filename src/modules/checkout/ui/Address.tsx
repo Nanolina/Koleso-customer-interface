@@ -7,16 +7,7 @@ import {
   setAddressDelivery,
 } from '../../../../redux/slices/cartSlice';
 import { colors, sizes } from '../../../consts';
-
-interface IAddress {
-  id: string;
-  address: string;
-}
-
-interface IAddressProps {
-  address: IAddress;
-  hasMarker?: boolean;
-}
+import { IAddressProps } from '../types';
 
 export const Address: React.FC<IAddressProps> = React.memo(
   ({ address, hasMarker }) => {

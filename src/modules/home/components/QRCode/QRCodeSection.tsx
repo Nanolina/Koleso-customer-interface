@@ -1,11 +1,8 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { sizes } from '../../../../consts';
+import { IQRCodeSectionProps } from '../../types';
 import { QRCode } from '../../ui/QRCode/QRCode';
-
-interface IQRCodeSectionProps {
-  code: string;
-}
 
 export const QRCodeSection: React.FC<IQRCodeSectionProps> = React.memo(
   ({ code }) => (

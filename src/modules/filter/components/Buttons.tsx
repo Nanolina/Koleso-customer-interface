@@ -3,13 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { colors, sizes } from '../../../consts';
 import { Button } from '../../../ui/Button';
-
-interface IButtonsProps {
-  items: string[];
-  selectedItems: string[];
-  resetAll: () => { type: string };
-  selectAll: () => { type: string };
-}
+import { IButtonsProps } from '../types';
 
 export const Buttons: React.FC<IButtonsProps> = React.memo(
   ({ items, selectedItems, resetAll, selectAll }) => {

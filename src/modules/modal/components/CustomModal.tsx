@@ -1,11 +1,7 @@
 import React, { useCallback } from 'react';
 import { Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors, css } from '../../../consts';
-
-export interface IModalProps {
-  children?: React.ReactNode;
-  onClose: () => void;
-}
+import { IModalProps } from '../types';
 
 export const CustomModal: React.FC<IModalProps> = React.memo(
   ({ children, onClose }) => {

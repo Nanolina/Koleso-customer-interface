@@ -1,10 +1,8 @@
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
-import {
-  ISearchQueryProps,
-  handleClearQuery,
-} from '../../../../../redux/slices/searchSlice';
+import { handleClearQuery } from '../../../../../redux/slices/searchSlice';
 import { colors, sizes } from '../../../../consts';
+import { ISearchQueryProps } from '../../types';
 
 export const DeleteText: React.FC<ISearchQueryProps> = ({ query }) => {
   const dispatch = useDispatch();

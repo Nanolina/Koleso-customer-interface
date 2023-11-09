@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { sizes } from '../../../consts';
-import { IContactProps, contacts } from '../consts';
+import { contacts } from '../consts';
+import { IContactProps } from '../types';
 import { Contact } from './Contact';
 
 export const Contacts: React.FC = () => {

@@ -1,5 +1,6 @@
 import { StyleSheet, View } from 'react-native';
-import { INotificationProps, notifications } from '../../../../mockData';
+import { notifications } from '../../../../mockData';
+import { INotificationProps } from '../types';
 import { Notification } from './Notification';
 
 export const Notifications: React.FC = () => {

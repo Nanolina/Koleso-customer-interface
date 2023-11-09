@@ -1,13 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { IItemProps } from '../../../../mockData';
+import { ICartItemsProps } from '../types';
 import { CartItem } from './CartItem';
-
-interface ICartItemsProps {
-  items: IItemProps[];
-  selectedItems: { [key: string]: boolean };
-  toggleItemSelection: (id: string) => void;
-}
 
 export const CartItems: React.FC<ICartItemsProps> = React.memo(
   ({ items, selectedItems, toggleItemSelection }) => {

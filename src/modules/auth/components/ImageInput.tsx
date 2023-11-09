@@ -1,16 +1,7 @@
 import React from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 import { colors, css, sizes } from '../../../consts';
-
-interface IImageInputProps {
-  placeholder: string;
-  icon: JSX.Element;
-  value: string;
-  onChangeText: (text: string) => void;
-  secureTextEntry?: boolean;
-  autoComplete?: string;
-  inputMode?: string;
-}
+import { IImageInputProps } from '../types';
 
 export const ImageInput: React.FC<IImageInputProps> = React.memo(
   ({

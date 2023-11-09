@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { INotificationProps } from '../../../../mockData';
 import { colors, css, sizes } from '../../../consts';
+import { INotificationProps } from '../types';
 
 export const Notification: React.FC<{ notification: INotificationProps }> =
   React.memo(({ notification }) => {

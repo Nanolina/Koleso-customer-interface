@@ -1,10 +1,3 @@
-export interface IRegistrationMethod {
-  id: string;
-  text: string;
-  image: number; // Using only local images via require
-  redirectPage: string;
-}
-
 export const registrationMethods = [
   {
     id: '767bddf6-e948-4437-a48c-94749a6b075c',

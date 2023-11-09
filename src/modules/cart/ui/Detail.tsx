@@ -1,10 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
-
-interface IDetailProps {
-  name: string;
-  detail: string | number;
-}
+import { IDetailProps } from '../types';
 
 export const Detail: React.FC<IDetailProps> = React.memo(({ name, detail }) => {
   return (

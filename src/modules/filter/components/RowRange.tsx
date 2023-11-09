@@ -2,13 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { sizes } from '../../../consts';
 import { getFromToFunctions } from '../functions';
+import { IRowRangeProps } from '../types';
 import { Range } from './Range';
-
-interface IRowRangeProps {
-  title: string;
-  from: string;
-  to: string;
-}
 
 export const RowRange: React.FC<IRowRangeProps> = React.memo(
   ({ title, from, to }) => {

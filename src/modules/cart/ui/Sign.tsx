@@ -1,10 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { colors, css, sizes } from '../../../consts';
-
-interface ISignProps {
-  type: string;
-}
+import { ISignProps } from '../types';
 
 export const Sign: React.FC<ISignProps> = React.memo(({ type }) => {
   return (

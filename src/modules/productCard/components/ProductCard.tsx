@@ -6,9 +6,9 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import { IItemProps } from '../../../../mockData';
 import { PriceContainer } from '../../../components/PriceContainer';
 import { css, sizes } from '../../../consts';
+import { IItemProps } from '../../../types';
 import { WebCardWrapper } from '../../../ui/WebCardWrapper';
 import { ImageContainer } from './ImageContainer';
 import { TitleContainer } from './TitleContainer';
