@@ -1,23 +1,25 @@
 import { combineReducers } from 'redux';
-import authSlice from './slices/authSlice';
+import authSlice, { IAuthState } from './slices/authSlice';
 import cartSlice, { ICartState } from './slices/cartSlice';
 import catalogSlice, { ICatalogState } from './slices/catalogSlice';
 import checkoutSlice, { ICheckoutState } from './slices/checkoutSlice';
 import filterSlice, { IFilterState } from './slices/filterSlice';
-import footerSlice from './slices/footerSlice';
+import footerSlice, { IFooterState } from './slices/footerSlice';
 import paymentSlice, { IPaymentState } from './slices/paymentSlice';
-import returnSlice from './slices/returnSlice';
+import returnSlice, { IReturnState } from './slices/returnSlice';
 import searchSlice, { ISearchState } from './slices/searchSlice';
 import settingsSlice, { ISettingsState } from './slices/settingsSlice';
 
 export interface RootState {
-  catalog: ICatalogState;
-  search: ISearchState;
-  filter: IFilterState;
+  auth: IAuthState;
   cart: ICartState;
-  
+  catalog: ICatalogState;
   checkout: ICheckoutState;
+  filter: IFilterState;
+  footer: IFooterState;
   payment: IPaymentState;
+  return: IReturnState;
+  search: ISearchState;
   settings: ISettingsState;
 }
 

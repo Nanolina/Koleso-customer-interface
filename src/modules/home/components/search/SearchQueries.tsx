@@ -12,7 +12,7 @@ export const SearchQueries = () => {
       <ClearAll />
       <ScrollView>
         {queries.map((query: any) => (
-          <SearchQuery query={query} key={query.id} />
+          <SearchQuery query={query} key={query} />
         ))}
       </ScrollView>
     </>

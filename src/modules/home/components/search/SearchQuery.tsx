@@ -5,10 +5,10 @@ import { DeleteText } from '../../ui/search/DeleteText';
 
 export const SearchQuery = ({ query }) => {
   return (
-    <View key={query.id} style={styles.queryRow}>
+    <View style={styles.queryRow}>
       <View style={styles.textWithIcon}>
         <EvilIcons name="clock" size={sizes.iconSizeMin} color={colors.main} />
-        <Text style={styles.queryText}>{query.name}</Text>
+        <Text style={styles.queryText}>{query}</Text>
       </View>
       <DeleteText query={query} />
     </View>

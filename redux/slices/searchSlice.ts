@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { queries } from '../../mockData';
 
 export interface ISearchState {
@@ -15,10 +15,8 @@ const searchSlice = createSlice({
     isEnabled: false,
   },
   reducers: {
-    handleClearQuery(state, action) {
-      state.queries = state.queries.filter(
-        (query) => action.payload.id !== query.id
-      );
+    handleClearQuery(state, action: PayloadAction<string>) {
+      state.queries = state.queries.filter((query) => action.payload !== query);
     },
     handleClearAllQueries(state) {
       state.queries = [];

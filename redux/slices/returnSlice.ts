@@ -2,6 +2,27 @@ import { createSlice } from '@reduxjs/toolkit';
 import { pickupPoint } from '../../consts';
 import { minDate, reasonsForReturn } from '../../src/consts';
 
+interface ITime {
+  label: string;
+  value: string;
+}
+
+export interface IReturnState {
+  way: string;
+  reason: string;
+  photos: string[];
+  comment: string;
+  name: string | null;
+  phone: string | null;
+  city: string | null;
+  street: string | null;
+  house: string | null;
+  apartment: string | null;
+  date: string;
+  time: ITime;
+  note: string | null;
+}
+
 const returnSlice = createSlice({
   name: 'return',
   initialState: {
@@ -21,7 +42,7 @@ const returnSlice = createSlice({
     date: minDate.toISOString(),
     time: { label: 'Anytime', value: 'Anytime' },
     note: null,
-  },
+  } as IReturnState,
   reducers: {
     toggleReturnWay(state, action) {
       state.way = action.payload;

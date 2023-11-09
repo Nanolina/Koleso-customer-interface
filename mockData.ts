@@ -98,17 +98,7 @@ Don't miss the opportunity to add this gorgeous pantsuit to your closet! It will
   },
 ];
 
-export const queries = [
-  {
-    id: '1',
-    name: 'Apple',
-  },
-  {
-    id: '2',
-    name: 'Banana',
-  },
-  { id: '3', name: 'Cherry' },
-];
+export const queries = ['Apple', 'Banana', 'Cherry'];
 
 export const finances = [
   {

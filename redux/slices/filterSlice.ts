@@ -1,6 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { data } from '../../src/modules/filter/data';
 
+export interface IFilterState {
+  colors: string[];
+  genders: string[];
+  sizes: number[];
+  categories: string[];
+  brands: string[];
+  sellers: string[];
+  compositions: string[];
+  seasons: string[];
+  ageFrom: number | null;
+  ageTo: number | null;
+  priceFrom: number | null;
+  priceTo: number | null;
+}
+
 const filterSlice = createSlice({
   name: 'filter',
   initialState: {
@@ -16,7 +31,7 @@ const filterSlice = createSlice({
     ageTo: null,
     priceFrom: null,
     priceTo: null,
-  },
+  } as IFilterState,
   reducers: {
     // Colors
     toggleColor(state, action) {

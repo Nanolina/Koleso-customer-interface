@@ -1,4 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+
+export interface IAuthState {
+  name: string | null;
+  phone: string | null;
+  email: string | null;
+}
+
+interface ISetValueAuthPayload {
+  key: keyof IAuthState;
+  value: string | null;
+}
 
 const authSlice = createSlice({
   name: 'auth',
@@ -6,9 +17,9 @@ const authSlice = createSlice({
     name: null,
     phone: null,
     email: null,
-  },
+  } as IAuthState,
   reducers: {
-    setValueAuth: (state, action) => {
+    setValueAuth: (state, action: PayloadAction<ISetValueAuthPayload>) => {
       const { key, value } = action.payload;
       state[key] = value;
     },
