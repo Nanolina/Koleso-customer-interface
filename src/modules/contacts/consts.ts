@@ -1,3 +1,10 @@
+export interface IContactProps {
+  id: string;
+  text: string;
+  link: string;
+  image: number;
+};
+
 export const contacts = [
   {
     id: 'b27e5377-ad5e-481c-b115-05d45d13cbc0',

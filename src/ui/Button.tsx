@@ -30,6 +30,7 @@ export const Button: React.FC<IButtonProps> = ({
         {
           width,
           backgroundColor,
+          borderWidth: border ? 1 : 0,
           borderColor: border ? colors.main : undefined,
         },
       ]}

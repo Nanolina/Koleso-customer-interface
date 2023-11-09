@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { sizes } from '../../../consts';
-import { contacts } from '../consts';
+import { IContactProps, contacts } from '../consts';
 import { Contact } from './Contact';
 
-export const Contacts = () => {
+export const Contacts: React.FC = () => {
   return (
     <View style={styles.mainContainer}>
       <Text style={styles.text}>Contact us in a convenient way</Text>
       <View style={styles.container}>
-        {contacts.map((contact) => (
+        {contacts.map((contact: IContactProps) => (
           <Contact contact={contact} key={contact.id} />
         ))}
       </View>
