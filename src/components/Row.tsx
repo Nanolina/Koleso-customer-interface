@@ -3,7 +3,7 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors, sizes } from '../consts';
-import { getDisplayItem } from '../modules/settings';
+import { getDisplayItem } from '../functions';
 
 interface IRowProps {
   title: string;
