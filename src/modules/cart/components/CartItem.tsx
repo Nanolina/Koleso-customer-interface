@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import { Image, Platform, StyleSheet, View } from 'react-native';
 import { IItemProps } from '../../../../mockData';
 import { css } from '../../../consts';
@@ -14,24 +14,24 @@ interface ICartItemProps {
   toggleItemSelection: () => void;
 }
 
-export const CartItem: React.FC<ICartItemProps> = ({
-  item,
-  isSelected,
-  toggleItemSelection,
-}) => {
-
-  return (
-    <View style={styles.container}>
-      <View style={styles.itemContainer}>
-        <CheckboxItem isSelected={isSelected} onToggle={toggleItemSelection} />
-        <Image source={{ uri: item.image }} style={styles.image} />
-        <DetailsContainer item={item} quantity={item.quantity} />
-        <Menu />
+export const CartItem: React.FC<ICartItemProps> = React.memo(
+  ({ item, isSelected, toggleItemSelection }) => {
+    return (
+      <View style={styles.container}>
+        <View style={styles.itemContainer}>
+          <CheckboxItem
+            isSelected={isSelected}
+            onToggle={toggleItemSelection}
+          />
+          <Image source={{ uri: item.image }} style={styles.image} />
+          <DetailsContainer item={item} quantity={item.quantity} />
+          <Menu />
+        </View>
+        <Hr />
       </View>
-      <Hr />
-    </View>
-  );
-};
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {

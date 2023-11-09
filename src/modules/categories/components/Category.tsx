@@ -3,7 +3,6 @@ import React, { useCallback } from 'react';
 import {
   Dimensions,
   Image,
-  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -22,36 +21,38 @@ interface CategoryType {
   subcategories?: CategoryType[];
 }
 
-export const Category: React.FC<{ category: CategoryType }> = ({ category }) => {
-  const dispatch = useDispatch();
-  const navigation: any = useNavigation();
+export const Category: React.FC<{ category: CategoryType }> = React.memo(
+  ({ category }) => {
+    const dispatch = useDispatch();
+    const navigation: any = useNavigation();
 
-  const handleRedirections = useCallback(
-    (category) => {
-      if (category.subcategories) {
-        navigation.navigate('SubcategoriesPage');
-      } else {
-        navigation.navigate('Main');
-      }
-    },
-    [navigation, category.subcategories]
-  );
+    const handleRedirections = useCallback(
+      (category) => {
+        if (category.subcategories) {
+          navigation.navigate('SubcategoriesPage');
+        } else {
+          navigation.navigate('Main');
+        }
+      },
+      [navigation, category.subcategories]
+    );
 
-  return (
-    <WebCardWrapper cardWidth={width}>
-      <TouchableOpacity
-        style={styles.container}
-        onPress={() => {
-          dispatch(selectCategory(category));
-          handleRedirections(category);
-        }}
-      >
-        <Image source={category.image} style={styles.image} />
-        <Text style={styles.text}>{category.title}</Text>
-      </TouchableOpacity>
-    </WebCardWrapper>
-  );
-};
+    return (
+      <WebCardWrapper cardWidth={width}>
+        <TouchableOpacity
+          style={styles.container}
+          onPress={() => {
+            dispatch(selectCategory(category));
+            handleRedirections(category);
+          }}
+        >
+          <Image source={category.image} style={styles.image} />
+          <Text style={styles.text}>{category.title}</Text>
+        </TouchableOpacity>
+      </WebCardWrapper>
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {

@@ -1,33 +1,36 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { colors, css, sizes } from '../consts';
+import React from 'react';
 
-export const TextWithInput = ({
-  text,
-  value,
-  onChangeText,
-  width,
-  onFocus,
-  inputMode = 'text',
-  secureTextEntry,
-  autoComplete,
-}: any) => {
-  const styles = getStyles(width);
+export const TextWithInput = React.memo(
+  ({
+    text,
+    value,
+    onChangeText,
+    width,
+    onFocus,
+    inputMode = 'text',
+    secureTextEntry,
+    autoComplete,
+  }: any) => {
+    const styles = getStyles(width);
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{text}</Text>
-      <TextInput
-        style={styles.input}
-        value={value}
-        onChangeText={onChangeText}
-        onFocus={onFocus}
-        inputMode={inputMode}
-        secureTextEntry={secureTextEntry}
-        autoComplete={autoComplete}
-      />
-    </View>
-  );
-};
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text}>{text}</Text>
+        <TextInput
+          style={styles.input}
+          value={value}
+          onChangeText={onChangeText}
+          onFocus={onFocus}
+          inputMode={inputMode}
+          secureTextEntry={secureTextEntry}
+          autoComplete={autoComplete}
+        />
+      </View>
+    );
+  }
+);
 
 const getStyles = (width) =>
   StyleSheet.create({

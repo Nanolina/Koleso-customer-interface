@@ -5,9 +5,9 @@ const { height } = Dimensions.get('window');
 // Also use in IconContainer
 export const headerHeight = height * 0.06;
 
-export const EmptyHeader = () => {
+export const EmptyHeader = React.memo(() => {
   return <View style={styles.container}></View>;
-};
+});
 
 const styles = StyleSheet.create({
   container: {

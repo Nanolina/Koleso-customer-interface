@@ -12,30 +12,32 @@ interface IImageInputProps {
   inputMode?: string;
 }
 
-export const ImageInput: React.FC<IImageInputProps> = ({
-  placeholder,
-  icon,
-  value,
-  onChangeText,
-  inputMode = 'text',
-  secureTextEntry,
-  autoComplete,
-}: any) => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.iconContainer}>{icon}</View>
-      <TextInput
-        style={styles.input}
-        placeholder={placeholder}
-        value={value}
-        onChangeText={onChangeText}
-        inputMode={inputMode}
-        secureTextEntry={secureTextEntry}
-        autoComplete={autoComplete}
-      />
-    </View>
-  );
-};
+export const ImageInput: React.FC<IImageInputProps> = React.memo(
+  ({
+    placeholder,
+    icon,
+    value,
+    onChangeText,
+    inputMode = 'text',
+    secureTextEntry,
+    autoComplete,
+  }: any) => {
+    return (
+      <View style={styles.container}>
+        <View style={styles.iconContainer}>{icon}</View>
+        <TextInput
+          style={styles.input}
+          placeholder={placeholder}
+          value={value}
+          onChangeText={onChangeText}
+          inputMode={inputMode}
+          secureTextEntry={secureTextEntry}
+          autoComplete={autoComplete}
+        />
+      </View>
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {

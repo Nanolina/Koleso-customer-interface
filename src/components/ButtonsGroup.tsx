@@ -3,43 +3,40 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { colors, css, sizes } from '../consts';
 
-export const ButtonsGroup = ({
-  options,
-  currentState,
-  toggleFunction,
-  slice,
-}) => {
-  const currentValue = useSelector((state) => state[slice][currentState]);
-  const dispatch = useDispatch();
+export const ButtonsGroup = React.memo(
+  ({ options, currentState, toggleFunction, slice }: any) => {
+    const currentValue = useSelector((state) => state[slice][currentState]);
+    const dispatch = useDispatch();
 
-  return (
-    <View style={styles.container}>
-      <View style={styles.buttonsBackground}>
-        {options.map((option) => (
-          <TouchableOpacity
-            key={option.value}
-            onPress={() => dispatch(toggleFunction(option.value))}
-            style={[
-              styles.button,
-              currentValue === option.value && styles.buttonActive,
-            ]}
-          >
-            <Text
+    return (
+      <View style={styles.container}>
+        <View style={styles.buttonsBackground}>
+          {options.map((option) => (
+            <TouchableOpacity
+              key={option.value}
+              onPress={() => dispatch(toggleFunction(option.value))}
               style={[
-                styles.buttonText,
-                currentValue === option.value
-                  ? styles.textActive
-                  : styles.textInactive,
+                styles.button,
+                currentValue === option.value && styles.buttonActive,
               ]}
             >
-              {option.text}
-            </Text>
-          </TouchableOpacity>
-        ))}
+              <Text
+                style={[
+                  styles.buttonText,
+                  currentValue === option.value
+                    ? styles.textActive
+                    : styles.textInactive,
+                ]}
+              >
+                {option.text}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
       </View>
-    </View>
-  );
-};
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {

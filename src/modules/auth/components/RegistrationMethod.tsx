@@ -8,22 +8,22 @@ interface IRegistrationMethodProps {
   registrationMethod: IRegistrationMethod;
 }
 
-const RegistrationMethod: React.FC<IRegistrationMethodProps> = ({
-  registrationMethod,
-}) => {
-  const navigation: any = useNavigation();
+const RegistrationMethod: React.FC<IRegistrationMethodProps> = React.memo(
+  ({ registrationMethod }) => {
+    const navigation: any = useNavigation();
 
-  const handlePress = useCallback(() => {
-    navigation.navigate(registrationMethod.redirectPage);
-  }, [navigation]);
+    const handlePress = useCallback(() => {
+      navigation.navigate(registrationMethod.redirectPage);
+    }, [navigation]);
 
-  return (
-    <TouchableOpacity style={styles.container} onPress={handlePress}>
-      <Image source={registrationMethod.image} style={styles.image} />
-      <Text style={styles.text}>{registrationMethod.text}</Text>
-    </TouchableOpacity>
-  );
-};
+    return (
+      <TouchableOpacity style={styles.container} onPress={handlePress}>
+        <Image source={registrationMethod.image} style={styles.image} />
+        <Text style={styles.text}>{registrationMethod.text}</Text>
+      </TouchableOpacity>
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {

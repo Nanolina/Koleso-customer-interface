@@ -1,10 +1,11 @@
+import React from 'react';
 import { StyleSheet } from 'react-native';
 import { Image } from 'react-native-elements';
 import { css } from '../consts';
 
-export const ImageContainer = ({ image }) => {
+export const ImageContainer = React.memo(({ image }: any) => {
   return <Image source={{ uri: image }} style={styles.image} />;
-};
+});
 
 const styles = StyleSheet.create({
   image: {

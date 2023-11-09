@@ -2,7 +2,6 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import {
-  Dimensions,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -12,10 +11,7 @@ import {
 import { colors, css, sizes } from '../consts';
 import { ButtonBack } from '../ui/ButtonBack';
 
-const { height } = Dimensions.get('window');
-const headerHeight = height / 8;
-
-export const HeaderWithFilterSort = ({ title }) => {
+export const HeaderWithFilterSort = React.memo(({ title }: any) => {
   const navigation: any = useNavigation();
 
   return (
@@ -43,7 +39,7 @@ export const HeaderWithFilterSort = ({ title }) => {
       </SafeAreaView>
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   buttonWithText: {

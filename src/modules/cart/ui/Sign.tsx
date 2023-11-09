@@ -1,3 +1,4 @@
+import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { colors, css, sizes } from '../../../consts';
 
@@ -5,13 +6,13 @@ interface ISignProps {
   type: string;
 }
 
-export const Sign: React.FC<ISignProps> = ({ type }) => {
+export const Sign: React.FC<ISignProps> = React.memo(({ type }) => {
   return (
     <TouchableOpacity style={styles.container}>
       <Text style={styles.sign}>{type}</Text>
     </TouchableOpacity>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {

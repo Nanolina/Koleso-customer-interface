@@ -1,8 +1,9 @@
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { currency, sizes } from '../consts';
 import { Info } from '../modules/returns/ui/Info';
 
-export const TextInfoContainer = ({ item }) => {
+export const TextInfoContainer = React.memo(({ item }: any) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{item.title}</Text>
@@ -15,7 +16,7 @@ export const TextInfoContainer = ({ item }) => {
       </Text>
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {

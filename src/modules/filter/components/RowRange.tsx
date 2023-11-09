@@ -10,19 +10,21 @@ interface IRowRangeProps {
   to: string;
 }
 
-export const RowRange: React.FC<IRowRangeProps> = ({ title, from, to }) => {
-  const { addFrom, addTo } = getFromToFunctions(title);
+export const RowRange: React.FC<IRowRangeProps> = React.memo(
+  ({ title, from, to }) => {
+    const { addFrom, addTo } = getFromToFunctions(title);
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{title}</Text>
-      <View style={styles.right}>
-        <Range text="From" value={from} onChangeText={addFrom} />
-        <Range text="To" value={to} onChangeText={addTo} />
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text}>{title}</Text>
+        <View style={styles.right}>
+          <Range text="From" value={from} onChangeText={addFrom} />
+          <Range text="To" value={to} onChangeText={addTo} />
+        </View>
       </View>
-    </View>
-  );
-};
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {

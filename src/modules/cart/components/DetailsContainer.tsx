@@ -1,3 +1,4 @@
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { IItemProps } from '../../../../mockData';
 import { PriceContainer } from '../../../components/PriceContainer';
@@ -11,28 +12,27 @@ interface IDetailsContainerProps {
   quantity: number;
 }
 
-export const DetailsContainer: React.FC<IDetailsContainerProps> = ({
-  item,
-  quantity,
-}) => {
-  return (
-    <View style={styles.container}>
-      <PriceContainer
-        price={item.price}
-        oldPrice={item.oldPrice}
-        priceSize={sizes.text16}
-      />
+export const DetailsContainer: React.FC<IDetailsContainerProps> = React.memo(
+  ({ item, quantity }) => {
+    return (
+      <View style={styles.container}>
+        <PriceContainer
+          price={item.price}
+          oldPrice={item.oldPrice}
+          priceSize={sizes.text16}
+        />
 
-      <Text style={styles.title}>{item.title}</Text>
-      <View>
-        <Detail name="Size" detail={item.selectedSize} />
-        <Detail name="Color" detail={item.color} />
+        <Text style={styles.title}>{item.title}</Text>
+        <View>
+          <Detail name="Size" detail={item.selectedSize} />
+          <Detail name="Color" detail={item.color} />
+        </View>
+
+        <QuantityContainer quantity={quantity} />
       </View>
-
-      <QuantityContainer quantity={quantity} />
-    </View>
-  );
-};
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {

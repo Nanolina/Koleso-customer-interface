@@ -4,20 +4,27 @@ import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { css } from '../consts';
 import { ButtonBack } from '../ui/ButtonBack';
 
-export const Header = ({ title, hasButton = true }) => {
-  const navigation: any = useNavigation();
+interface IHeaderProps {
+  title: string;
+  hasButton: boolean;
+}
 
-  const styles = getStyles(hasButton);
+export const Header = React.memo(
+  ({ title, hasButton = true }: IHeaderProps) => {
+    const navigation: any = useNavigation();
 
-  return (
-    <View style={css.header.container}>
-      <SafeAreaView style={styles.buttonWithText}>
-        {hasButton && <ButtonBack navigation={navigation} />}
-        <Text style={styles.title}>{title}</Text>
-      </SafeAreaView>
-    </View>
-  );
-};
+    const styles = getStyles(hasButton);
+
+    return (
+      <View style={css.header.container}>
+        <SafeAreaView style={styles.buttonWithText}>
+          {hasButton && <ButtonBack navigation={navigation} />}
+          <Text style={styles.title}>{title}</Text>
+        </SafeAreaView>
+      </View>
+    );
+  }
+);
 
 const getStyles = (hasButton) =>
   StyleSheet.create({

@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  Dimensions,
   Keyboard,
   SafeAreaView,
   StyleSheet,
@@ -16,9 +15,6 @@ import {
 import { colors, css, sizes } from '../consts';
 import { ButtonBack } from '../ui/ButtonBack';
 import { SearchBar } from './SearchBar';
-
-const { height } = Dimensions.get('window');
-const headerHeight = height / 8;
 
 export const HeaderWithSearch = () => {
   const dispatch = useDispatch();

@@ -19,32 +19,28 @@ interface IDatePickerProps {
   };
 }
 
-export const DatePicker: React.FC<IDatePickerProps> = ({
-  text,
-  value,
-  onChange,
-  width,
-  validRange,
-}: any) => {
-  const styles = useMemo(() => getStyles(width), [width]);
+export const DatePicker: React.FC<IDatePickerProps> = React.memo(
+  ({ text, value, onChange, width, validRange }) => {
+    const styles = useMemo(() => getStyles(width), [width]);
 
-  return (
-    <View style={styles.container}>
-      {text && <Text style={styles.text}>{text}</Text>}
+    return (
+      <View style={styles.container}>
+        {text && <Text style={styles.text}>{text}</Text>}
 
-      <DatePickerInput
-        locale="en-GB"
-        value={value ? new Date(value) : undefined}
-        onChange={onChange}
-        inputMode="start"
-        style={styles.input}
-        iconColor={colors.main}
-        animationType="fade"
-        validRange={validRange}
-      />
-    </View>
-  );
-};
+        <DatePickerInput
+          locale="en-GB"
+          value={value ? new Date(value) : undefined}
+          onChange={onChange}
+          inputMode="start"
+          style={styles.input}
+          iconColor={colors.main}
+          animationType="fade"
+          validRange={validRange}
+        />
+      </View>
+    );
+  }
+);
 
 const getStyles = (width) =>
   StyleSheet.create({

@@ -1,43 +1,46 @@
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { IFinanceProps } from '../../../../mockData';
 import { colors, css, currency, sizes } from '../../../consts';
 import { Hr } from '../../../ui/Hr';
 
-export const Finance: React.FC<{ finance: IFinanceProps }> = ({ finance }) => {
-  return (
-    <View>
-      <View style={styles.row}>
-        <Text style={styles.text}>
-          {finance.text} №
-          <Text style={styles.boldText}> {finance.orderNumber}</Text>
-        </Text>
+export const Finance: React.FC<{ finance: IFinanceProps }> = React.memo(
+  ({ finance }) => {
+    return (
+      <View>
+        <View style={styles.row}>
+          <Text style={styles.text}>
+            {finance.text} №
+            <Text style={styles.boldText}> {finance.orderNumber}</Text>
+          </Text>
 
-        <View style={styles.amountContainer}>
-          <Text style={styles.amount}>
-            {finance.paymentAmount} {currency}
+          <View style={styles.amountContainer}>
+            <Text style={styles.amount}>
+              {finance.paymentAmount} {currency}
+            </Text>
+          </View>
+        </View>
+
+        <View style={styles.row}>
+          <Text style={styles.date}>
+            {finance.date} {finance.time}
+          </Text>
+          <Text
+            style={
+              finance.status === 'successful'
+                ? styles.successful
+                : styles.rejected
+            }
+          >
+            {finance.status}
           </Text>
         </View>
-      </View>
 
-      <View style={styles.row}>
-        <Text style={styles.date}>
-          {finance.date} {finance.time}
-        </Text>
-        <Text
-          style={
-            finance.status === 'successful'
-              ? styles.successful
-              : styles.rejected
-          }
-        >
-          {finance.status}
-        </Text>
+        <Hr />
       </View>
-
-      <Hr />
-    </View>
-  );
-};
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   row: {

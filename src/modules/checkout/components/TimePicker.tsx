@@ -10,29 +10,26 @@ interface ITimePickerProps {
   width?: string;
 }
 
-export const TimePicker: React.FC<ITimePickerProps> = ({
-  text,
-  value,
-  onChange,
-  width,
-}) => {
-  const styles = useMemo(() => getStyles(width), [width]);
+export const TimePicker: React.FC<ITimePickerProps> = React.memo(
+  ({ text, value, onChange, width }) => {
+    const styles = useMemo(() => getStyles(width), [width]);
 
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{text}</Text>
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text}>{text}</Text>
 
-      <View style={styles.picker}>
-        <RNPickerSelect
-          value={value}
-          onValueChange={onChange}
-          placeholder={{ label: 'Anytime', value: 'Anytime' }}
-          items={timeFramesDelivery}
-        />
+        <View style={styles.picker}>
+          <RNPickerSelect
+            value={value}
+            onValueChange={onChange}
+            placeholder={{ label: 'Anytime', value: 'Anytime' }}
+            items={timeFramesDelivery}
+          />
+        </View>
       </View>
-    </View>
-  );
-};
+    );
+  }
+);
 
 const getStyles = (width) =>
   StyleSheet.create({

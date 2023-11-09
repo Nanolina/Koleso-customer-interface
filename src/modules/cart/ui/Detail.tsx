@@ -1,3 +1,4 @@
+import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 
 interface IDetailProps {
@@ -5,13 +6,13 @@ interface IDetailProps {
   detail: string | number;
 }
 
-export const Detail: React.FC<IDetailProps> = ({ name, detail }) => {
+export const Detail: React.FC<IDetailProps> = React.memo(({ name, detail }) => {
   return (
     <Text>
       {name}: <Text style={styles.text}>{detail}</Text>
     </Text>
   );
-};
+});
 
 const styles = StyleSheet.create({
   text: {

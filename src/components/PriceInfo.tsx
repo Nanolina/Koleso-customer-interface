@@ -1,7 +1,8 @@
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, currency, sizes } from '../consts';
 
-export const PriceInfo = ({ text, price, hasCurrency = true }) => {
+export const PriceInfo = React.memo(({ text, price, hasCurrency = true }: any) => {
   const styles = getStyles(hasCurrency);
 
   return (
@@ -12,7 +13,7 @@ export const PriceInfo = ({ text, price, hasCurrency = true }) => {
       </Text>
     </View>
   );
-};
+});
 
 const getStyles = (hasCurrency) =>
   StyleSheet.create({

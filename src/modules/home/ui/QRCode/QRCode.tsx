@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from 'react-native';
 
-export const QRCode: React.FC = React.memo(() => {
+export const QRCode: React.FC = () => {
   return (
     <Image
       source={{
@@ -11,4 +11,4 @@ export const QRCode: React.FC = React.memo(() => {
       }}
     />
   );
-});
+};

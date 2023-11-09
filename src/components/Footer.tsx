@@ -9,13 +9,13 @@ import {
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleActiveIcon } from '../../redux/slices/footerSlice';
-import { colors, css } from '../consts';
+import { css } from '../consts';
 import { IconFooter } from '../ui/IconFooter';
 
 const { height } = Dimensions.get('window');
 const footerHeight = height / 10;
 
-export const Footer = () => {
+export const Footer = React.memo(() => {
   const navigation: any = useNavigation();
   const dispatch = useDispatch();
   const activeIcon = useSelector((state: any) => state.footer.activeIcon);
@@ -46,7 +46,7 @@ export const Footer = () => {
       </SafeAreaView>
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   footer: {

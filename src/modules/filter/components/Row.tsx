@@ -10,39 +10,41 @@ interface IRowProps {
   selectedItems: string[];
 }
 
-export const Row: React.FC<IRowProps> = ({
-  items = [],
-  title,
-  selectedItems = [],
-}: any) => {
-  const navigation: any = useNavigation();
+export const Row: React.FC<IRowProps> = React.memo(
+  ({ items = [], title, selectedItems = [] }) => {
+    const navigation: any = useNavigation();
 
-  let isFilled = selectedItems.length > 0;
+    let isFilled = selectedItems.length > 0;
 
-  let handlePress = () => {
-    navigation.navigate('FilterCheckboxPage', {
-      title,
-      items,
-      selectedItems,
-    });
-  };
+    let handlePress = () => {
+      navigation.navigate('FilterCheckboxPage', {
+        title,
+        items,
+        selectedItems,
+      });
+    };
 
-  let extraText = selectedItems.length;
+    let extraText = selectedItems.length;
 
-  return (
-    <TouchableOpacity style={styles.container} onPress={handlePress}>
-      <Text style={styles.text}>{title}</Text>
-      <View style={styles.right}>
-        {isFilled ? (
-          <Text style={styles.extraFilled}>{extraText}</Text>
-        ) : (
-          <Text style={styles.extra}>Add {title.toLowerCase()}</Text>
-        )}
-        <AntDesign name="right" size={sizes.iconSizeMin} color={colors.gray} />
-      </View>
-    </TouchableOpacity>
-  );
-};
+    return (
+      <TouchableOpacity style={styles.container} onPress={handlePress}>
+        <Text style={styles.text}>{title}</Text>
+        <View style={styles.right}>
+          {isFilled ? (
+            <Text style={styles.extraFilled}>{extraText}</Text>
+          ) : (
+            <Text style={styles.extra}>Add {title.toLowerCase()}</Text>
+          )}
+          <AntDesign
+            name="right"
+            size={sizes.iconSizeMin}
+            color={colors.gray}
+          />
+        </View>
+      </TouchableOpacity>
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {
