@@ -1,10 +1,10 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { colors, sizes } from '../../../../consts';
 import { images } from '../../consts';
-import { CustomModal } from '../CustomModal';
+import { CustomModal, IModalProps } from '../CustomModal';
 import { StatusSuccessPayment } from './StatusSuccessPayment';
 
-export const SuccessModal = ({ onClose }) => {
+export const SuccessModal: React.FC<IModalProps> = ({ onClose }) => {
   return (
     <CustomModal onClose={onClose}>
       <View style={styles.container}>

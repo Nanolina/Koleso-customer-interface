@@ -1,26 +1,37 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors, css } from '../../../consts';
 
-export const CustomModal = ({ children, onClose }) => {
-  return (
-    <Modal
-      transparent={true}
-      animationType="slide"
-      visible={true}
-      onRequestClose={onClose}
-    >
-      <View style={styles.container}>
-        <View style={styles.centerContainer}>
-          {children}
-          <TouchableOpacity onPress={onClose}>
-            <Text style={styles.text}>Close</Text>
-          </TouchableOpacity>
+export interface IModalProps {
+  children?: React.ReactNode;
+  onClose: () => void;
+}
+
+export const CustomModal: React.FC<IModalProps> = React.memo(
+  ({ children, onClose }) => {
+    const handleClose = useCallback(() => {
+      onClose();
+    }, [onClose]);
+
+    return (
+      <Modal
+        transparent={true}
+        animationType="slide"
+        visible={true}
+        onRequestClose={handleClose}
+      >
+        <View style={styles.container}>
+          <View style={styles.centerContainer}>
+            {children}
+            <TouchableOpacity onPress={onClose}>
+              <Text style={styles.text}>Close</Text>
+            </TouchableOpacity>
+          </View>
         </View>
-      </View>
-    </Modal>
-  );
-};
+      </Modal>
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {

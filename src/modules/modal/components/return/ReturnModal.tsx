@@ -1,9 +1,9 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { colors, css, sizes } from '../../../../consts';
+import { colors, sizes } from '../../../../consts';
 import { images } from '../../consts';
-import { CustomModal } from '../CustomModal';
+import { CustomModal, IModalProps } from '../CustomModal';
 
-export const ReturnModal = ({ onClose }) => {
+export const ReturnModal: React.FC<IModalProps> = ({ onClose }) => {
   return (
     <CustomModal onClose={onClose}>
       <View style={styles.container}>
@@ -28,7 +28,6 @@ export const ReturnModal = ({ onClose }) => {
 
 const styles = StyleSheet.create({
   container: {
-    // flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     gap: 20,

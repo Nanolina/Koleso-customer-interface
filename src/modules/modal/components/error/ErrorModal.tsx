@@ -1,10 +1,10 @@
 import { Image, StyleSheet, View } from 'react-native';
 import { images } from '../../consts';
 import { TextError } from '../../ui/TextError';
-import { CustomModal } from '../CustomModal';
+import { CustomModal, IModalProps } from '../CustomModal';
 import { StatusErrorPayment } from './StatusErrorPayment';
 
-export const ErrorModal = ({ onClose }) => {
+export const ErrorModal: React.FC<IModalProps> = ({ onClose }) => {
   return (
     <CustomModal onClose={onClose}>
       <View style={styles.container}>

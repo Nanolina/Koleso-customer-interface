@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, sizes } from '../../../consts';
 
-export const TextError = () => {
+export const TextError: React.FC = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Sorry</Text>

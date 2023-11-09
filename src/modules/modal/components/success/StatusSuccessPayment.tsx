@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, sizes } from '../../../../consts';
 
-export const StatusSuccessPayment = () => {
+export const StatusSuccessPayment: React.FC = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.boldText}>

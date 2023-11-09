@@ -2,7 +2,7 @@ import { Image, StyleSheet, Text, View } from 'react-native';
 import { colors, sizes } from '../../../../consts';
 import { images } from '../../consts';
 
-export const StatusErrorPayment = () => {
+export const StatusErrorPayment: React.FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
