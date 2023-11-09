@@ -4,7 +4,13 @@ import { sizes } from '../../../consts';
 import { getFromToFunctions } from '../functions';
 import { Range } from './Range';
 
-export const RowRange = ({ title, from, to }) => {
+interface IRowRangeProps {
+  title: string;
+  from: string;
+  to: string;
+}
+
+export const RowRange: React.FC<IRowRangeProps> = ({ title, from, to }) => {
   const { addFrom, addTo } = getFromToFunctions(title);
 
   return (

@@ -8,7 +8,7 @@ import { ResetAll } from '../ui/ResetAll';
 import { Row } from './Row';
 import { RowRange } from './RowRange';
 
-export const Filter = () => {
+export const Filter: React.FC = () => {
   const {
     colors,
     genders,

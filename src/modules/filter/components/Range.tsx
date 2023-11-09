@@ -2,9 +2,23 @@ import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { colors, css, sizes } from '../../../consts';
 import { getNumericData } from '../functions';
+import { useCallback } from 'react';
 
-export const Range = ({ text, value, onChangeText }) => {
+interface IRangeProps {
+  text: string;
+  value: string;
+  onChangeText: (value: string) => { type: string; payload: number };
+}
+
+export const Range: React.FC<IRangeProps> = ({ text, value, onChangeText }) => {
   const dispatch = useDispatch();
+
+  const handleChangeText = useCallback(
+    (text: string) => {
+      dispatch(onChangeText(getNumericData(text)));
+    },
+    [onChangeText, dispatch]
+  );
 
   return (
     <View style={styles.inputWrapper}>
@@ -13,7 +27,7 @@ export const Range = ({ text, value, onChangeText }) => {
         keyboardType="numeric"
         style={styles.input}
         value={value}
-        onChangeText={(text) => dispatch(onChangeText(getNumericData(text)))}
+        onChangeText={handleChangeText}
       />
     </View>
   );

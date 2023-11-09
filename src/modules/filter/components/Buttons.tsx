@@ -3,7 +3,19 @@ import { useDispatch } from 'react-redux';
 import { colors, sizes } from '../../../consts';
 import { Button } from '../../../ui/Button';
 
-export const Buttons = ({ items, selectedItems, resetAll, selectAll }) => {
+interface IButtonsProps {
+  items: string[];
+  selectedItems: string[];
+  resetAll: () => { type: string };
+  selectAll: () => { type: string };
+}
+
+export const Buttons: React.FC<IButtonsProps> = ({
+  items,
+  selectedItems,
+  resetAll,
+  selectAll,
+}) => {
   const dispatch = useDispatch();
 
   return (

@@ -4,7 +4,17 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors, sizes } from '../../../consts';
 
-export const Row = ({ items = [], title, selectedItems = [] }: any) => {
+interface IRowProps {
+  items: string[] | number[];
+  title: string;
+  selectedItems: string[];
+}
+
+export const Row: React.FC<IRowProps> = ({
+  items = [],
+  title,
+  selectedItems = [],
+}: any) => {
   const navigation: any = useNavigation();
 
   let isFilled = selectedItems.length > 0;
@@ -16,6 +26,7 @@ export const Row = ({ items = [], title, selectedItems = [] }: any) => {
       selectedItems,
     });
   };
+
   let extraText = selectedItems.length;
 
   return (

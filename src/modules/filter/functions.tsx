@@ -139,13 +139,16 @@ export const getFromToFunctions = (title) => {
   return functions;
 };
 
-export const getNumericData = (text) => {
-  // If the text starts with '0' and the length is greater than 1 (e.g., '01', '023', etc.), delete the first '0'
+export const getNumericData = (text: string): string => {
+  // If the text starts with '0' and the length is greater than 1, delete the '0'
   if (text.startsWith('0') && text.length > 1) {
-    text = text.substring(1);
+    return text.substring(1);
   }
-  // Make sure the text is either empty or consists only of numbers
-  if (text.trim() === '' || /^\d+$/.test(text)) {
+
+  // If the text is numeric or empty, return it as a string
+  if (text === '' || /^\d+$/.test(text)) {
     return text;
   }
+
+  return ''; // If the text is not numeric, return an empty string
 };

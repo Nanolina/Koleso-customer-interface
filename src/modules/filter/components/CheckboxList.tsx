@@ -5,10 +5,23 @@ import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { getItems } from '../functions';
 import { Buttons } from './Buttons';
 
-export const CheckboxList = ({ title, items }) => {
+interface ICheckboxListProps {
+  title: string;
+  items: string[];
+}
+
+export const CheckboxList: React.FC<ICheckboxListProps> = ({ title, items }) => {
   const dispatch = useDispatch();
-  const { colors, genders, sizes, categories, brands, sellers, compositions, seasons } =
-    useSelector((state: any) => state.filter);
+  const {
+    colors,
+    genders,
+    sizes,
+    categories,
+    brands,
+    sellers,
+    compositions,
+    seasons,
+  } = useSelector((state: any) => state.filter);
 
   const { selectedItems, onToggleItem, resetAll, selectAll } = getItems(
     title,
@@ -19,7 +32,7 @@ export const CheckboxList = ({ title, items }) => {
     brands,
     sellers,
     compositions,
-    seasons,
+    seasons
   );
 
   const renderItem = useCallback(
