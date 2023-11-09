@@ -2,44 +2,49 @@ import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { colors, sizes } from '../../../consts';
-import { getDisplayItem } from '../functions';
+import { colors, sizes } from '../consts';
+import { getDisplayItem } from '../modules/settings';
 
-export const Row = ({
-  type = 'checkbox',
-  items = [],
+interface IRowProps {
+  title: string;
+  navigateTo: string;
+  items?: string[];
+  selectedItems?: string[];
+  selectedItem?: string | null;
+}
+
+export const Row: React.FC<IRowProps> = ({
   title,
-  selectedItem = null,
-}: any) => {
+  navigateTo,
+  items = [],
+  selectedItems = [],
+  selectedItem,
+}) => {
   const navigation: any = useNavigation();
 
-  const redirectPages = {
-    checkbox: 'SettingsCheckboxPage',
-    input: 'SettingsInputPage',
-    birthday: 'SettingsBirthdayPage',
-    password: 'SettingsPasswordPage',
-  };
-
   const handlePress = () => {
-    if (redirectPages[type]) {
-      navigation.navigate(redirectPages[type], {
-        title,
-        items,
-      });
-    }
+    navigation.navigate(navigateTo, {
+      title,
+      items,
+      selectedItems,
+    });
   };
 
-  const displayItem = getDisplayItem(title, selectedItem);
+  // Define what to display in the right part of the component
+  const isFilled = selectedItem ? selectedItem : selectedItems.length > 0;
+  const extraText = selectedItem
+    ? getDisplayItem(title, selectedItem)
+    : selectedItems.length;
 
   return (
     <TouchableOpacity style={styles.container} onPress={handlePress}>
       <Text style={styles.text}>{title}</Text>
       <View style={styles.right}>
-        {displayItem ? (
-          <Text style={styles.extraFilled}>{displayItem}</Text>
+        {isFilled ? (
+          <Text style={styles.extraFilled}>{extraText}</Text>
         ) : (
           <Text style={styles.extra}>
-            {type === 'password' ? 'Change' : 'Add'} {title.toLowerCase()}
+            {extraText || `Add ${title.toLowerCase()}`}
           </Text>
         )}
         <AntDesign name="right" size={sizes.iconSizeMin} color={colors.gray} />

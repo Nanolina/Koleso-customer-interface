@@ -15,7 +15,8 @@ interface IDatePickerProps {
   onChange: (date: Date) => void;
   width?: string;
   validRange: {
-    startDate: Date;
+    startDate?: Date;
+    endDate?: Date;
   };
 }
 

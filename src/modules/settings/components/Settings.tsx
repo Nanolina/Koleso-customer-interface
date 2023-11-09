@@ -3,30 +3,35 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useSelector } from 'react-redux';
+import { Row } from '../../../components/Row';
 import { colors, sizes } from '../../../consts';
 import { data } from '../data';
-import { Row } from './Row';
+import { RootState } from '../../../../redux/rootReducer';
 
 export const Settings: React.FC = () => {
   const { name, gender, phone, email, birthday } = useSelector(
-    (state: any) => state.settings
+    (state: RootState) => state.settings
   );
 
   const navigation: any = useNavigation();
 
   return (
     <View style={styles.container}>
-      <Row type="input" title="Name" selectedItem={name} />
+      <Row title="Name" selectedItem={name} navigateTo="SettingsInputPage" />
       <Row
-        type="checkbox"
         items={data.genders}
         title="Gender"
         selectedItem={gender}
+        navigateTo="SettingsCheckboxPage"
       />
-      <Row type="input" title="Phone" selectedItem={phone} />
-      <Row type="input" title="Email" selectedItem={email} />
-      <Row type="birthday" title="Date of birth" selectedItem={birthday} />
-      <Row type="password" title="Password" />
+      <Row title="Phone" selectedItem={phone} navigateTo="SettingsInputPage" />
+      <Row title="Email" selectedItem={email} navigateTo="SettingsInputPage" />
+      <Row
+        title="Date of birth"
+        selectedItem={birthday}
+        navigateTo="SettingsBirthdayPage"
+      />
+      <Row title="Password" navigateTo="SettingsPasswordPage" />
 
       <View style={styles.buttonsContainer}>
         <TouchableOpacity onPress={() => navigation.navigate('SignUpPage')}>
