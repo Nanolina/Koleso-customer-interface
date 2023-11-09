@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
 import { productCards } from '../../mockData';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
@@ -8,10 +8,14 @@ import { ProductList } from '../modules/productCard';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const Home = () => {
-  const isEnabledSearch = useSelector((state: any) => state.search.isEnabled);
+  const [isEnabledSearch, setIsEnabledSearch] = useState(false);
+
   return (
     <Container>
-      <HeaderWithSearch />
+      <HeaderWithSearch
+        isEnabledSearch={isEnabledSearch}
+        setIsEnabledSearch={setIsEnabledSearch}
+      />
       <CentralContainer isPadding={true} isMinPadding={true}>
         {!isEnabledSearch && (
           <>

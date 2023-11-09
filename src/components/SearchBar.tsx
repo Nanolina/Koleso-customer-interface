@@ -1,7 +1,8 @@
+import React from 'react';
 import { Platform, StyleSheet, TextInput, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
-import { handleSearchText, turnOnSearch } from '../../redux/slices/searchSlice';
+import { handleSearchText } from '../../redux/slices/searchSlice';
 import { colors, css, sizes } from '../consts';
 
 const getWidthInput = (isEnabled) => {
@@ -12,25 +13,27 @@ const getWidthInput = (isEnabled) => {
   return '100%';
 };
 
-export const SearchBar: React.FC = () => {
-  const { isEnabled, text } = useSelector((state: any) => state.search);
-  const styles = getStyles(isEnabled);
-  const dispatch = useDispatch();
+export const SearchBar: React.FC<any> = React.memo(
+  ({ isEnabledSearch, setIsEnabledSearch }) => {
+    const { text } = useSelector((state: any) => state.search);
+    const styles = getStyles(isEnabledSearch);
+    const dispatch = useDispatch();
 
-  return (
-    <View style={styles.container}>
-      <Icon name="search" size={sizes.iconSizeMax} color={colors.main} />
-      <TextInput
-        style={styles.input}
-        placeholder="Search..."
-        placeholderTextColor={colors.gray}
-        onFocus={() => dispatch(turnOnSearch())}
-        value={text}
-        onChangeText={(inputText) => dispatch(handleSearchText(inputText))}
-      />
-    </View>
-  );
-};
+    return (
+      <View style={styles.container}>
+        <Icon name="search" size={sizes.iconSizeMax} color={colors.main} />
+        <TextInput
+          style={styles.input}
+          placeholder="Search..."
+          placeholderTextColor={colors.gray}
+          onFocus={() => setIsEnabledSearch(true)}
+          value={text}
+          onChangeText={(inputText) => dispatch(handleSearchText(inputText))}
+        />
+      </View>
+    );
+  }
+);
 
 const getStyles = (isEnabled) =>
   StyleSheet.create({

@@ -4,7 +4,6 @@ import { queries } from '../../mockData';
 export interface ISearchState {
   queries: string[];
   text: string;
-  isEnabled: boolean;
 }
 
 export interface ISearchQueryProps {
@@ -31,12 +30,6 @@ const searchSlice = createSlice({
     handleSearchText(state, action) {
       state.text = action.payload;
     },
-    turnOnSearch(state) {
-      state.isEnabled = true;
-    },
-    turnOffSearch(state) {
-      state.isEnabled = false;
-    },
   },
 });
 
@@ -46,6 +39,4 @@ export const {
   handleClearAllQueries,
   handleSearchText,
   removeSearchText,
-  turnOnSearch,
-  turnOffSearch,
 } = searchSlice.actions;

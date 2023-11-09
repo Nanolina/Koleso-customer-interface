@@ -7,26 +7,22 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  removeSearchText,
-  turnOffSearch,
-} from '../../redux/slices/searchSlice';
+import { useDispatch } from 'react-redux';
+import { removeSearchText } from '../../redux/slices/searchSlice';
 import { colors, css, sizes } from '../consts';
 import { ButtonBack } from '../ui/ButtonBack';
 import { SearchBar } from './SearchBar';
 
-export const HeaderWithSearch = () => {
+export const HeaderWithSearch = ({ isEnabledSearch, setIsEnabledSearch }) => {
   const dispatch = useDispatch();
-  const isEnabled = useSelector((state: any) => state.search.isEnabled);
 
   return (
     <View style={css.header.container}>
       <SafeAreaView style={styles.searchBarContainer}>
-        {isEnabled && (
+        {isEnabledSearch && (
           <ButtonBack
             onPress={() => {
-              dispatch(turnOffSearch());
+              setIsEnabledSearch(false);
               dispatch(removeSearchText());
               Keyboard.dismiss();
             }}
@@ -34,9 +30,12 @@ export const HeaderWithSearch = () => {
           />
         )}
 
-        <SearchBar />
+        <SearchBar
+          isEnabledSearch={isEnabledSearch}
+          setIsEnabledSearch={setIsEnabledSearch}
+        />
 
-        {isEnabled && (
+        {isEnabledSearch && (
           <TouchableOpacity>
             <Text style={styles.text}>Search</Text>
           </TouchableOpacity>
