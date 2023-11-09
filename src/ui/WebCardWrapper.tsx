@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import { css } from '../consts';
+import { IWebCardWrapperProps } from '../types';
 
-export const WebCardWrapper = ({ cardWidth, children }) => {
+export const WebCardWrapper: React.FC<IWebCardWrapperProps> = ({
+  cardWidth,
+  children,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
-  const styles = getStyles(cardWidth);
+  const styles = useMemo(() => getStyles(cardWidth), [cardWidth]);
 
   const handleMouseEnter = () => {
     setIsHovered(true);

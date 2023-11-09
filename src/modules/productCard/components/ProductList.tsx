@@ -1,9 +1,12 @@
+import { useCallback } from 'react';
 import { FlatList, Platform, StyleSheet } from 'react-native';
+import { IItemProps } from '../../../../mockData';
 import { ProductCard } from './ProductCard';
 
-export const ProductList = ({ data }) => {
-  const renderProductCard = ({ item }) => (
-    <ProductCard item={item} key={item.id} />
+export const ProductList: React.FC<{ data: IItemProps[] }> = ({ data }) => {
+  const renderProductCard = useCallback(
+    ({ item }) => <ProductCard item={item} key={item.id} />,
+    []
   );
 
   return (

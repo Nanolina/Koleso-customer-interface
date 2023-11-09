@@ -1,8 +1,13 @@
 import { StyleSheet, TouchableOpacity } from 'react-native';
+import { IIconContainerProps } from '../types';
 import { IconProductCard } from '../ui/IconProductCard';
+import { useMemo } from 'react';
 
-export const IconContainer = ({ name, type }) => {
-  const styles: any = getStyles(type);
+export const IconContainer: React.FC<IIconContainerProps> = ({
+  name,
+  type,
+}) => {
+  const styles = useMemo(() => getStyles(type), [type]);
 
   return (
     <TouchableOpacity style={styles.container}>
