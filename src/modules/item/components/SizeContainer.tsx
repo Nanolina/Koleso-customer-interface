@@ -3,7 +3,15 @@ import { StyleSheet, View } from 'react-native';
 import Box from '../../../ui/Box';
 import { colors, css } from '../../../consts';
 
-const SizeContainer = ({ possibleSizes, missingSizes }) => {
+interface ISizeContainerProps {
+  possibleSizes: number[];
+  missingSizes: number[];
+}
+
+export const SizeContainer: React.FC<ISizeContainerProps> = React.memo(({
+  possibleSizes,
+  missingSizes,
+}) => {
   const [selectedSize, setSelectedSize] = useState(null);
 
   const handlePress = (size) => {
@@ -11,7 +19,6 @@ const SizeContainer = ({ possibleSizes, missingSizes }) => {
   };
 
   const renderSizeBox = (size) => {
-
     // Selected
     if (selectedSize === size) {
       return (
@@ -61,7 +68,7 @@ const SizeContainer = ({ possibleSizes, missingSizes }) => {
       ))}
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {
@@ -72,5 +79,3 @@ const styles = StyleSheet.create({
     gap: 5,
   },
 });
-
-export default React.memo(SizeContainer);

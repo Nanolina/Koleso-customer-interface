@@ -7,7 +7,7 @@ import { IconFeather } from '../ui/IconFeather';
 
 const top = headerHeight + 10;
 
-export const IconContainer = () => {
+export const IconContainer: React.FC = () => {
   const navigation = useNavigation();
 
   return (

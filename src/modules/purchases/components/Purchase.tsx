@@ -20,7 +20,6 @@ export const Purchase = ({ item }) => {
       <PriceContainer
         price={item.price}
         priceSize={sizes.text16}
-        hasBackground={false}
       />
 
       {!item.return && (

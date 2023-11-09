@@ -1,13 +1,14 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
+import { IItemProps } from '../../../../mockData';
 import { PriceContainer } from '../../../components/PriceContainer';
 import { sizes } from '../../../consts';
 import { Description } from './Description';
 import { Properties } from './Properties';
-import SizeContainer from './SizeContainer';
+import { SizeContainer } from './SizeContainer';
 import { TitleContainer } from './TitleContainer';
 
-export const Item = ({ item }) => {
+export const Item: React.FC<{ item: IItemProps }> = React.memo(({ item }) => {
   return (
     <ScrollView>
       <PriceContainer
@@ -28,4 +29,4 @@ export const Item = ({ item }) => {
       {item.description && <Description description={item.description} />}
     </ScrollView>
   );
-};
+});

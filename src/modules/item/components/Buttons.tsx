@@ -2,7 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import { colors, css } from '../../../consts';
 import { Button } from '../../../ui/Button';
 
-export const Buttons = () => {
+export const Buttons: React.FC = () => {
   return (
     <View style={styles.container}>
       <Button text="Add to cart" width="100%" onPress={() => {}} />

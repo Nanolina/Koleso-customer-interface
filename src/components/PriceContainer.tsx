@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { colors, css } from '../consts';
 import { Price } from '../ui/Price';
 
-export const PriceContainer = React.memo(
+interface IPriceContainerProps {
+  price: number;
+  oldPrice?: number;
+  priceSize: number;
+}
+
+export const PriceContainer: React.FC<IPriceContainerProps> = React.memo(
   ({ price, oldPrice, priceSize }: any) => {
-    const styles = getStyles(priceSize);
+    const styles = useMemo(() => getStyles(priceSize), [priceSize]);
 
     return (
       <View style={styles.centeredContent}>
