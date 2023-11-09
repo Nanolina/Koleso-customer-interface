@@ -31,6 +31,14 @@ export interface IFinanceProps {
   status: 'successful' | 'rejected';
 }
 
+export interface INotificationProps {
+  id: string;
+  title: string;
+  date: string;
+  time: string;
+  text: string;
+}
+
 export const productCards = [
   {
     id: '1',

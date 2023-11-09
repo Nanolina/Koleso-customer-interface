@@ -1,19 +1,22 @@
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { INotificationProps } from '../../../../mockData';
 import { colors, css, sizes } from '../../../consts';
 
-export const Notification = ({ notification }) => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.topContainer}>
-        <Text style={styles.title}>{notification.title}</Text>
-        <Text style={styles.date}>
-          {notification.date} {notification.time}
-        </Text>
+export const Notification: React.FC<{ notification: INotificationProps }> =
+  React.memo(({ notification }) => {
+    return (
+      <View style={styles.container}>
+        <View style={styles.topContainer}>
+          <Text style={styles.title}>{notification.title}</Text>
+          <Text style={styles.date}>
+            {notification.date} {notification.time}
+          </Text>
+        </View>
+        <Text style={styles.text}>{notification.text}</Text>
       </View>
-      <Text style={styles.text}>{notification.text}</Text>
-    </View>
-  );
-};
+    );
+  });
 
 const styles = StyleSheet.create({
   container: {
