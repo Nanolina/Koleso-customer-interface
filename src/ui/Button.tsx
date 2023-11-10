@@ -9,6 +9,7 @@ interface IButtonProps {
   border?: boolean;
   textColor?: string;
   isBold?: boolean;
+  hasShadow?: boolean;
   extra?: string;
 }
 
@@ -20,6 +21,7 @@ export const Button: React.FC<IButtonProps> = ({
   border = false,
   textColor = colors.white,
   isBold = true,
+  hasShadow = false,
   extra,
 }: any) => {
   return (
@@ -32,6 +34,10 @@ export const Button: React.FC<IButtonProps> = ({
           backgroundColor,
           borderWidth: border ? 1 : 0,
           borderColor: border ? colors.main : undefined,
+          ...(hasShadow && {
+            ...css.shadow,
+            shadowRadius: 4, // reassign shadowRadius
+          }),
         },
       ]}
     >

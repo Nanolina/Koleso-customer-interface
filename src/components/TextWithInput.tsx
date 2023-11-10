@@ -1,6 +1,6 @@
+import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { colors, css, sizes } from '../consts';
-import React from 'react';
 
 export const TextWithInput = React.memo(
   ({
@@ -39,12 +39,12 @@ const getStyles = (width) =>
       width: width || '100%',
     },
     input: {
-      backgroundColor: colors.lightGray,
       borderRadius: css.borderRadiusMin,
       textAlign: 'center',
       fontSize: sizes.text16,
       color: colors.main,
       height: 40,
+      ...css.shadow,
     },
     text: {
       fontSize: sizes.text16,

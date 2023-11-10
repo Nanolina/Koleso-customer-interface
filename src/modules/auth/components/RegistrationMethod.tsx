@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { colors, css, sizes } from '../../../consts';
+import { css, sizes } from '../../../consts';
 import { IRegistrationMethodProps } from '../types';
 
 const RegistrationMethod: React.FC<IRegistrationMethodProps> = React.memo(
@@ -23,13 +23,12 @@ const RegistrationMethod: React.FC<IRegistrationMethodProps> = React.memo(
 
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 1,
-    borderColor: colors.main,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 20,
     borderRadius: css.borderRadiusMax,
     padding: css.padding,
+    ...css.shadow,
   },
   text: {
     fontSize: sizes.text18,

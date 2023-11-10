@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { ScrollView } from 'react-native';
+import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { getItems } from '../functions';
@@ -49,7 +49,7 @@ export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
     );
 
     return (
-      <ScrollView>
+      <View>
         <Buttons
           items={items}
           selectedItems={selectedItems}
@@ -57,7 +57,7 @@ export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
           selectAll={selectAll}
         />
         {items.map(renderItem)}
-      </ScrollView>
+      </View>
     );
   }
 );

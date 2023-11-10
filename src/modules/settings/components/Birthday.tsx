@@ -27,8 +27,8 @@ export const Birthday = () => {
           width="50%"
           backgroundColor={colors.white}
           textColor={colors.main}
-          border={true}
           isBold={false}
+          hasShadow
         />
       </View>
       <DatePicker

@@ -12,7 +12,7 @@ export const FilterCheckboxPage = () => {
   return (
     <Container>
       <Header title={title} hasButtonBack />
-      <CentralContainer isPadding={true}>
+      <CentralContainer isPadding>
         <CheckboxList title={title} items={items} />
       </CentralContainer>
       <Footer />

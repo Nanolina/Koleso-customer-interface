@@ -43,6 +43,6 @@ const getStyles = (priceSize) =>
     },
     oldPrice: {
       textDecorationLine: 'line-through',
-      color: colors.gray,
+      color: colors.darkGray,
     },
   });

@@ -12,27 +12,27 @@ export const Buttons: React.FC<IButtonsProps> = React.memo(
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Selected items: {selectedItems.length}</Text>
-        {selectedItems.length === items.length ? (
-          <Button
-            text="Reset all"
-            onPress={() => dispatch(resetAll())}
-            width="50%"
-            backgroundColor={colors.white}
-            textColor={colors.main}
-            border={true}
-            isBold={false}
-          />
-        ) : (
-          <Button
-            text="Select all"
-            onPress={() => dispatch(selectAll())}
-            width="50%"
-            backgroundColor={colors.white}
-            textColor={colors.main}
-            border={true}
-            isBold={false}
-          />
-        )}
+        <View style={styles.buttonContainer}>
+          {selectedItems.length === items.length ? (
+            <Button
+              text="Reset all"
+              onPress={() => dispatch(resetAll())}
+              backgroundColor={colors.white}
+              textColor={colors.main}
+              isBold={false}
+              hasShadow
+            />
+          ) : (
+            <Button
+              text="Select all"
+              onPress={() => dispatch(selectAll())}
+              backgroundColor={colors.white}
+              textColor={colors.main}
+              isBold={false}
+              hasShadow
+            />
+          )}
+        </View>
       </View>
     );
   }
@@ -44,6 +44,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingBottom: 20,
+  },
+  buttonContainer: {
+    padding: 8,
   },
   text: {
     fontSize: sizes.text16,

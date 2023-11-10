@@ -7,12 +7,9 @@ import { IFinanceProps } from '../types';
 export const Finance: React.FC<{ finance: IFinanceProps }> = React.memo(
   ({ finance }) => {
     return (
-      <View>
+      <View style={styles.container}>
         <View style={styles.row}>
-          <Text style={styles.text}>
-            {finance.text} №
-            <Text style={styles.boldText}> {finance.orderNumber}</Text>
-          </Text>
+          <Text style={styles.text}>{finance.text}</Text>
 
           <View style={styles.amountContainer}>
             <Text style={styles.amount}>
@@ -22,9 +19,16 @@ export const Finance: React.FC<{ finance: IFinanceProps }> = React.memo(
         </View>
 
         <View style={styles.row}>
+          <Text style={[styles.text, styles.orderNumber]}>
+            № {finance.orderNumber}
+          </Text>
+        </View>
+
+        <View style={styles.row}>
           <Text style={styles.date}>
             {finance.date} {finance.time}
           </Text>
+
           <Text
             style={
               finance.status === 'successful'
@@ -43,25 +47,26 @@ export const Finance: React.FC<{ finance: IFinanceProps }> = React.memo(
 );
 
 const styles = StyleSheet.create({
+  container: {
+    justifyContent: 'space-between',
+    gap: 10,
+  },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    flexWrap: 'wrap',
-    paddingBottom: 20,
   },
   text: {
     fontSize: sizes.text15,
   },
-  boldText: {
+  orderNumber: {
+    marginTop: -28,
     fontSize: sizes.text15,
     fontWeight: 'bold',
   },
   amountContainer: {
-    borderWidth: 1,
-    backgroundColor: colors.pink,
-    borderColor: colors.pink,
-    paddingHorizontal: 5,
     borderRadius: css.borderRadiusMin,
+    padding: 10,
+    ...css.shadow,
   },
   amount: {
     fontSize: sizes.text15,

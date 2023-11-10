@@ -33,10 +33,10 @@ export const CheckboxList = ({ items }) => {
           text="Reset"
           onPress={() => dispatch(resetValue({ key: 'gender' }))}
           width="50%"
-          backgroundColor={colors.white}
           textColor={colors.main}
-          border={true}
+          backgroundColor={colors.white}
           isBold={false}
+          hasShadow
         />
       </View>
       {items.map(renderItem)}
@@ -47,5 +47,6 @@ export const CheckboxList = ({ items }) => {
 const styles = StyleSheet.create({
   button: {
     alignItems: 'flex-end',
+    padding: 8,
   },
 });

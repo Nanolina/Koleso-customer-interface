@@ -38,12 +38,14 @@ const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: colors.main,
+    borderColor: colors.lightGray,
     borderRadius: css.borderRadiusMax,
     padding: 5,
     width: 60,
     height: 30,
     fontSize: sizes.text16,
+    ...css.shadow,
+    shadowOpacity: 0.05, // reassign shadowOpacity
   },
   text: {
     fontSize: sizes.text16,

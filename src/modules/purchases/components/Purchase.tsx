@@ -17,10 +17,7 @@ export const Purchase = ({ item }) => {
     <View style={styles.container}>
       <ImageContainer image={item.image} />
       <TextContainer item={item} />
-      <PriceContainer
-        price={item.price}
-        priceSize={sizes.text16}
-      />
+      <PriceContainer price={item.price} priceSize={sizes.text16} />
 
       {!item.return && (
         <View style={styles.buttonContainer}>
@@ -28,7 +25,10 @@ export const Purchase = ({ item }) => {
             text="Make a return"
             backgroundColor={colors.white}
             textColor={colors.main}
+            border={false}
+            isBold={false}
             width="90%"
+            hasShadow
             onPress={() =>
               navigation.navigate('OrderProcessingPage', {
                 title: 'Return',

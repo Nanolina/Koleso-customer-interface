@@ -35,9 +35,8 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: colors.main,
     borderRadius: css.borderRadiusMin,
+    ...css.shadow,
   },
   iconContainer: {
     paddingHorizontal: 10,
