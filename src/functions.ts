@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon';
 
-const formatPhone = (phone) => {
+const formatPhone = (phone: string) => {
   if (!phone || phone.length < 3) return phone;
 
   const start = phone.substring(0, 2);
@@ -11,12 +11,12 @@ const formatPhone = (phone) => {
   return start + middleStars + end;
 };
 
-const formatBirthday = (birthday) => {
+const formatBirthday = (birthday: string) => {
   const dt = DateTime.fromISO(birthday);
   return dt.toFormat('dd.MM.yyyy');
 };
 
-export const getDisplayItem = (title, selectedItem) => {
+export const getDisplayItem = (title: string, selectedItem: string) => {
   if (title === 'Phone') {
     return formatPhone(selectedItem);
   }

@@ -5,7 +5,7 @@ import { Header } from '../../components/Header';
 import { CheckboxList } from '../../modules/filter';
 import { CentralContainer } from '../../ui/CentralContainer';
 
-export const FilterCheckboxPage = () => {
+export const FilterCheckboxPage: React.FC = () => {
   const route: any = useRoute();
   const { title, items } = route.params;
 

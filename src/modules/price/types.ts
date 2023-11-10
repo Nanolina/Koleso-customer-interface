@@ -19,3 +19,8 @@ export interface IPriceInfoContainerProps {
   totalPrice: number;
   isReturn?: boolean;
 }
+
+export interface IPriceProps {
+  price: number;
+  style: any;
+}

@@ -6,7 +6,7 @@ import { Sections } from '../modules/catalog';
 import { SearchQueries } from '../modules/home';
 import { CentralContainer } from '../ui/CentralContainer';
 
-export const SectionsPage = () => {
+export const SectionsPage: React.FC = () => {
   const [isEnabledSearch, setIsEnabledSearch] = useState(false);
 
   return (

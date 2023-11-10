@@ -1,4 +1,5 @@
-import { ImageSourcePropType } from 'react-native';
+import { NavigationProp, RouteProp } from '@react-navigation/native';
+import { ImageSourcePropType, TextStyle, ViewStyle } from 'react-native';
 
 export interface IWebCardWrapperProps {
   cardWidth: number;
@@ -34,7 +35,7 @@ export interface IRowProps {
   title: string;
   navigateTo: string;
   items?: string[] | number[];
-  selectedItems?: string[];
+  selectedItems?: string[] | number[];
   selectedItem?: string | null;
 }
 
@@ -79,7 +80,6 @@ export interface IImageContainerProps {
   image: string;
 }
 
-
 export interface ISearchBarProps {
   isEnabledSearch: boolean;
   setIsEnabledSearch: (isEnabled: boolean) => void;
@@ -101,3 +101,73 @@ export interface ITextWithInputProps {
   secureTextEntry?: boolean;
   autoComplete?: string;
 }
+
+export interface IBoxProps {
+  label: string;
+  onPress?: () => void;
+  boxStyle?: ViewStyle;
+  textStyle?: TextStyle;
+}
+
+export interface IButtonProps {
+  text: any;
+  onPress: () => void;
+  width?: string | number;
+  backgroundColor?: string;
+  border?: boolean;
+  textColor?: string;
+  isBold?: boolean;
+  hasShadow?: boolean;
+  extra?: string;
+}
+
+export interface IButtonBackProps {
+  navigation: any;
+  onPress?: () => void;
+  width?: number;
+}
+
+export interface ICentralContainerProps {
+  isPadding?: boolean;
+  isMinPadding?: boolean;
+  children: React.ReactNode;
+}
+
+export interface ICheckboxItemProps {
+  text?: string;
+  isSelected?: boolean;
+  onToggle: () => void;
+  styleText?: object;
+}
+
+export interface IIconProps {
+  name: any;
+}
+
+export interface IIconFooterProps extends IIconProps {
+  active: boolean;
+}
+
+export interface INoteProps {
+  title?: string;
+  placeholder?: string;
+  value: string;
+  onChangeText: (text: string) => void;
+}
+
+// Types
+export type OrderProcessingStackParamList = {
+  PaymentPage: undefined;
+  ReturnsPage: undefined;
+  OrderProcessingPage: {
+    title: string;
+    item: IItemProps;
+  };
+};
+
+export type OrderProcessingNavigationProp =
+  NavigationProp<OrderProcessingStackParamList>;
+export type OrderProcessingRouteProp = RouteProp<
+  OrderProcessingStackParamList,
+  'OrderProcessingPage'
+>;

@@ -4,7 +4,7 @@ import { Header } from '../../components/Header';
 import { Birthday } from '../../modules/settings';
 import { CentralContainer } from '../../ui/CentralContainer';
 
-export const SettingsBirthdayPage = () => {
+export const SettingsBirthdayPage: React.FC = () => {
   return (
     <Container>
       <Header title="Date of birthday" hasButtonBack />

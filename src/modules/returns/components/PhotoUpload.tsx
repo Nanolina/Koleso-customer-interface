@@ -3,13 +3,14 @@ import * as ImagePicker from 'expo-image-picker';
 import React, { useCallback, useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../../redux/rootReducer';
 import { addPhoto } from '../../../../redux/slices/returnSlice';
 import { colors, css, sizes } from '../../../consts';
 import { ModalPhotoUpload } from '../../modal';
 import { Photo } from '../ui/Photo';
 
 export const PhotoUpload: React.FC = () => {
-  const photos = useSelector((state: any) => state.return.photos);
+  const photos = useSelector((state: RootState) => state.return.photos);
   const dispatch = useDispatch();
   const [isModalVisible, setModalVisible] = useState(false);
 

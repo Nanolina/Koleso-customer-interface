@@ -4,7 +4,7 @@ import { Header } from '../components/Header';
 import { Contacts } from '../modules/contacts';
 import { CentralContainer } from '../ui/CentralContainer';
 
-export const ContactsPage = () => {
+export const ContactsPage: React.FC = () => {
   return (
     <Container>
       <Header title="Contacts" hasButtonBack />

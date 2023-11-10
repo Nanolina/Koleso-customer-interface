@@ -5,7 +5,7 @@ import { Header } from '../components/Header';
 import { ProductList } from '../modules/productCard';
 import { CentralContainer } from '../ui/CentralContainer';
 
-export const Favorites = () => {
+export const Favorites: React.FC = () => {
   return (
     <Container>
       <Header title="Favorites" />

@@ -5,7 +5,7 @@ import { Header } from '../components/Header';
 import { Returns } from '../modules/returns';
 import { CentralContainer } from '../ui/CentralContainer';
 
-export const ReturnsPage = () => {
+export const ReturnsPage: React.FC = () => {
   return (
     <Container>
       <Header title="My returns" hasButtonBack />

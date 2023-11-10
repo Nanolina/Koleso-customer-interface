@@ -4,7 +4,7 @@ import { Header } from '../components/Header';
 import { Services } from '../modules/myAccount';
 import { CentralContainer } from '../ui/CentralContainer';
 
-export const MyAccount = () => {
+export const MyAccount: React.FC = () => {
   return (
     <Container>
       <Header title="My account" />

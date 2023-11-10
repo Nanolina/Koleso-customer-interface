@@ -6,9 +6,8 @@ import { Header } from '../components/Header';
 import { ErrorModal, SuccessModal } from '../modules/modal';
 import { Payment } from '../modules/payment';
 import { CentralContainer } from '../ui/CentralContainer';
-import { SafeAreaViewContainer } from '../ui/SafeAreaViewContainer';
 
-export const PaymentPage = () => {
+export const PaymentPage: React.FC = () => {
   // true = mock data
   const [isModalVisible, setModalVisible] = useState(true);
 
@@ -18,23 +17,15 @@ export const PaymentPage = () => {
   return (
     <Container>
       {isModalVisible && payment && (
-        <>
-          <SafeAreaViewContainer>
-            <View style={styles.container}>
-              <SuccessModal onClose={() => setModalVisible(false)} />
-            </View>
-          </SafeAreaViewContainer>
-        </>
+        <View style={styles.container}>
+          <SuccessModal onClose={() => setModalVisible(false)} />
+        </View>
       )}
 
       {isModalVisible && !payment && (
-        <>
-          <SafeAreaViewContainer>
-            <View style={styles.container}>
-              <ErrorModal onClose={() => setModalVisible(false)} />
-            </View>
-          </SafeAreaViewContainer>
-        </>
+        <View style={styles.container}>
+          <ErrorModal onClose={() => setModalVisible(false)} />
+        </View>
       )}
 
       {!isModalVisible && (
@@ -52,6 +43,7 @@ export const PaymentPage = () => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     gap: 30,
   },
 });

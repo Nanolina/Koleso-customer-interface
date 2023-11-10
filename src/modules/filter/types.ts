@@ -18,6 +18,6 @@ export interface IRangeProps {
 
 export interface IRowRangeProps {
   title: string;
-  from: string;
-  to: string;
+  from: number;
+  to: number;
 }

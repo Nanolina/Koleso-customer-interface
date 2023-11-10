@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../../redux/rootReducer';
 import { addFieldReturn } from '../../../../redux/slices/returnSlice';
 import { colors, sizes } from '../../../consts';
 import { IItemProps } from '../../../types';
@@ -10,8 +11,8 @@ import { ReasonContainer } from './ReasonContainer';
 
 export const ReturnForm: React.FC<{ item: IItemProps }> = React.memo(
   ({ item }) => {
-    const { comment } = useSelector((state: any) => state.return);
     const dispatch = useDispatch();
+    const comment = useSelector((state: RootState) => state.return.comment);
 
     const handleChangeText = React.useCallback(
       (text: string) => {

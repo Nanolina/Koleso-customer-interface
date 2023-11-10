@@ -4,7 +4,7 @@ import { Header } from '../../components/Header';
 import { SignUp } from '../../modules/auth';
 import { CentralContainer } from '../../ui/CentralContainer';
 
-export const SignUpPage = () => {
+export const SignUpPage: React.FC = () => {
   return (
     <Container>
       <Header title="Sign up" />

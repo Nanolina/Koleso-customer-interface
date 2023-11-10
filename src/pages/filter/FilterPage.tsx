@@ -4,7 +4,7 @@ import { Header } from '../../components/Header';
 import { Filter } from '../../modules/filter';
 import { CentralContainer } from '../../ui/CentralContainer';
 
-export const FilterPage = () => {
+export const FilterPage: React.FC = () => {
   return (
     <Container>
       <Header title="Filter" hasButtonBack />

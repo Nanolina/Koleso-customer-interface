@@ -4,7 +4,7 @@ import { Header } from '../components/Header';
 import { SortComponents } from '../modules/sort';
 import { CentralContainer } from '../ui/CentralContainer';
 
-export const SortPage = () => {
+export const SortPage: React.FC = () => {
   return (
     <Container>
       <Header title="Sort" hasButtonBack />

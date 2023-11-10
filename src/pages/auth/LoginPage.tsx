@@ -4,7 +4,7 @@ import { Header } from '../../components/Header';
 import { Login } from '../../modules/auth';
 import { CentralContainer } from '../../ui/CentralContainer';
 
-export const LoginPage = () => {
+export const LoginPage: React.FC = () => {
   return (
     <Container>
       <Header title="Log in" />

@@ -1,34 +1,25 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { colors, css, sizes } from '../consts';
+import { INoteProps } from '../types';
 
-interface INoteProps {
-  title?: string;
-  placeholder?: string;
-  value: string;
-  onChangeText: (text: string) => void;
-}
-
-export const Note: React.FC<INoteProps> = ({
-  title,
-  placeholder,
-  value,
-  onChangeText,
-}: any) => {
-  return (
-    <View style={styles.container}>
-      {title && <Text style={styles.text}>{title}</Text>}
-      <TextInput
-        style={styles.textArea}
-        multiline={true}
-        numberOfLines={4}
-        placeholder={placeholder}
-        value={value}
-        onChangeText={onChangeText}
-      />
-    </View>
-  );
-};
+export const Note: React.FC<INoteProps> = React.memo(
+  ({ title, placeholder, value, onChangeText }) => {
+    return (
+      <View style={styles.container}>
+        {title && <Text style={styles.text}>{title}</Text>}
+        <TextInput
+          style={styles.textArea}
+          multiline={true}
+          numberOfLines={4}
+          placeholder={placeholder}
+          value={value}
+          onChangeText={onChangeText}
+        />
+      </View>
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {

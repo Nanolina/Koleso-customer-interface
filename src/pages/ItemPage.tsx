@@ -5,7 +5,7 @@ import { Footer } from '../components/Footer';
 import { Buttons, IconContainer, ImageContainer, Item } from '../modules/item';
 import { CentralContainer } from '../ui/CentralContainer';
 
-export const ItemPage = () => {
+export const ItemPage: React.FC = () => {
   const route: any = useRoute();
   const { item } = route.params;
 

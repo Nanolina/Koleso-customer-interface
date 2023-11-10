@@ -1,19 +1,7 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  TextStyle,
-  TouchableOpacity,
-  ViewStyle,
-} from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { css, sizes } from '../consts';
-
-interface IBoxProps {
-  label: string;
-  onPress?: () => void;
-  boxStyle?: ViewStyle;
-  textStyle?: TextStyle;
-}
+import { IBoxProps } from '../types';
 
 export const Box: React.FC<IBoxProps> = React.memo(
   ({ label, onPress, boxStyle, textStyle }) => {

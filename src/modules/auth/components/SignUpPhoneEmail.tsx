@@ -2,6 +2,7 @@ import { FontAwesome, Fontisto } from '@expo/vector-icons';
 import React, { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../../redux/rootReducer';
 import { setValueAuth } from '../../../../redux/slices/authSlice';
 import { colors, css, sizes } from '../../../consts';
 import { Button } from '../../../ui/Button';
@@ -11,7 +12,7 @@ export const SignUpPhoneEmail: React.FC = () => {
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
 
-  const { email, phone, name } = useSelector((state: any) => state.auth);
+  const { email, phone, name } = useSelector((state: RootState) => state.auth);
   const dispatch = useDispatch();
 
   const onChangeEmail = useCallback(

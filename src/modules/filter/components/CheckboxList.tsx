@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../../redux/rootReducer';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { getItems } from '../functions';
 import { ICheckboxListProps } from '../types';
@@ -18,7 +19,7 @@ export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
       sellers,
       compositions,
       seasons,
-    } = useSelector((state: any) => state.filter);
+    } = useSelector((state: RootState) => state.filter);
 
     const { selectedItems, onToggleItem, resetAll, selectAll } = getItems(
       title,

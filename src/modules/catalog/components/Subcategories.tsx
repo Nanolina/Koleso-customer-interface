@@ -2,6 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../../../redux/rootReducer';
 import { selectSubcategory } from '../../../../redux/slices/catalogSlice';
 import { CatalogItem } from './CatalogItem';
 
@@ -10,7 +11,7 @@ export const Subcategories: React.FC = () => {
   const dispatch = useDispatch();
 
   const subcategories = useSelector(
-    (state: any) => state.catalog.category.subcategories
+    (state: RootState) => state.catalog.category.subcategories
   );
 
   return (

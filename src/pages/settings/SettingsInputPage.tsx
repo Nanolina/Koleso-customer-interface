@@ -5,7 +5,7 @@ import { Header } from '../../components/Header';
 import { Input } from '../../modules/settings';
 import { CentralContainer } from '../../ui/CentralContainer';
 
-export const SettingsInputPage = () => {
+export const SettingsInputPage: React.FC = () => {
   const route: any = useRoute();
   const { title } = route.params;
 

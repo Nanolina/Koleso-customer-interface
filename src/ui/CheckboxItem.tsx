@@ -1,33 +1,24 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors, css, sizes } from '../consts';
+import { ICheckboxItemProps } from '../types';
 
-interface ICheckboxItemProps {
-  text?: string;
-  isSelected?: boolean;
-  onToggle: () => void;
-  styleText?: object;
-}
-
-export const CheckboxItem: React.FC<ICheckboxItemProps> = ({
-  text,
-  isSelected,
-  onToggle,
-  styleText,
-}) => {
-  return (
-    <TouchableOpacity style={styles.item} onPress={onToggle}>
-      {isSelected ? (
-        <View style={styles.checkbox}>
-          <Text style={styles.check}>✓</Text>
-        </View>
-      ) : (
-        <View style={styles.checkboxEmpty}></View>
-      )}
-      <Text style={styleText || styles.text}>{text}</Text>
-    </TouchableOpacity>
-  );
-};
+export const CheckboxItem: React.FC<ICheckboxItemProps> = React.memo(
+  ({ text, isSelected, onToggle, styleText }) => {
+    return (
+      <TouchableOpacity style={styles.item} onPress={onToggle}>
+        {isSelected ? (
+          <View style={styles.checkbox}>
+            <Text style={styles.check}>✓</Text>
+          </View>
+        ) : (
+          <View style={styles.checkboxEmpty}></View>
+        )}
+        <Text style={styleText || styles.text}>{text}</Text>
+      </TouchableOpacity>
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   item: {

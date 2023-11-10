@@ -4,7 +4,7 @@ import { Header } from '../../components/Header';
 import { SignUpPhoneEmail } from '../../modules/auth';
 import { CentralContainer } from '../../ui/CentralContainer';
 
-export const SignUpPhoneEmailPage = () => {
+export const SignUpPhoneEmailPage: React.FC = () => {
   return (
     <Container>
       <Header title="Sign up" hasButtonBack />

@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { colors, css, sizes } from '../../../consts';
-import { Price } from '../../../ui/Price';
 import { IPriceContainerProps } from '../types';
+import { Price } from '../ui/Price';
 
 export const PriceContainer: React.FC<IPriceContainerProps> = React.memo(
   ({ price, oldPrice, priceSize }) => {

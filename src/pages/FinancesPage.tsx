@@ -4,7 +4,7 @@ import { Header } from '../components/Header';
 import { Finances } from '../modules/finances';
 import { CentralContainer } from '../ui/CentralContainer';
 
-export const FinancesPage = () => {
+export const FinancesPage: React.FC = () => {
   return (
     <Container>
       <Header title="Finances" hasButtonBack />

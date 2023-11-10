@@ -1,58 +1,50 @@
+import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { colors, css, sizes } from '../consts';
+import { IButtonProps } from '../types';
 
-interface IButtonProps {
-  text: any;
-  onPress: () => void;
-  width?: string | number;
-  backgroundColor?: string;
-  border?: boolean;
-  textColor?: string;
-  isBold?: boolean;
-  hasShadow?: boolean;
-  extra?: string;
-}
-
-export const Button: React.FC<IButtonProps> = ({
-  text,
-  onPress,
-  width = '100%',
-  backgroundColor = colors.orange,
-  border = false,
-  textColor = colors.white,
-  isBold = true,
-  hasShadow = false,
-  extra,
-}: any) => {
-  return (
-    <TouchableOpacity
-      onPress={onPress}
-      style={[
-        styles.container,
-        {
-          width,
-          backgroundColor,
-          borderWidth: border ? 1 : 0,
-          borderColor: border ? colors.main : undefined,
-          ...(hasShadow && {
-            ...css.shadow,
-            shadowRadius: 4, // reassign shadowRadius
-          }),
-        },
-      ]}
-    >
-      <Text
+export const Button: React.FC<IButtonProps> = React.memo(
+  ({
+    text,
+    onPress,
+    width = '100%',
+    backgroundColor = colors.orange,
+    border = false,
+    textColor = colors.white,
+    isBold = true,
+    hasShadow = false,
+    extra,
+  }: any) => {
+    return (
+      <TouchableOpacity
+        onPress={onPress}
         style={[
-          styles.text,
-          { color: textColor, fontWeight: isBold ? 'bold' : 'normal' },
+          styles.container,
+          {
+            width,
+            backgroundColor,
+            borderWidth: border ? 1 : 0,
+            borderColor: border ? colors.main : undefined,
+            ...(hasShadow && {
+              ...css.shadow,
+              shadowRadius: 4, // reassign shadowRadius
+            }),
+          },
         ]}
       >
-        {text}
-      </Text>
-      {extra && <Text style={styles.extra}>{extra}</Text>}
-    </TouchableOpacity>
-  );
-};
+        <Text
+          style={[
+            styles.text,
+            { color: textColor, fontWeight: isBold ? 'bold' : 'normal' },
+          ]}
+        >
+          {text}
+        </Text>
+        {extra && <Text style={styles.extra}>{extra}</Text>}
+      </TouchableOpacity>
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {

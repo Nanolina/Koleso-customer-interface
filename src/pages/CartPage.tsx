@@ -8,7 +8,7 @@ import { Cart } from '../modules/cart';
 import { Button } from '../ui/Button';
 import { CentralContainer } from '../ui/CentralContainer';
 
-export const CartPage = () => {
+export const CartPage: React.FC = () => {
   const navigation: any = useNavigation();
 
   return (

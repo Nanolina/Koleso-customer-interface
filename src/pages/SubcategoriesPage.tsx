@@ -4,9 +4,10 @@ import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { Subcategories } from '../modules/catalog';
 import { CentralContainer } from '../ui/CentralContainer';
+import { RootState } from '../../redux/rootReducer';
 
-export const SubcategoriesPage = () => {
-  const category = useSelector((state: any) => state.catalog.category.title);
+export const SubcategoriesPage: React.FC = () => {
+  const category = useSelector((state: RootState) => state.catalog.category.title);
 
   return (
     <Container>

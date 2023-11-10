@@ -7,7 +7,7 @@ import { DeliveryQRCode, SearchQueries } from '../modules/home';
 import { ProductList } from '../modules/productCard';
 import { CentralContainer } from '../ui/CentralContainer';
 
-export const Home = () => {
+export const Home: React.FC = () => {
   const [isEnabledSearch, setIsEnabledSearch] = useState(false);
 
   return (

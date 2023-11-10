@@ -4,7 +4,7 @@ import { Header } from '../../components/Header';
 import { ChangePassword } from '../../modules/settings';
 import { CentralContainer } from '../../ui/CentralContainer';
 
-export const SettingsPasswordPage = () => {
+export const SettingsPasswordPage: React.FC = () => {
   return (
     <Container>
       <Header title="Change password" hasButtonBack />

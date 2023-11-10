@@ -126,12 +126,6 @@ export const timeFramesDelivery = [
   { label: 'From 18.00 to 21.00', value: '18.00-21.00' },
 ];
 
-export const imagesSocialMedia = {
-  telegram: require('./assets/telegram.png'),
-  instagram: require('./assets/instagram.png'),
-  whatsApp: require('./assets/whatsApp.png'),
-};
-
 export const reasonsForReturn = ["Didn't fit", 'Bad quality', 'Warranty case'];
 export const addressPickUpPoint = {
   id: 'f0ff3d68-ebcd-43c1-a470-37ce063089a4',

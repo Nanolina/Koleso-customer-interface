@@ -5,7 +5,7 @@ import { Header } from '../components/Header';
 import { Purchases } from '../modules/purchases';
 import { CentralContainer } from '../ui/CentralContainer';
 
-export const PurchasesPage = () => {
+export const PurchasesPage: React.FC = () => {
   return (
     <Container>
       <Header title="Purchases" hasButtonBack />

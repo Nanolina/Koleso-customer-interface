@@ -4,7 +4,7 @@ import { Header } from '../components/Header';
 import { Notifications } from '../modules/notifications';
 import { CentralContainer } from '../ui/CentralContainer';
 
-export const NotificationsPage = () => {
+export const NotificationsPage: React.FC = () => {
   return (
     <Container>
       <Header title="Notifications" />

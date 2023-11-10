@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
+import { RootState } from '../../../../redux/rootReducer';
 import { Row } from '../../../components/Row';
 import { colors as commonColors, css } from '../../../consts';
 import { Button } from '../../../ui/Button';
@@ -24,7 +25,7 @@ export const Filter: React.FC = () => {
     ageTo,
     priceFrom,
     priceTo,
-  } = useSelector((state: any) => state.filter);
+  } = useSelector((state: RootState) => state.filter);
 
   return (
     <View style={styles.container}>

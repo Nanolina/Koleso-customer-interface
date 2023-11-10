@@ -4,7 +4,7 @@ import { Header } from '../../components/Header';
 import { Settings } from '../../modules/settings';
 import { CentralContainer } from '../../ui/CentralContainer';
 
-export const SettingsPage = () => {
+export const SettingsPage: React.FC = () => {
   return (
     <Container>
       <Header title="Settings" hasButtonBack />
