@@ -1,15 +1,19 @@
-import { useNavigation } from '@react-navigation/native';
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
 import { StyleSheet, View } from 'react-native';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { colors, css, currency } from '../consts';
+import { colors, currency } from '../consts';
 import { Cart } from '../modules/cart';
 import { Button } from '../ui/Button';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const CartPage: React.FC = () => {
-  const navigation: any = useNavigation();
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   return (
     <Container>

@@ -1,4 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
 import React from 'react';
 import { Dimensions, Platform, StyleSheet, View } from 'react-native';
 import { colors, css, sizes } from '../../../consts';
@@ -13,7 +17,7 @@ const cardWidth = width / 3;
 
 export const Purchase: React.FC<{ item: IItemProps }> = React.memo(
   ({ item }) => {
-    const navigation: any = useNavigation();
+    const navigation: NavigationProp<ParamListBase> = useNavigation();
 
     const handlePress = React.useCallback(() => {
       navigation.navigate('OrderProcessingPage', {

@@ -1,5 +1,9 @@
 import { AntDesign } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors, sizes } from '../consts';
@@ -13,7 +17,7 @@ export const Row: React.FC<IRowProps> = ({
   selectedItems = [],
   selectedItem,
 }) => {
-  const navigation: any = useNavigation();
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   const handlePress = useCallback(() => {
     navigation.navigate(navigateTo, {

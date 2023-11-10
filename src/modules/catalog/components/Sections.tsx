@@ -1,4 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
 import React from 'react';
 import { FlatList } from 'react-native';
 import { useDispatch } from 'react-redux';
@@ -8,7 +12,7 @@ import { CatalogItem } from './CatalogItem';
 
 export const Sections: React.FC = () => {
   const dispatch = useDispatch();
-  const navigation: any = useNavigation();
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   return (
     <FlatList

@@ -1,4 +1,8 @@
-import { NavigationProp, RouteProp } from '@react-navigation/native';
+import {
+  NavigationProp,
+  ParamListBase,
+  RouteProp,
+} from '@react-navigation/native';
 import { ImageSourcePropType, TextStyle, ViewStyle } from 'react-native';
 
 export interface IWebCardWrapperProps {
@@ -110,8 +114,8 @@ export interface IBoxProps {
 }
 
 export interface IButtonProps {
-  text: any;
-  onPress: () => void;
+  text?: any;
+  onPress?: () => void;
   width?: string | number;
   backgroundColor?: string;
   border?: boolean;
@@ -119,6 +123,7 @@ export interface IButtonProps {
   isBold?: boolean;
   hasShadow?: boolean;
   extra?: string;
+  navigation?: NavigationProp<ParamListBase>;
 }
 
 export interface IButtonBackProps {

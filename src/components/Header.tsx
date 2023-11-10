@@ -1,5 +1,9 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import {
   Keyboard,
@@ -27,7 +31,7 @@ export const Header: React.FC<IHeaderProps> = React.memo(
     isEnabledSearch,
     setIsEnabledSearch,
   }) => {
-    const navigation: any = useNavigation();
+    const navigation: NavigationProp<ParamListBase> = useNavigation();
     const dispatch = useDispatch();
 
     const handlePressBack = useCallback(() => {

@@ -1,4 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import { FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,7 +12,7 @@ import { CatalogItem } from './CatalogItem';
 
 export const Categories: React.FC = () => {
   const dispatch = useDispatch();
-  const navigation: any = useNavigation();
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   const categories = useSelector(
     (state: RootState) => state.catalog.section?.categories

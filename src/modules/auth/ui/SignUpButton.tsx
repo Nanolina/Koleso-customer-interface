@@ -1,11 +1,15 @@
-import { useNavigation } from '@react-navigation/native';
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
 import { useCallback } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { sizes } from '../../../consts';
 import { Button } from '../../../ui/Button';
 
 export const SignUpButton: React.FC = () => {
-  const navigation: any = useNavigation();
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   const handlePress = useCallback(() => {
     navigation.navigate('SignUpPage');

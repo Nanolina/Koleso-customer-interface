@@ -1,4 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import {
   Dimensions,
@@ -17,8 +21,9 @@ const { height } = Dimensions.get('window');
 const footerHeight = height / 10;
 
 export const Footer: React.FC = React.memo(() => {
-  const navigation: any = useNavigation();
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
   const dispatch = useDispatch();
+
   const activeIcon = useSelector(
     (state: IFooterState) => state.footer.activeIcon
   );

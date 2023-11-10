@@ -1,4 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import {
   Dimensions,
@@ -15,7 +19,7 @@ const { width } = Dimensions.get('window');
 
 export const Service: React.FC<{ service: IService }> = React.memo(
   ({ service }) => {
-    const navigation: any = useNavigation();
+    const navigation: NavigationProp<ParamListBase> = useNavigation();
 
     const onPress = useCallback(() => {
       navigation.navigate(service.redirectPage);

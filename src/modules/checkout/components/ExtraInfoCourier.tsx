@@ -1,4 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
 import React, { useCallback, useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,12 +12,12 @@ import { colors, minDate } from '../../../consts';
 import { Button } from '../../../ui/Button';
 import { Hr } from '../../../ui/Hr';
 import { Note } from '../../../ui/Note';
+import { AddingAddressText } from '../../address';
 import { ICheckoutState } from '../types';
 import { TimePicker } from './TimePicker';
-import { AddingAddressText } from '../../address';
 
 export const ExtraInfoCourier: React.FC = () => {
-  const navigation: any = useNavigation();
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
   const dispatch = useDispatch();
 
   const { date, time, note } = useSelector(

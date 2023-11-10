@@ -1,4 +1,8 @@
-import { useNavigation } from '@react-navigation/native';
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
 import React, { useCallback } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { css, sizes } from '../../../consts';
@@ -6,7 +10,7 @@ import { IRegistrationMethodProps } from '../types';
 
 const RegistrationMethod: React.FC<IRegistrationMethodProps> = React.memo(
   ({ registrationMethod }) => {
-    const navigation: any = useNavigation();
+    const navigation: NavigationProp<ParamListBase> = useNavigation();
 
     const handlePress = useCallback(() => {
       navigation.navigate(registrationMethod.redirectPage);
