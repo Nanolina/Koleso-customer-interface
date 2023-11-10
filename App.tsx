@@ -10,6 +10,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { PaperProvider } from 'react-native-paper';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import { LoadingPage } from './src/components/LoadingPage';
 import { AddressForm } from './src/pages/AddressForm';
 import { CartPage } from './src/pages/CartPage';
 import { CategoriesPage } from './src/pages/CategoriesPage';
@@ -51,7 +52,7 @@ export default function App() {
   });
 
   if (!fontsLoaded) {
-    return null;
+    return <LoadingPage />;
   }
 
   return (
