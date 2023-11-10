@@ -1,4 +1,3 @@
 export { ModalPhotoUpload } from './components/ModalPhotoUpload';
-export { ErrorModal } from './components/error/ErrorModal';
-export { ReturnModal } from './components/return/ReturnModal';
-export { SuccessModal } from './components/success/SuccessModal';
+export { ReturnModal } from './components/ReturnModal';
+export { StatusModal } from './components/StatusModal';

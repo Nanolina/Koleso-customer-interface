@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { ErrorModal, SuccessModal } from '../modules/modal';
+import { StatusModal } from '../modules/modal';
 import { Payment } from '../modules/payment';
 import { CentralContainer } from '../ui/CentralContainer';
 
@@ -12,19 +12,38 @@ export const PaymentPage: React.FC = () => {
   const [isModalVisible, setModalVisible] = useState(true);
 
   // mock data
-  const payment = true;
+  const payment = false;
+
+  const onClose = useCallback(() => {
+    setModalVisible(false);
+  }, []);
+
+  const modalProps = payment
+    ? {
+        type: 'success',
+        title: 'Thank you for your purchase!',
+        message: 'Payment was successful',
+        orderId: '32345678523456',
+        widthImage: 60,
+        heightImage: 60,
+        topImage: 30,
+        rightImage: 10,
+      }
+    : {
+        type: 'error',
+        title: 'Sorry',
+        message: 'There was an error',
+        widthImage: 40,
+        heightImage: 40,
+        topImage: 20,
+        rightImage: 70,
+      };
 
   return (
     <Container>
-      {isModalVisible && payment && (
+      {isModalVisible && (
         <View style={styles.container}>
-          <SuccessModal onClose={() => setModalVisible(false)} />
-        </View>
-      )}
-
-      {isModalVisible && !payment && (
-        <View style={styles.container}>
-          <ErrorModal onClose={() => setModalVisible(false)} />
+          <StatusModal {...modalProps} onClose={onClose} />
         </View>
       )}
 

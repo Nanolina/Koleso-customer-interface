@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
-import { Modal, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Modal, StyleSheet, View } from 'react-native';
 import { colors, css } from '../../../consts';
+import { Button } from '../../../ui/Button';
 import { IModalProps } from '../types';
 
 export const CustomModal: React.FC<IModalProps> = React.memo(
@@ -19,9 +20,15 @@ export const CustomModal: React.FC<IModalProps> = React.memo(
         <View style={styles.container}>
           <View style={styles.centerContainer}>
             {children}
-            <TouchableOpacity onPress={onClose}>
-              <Text style={styles.text}>Close</Text>
-            </TouchableOpacity>
+            <Button
+              text="Close"
+              onPress={onClose}
+              backgroundColor={colors.white}
+              textColor={colors.main}
+              isBold={false}
+              width="50%"
+              hasShadow
+            />
           </View>
         </View>
       </Modal>
@@ -34,7 +41,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0,0,0,0.8)',
+    backgroundColor: 'rgba(0,0,0,0.6)',
   },
   centerContainer: {
     width: '80%',
@@ -42,10 +49,7 @@ const styles = StyleSheet.create({
     borderRadius: css.borderRadiusMax,
     alignItems: 'center',
     gap: 30,
-    backgroundColor: colors.main,
-  },
-  text: {
-    color: colors.white,
-    textDecorationLine: 'underline',
+    ...css.shadow,
+    shadowOpacity: 0.8,
   },
 });

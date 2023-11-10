@@ -1,8 +1,8 @@
 import { Image, StyleSheet, Text, View } from 'react-native';
-import { colors, sizes } from '../../../../consts';
-import { images } from '../../consts';
-import { IModalProps } from '../../types';
-import { CustomModal } from '../CustomModal';
+import { sizes } from '../../../consts';
+import { images } from '../consts';
+import { IModalProps } from '../types';
+import { CustomModal } from './CustomModal';
 
 export const ReturnModal: React.FC<IModalProps> = ({ onClose }) => {
   return (
@@ -34,24 +34,22 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   image: {
-    width: 60,
-    height: 60,
+    width: 50,
+    height: 50,
   },
   title: {
     fontSize: sizes.text16,
     fontWeight: 'bold',
     textAlign: 'center',
-    color: colors.yellow,
   },
   text: {
     fontSize: sizes.text16,
     textAlign: 'center',
-    color: colors.white,
   },
   textWithImage: {
     flexDirection: 'row',
     justifyContent: 'center',
     width: '60%',
-    gap: 20,
+    gap: 10,
   },
 });

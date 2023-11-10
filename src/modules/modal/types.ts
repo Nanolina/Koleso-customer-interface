@@ -8,3 +8,15 @@ export interface IModalPhotoProps {
   onCameraSelect: () => void;
   onGallerySelect: () => void;
 }
+
+export interface IStatusModalProps {
+  onClose: () => void;
+  type: string; // 'success' | 'error'
+  title: string;
+  message: any;
+  orderId?: string;
+  widthImage: number;
+  heightImage: number;
+  topImage: number;
+  rightImage: number;
+}
