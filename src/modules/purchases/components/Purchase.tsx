@@ -3,6 +3,7 @@ import React from 'react';
 import { Dimensions, Platform, StyleSheet, View } from 'react-native';
 import { PriceContainer } from '../../../components/PriceContainer';
 import { colors, css, sizes } from '../../../consts';
+import { IItemProps } from '../../../types';
 import { Button } from '../../../ui/Button';
 import { ImageContainer } from './ImageContainer';
 import { TextContainer } from './TextContainer';
@@ -10,37 +11,41 @@ import { TextContainer } from './TextContainer';
 const { width } = Dimensions.get('window');
 const cardWidth = width / 3;
 
-export const Purchase = ({ item }) => {
-  const navigation: any = useNavigation();
+export const Purchase: React.FC<{ item: IItemProps }> = React.memo(
+  ({ item }) => {
+    const navigation: any = useNavigation();
 
-  return (
-    <View style={styles.container}>
-      <ImageContainer image={item.image} />
-      <TextContainer item={item} />
-      <PriceContainer price={item.price} priceSize={sizes.text16} />
+    const handlePress = React.useCallback(() => {
+      navigation.navigate('OrderProcessingPage', {
+        title: 'Return',
+        item,
+      });
+    }, [navigation, item]);
 
-      {!item.return && (
-        <View style={styles.buttonContainer}>
-          <Button
-            text="Make a return"
-            backgroundColor={colors.white}
-            textColor={colors.main}
-            border={false}
-            isBold={false}
-            width="90%"
-            hasShadow
-            onPress={() =>
-              navigation.navigate('OrderProcessingPage', {
-                title: 'Return',
-                item,
-              })
-            }
-          />
-        </View>
-      )}
-    </View>
-  );
-};
+    return (
+      <View style={styles.container}>
+        <ImageContainer image={item.image} />
+        <TextContainer item={item} />
+        <PriceContainer price={item.price} priceSize={sizes.text16} />
+
+        {!item.return && (
+          <View style={styles.buttonContainer}>
+            <Button
+              text="Make a return"
+              backgroundColor={colors.white}
+              textColor={colors.main}
+              border={false}
+              isBold={false}
+              width="90%"
+              hasShadow
+              onPress={handlePress}
+            />
+          </View>
+        )}
+      </View>
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {
@@ -48,11 +53,13 @@ const styles = StyleSheet.create({
     margin: 4,
     paddingBottom: 5,
     maxWidth: Platform.OS === 'web' ? cardWidth : '100%',
-    backgroundColor: colors.pink,
+    backgroundColor: colors.white,
     borderRadius: css.borderRadiusMax,
+    ...css.shadow,
   },
   buttonContainer: {
-    paddingTop: 20,
+    marginTop: 10,
+    paddingVertical: 5,
     justifyContent: 'center',
     alignItems: 'center',
   },

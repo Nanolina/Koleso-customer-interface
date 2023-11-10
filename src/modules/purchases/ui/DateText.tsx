@@ -1,18 +1,22 @@
+import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 import { colors } from '../../../consts';
+import { IItemProps } from '../../../types';
 
-export const DateText = ({ item }) => {
-  return (
-    <>
-      {item.dateDelivered && (
-        <Text style={styles.delivered}>Delivered: {item.dateDelivered}</Text>
-      )}
-      {item?.return?.date && (
-        <Text style={styles.returned}>Returned: {item?.return?.date}</Text>
-      )}
-    </>
-  );
-};
+export const DateText: React.FC<{ item: IItemProps }> = React.memo(
+  ({ item }) => {
+    return (
+      <>
+        {item.delivery && (
+          <Text style={styles.delivered}>Delivered: {item.delivery?.date}</Text>
+        )}
+        {item?.return?.date && (
+          <Text style={styles.returned}>Returned: {item?.return?.date}</Text>
+        )}
+      </>
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   delivered: {

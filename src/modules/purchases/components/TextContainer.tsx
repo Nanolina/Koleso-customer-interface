@@ -1,32 +1,36 @@
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, sizes } from '../../../consts';
+import { IItemProps } from '../../../types';
 import { Hr } from '../../../ui/Hr';
 import { DateText } from '../ui/DateText';
 
-export const TextContainer = ({ item }) => {
-  return (
-    <View style={styles.container}>
-      <View style={styles.infoContainer}>
-        <Text style={styles.seller}>{item.seller}</Text>
-        <Text style={styles.title}>{item.title}</Text>
-        {item.color && (
-          <Text style={styles.italicText}>
-            Color: <Text style={styles.boldText}>{item.color}</Text>
-          </Text>
-        )}
-        {item.selectedSize && (
-          <Text style={styles.italicText}>
-            Size: <Text style={styles.boldText}>{item.selectedSize}</Text>
-          </Text>
-        )}
+export const TextContainer: React.FC<{ item: IItemProps }> = React.memo(
+  ({ item }) => {
+    return (
+      <View style={styles.container}>
+        <View style={styles.infoContainer}>
+          <Text style={styles.seller}>{item.seller}</Text>
+          <Text style={styles.title}>{item.title}</Text>
+          {item.color && (
+            <Text style={styles.italicText}>
+              Color: <Text style={styles.boldText}>{item.color}</Text>
+            </Text>
+          )}
+          {item.selectedSize && (
+            <Text style={styles.italicText}>
+              Size: <Text style={styles.boldText}>{item.selectedSize}</Text>
+            </Text>
+          )}
+        </View>
+
+        <DateText item={item} />
+
+        <Hr />
       </View>
-
-      <DateText item={item} />
-
-      <Hr />
-    </View>
-  );
-};
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {

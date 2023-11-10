@@ -1,8 +1,13 @@
+import React, { useCallback } from 'react';
 import { FlatList, Platform, StyleSheet } from 'react-native';
+import { IPurchasesProps } from '../types';
 import { Purchase } from './Purchase';
+import { css } from '../../../consts';
 
-export const Purchases = ({ data }) => {
-  const renderPurchases = ({ item }) => <Purchase item={item} key={item.id} />;
+export const Purchases: React.FC<IPurchasesProps> = React.memo(({ data }) => {
+  const renderPurchases = useCallback(({ item }) => {
+    return <Purchase item={item} key={item.id} />;
+  }, []);
 
   return (
     <FlatList
@@ -13,11 +18,10 @@ export const Purchases = ({ data }) => {
       style={styles.listContainer}
     />
   );
-};
+});
 
 const styles = StyleSheet.create({
   listContainer: {
-    gap: 20,
-    paddingBottom: 20,
+    paddingBottom: css.paddingBottom,
   },
 });

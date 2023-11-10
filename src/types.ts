@@ -3,9 +3,10 @@ export interface IWebCardWrapperProps {
   children: React.ReactNode;
 }
 
-interface IReturnProps {
+interface ILogisticsProps {
   number: string;
   date: string;
+  statusMoney?: string;
 }
 
 export interface IItemProps {
@@ -23,7 +24,8 @@ export interface IItemProps {
   selectedSize?: number;
   possibleSizes?: number[];
   missingSizes?: number[];
-  return?: IReturnProps;
+  return?: ILogisticsProps;
+  delivery: ILogisticsProps;
 }
 
 export interface IRowProps {
