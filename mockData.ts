@@ -24,7 +24,7 @@ Don't miss the opportunity to add this gorgeous pantsuit to your closet! It will
     return: {
       number: '127033693-R4',
       date: '12.05.2023',
-      statusMoney: 'sent',
+      statusMoney: 'not_sent',
     },
   },
   {

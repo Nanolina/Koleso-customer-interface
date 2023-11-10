@@ -95,34 +95,11 @@ export const css = {
     },
   },
   return: {
-    container: {
-      backgroundColor: colors.pink,
-      borderRadius: 12,
-      gap: 10,
-      padding: 10,
-      marginBottom: 10,
-    },
-    centerContainer: {
-      gap: 10,
-    },
-    reason: {
-      box: {
-        borderRadius: 8,
-        width: Platform.OS === 'web' ? 200 : 95,
-        height: 60,
-        padding: 5,
-      },
-    },
     photoContainer: {
       width: 70,
       height: 100,
       borderWidth: 1,
       borderColor: colors.lightGray,
-      borderRadius: 8,
-    },
-    photo: {
-      width: 70,
-      height: 100,
       borderRadius: 8,
     },
   },

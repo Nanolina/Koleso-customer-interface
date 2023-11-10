@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { currency, sizes } from '../consts';
-import { Info } from '../modules/returns/ui/Info';
+import { currency, sizes } from '../../../consts';
+import { Info } from '../ui/Info';
 
 export const TextInfoContainer = React.memo(({ item }: any) => {
   return (

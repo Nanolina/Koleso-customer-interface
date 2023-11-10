@@ -1,14 +1,15 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ImageContainer } from '../../../components/ImageContainer';
-import { TextInfoContainer } from '../../../components/TextInfoContainer';
-import { css } from '../../../consts';
+import { colors, css } from '../../../consts';
+import { IItemProps } from '../../../types';
 import { BottomText } from '../ui/BottomText';
 import { UpperText } from '../ui/UpperText';
+import { TextInfoContainer } from './TextInfoContainer';
 
-export const ItemRequest = ({ item }) => {
+export const Return: React.FC<{ item: IItemProps }> = React.memo(({ item }) => {
   return (
-    <View style={css.return.container}>
+    <View style={styles.container}>
       <UpperText
         number={item.return.number}
         date={item.return.date}
@@ -21,12 +22,20 @@ export const ItemRequest = ({ item }) => {
       <BottomText statusMoney={item.return.statusMoney} />
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.white,
+    borderRadius: 12,
+    gap: 10,
+    padding: 10,
+    marginBottom: 10,
+    ...css.shadow,
+  },
   centerContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    ...css.return.centerContainer,
+    gap: 10,
   },
 });

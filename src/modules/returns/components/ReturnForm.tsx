@@ -1,39 +1,48 @@
+import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { addFieldReturn } from '../../../../redux/slices/returnSlice';
 import { colors, sizes } from '../../../consts';
+import { IItemProps } from '../../../types';
 import { Note } from '../../../ui/Note';
 import { PhotoUpload } from './PhotoUpload';
 import { ReasonContainer } from './ReasonContainer';
 
-export const ReturnForm = ({ item }) => {
-  const { comment } = useSelector((state: any) => state.return);
-  const dispatch = useDispatch();
+export const ReturnForm: React.FC<{ item: IItemProps }> = React.memo(
+  ({ item }) => {
+    const { comment } = useSelector((state: any) => state.return);
+    const dispatch = useDispatch();
 
-  return (
-    <View style={styles.mainContainer}>
-      <Text style={styles.text}>Reason</Text>
-      <ReasonContainer />
+    const handleChangeText = React.useCallback(
+      (text: string) => {
+        dispatch(addFieldReturn({ field: 'comment', value: text }));
+      },
+      [dispatch]
+    );
 
-      <View style={styles.container}>
-        <Text style={styles.text}>Photos</Text>
-        <Text style={styles.extra}>Up to 5</Text>
+    return (
+      <View style={styles.mainContainer}>
+        <Text style={styles.text}>Reason</Text>
+        <ReasonContainer />
+
+        <View style={styles.container}>
+          <Text style={styles.text}>Photos</Text>
+          <Text style={styles.extra}>Up to 5</Text>
+        </View>
+        <PhotoUpload />
+
+        <View style={styles.container}>
+          <Text style={styles.text}>Comment</Text>
+        </View>
+        <Note
+          placeholder="Describe the reason for returning the product..."
+          value={comment}
+          onChangeText={handleChangeText}
+        />
       </View>
-      <PhotoUpload />
-
-      <View style={styles.container}>
-        <Text style={styles.text}>Comment</Text>
-      </View>
-      <Note
-        placeholder="Describe the reason for returning the product..."
-        value={comment}
-        onChangeText={(text) =>
-          dispatch(addFieldReturn({ field: 'comment', value: text }))
-        }
-      />
-    </View>
-  );
-};
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   mainContainer: {

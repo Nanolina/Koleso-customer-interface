@@ -1,13 +1,15 @@
+import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 import { sizes } from '../../../consts';
+import { IInfoProps } from '../types';
 
-export const Info = ({ text, info }) => {
+export const Info: React.FC<IInfoProps> = React.memo(({ text, info }) => {
   return (
     <Text style={styles.italic}>
       {text}: <Text style={styles.bold}>{info}</Text>
     </Text>
   );
-};
+});
 
 const styles = StyleSheet.create({
   italic: {

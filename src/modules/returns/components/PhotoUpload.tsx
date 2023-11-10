@@ -1,6 +1,6 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { addPhoto } from '../../../../redux/slices/returnSlice';
@@ -8,12 +8,12 @@ import { colors, css, sizes } from '../../../consts';
 import { ModalPhotoUpload } from '../../modal';
 import { Photo } from '../ui/Photo';
 
-export const PhotoUpload = () => {
+export const PhotoUpload: React.FC = () => {
   const photos = useSelector((state: any) => state.return.photos);
   const dispatch = useDispatch();
   const [isModalVisible, setModalVisible] = useState(false);
 
-  const takePhoto = async () => {
+  const takePhoto = useCallback(async () => {
     // Check and request permission to access the camera
     const { granted } = await ImagePicker.requestCameraPermissionsAsync();
     if (!granted) {
@@ -32,9 +32,9 @@ export const PhotoUpload = () => {
       dispatch(addPhoto(result.assets[0].uri));
       setModalVisible(false);
     }
-  };
+  }, [dispatch]);
 
-  const pickPhoto = async () => {
+  const pickPhoto = useCallback(async () => {
     if (photos.length >= 5) return;
 
     // Check and request permission to access the gallery
@@ -56,11 +56,11 @@ export const PhotoUpload = () => {
       dispatch(addPhoto(result.assets[0].uri));
       setModalVisible(false);
     }
-  };
+  }, [dispatch, photos.length]);
 
-  const openCameraOrGallery = () => {
+  const openCameraOrGallery = useCallback(() => {
     setModalVisible(true);
-  };
+  }, []);
 
   return (
     <View style={styles.container}>

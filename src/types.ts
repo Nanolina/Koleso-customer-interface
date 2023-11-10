@@ -25,7 +25,7 @@ export interface IItemProps {
   possibleSizes?: number[];
   missingSizes?: number[];
   return?: ILogisticsProps;
-  delivery: ILogisticsProps;
+  delivery?: ILogisticsProps;
 }
 
 export interface IRowProps {

@@ -1,12 +1,14 @@
+import React, { useCallback } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
-import { ItemRequest } from './ItemRequest';
+import { IReturnsProps } from '../types';
+import { Return } from './Return';
 
-export const Returns = ({ data }) => {
-  const renderReturns = ({ item }) => {
+export const Returns: React.FC<IReturnsProps> = React.memo(({ data }) => {
+  const renderReturns = useCallback(({ item }) => {
     if (item.return) {
-      return <ItemRequest item={item} key={item.id} />;
+      return <Return item={item} key={item.id} />;
     }
-  };
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -17,7 +19,7 @@ export const Returns = ({ data }) => {
       />
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: {
