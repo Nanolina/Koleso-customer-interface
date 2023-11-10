@@ -9,8 +9,8 @@ import { Button } from '../../../ui/Button';
 import { Hr } from '../../../ui/Hr';
 import { Note } from '../../../ui/Note';
 import { ICheckoutState } from '../types';
-import { AddingAddressText } from '../ui/AddingAddressText';
 import { TimePicker } from './TimePicker';
+import { AddingAddressText } from '../../address';
 
 export const ExtraInfoCourier: React.FC = () => {
   const navigation: any = useNavigation();

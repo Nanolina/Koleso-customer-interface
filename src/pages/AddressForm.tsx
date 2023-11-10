@@ -2,8 +2,8 @@ import { useSelector } from 'react-redux';
 import { addField } from '../../redux/slices/checkoutSlice';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
-import { Form } from '../components/Form';
 import { Header } from '../components/Header';
+import { Form } from '../modules/address';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const AddressForm = () => {

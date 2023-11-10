@@ -5,12 +5,12 @@ import { courier, pickupPoint } from '../../../../consts';
 import { savedAddresses } from '../../../../mockData';
 import { ICartState, toggleDelivery } from '../../../../redux/slices/cartSlice';
 import { ButtonsGroup } from '../../../components/ButtonsGroup';
-import { PriceInfoContainer } from '../../../components/PriceInfoContainer';
 import { addressPickUpPoint, courierServices, css } from '../../../consts';
 import { Hr } from '../../../ui/Hr';
+import { Address } from '../../address';
+import { PriceInfoContainer } from '../../price/components/PriceInfoContainer';
 import { ReturnForm } from '../../returns';
 import { IOrderProcessingProps } from '../types';
-import { Address } from '../ui/Address';
 import { ExtraInfoCourier } from './ExtraInfoCourier';
 
 export const OrderProcessing: React.FC<IOrderProcessingProps> = React.memo(

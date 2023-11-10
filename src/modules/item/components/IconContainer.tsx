@@ -1,7 +1,6 @@
 import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import { headerHeight } from '../../../components/EmptyHeader';
-import { css } from '../../../consts';
+import { css, headerHeight } from '../../../consts';
 import { ButtonBack } from '../../../ui/ButtonBack';
 import { IconFeather } from '../ui/IconFeather';
 

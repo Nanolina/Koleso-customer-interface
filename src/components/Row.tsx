@@ -1,6 +1,6 @@
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, { useCallback } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors, sizes } from '../consts';
 import { getDisplayItem } from '../functions';
@@ -15,13 +15,13 @@ export const Row: React.FC<IRowProps> = ({
 }) => {
   const navigation: any = useNavigation();
 
-  const handlePress = () => {
+  const handlePress = useCallback(() => {
     navigation.navigate(navigateTo, {
       title,
       items,
       selectedItems,
     });
-  };
+  }, [navigation, navigateTo, title, items, selectedItems]);
 
   // Define what to display in the right part of the component
   const isFilled = selectedItem ? selectedItem : selectedItems.length > 0;

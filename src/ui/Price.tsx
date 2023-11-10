@@ -4,7 +4,7 @@ import { currency } from '../consts';
 
 interface IPriceProps {
   price: number;
-  style: TextStyle;
+  style: any;
 }
 
 export const Price: React.FC<IPriceProps> = React.memo(({ price, style }) => {

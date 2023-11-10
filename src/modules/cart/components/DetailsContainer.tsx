@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { PriceContainer } from '../../../components/PriceContainer';
 import { sizes } from '../../../consts';
 import { gapBetweenDetails } from '../consts';
 import { IDetailsContainerProps } from '../types';
 import { Detail } from '../ui/Detail';
 import { QuantityContainer } from './QuantityContainer';
+import { PriceContainer } from '../../price';
 
 export const DetailsContainer: React.FC<IDetailsContainerProps> = React.memo(
   ({ item, quantity }) => {

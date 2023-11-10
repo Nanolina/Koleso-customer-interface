@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
   Dimensions,
   SafeAreaView,
@@ -10,20 +10,26 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleActiveIcon } from '../../redux/slices/footerSlice';
 import { css } from '../consts';
+import { IFooterState } from '../types';
 import { IconFooter } from '../ui/IconFooter';
 
 const { height } = Dimensions.get('window');
 const footerHeight = height / 10;
 
-export const Footer = React.memo(() => {
+export const Footer: React.FC = React.memo(() => {
   const navigation: any = useNavigation();
   const dispatch = useDispatch();
-  const activeIcon = useSelector((state: any) => state.footer.activeIcon);
+  const activeIcon = useSelector(
+    (state: IFooterState) => state.footer.activeIcon
+  );
 
-  const handlePress = (routeName, iconName) => {
-    dispatch(toggleActiveIcon(iconName));
-    navigation.navigate(routeName);
-  };
+  const handlePress = useCallback(
+    (routeName: string, iconName: string) => {
+      dispatch(toggleActiveIcon(iconName));
+      navigation.navigate(routeName);
+    },
+    [dispatch, navigation]
+  );
 
   return (
     <View style={styles.footer}>

@@ -1,10 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 import { Dimensions, Platform, StyleSheet, View } from 'react-native';
-import { PriceContainer } from '../../../components/PriceContainer';
 import { colors, css, sizes } from '../../../consts';
 import { IItemProps } from '../../../types';
 import { Button } from '../../../ui/Button';
+import { PriceContainer } from '../../price';
 import { ImageContainer } from './ImageContainer';
 import { TextContainer } from './TextContainer';
 

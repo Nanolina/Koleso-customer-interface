@@ -6,19 +6,9 @@ import {
   registerTranslation,
 } from 'react-native-paper-dates';
 import { colors, css, sizes } from '../consts';
+import { IDatePickerProps } from '../types';
 
 registerTranslation('en-GB', enGB);
-
-interface IDatePickerProps {
-  text?: string;
-  value: string;
-  onChange: (date: Date) => void;
-  width?: string;
-  validRange: {
-    startDate?: Date;
-    endDate?: Date;
-  };
-}
 
 export const DatePicker: React.FC<IDatePickerProps> = React.memo(
   ({ text, value, onChange, width, validRange }) => {

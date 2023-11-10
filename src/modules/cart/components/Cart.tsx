@@ -1,11 +1,11 @@
 import { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { productCards } from '../../../../mockData';
-import { PriceInfo } from '../../../components/PriceInfo';
 import { css } from '../../../consts';
 import { IItemProps } from '../../../types';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { Hr } from '../../../ui/Hr';
+import { PriceInfo } from '../../price/components/PriceInfo';
 import { ISelectedItemsState } from '../types';
 import { CartItems } from './CartItems';
 

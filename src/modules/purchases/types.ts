@@ -1,3 +1,4 @@
+import { ImageSourcePropType } from 'react-native';
 import { IItemProps } from '../../types';
 
 export interface IPurchasesProps {
@@ -5,5 +6,5 @@ export interface IPurchasesProps {
 }
 
 export interface IImageContainerProps {
-  image: string;
+  image: ImageSourcePropType | string;
 }

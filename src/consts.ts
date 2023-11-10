@@ -1,4 +1,4 @@
-import { Platform } from 'react-native';
+import { Dimensions, Platform } from 'react-native';
 
 export const colors = {
   white: '#fff',
@@ -138,3 +138,6 @@ export const addressPickUpPoint = {
   address: 'Limassol, Mesa Geitonia',
 };
 export const courierServices = 5;
+
+const { height } = Dimensions.get('window');
+export const headerHeight = height * 0.06;

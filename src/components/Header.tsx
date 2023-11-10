@@ -1,6 +1,6 @@
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import React, { useCallback } from 'react';
 import {
   Keyboard,
   Platform,
@@ -14,19 +14,11 @@ import {
 import { useDispatch } from 'react-redux';
 import { removeSearchText } from '../../redux/slices/searchSlice';
 import { colors, sizes } from '../consts';
+import { IHeaderProps } from '../types';
 import { ButtonBack } from '../ui/ButtonBack';
 import { SearchBar } from './SearchBar';
 
-interface IHeaderProps {
-  title?: string;
-  hasButtonBack?: boolean;
-  showFilterSort?: boolean;
-  showSearchBar?: boolean;
-  isEnabledSearch?: boolean;
-  setIsEnabledSearch?: (isEnabled: boolean) => void;
-}
-
-export const Header = React.memo(
+export const Header: React.FC<IHeaderProps> = React.memo(
   ({
     title,
     hasButtonBack = false,
@@ -34,9 +26,15 @@ export const Header = React.memo(
     showSearchBar = false,
     isEnabledSearch,
     setIsEnabledSearch,
-  }: IHeaderProps) => {
+  }) => {
     const navigation: any = useNavigation();
     const dispatch = useDispatch();
+
+    const handlePressBack = useCallback(() => {
+      setIsEnabledSearch(false);
+      dispatch(removeSearchText());
+      Keyboard.dismiss();
+    }, [dispatch, setIsEnabledSearch]);
 
     // Styles for the header, depending on the presence of a back button
     const headerStyles = [
@@ -52,15 +50,7 @@ export const Header = React.memo(
             {hasButtonBack && <ButtonBack navigation={navigation} />}
 
             {/* If search is enabled, display the back button for search */}
-            {isEnabledSearch && (
-              <ButtonBack
-                onPress={() => {
-                  setIsEnabledSearch(false);
-                  dispatch(removeSearchText());
-                  Keyboard.dismiss();
-                }}
-              />
-            )}
+            {isEnabledSearch && <ButtonBack onPress={handlePressBack} />}
 
             {/* If SearchBar is not displayed, show the title */}
             {!showSearchBar && (

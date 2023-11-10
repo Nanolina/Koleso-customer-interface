@@ -1,8 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { colors, css, sizes } from '../consts';
+import { ITextWithInputProps } from '../types';
 
-export const TextWithInput = React.memo(
+export const TextWithInput: React.FC<ITextWithInputProps> = React.memo(
   ({
     text,
     value,
@@ -13,10 +14,8 @@ export const TextWithInput = React.memo(
     secureTextEntry,
     autoComplete,
   }: any) => {
-    const styles = getStyles(width);
-
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, { width: width || '100%' }]}>
         <Text style={styles.text}>{text}</Text>
         <TextInput
           style={styles.input}
@@ -32,23 +31,21 @@ export const TextWithInput = React.memo(
   }
 );
 
-const getStyles = (width) =>
-  StyleSheet.create({
-    container: {
-      gap: 10,
-      width: width || '100%',
-    },
-    input: {
-      borderRadius: css.borderRadiusMin,
-      textAlign: 'center',
-      fontSize: sizes.text16,
-      color: colors.main,
-      height: 40,
-      ...css.shadow,
-    },
-    text: {
-      fontSize: sizes.text16,
-      fontWeight: 'bold',
-      textAlign: 'center',
-    },
-  });
+const styles = StyleSheet.create({
+  container: {
+    gap: 10,
+  },
+  input: {
+    borderRadius: css.borderRadiusMin,
+    textAlign: 'center',
+    fontSize: sizes.text16,
+    color: colors.main,
+    height: 40,
+    ...css.shadow,
+  },
+  text: {
+    fontSize: sizes.text16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+});

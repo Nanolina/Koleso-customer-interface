@@ -1,4 +1,4 @@
-import { IAddress } from './src/modules/checkout';
+import { IAddress } from './src/modules/address';
 import { IFinanceProps } from './src/modules/finances/types';
 import { INotificationProps } from './src/modules/notifications/types';
 import { IItemProps } from './src/types';

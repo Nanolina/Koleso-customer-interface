@@ -6,10 +6,10 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
-import { PriceContainer } from '../../../components/PriceContainer';
 import { css, sizes } from '../../../consts';
 import { IItemProps } from '../../../types';
 import { WebCardWrapper } from '../../../ui/WebCardWrapper';
+import { PriceContainer } from '../../price';
 import { ImageContainer } from './ImageContainer';
 import { TitleContainer } from './TitleContainer';
 
