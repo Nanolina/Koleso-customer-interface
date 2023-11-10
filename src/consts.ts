@@ -5,7 +5,6 @@ export const colors = {
   black: '#000000',
   main: '#6c00ad',
   mainOpacity: '#6C00B06C',
-  pink: '#FEEFFF',
   yellow: '#FDDC00',
   orange: '#ff7c00',
   green: '#00B377',
