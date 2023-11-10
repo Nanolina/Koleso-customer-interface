@@ -47,7 +47,7 @@ export const SizeContainer: React.FC<ISizeContainerProps> = React.memo(
     );
 
     return (
-      <View style={styles.container}>{possibleSizes.map(renderSizeBox)}</View>
+      <View style={styles.container}>{possibleSizes?.map(renderSizeBox)}</View>
     );
   }
 );

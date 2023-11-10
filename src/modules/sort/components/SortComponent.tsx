@@ -9,19 +9,22 @@ import {
 } from 'react-native';
 import { css, sizes } from '../../../consts';
 import { WebCardWrapper } from '../../../ui/WebCardWrapper';
+import { ISortItemProps } from '../types';
 
 const { width } = Dimensions.get('window');
 
-export const SortComponent: React.FC<any> = ({ image, title }) => {
-  return (
-    <WebCardWrapper cardWidth={width}>
-      <TouchableOpacity style={styles.container} onPress={() => {}}>
-        <Image source={image} style={styles.image} />
-        <Text style={styles.text}>{title}</Text>
-      </TouchableOpacity>
-    </WebCardWrapper>
-  );
-};
+export const SortComponent: React.FC<ISortItemProps> = React.memo(
+  ({ image, title }) => {
+    return (
+      <WebCardWrapper cardWidth={width}>
+        <TouchableOpacity style={styles.container} onPress={() => {}}>
+          <Image source={image} style={styles.image} />
+          <Text style={styles.text}>{title}</Text>
+        </TouchableOpacity>
+      </WebCardWrapper>
+    );
+  }
+);
 
 const styles = StyleSheet.create({
   container: {
