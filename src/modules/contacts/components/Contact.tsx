@@ -9,9 +9,10 @@ export const Contact: React.FC<{ contact: IContactProps }> = React.memo(
     return (
       <Button
         width={230}
-        backgroundColor={colors.grayOpacity}
+        backgroundColor={colors.white}
         textColor={colors.black}
         onPress={() => {}}
+        hasShadow
         text={
           <View style={styles.container}>
             <Image source={contact.image} style={styles.image} />
