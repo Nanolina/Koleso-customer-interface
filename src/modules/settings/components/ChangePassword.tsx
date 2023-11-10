@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { TextWithInput } from '../../../components/TextWithInput';
 import { colors } from '../../../consts';
 import { Button } from '../../../ui/Button';
 
-export const ChangePassword = () => {
-  const [currentPassword, setCurrentPassword] = useState('');
-  const [newPassword, setNewPassword] = useState('');
+export const ChangePassword: React.FC = () => {
+  const [currentPassword, setCurrentPassword] = useState<string>('');
+  const [newPassword, setNewPassword] = useState<string>('');
+
+  const handleChangePassword = useCallback(() => {}, [
+    currentPassword,
+    newPassword,
+  ]);
 
   return (
     <View style={styles.container}>
@@ -25,7 +30,7 @@ export const ChangePassword = () => {
       <View style={styles.buttonContainer}>
         <Button
           text="Change password"
-          onPress={() => {}}
+          onPress={handleChangePassword}
           backgroundColor={colors.orange}
         />
       </View>

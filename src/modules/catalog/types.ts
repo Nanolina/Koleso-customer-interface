@@ -14,7 +14,7 @@ export interface ISectionType extends ICatalogItemType {
   categories?: ICatalogItemType[];
 }
 
-export interface CatalogItemProps {
+export interface ICatalogItemProps {
   item: ICatalogItemType | ISectionType | ICategoryType;
   onPress: () => void;
 }

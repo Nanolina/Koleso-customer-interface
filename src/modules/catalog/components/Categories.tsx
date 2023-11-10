@@ -19,7 +19,7 @@ export const Categories: React.FC = () => {
       if (item.subcategories) {
         navigation.navigate('SubcategoriesPage');
       } else {
-        navigation.navigate('Main', { item });
+        navigation.navigate('Main');
       }
     },
     [navigation]

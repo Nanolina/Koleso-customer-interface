@@ -1,19 +1,28 @@
-import { useNavigation } from '@react-navigation/native';
-import React from 'react';
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
+import React, { useCallback } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useSelector } from 'react-redux';
+import { RootState } from '../../../../redux/rootReducer';
 import { Row } from '../../../components/Row';
 import { colors, sizes } from '../../../consts';
 import { data } from '../data';
-import { RootState } from '../../../../redux/rootReducer';
+import { ISettingsState } from '../types';
 
 export const Settings: React.FC = () => {
   const { name, gender, phone, email, birthday } = useSelector(
-    (state: RootState) => state.settings
+    (state: RootState) => state.settings as ISettingsState
   );
 
-  const navigation: any = useNavigation();
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
+
+  const handleSignOutPress = useCallback(() => {
+    navigation.navigate('SignUpPage');
+  }, [navigation]);
 
   return (
     <View style={styles.container}>
@@ -34,7 +43,7 @@ export const Settings: React.FC = () => {
       <Row title="Password" navigateTo="SettingsPasswordPage" />
 
       <View style={styles.buttonsContainer}>
-        <TouchableOpacity onPress={() => navigation.navigate('SignUpPage')}>
+        <TouchableOpacity onPress={handleSignOutPress}>
           <Text style={styles.signOut}>Sign out of account</Text>
         </TouchableOpacity>
         <TouchableOpacity>

@@ -21,7 +21,7 @@ export const Subcategories: React.FC = () => {
           item={item}
           onPress={() => {
             dispatch(selectSubcategory(item));
-            navigation.navigate('Main', { item });
+            navigation.navigate('Main');
           }}
         />
       )}

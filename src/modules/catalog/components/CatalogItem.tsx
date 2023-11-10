@@ -8,11 +8,11 @@ import {
 } from 'react-native';
 import { css } from '../../../consts';
 import { WebCardWrapper } from '../../../ui/WebCardWrapper';
-import { CatalogItemProps } from '../types';
+import { ICatalogItemProps } from '../types';
 
 const { width } = Dimensions.get('window');
 
-export const CatalogItem: React.FC<CatalogItemProps> = React.memo(
+export const CatalogItem: React.FC<ICatalogItemProps> = React.memo(
   ({ item, onPress }) => {
     return (
       <WebCardWrapper cardWidth={width}>

@@ -1,13 +1,18 @@
-import { DateTime } from 'luxon';
 import { useDispatch } from 'react-redux';
 import { setValue } from '../../../redux/slices/settingsSlice';
+import { IGetDataForInput } from './types';
 
-export const getDataForInput = (title, name, phone, email) => {
+export const getDataForInput = ({
+  title,
+  name,
+  phone,
+  email,
+}: IGetDataForInput) => {
   const dispatch = useDispatch();
 
-  let value;
-  let onChangeText;
-  let inputMode = 'text';
+  let value: string;
+  let onChangeText: (value: string) => void;
+  let inputMode: string = 'text';
 
   if (title === 'Name') {
     value = name;
@@ -23,6 +28,7 @@ export const getDataForInput = (title, name, phone, email) => {
   if (title === 'Email') {
     value = email;
     onChangeText = (value) => dispatch(setValue({ value, key: 'email' }));
+    inputMode = 'email';
   }
 
   return {
@@ -32,7 +38,7 @@ export const getDataForInput = (title, name, phone, email) => {
   };
 };
 
-export const getAutoComplete = (title) => {
+export const getAutoComplete = (title: string): string => {
   let autoComplete = 'off';
 
   if (title === 'Name') {
