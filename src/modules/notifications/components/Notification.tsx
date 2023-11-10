@@ -20,9 +20,9 @@ export const Notification: React.FC<{ notification: INotificationProps }> =
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.pink,
     padding: 10,
     borderRadius: css.borderRadiusMax,
+    ...css.shadow,
   },
   topContainer: {
     paddingBottom: 10,
