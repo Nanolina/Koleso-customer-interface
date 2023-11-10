@@ -18,7 +18,7 @@ export interface ITimePickerProps {
   width?: string;
 }
 
-interface IAddress {
+export interface IAddress {
   id: string;
   address: string;
 }

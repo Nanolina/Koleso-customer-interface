@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { Subcategories } from '../modules/subcategories';
+import { Subcategories } from '../modules/catalog';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const SubcategoriesPage = () => {

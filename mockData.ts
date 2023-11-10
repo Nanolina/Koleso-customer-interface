@@ -1,4 +1,9 @@
-export const productCards = [
+import { IAddress } from './src/modules/checkout';
+import { IFinanceProps } from './src/modules/finances/types';
+import { INotificationProps } from './src/modules/notifications/types';
+import { IItemProps } from './src/types';
+
+export const productCards: IItemProps[] = [
   {
     id: '1',
     image: 'https://ae04.alicdn.com/kf/H07516981ed7d4b5bb3cc6a39ecea7115P.jpg',
@@ -76,9 +81,9 @@ Don't miss the opportunity to add this gorgeous pantsuit to your closet! It will
   },
 ];
 
-export const queries = ['Apple', 'Banana', 'Cherry'];
+export const queries: string[] = ['Apple', 'Banana', 'Cherry'];
 
-export const finances = [
+export const finances: IFinanceProps[] = [
   {
     id: 'b16e5377-ad5e-481c-b115-05d45d13cbc0',
     text: 'Payment for the order',
@@ -99,7 +104,7 @@ export const finances = [
   },
 ];
 
-export const notifications = [
+export const notifications: INotificationProps[] = [
   {
     id: '1',
     title: 'The money has been sent',
@@ -109,7 +114,7 @@ export const notifications = [
   },
 ];
 
-export const savedAddresses = [
+export const savedAddresses: IAddress[] = [
   {
     id: '1',
     address: 'Piazza Gentile 58, Appartamento 88, Borgo Laerte, CT 00986',

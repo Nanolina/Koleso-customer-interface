@@ -1,3 +1,5 @@
+import { ImageSourcePropType } from 'react-native';
+
 export interface IWebCardWrapperProps {
   cardWidth: number;
   children: React.ReactNode;
@@ -11,7 +13,7 @@ interface ILogisticsProps {
 
 export interface IItemProps {
   id: string;
-  image: string;
+  image: ImageSourcePropType | string;
   price: number;
   oldPrice: number;
   seller: string;
