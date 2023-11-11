@@ -13,7 +13,7 @@ export const SettingsCheckboxPage: React.FC = () => {
     <Container>
       <Header title={title} hasButtonBack />
       <CentralContainer isPadding={true}>
-        <CheckboxList items={items} />
+        <CheckboxList title={title} items={items} />
       </CentralContainer>
       <Footer />
     </Container>

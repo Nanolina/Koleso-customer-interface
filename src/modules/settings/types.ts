@@ -1,16 +1,9 @@
-export interface ISettingsState {
-  name: string;
-  gender: string;
-  phone: string;
-  email: string;
-  birthday: string;
-}
-
 export interface IInputProps {
   title: string;
 }
 
 export interface ICheckboxListProps {
+  title: string;
   items: string[];
 }
 

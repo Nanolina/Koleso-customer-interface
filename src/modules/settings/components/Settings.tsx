@@ -8,13 +8,13 @@ import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/rootReducer';
+import { ISettingsState } from '../../../../redux/slices/settingsSlice';
 import { Row } from '../../../components/Row';
 import { colors, sizes } from '../../../consts';
 import { data } from '../data';
-import { ISettingsState } from '../types';
 
 export const Settings: React.FC = () => {
-  const { name, gender, phone, email, birthday } = useSelector(
+  const { name, gender, phone, email, birthday, language } = useSelector(
     (state: RootState) => state.settings as ISettingsState
   );
 
@@ -41,6 +41,12 @@ export const Settings: React.FC = () => {
         navigateTo="SettingsBirthdayPage"
       />
       <Row title="Password" navigateTo="SettingsPasswordPage" />
+      <Row
+        items={data.languages}
+        title="Language"
+        selectedItem={language}
+        navigateTo="SettingsCheckboxPage"
+      />
 
       <View style={styles.buttonsContainer}>
         <TouchableOpacity onPress={handleSignOutPress}>
