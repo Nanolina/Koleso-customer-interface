@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/rootReducer';
@@ -13,42 +14,38 @@ import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { ICheckboxListProps } from '../types';
 
 export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
-  ({ title, items }) => {
+  ({ title, items, keyType }) => {
+    const { t, i18n } = useTranslation();
     const dispatch = useDispatch();
-    const { gender, language } = useSelector(
+
+    const settings = useSelector(
       (state: RootState) => state.settings as ISettingsState
     );
 
+    const isSelected = useCallback(
+      (item) => settings[keyType] === item,
+      [settings, keyType]
+    );
+
+    const changeLanguage = useCallback((language: string) => {
+      i18n.changeLanguage(language);
+    }, []);
+
     const renderItem = useCallback(
       (item) => {
-        let isSelected;
-        let key;
-
-        if (title === 'Gender') {
-          key = 'gender';
-          isSelected = gender === item;
-        } else if (title === 'Language') {
-          key = 'language';
-          isSelected = language === item;
-        }
-
         return (
           <CheckboxItem
             key={item}
-            text={item}
-            isSelected={isSelected}
-            onToggle={() =>
-              dispatch(
-                setValue({
-                  key,
-                  value: item,
-                })
-              )
-            }
+            text={t(item)}
+            isSelected={isSelected(item)}
+            onToggle={() => {
+              dispatch(setValue({ key: keyType, value: item }));
+              changeLanguage(item);
+            }}
           />
         );
       },
-      [gender, language, dispatch, setValue]
+      [isSelected, t, dispatch, keyType]
     );
 
     return (
