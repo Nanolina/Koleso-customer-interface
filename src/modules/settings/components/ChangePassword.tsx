@@ -3,8 +3,11 @@ import { StyleSheet, View } from 'react-native';
 import { TextWithInput } from '../../../components/TextWithInput';
 import { colors } from '../../../consts';
 import { Button } from '../../../ui/Button';
+import { useTranslation } from 'react-i18next';
 
 export const ChangePassword: React.FC = () => {
+  const { t } = useTranslation('translation', { keyPrefix: 'settings' });
+
   const [currentPassword, setCurrentPassword] = useState<string>('');
   const [newPassword, setNewPassword] = useState<string>('');
 
@@ -16,20 +19,20 @@ export const ChangePassword: React.FC = () => {
   return (
     <View style={styles.container}>
       <TextWithInput
-        text="Current password"
+        text={t('currentPassword')}
         value={currentPassword}
         onChangeText={setCurrentPassword}
         secureTextEntry={true}
       />
       <TextWithInput
-        text="New password"
+        text={t('newPassword')}
         value={newPassword}
         onChangeText={setNewPassword}
         secureTextEntry={true}
       />
       <View style={styles.buttonContainer}>
         <Button
-          text="Change password"
+          text={t('changePassword')}
           onPress={handleChangePassword}
           backgroundColor={colors.orange}
         />

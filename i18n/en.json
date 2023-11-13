@@ -1,14 +1,19 @@
 {
   "English": "English",
   "Russian": "Russian",
+  "reset": "Reset",
+  "add": "Add",
   "settings": {
+    "label": "Settings",
     "language": "Language",
     "gender": "Gender",
-    "label": "Settings",
     "name": "Name",
     "phone": "Phone",
     "email": "Email",
     "dateOfBirth": "Date of birth",
-    "password": "Password"
+    "password": "Password",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "changePassword": "Change password"
   }
 }

@@ -28,6 +28,7 @@ export const sizes = {
   iconSizeMax: 30,
   iconSizeMiddle: 25,
   iconSizeMin: 20,
+  iconSize16: 16,
 };
 
 export const css = {
@@ -38,7 +39,7 @@ export const css = {
   paddingBottom: 20,
   paddingTop: 10,
   resetAllButton: {
-    fontSize: sizes.text20,
+    fontSize: sizes.text16,
     color: colors.gray,
   },
   shadow: {

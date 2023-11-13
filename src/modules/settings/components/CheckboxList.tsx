@@ -22,16 +22,16 @@ export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
       (state: RootState) => state.settings as ISettingsState
     );
 
-     const isSelected = useCallback(
-       (item) => {
-         if (keyType === 'language') {
-           return i18n.language === item;
-         } else {
-           return settings[keyType] === item;
-         }
-       },
-       [settings, keyType, i18n.language]
-     );
+    const isSelected = useCallback(
+      (item) => {
+        if (keyType === 'language') {
+          return i18n.language === item;
+        } else {
+          return settings[keyType] === item;
+        }
+      },
+      [settings, keyType, i18n.language]
+    );
 
     const changeLanguage = useCallback(
       (language: string) => {
@@ -70,7 +70,7 @@ export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
         <View style={styles.button}>
           {title === 'Gender' && (
             <Button
-              text="Reset"
+              text={t('reset')}
               onPress={() => dispatch(resetValue({ key: 'gender' }))}
               width="50%"
               textColor={colors.main}

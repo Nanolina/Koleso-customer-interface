@@ -16,12 +16,11 @@ import { data } from '../data';
 
 export const Settings: React.FC = () => {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
-   const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const { name, gender, phone, email, birthday } = useSelector(
     (state: RootState) => state.settings as ISettingsState
   );
-
 
   const handleSignOutPress = useCallback(() => {
     navigation.navigate('SignUpPage');
@@ -39,11 +38,11 @@ export const Settings: React.FC = () => {
       <Row title="Phone" selectedItem={phone} navigateTo="SettingsInputPage" />
       <Row title="Email" selectedItem={email} navigateTo="SettingsInputPage" />
       <Row
-        title="Date of birth"
+        title={t('settings.dateOfBirth')}
         selectedItem={birthday}
         navigateTo="SettingsBirthdayPage"
       />
-      <Row title="Password" navigateTo="SettingsPasswordPage" />
+      <Row title={t('settings.password')} navigateTo="SettingsPasswordPage" />
       <Row
         items={data.languages}
         title={t('settings.language')}

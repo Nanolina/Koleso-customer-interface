@@ -96,7 +96,7 @@ export interface ISearchState {
 }
 
 export interface ITextWithInputProps {
-  text: string;
+  text?: string;
   value: string;
   onChangeText: (text: string) => void;
   width?: string;

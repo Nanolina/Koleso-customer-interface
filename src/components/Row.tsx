@@ -42,11 +42,9 @@ export const Row: React.FC<IRowProps> = ({
         {isFilled ? (
           <Text style={styles.extraFilled}>{t(extraText)}</Text>
         ) : (
-          <Text style={styles.extra}>
-            {extraText || `Add ${title.toLowerCase()}`}
-          </Text>
+          <Text style={styles.extra}>{extraText || t('add')}</Text>
         )}
-        <AntDesign name="right" size={sizes.iconSizeMin} color={colors.gray} />
+        <AntDesign name="right" size={sizes.iconSize16} color={colors.gray} />
       </View>
     </TouchableOpacity>
   );
@@ -59,7 +57,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
-    fontSize: sizes.text20,
+    fontSize: sizes.text16,
     fontWeight: 'bold',
   },
   right: {
@@ -69,10 +67,10 @@ const styles = StyleSheet.create({
   },
   extra: {
     color: colors.gray,
-    fontSize: sizes.text20,
+    fontSize: sizes.text16,
   },
   extraFilled: {
     color: colors.black,
-    fontSize: sizes.text20,
+    fontSize: sizes.text16,
   },
 });

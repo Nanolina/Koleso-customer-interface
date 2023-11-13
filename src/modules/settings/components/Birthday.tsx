@@ -8,9 +8,12 @@ import { DatePicker } from '../../../components/DatePicker';
 import { colors } from '../../../consts';
 import { Button } from '../../../ui/Button';
 import { maxBirthDate } from '../consts';
+import { useTranslation } from 'react-i18next';
 
 export const Birthday: React.FC = () => {
   const dispatch = useDispatch();
+  const {t} = useTranslation();
+
   const birthday = useSelector(
     (state: RootState) => state.settings.birthday as string
   );
@@ -33,7 +36,7 @@ export const Birthday: React.FC = () => {
     <View style={styles.container}>
       <View style={styles.button}>
         <Button
-          text="Reset"
+          text={t('reset')}
           onPress={handleReset}
           width="50%"
           backgroundColor={colors.white}

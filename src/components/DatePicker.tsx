@@ -4,22 +4,27 @@ import {
   DatePickerInput,
   enGB,
   registerTranslation,
+  ru,
 } from 'react-native-paper-dates';
+import i18n from '../../i18n/i18n';
 import { colors, css, sizes } from '../consts';
 import { IDatePickerProps } from '../types';
 
 registerTranslation('en-GB', enGB);
+registerTranslation('ru', ru);
 
 export const DatePicker: React.FC<IDatePickerProps> = React.memo(
   ({ text, value, onChange, width, validRange }) => {
     const styles = useMemo(() => getStyles(width), [width]);
+
+    const locale = i18n.language === 'Russian' ? 'ru' : 'en-GB';
 
     return (
       <View style={styles.container}>
         {text && <Text style={styles.text}>{text}</Text>}
 
         <DatePickerInput
-          locale="en-GB"
+          locale={locale}
           value={value ? new Date(value) : undefined}
           onChange={onChange}
           inputMode="start"

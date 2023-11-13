@@ -1,14 +1,19 @@
 {
   "English": "Английский",
   "Russian": "Русский",
+  "reset": "Сбросить",
+  "add": "Добавить",
   "settings": {
+    "label": "Настройки",
     "language": "Язык",
     "gender": "Пол",
-    "label": "Настройки",
     "name": "Имя",
     "phone": "Телефон",
     "email": "Электронная почта",
     "dateOfBirth": "Дата рождения",
-    "password": "Пароль"
+    "password": "Пароль",
+    "currentPassword": "Текущий пароль",
+    "newPassword": "Новый пароль",
+    "changePassword": "Изменить пароль"
   }
 }
