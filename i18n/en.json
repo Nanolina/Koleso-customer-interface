@@ -33,5 +33,10 @@
     "returned": "Returned",
     "delivered": "Delivered",
     "makeReturn": "Make a return"
+  },
+  "returns": {
+    "sent": "The money has been sent",
+    "notSent": "The money hasn't been sent yet",
+    "request": "Return request from"
   }
 }

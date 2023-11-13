@@ -82,7 +82,7 @@ export interface IButtonsGroupState {
 }
 
 export interface IImageContainerProps {
-  image: string;
+  image: ImageSourcePropType | string;
 }
 
 export interface ISearchBarProps {

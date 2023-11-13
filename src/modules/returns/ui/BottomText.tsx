@@ -1,14 +1,17 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text } from 'react-native';
 import { colors } from '../../../consts';
 import { IBottomTextProps } from '../types';
 
 export const BottomText: React.FC<IBottomTextProps> = React.memo(
   ({ statusMoney }) => {
+    const { t } = useTranslation('translation', { keyPrefix: 'returns' });
+
     return statusMoney === 'sent' ? (
-      <Text style={styles.green}>The money has been sent</Text>
+      <Text style={styles.green}>{t('sent')}</Text>
     ) : (
-      <Text style={styles.red}>The money hasn't been sent yet</Text>
+      <Text style={styles.red}>{t('notSent')}</Text>
     );
   }
 );

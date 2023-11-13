@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { ImageContainer } from '../../../components/ImageContainer';
 import { colors, css } from '../../../consts';
@@ -8,12 +9,14 @@ import { UpperText } from '../ui/UpperText';
 import { TextInfoContainer } from './TextInfoContainer';
 
 export const Return: React.FC<{ item: IItemProps }> = React.memo(({ item }) => {
+  const { t } = useTranslation('translation', { keyPrefix: 'returns' });
+
   return (
     <View style={styles.container}>
       <UpperText
         number={item.return.number}
         date={item.return.date}
-        text="Return request from"
+        text={t('request')}
       />
       <View style={styles.centerContainer}>
         <ImageContainer image={item.image} />
