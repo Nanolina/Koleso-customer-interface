@@ -55,18 +55,18 @@ export const Settings: React.FC = () => {
         navigateTo="SettingsInputPage"
       />
       <Row
-        title={t('dateOfBirth')}
+        title="Date of birth"
         displayTitle={t('dateOfBirth')}
         selectedItem={birthday}
         navigateTo="SettingsBirthdayPage"
       />
       <Row
-        title={t('password')}
+        title="Password"
         displayTitle={t('password')}
         navigateTo="SettingsPasswordPage"
       />
       <Row
-        title={t('language')}
+        title="Language"
         displayTitle={t('language')}
         items={data.languages}
         selectedItem={i18n.language}

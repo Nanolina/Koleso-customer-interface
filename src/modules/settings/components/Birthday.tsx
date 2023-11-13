@@ -1,5 +1,6 @@
 import { DateTime } from 'luxon';
 import React, { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/rootReducer';
@@ -8,11 +9,10 @@ import { DatePicker } from '../../../components/DatePicker';
 import { colors } from '../../../consts';
 import { Button } from '../../../ui/Button';
 import { maxBirthDate } from '../consts';
-import { useTranslation } from 'react-i18next';
 
 export const Birthday: React.FC = () => {
   const dispatch = useDispatch();
-  const {t} = useTranslation();
+  const { t } = useTranslation();
 
   const birthday = useSelector(
     (state: RootState) => state.settings.birthday as string

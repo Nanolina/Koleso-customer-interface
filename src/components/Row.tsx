@@ -31,7 +31,7 @@ export const Row: React.FC<IRowProps> = ({
   }, [navigation, navigateTo, title, items, selectedItems]);
 
   // Define what to display in the right part of the component
-  const isFilled = selectedItem ? selectedItem : selectedItems.length > 0;
+  const isFilled = selectedItem ? selectedItem : selectedItems.length;
   const extraText = selectedItem
     ? getDisplayItem(title, selectedItem)
     : selectedItems.length;
@@ -41,9 +41,11 @@ export const Row: React.FC<IRowProps> = ({
       <Text style={styles.text}>{displayTitle}</Text>
       <View style={styles.right}>
         {isFilled ? (
-          <Text style={styles.extraFilled}>{t(extraText)}</Text>
+          <Text style={styles.extraFilled}>{extraText}</Text>
         ) : (
-          <Text style={styles.extra}>{extraText || t('add')}</Text>
+          <Text style={styles.extra}>
+            {title === 'Password' ? t('change') : t('add')}
+          </Text>
         )}
         <AntDesign name="right" size={sizes.iconSize16} color={colors.gray} />
       </View>

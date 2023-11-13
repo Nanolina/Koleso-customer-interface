@@ -1,90 +1,55 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ScrollView, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/rootReducer';
-import {
-  ISettingsState,
-  resetValue,
-  setValue,
-} from '../../../../redux/slices/settingsSlice';
+import { resetValue, setValue } from '../../../../redux/slices/settingsSlice';
 import { colors } from '../../../consts';
 import { Button } from '../../../ui/Button';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
-import { ICheckboxListProps } from '../types';
+import { data } from '../data';
 
-export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
-  ({ title, items, keyType }) => {
-    const { t, i18n } = useTranslation();
-    const dispatch = useDispatch();
+export const CheckboxList: React.FC = () => {
+  const { i18n, t } = useTranslation();
+  const dispatch = useDispatch();
 
-    const settings = useSelector(
-      (state: RootState) => state.settings as ISettingsState
-    );
+  const gender = useSelector(
+    (state: RootState) => state.settings.gender as string
+  );
 
-    const isSelected = useCallback(
-      (item) => {
-        if (keyType === 'language') {
-          return i18n.language === item;
-        } else {
-          return settings[keyType] === item;
-        }
-      },
-      [settings, keyType, i18n.language]
-    );
+  const items = data.genders;
 
-    const changeLanguage = useCallback(
-      (language: string) => {
-        i18n.changeLanguage(language);
-      },
-      [i18n]
-    );
+  const renderItem = useCallback(
+    (item: string) => {
+      return (
+        <CheckboxItem
+          key={item}
+          text={t(`settings.${item.toLowerCase()}`)}
+          isSelected={item === gender}
+          onToggle={() => dispatch(setValue({ key: 'gender', value: item }))}
+        />
+      );
+    },
+    [gender, dispatch, i18n.language]
+  );
 
-    const onToggle = useCallback(
-      (item) => {
-        if (keyType === 'language') {
-          changeLanguage(item);
-        } else if (keyType === 'gender') {
-          dispatch(setValue({ key: keyType, value: item }));
-        }
-      },
-      [changeLanguage, dispatch, keyType]
-    );
-
-    const renderItem = useCallback(
-      (item) => {
-        return (
-          <CheckboxItem
-            key={item}
-            text={t(item)}
-            isSelected={isSelected(item)}
-            onToggle={() => onToggle(item)}
-          />
-        );
-      },
-      [isSelected, t, onToggle]
-    );
-
-    return (
-      <ScrollView>
-        <View style={styles.button}>
-          {title === 'Gender' && (
-            <Button
-              text={t('reset')}
-              onPress={() => dispatch(resetValue({ key: 'gender' }))}
-              width="50%"
-              textColor={colors.main}
-              backgroundColor={colors.white}
-              isBold={false}
-              hasShadow
-            />
-          )}
-        </View>
-        {items.map(renderItem)}
-      </ScrollView>
-    );
-  }
-);
+  return (
+    <View>
+      <View style={styles.button}>
+        <Button
+          text={t('reset')}
+          onPress={() => dispatch(resetValue({ key: 'gender' }))}
+          width="50%"
+          textColor={colors.main}
+          backgroundColor={colors.white}
+          isBold={false}
+          hasShadow
+        />
+      </View>
+      {items.map(renderItem)}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   button: {

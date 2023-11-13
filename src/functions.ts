@@ -1,4 +1,5 @@
 import { DateTime } from 'luxon';
+import i18n from '../i18n/i18n';
 
 const formatPhone = (phone: string) => {
   if (!phone || phone.length < 3) return phone;
@@ -23,6 +24,14 @@ export const getDisplayItem = (title: string, selectedItem: string) => {
 
   if (title === 'Date of birth' && selectedItem) {
     return formatBirthday(selectedItem);
+  }
+
+  if (title === 'Gender') {
+    return i18n.t(`settings.${selectedItem.toLowerCase()}`);
+  }
+
+  if (title === 'Language') {
+    return i18n.t(selectedItem);
   }
 
   return selectedItem;
