@@ -44,5 +44,8 @@
     "return": "Return of goods on order",
     "successful": "successful",
     "rejected": "rejected"
+  },
+  "contacts": {
+    "title": "Contact us in a convenient way"
   }
 }
