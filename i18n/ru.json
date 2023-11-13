@@ -4,6 +4,14 @@
   "reset": "Сбросить",
   "change": "Изменить",
   "add": "Добавить",
+  "myAccount": {
+    "label": "Мой аккаунт",
+    "settings": "Настройки",
+    "purchases": "Покупки",
+    "returns": "Возвраты",
+    "finances": "Финансы",
+    "contacts": "Контакты"
+  },
   "settings": {
     "label": "Настройки",
     "language": "Язык",
@@ -21,12 +29,9 @@
     "signOutOfAccount": "Выйти из учетной записи",
     "deleteAccount": "Удалить учетную запись"
   },
-  "myAccount": {
-    "label": "Мой аккаунт",
-    "settings": "Настройки",
-    "purchases": "Покупки",
-    "returns": "Возвраты",
-    "finances": "Финансы",
-    "contacts": "Контакты"
+  "purchases": {
+    "returned": "Возвращено",
+    "delivered": "Доставлено",
+    "makeReturn": "Сделать возврат"
   }
 }

@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { productCards } from '../../mockData';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
@@ -6,9 +7,11 @@ import { Purchases } from '../modules/purchases';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const PurchasesPage: React.FC = () => {
+  const { t } = useTranslation('translation', { keyPrefix: 'myAccount' });
+
   return (
     <Container>
-      <Header title="Purchases" hasButtonBack />
+      <Header title={t('purchases')} hasButtonBack />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Purchases data={productCards} />
       </CentralContainer>

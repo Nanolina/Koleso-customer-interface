@@ -4,6 +4,14 @@
   "reset": "Reset",
   "change": "Change",
   "add": "Add",
+  "myAccount": {
+    "label": "My account",
+    "settings": "Settings",
+    "purchases": "Purchases",
+    "returns": "Returns",
+    "finances": "Finances",
+    "contacts": "Contacts"
+  },
   "settings": {
     "label": "Settings",
     "language": "Language",
@@ -21,12 +29,9 @@
     "signOutOfAccount": "Sign out of account",
     "deleteAccount": "Delete account"
   },
-  "myAccount": {
-    "label": "My account",
-    "settings": "Settings",
-    "purchases": "Purchases",
-    "returns": "Returns",
-    "finances": "Finances",
-    "contacts": "Contacts"
+  "purchases": {
+    "returned": "Returned",
+    "delivered": "Delivered",
+    "makeReturn": "Make a return"
   }
 }

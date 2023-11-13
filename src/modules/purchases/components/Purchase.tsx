@@ -4,6 +4,7 @@ import {
   useNavigation,
 } from '@react-navigation/native';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Dimensions, Platform, StyleSheet, View } from 'react-native';
 import { colors, css, sizes } from '../../../consts';
 import { IItemProps } from '../../../types';
@@ -17,6 +18,7 @@ const cardWidth = width / 3;
 
 export const Purchase: React.FC<{ item: IItemProps }> = React.memo(
   ({ item }) => {
+    const { t } = useTranslation('translation', { keyPrefix: 'purchases' });
     const navigation: NavigationProp<ParamListBase> = useNavigation();
 
     const handlePress = React.useCallback(() => {
@@ -35,7 +37,7 @@ export const Purchase: React.FC<{ item: IItemProps }> = React.memo(
         {!item.return && (
           <View style={styles.buttonContainer}>
             <Button
-              text="Make a return"
+              text={t('makeReturn')}
               backgroundColor={colors.white}
               textColor={colors.main}
               border={false}

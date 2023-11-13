@@ -35,7 +35,7 @@ export const TextContainer: React.FC<{ item: IItemProps }> = React.memo(
 const styles = StyleSheet.create({
   container: {
     gap: 2,
-    paddingBottom: 5,
+    padding: 5,
   },
   infoContainer: {
     height: 100,
