@@ -37,6 +37,7 @@ export interface IItemProps {
 
 export interface IRowProps {
   title: string;
+  displayTitle: string;
   navigateTo: string;
   items?: string[] | number[];
   selectedItems?: string[] | number[];

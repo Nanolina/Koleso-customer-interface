@@ -13,6 +13,7 @@ import { IRowProps } from '../types';
 
 export const Row: React.FC<IRowProps> = ({
   title,
+  displayTitle,
   navigateTo,
   items = [],
   selectedItems = [],
@@ -37,7 +38,7 @@ export const Row: React.FC<IRowProps> = ({
 
   return (
     <TouchableOpacity style={styles.container} onPress={handlePress}>
-      <Text style={styles.text}>{title}</Text>
+      <Text style={styles.text}>{displayTitle}</Text>
       <View style={styles.right}>
         {isFilled ? (
           <Text style={styles.extraFilled}>{t(extraText)}</Text>

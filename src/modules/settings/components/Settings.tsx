@@ -16,7 +16,8 @@ import { data } from '../data';
 
 export const Settings: React.FC = () => {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
+  const { t } = useTranslation('translation', { keyPrefix: 'settings' });
 
   const { name, gender, phone, email, birthday } = useSelector(
     (state: RootState) => state.settings as ISettingsState
@@ -28,24 +29,46 @@ export const Settings: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Row title="Name" selectedItem={name} navigateTo="SettingsInputPage" />
       <Row
-        items={data.genders}
+        title="Name"
+        displayTitle={t('name')}
+        selectedItem={name}
+        navigateTo="SettingsInputPage"
+      />
+      <Row
         title="Gender"
+        displayTitle={t('gender')}
+        items={data.genders}
         selectedItem={gender}
         navigateTo="SettingsCheckboxPage"
       />
-      <Row title="Phone" selectedItem={phone} navigateTo="SettingsInputPage" />
-      <Row title="Email" selectedItem={email} navigateTo="SettingsInputPage" />
       <Row
-        title={t('settings.dateOfBirth')}
+        title="Phone"
+        displayTitle={t('phone')}
+        selectedItem={phone}
+        navigateTo="SettingsInputPage"
+      />
+      <Row
+        title="Email"
+        displayTitle={t('email')}
+        selectedItem={email}
+        navigateTo="SettingsInputPage"
+      />
+      <Row
+        title={t('dateOfBirth')}
+        displayTitle={t('dateOfBirth')}
         selectedItem={birthday}
         navigateTo="SettingsBirthdayPage"
       />
-      <Row title={t('settings.password')} navigateTo="SettingsPasswordPage" />
       <Row
+        title={t('password')}
+        displayTitle={t('password')}
+        navigateTo="SettingsPasswordPage"
+      />
+      <Row
+        title={t('language')}
+        displayTitle={t('language')}
         items={data.languages}
-        title={t('settings.language')}
         selectedItem={i18n.language}
         navigateTo="SettingsCheckboxPage"
       />
