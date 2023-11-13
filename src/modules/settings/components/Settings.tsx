@@ -75,10 +75,10 @@ export const Settings: React.FC = () => {
 
       <View style={styles.buttonsContainer}>
         <TouchableOpacity onPress={handleSignOutPress}>
-          <Text style={styles.signOut}>Sign out of account</Text>
+          <Text style={styles.signOut}>{t('signOutOfAccount')}</Text>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text style={styles.delete}>Delete account</Text>
+          <Text style={styles.delete}>{t('deleteAccount')}</Text>
         </TouchableOpacity>
       </View>
     </View>

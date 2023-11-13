@@ -14,6 +14,8 @@
     "password": "Пароль",
     "currentPassword": "Текущий пароль",
     "newPassword": "Новый пароль",
-    "changePassword": "Изменить пароль"
+    "changePassword": "Изменить пароль",
+    "signOutOfAccount": "Выйти из учетной записи",
+    "deleteAccount": "Удалить учетную запись"
   }
 }
