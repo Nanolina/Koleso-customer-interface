@@ -1,0 +1,14 @@
+{
+  "English": "Английский",
+  "Russian": "Русский",
+  "settings": {
+    "language": "Язык",
+    "gender": "Пол",
+    "label": "Настройки",
+    "name": "Имя",
+    "phone": "Телефон",
+    "email": "Электронная почта",
+    "dateOfBirth": "Дата рождения",
+    "password": "Пароль"
+  }
+}

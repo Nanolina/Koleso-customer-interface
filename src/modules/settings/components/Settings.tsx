@@ -4,6 +4,7 @@ import {
   useNavigation,
 } from '@react-navigation/native';
 import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useSelector } from 'react-redux';
@@ -14,11 +15,13 @@ import { colors, sizes } from '../../../consts';
 import { data } from '../data';
 
 export const Settings: React.FC = () => {
-  const { name, gender, phone, email, birthday, language } = useSelector(
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
+   const { t, i18n } = useTranslation();
+
+  const { name, gender, phone, email, birthday } = useSelector(
     (state: RootState) => state.settings as ISettingsState
   );
 
-  const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   const handleSignOutPress = useCallback(() => {
     navigation.navigate('SignUpPage');
@@ -43,8 +46,8 @@ export const Settings: React.FC = () => {
       <Row title="Password" navigateTo="SettingsPasswordPage" />
       <Row
         items={data.languages}
-        title="Language"
-        selectedItem={language}
+        title={t('settings.language')}
+        selectedItem={i18n.language}
         navigateTo="SettingsCheckboxPage"
       />
 

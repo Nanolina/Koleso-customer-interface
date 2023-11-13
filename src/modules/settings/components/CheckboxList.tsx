@@ -22,14 +22,34 @@ export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
       (state: RootState) => state.settings as ISettingsState
     );
 
-    const isSelected = useCallback(
-      (item) => settings[keyType] === item,
-      [settings, keyType]
+     const isSelected = useCallback(
+       (item) => {
+         if (keyType === 'language') {
+           return i18n.language === item;
+         } else {
+           return settings[keyType] === item;
+         }
+       },
+       [settings, keyType, i18n.language]
+     );
+
+    const changeLanguage = useCallback(
+      (language: string) => {
+        i18n.changeLanguage(language);
+      },
+      [i18n]
     );
 
-    const changeLanguage = useCallback((language: string) => {
-      i18n.changeLanguage(language);
-    }, []);
+    const onToggle = useCallback(
+      (item) => {
+        if (keyType === 'language') {
+          changeLanguage(item);
+        } else if (keyType === 'gender') {
+          dispatch(setValue({ key: keyType, value: item }));
+        }
+      },
+      [changeLanguage, dispatch, keyType]
+    );
 
     const renderItem = useCallback(
       (item) => {
@@ -38,14 +58,11 @@ export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
             key={item}
             text={t(item)}
             isSelected={isSelected(item)}
-            onToggle={() => {
-              dispatch(setValue({ key: keyType, value: item }));
-              changeLanguage(item);
-            }}
+            onToggle={() => onToggle(item)}
           />
         );
       },
-      [isSelected, t, dispatch, keyType]
+      [isSelected, t, onToggle]
     );
 
     return (

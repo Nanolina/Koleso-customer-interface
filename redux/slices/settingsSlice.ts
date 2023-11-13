@@ -6,7 +6,6 @@ export interface ISettingsState {
   phone: string | null;
   email: string | null;
   birthday: string | null;
-  language: string | null;
 }
 
 interface ISetValuePayload {
@@ -22,7 +21,6 @@ const settingsSlice = createSlice({
     phone: null,
     email: null,
     birthday: null,
-    language: 'English',
   } as ISettingsState,
   reducers: {
     setValue: (state, action: PayloadAction<ISetValuePayload>) => {

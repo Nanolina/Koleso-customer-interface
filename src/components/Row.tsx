@@ -5,6 +5,7 @@ import {
   useNavigation,
 } from '@react-navigation/native';
 import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { colors, sizes } from '../consts';
 import { getDisplayItem } from '../functions';
@@ -18,6 +19,7 @@ export const Row: React.FC<IRowProps> = ({
   selectedItem,
 }) => {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
+  const { t } = useTranslation();
 
   const handlePress = useCallback(() => {
     navigation.navigate(navigateTo, {
@@ -38,7 +40,7 @@ export const Row: React.FC<IRowProps> = ({
       <Text style={styles.text}>{title}</Text>
       <View style={styles.right}>
         {isFilled ? (
-          <Text style={styles.extraFilled}>{extraText}</Text>
+          <Text style={styles.extraFilled}>{t(extraText)}</Text>
         ) : (
           <Text style={styles.extra}>
             {extraText || `Add ${title.toLowerCase()}`}
