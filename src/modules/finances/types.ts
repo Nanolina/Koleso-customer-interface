@@ -1,6 +1,6 @@
 export interface IFinanceProps {
   id: string;
-  text: string;
+  type: string;
   orderNumber: string;
   paymentAmount: number;
   date: string;

@@ -38,5 +38,11 @@
     "sent": "The money has been sent",
     "notSent": "The money hasn't been sent yet",
     "request": "Return request from"
+  },
+  "finances": {
+    "payment": "Payment for the order",
+    "return": "Return of goods on order",
+    "successful": "successful",
+    "rejected": "rejected"
   }
 }

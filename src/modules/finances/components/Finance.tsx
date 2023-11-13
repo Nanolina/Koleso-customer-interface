@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, css, currency, sizes } from '../../../consts';
 import { Hr } from '../../../ui/Hr';
@@ -6,10 +7,15 @@ import { IFinanceProps } from '../types';
 
 export const Finance: React.FC<{ finance: IFinanceProps }> = React.memo(
   ({ finance }) => {
+    const { t } = useTranslation('translation', { keyPrefix: 'finances' });
+
     return (
       <View style={styles.container}>
         <View style={styles.row}>
-          <Text style={styles.text}>{finance.text}</Text>
+          <Text style={styles.text}>
+            {finance.type === 'payment' && t('payment')}
+            {finance.type === 'return' && t('return')}
+          </Text>
 
           <View style={styles.amountContainer}>
             <Text style={styles.amount}>
@@ -36,7 +42,7 @@ export const Finance: React.FC<{ finance: IFinanceProps }> = React.memo(
                 : styles.rejected
             }
           >
-            {finance.status}
+            {t(finance.status)}
           </Text>
         </View>
 

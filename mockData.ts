@@ -86,7 +86,7 @@ export const queries: string[] = ['Apple', 'Banana', 'Cherry'];
 export const finances: IFinanceProps[] = [
   {
     id: 'b16e5377-ad5e-481c-b115-05d45d13cbc0',
-    text: 'Payment for the order',
+    type: 'payment',
     orderNumber: '0135033693-0023',
     paymentAmount: 50,
     date: '27.09.2023',
@@ -95,7 +95,7 @@ export const finances: IFinanceProps[] = [
   },
   {
     id: '847319b3-1a7b-49c6-9017-ee7667744ff0',
-    text: 'Return of goods on order',
+    type: 'return',
     orderNumber: '0256033693-0023',
     paymentAmount: 124,
     date: '02.10.2023',
