@@ -4,6 +4,7 @@ import {
   useNavigation,
 } from '@react-navigation/native';
 import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Dimensions,
   Image,
@@ -19,6 +20,7 @@ const { width } = Dimensions.get('window');
 
 export const Service: React.FC<{ service: IService }> = React.memo(
   ({ service }) => {
+    const { t } = useTranslation('translation', { keyPrefix: 'myAccount' });
     const navigation: NavigationProp<ParamListBase> = useNavigation();
 
     const onPress = useCallback(() => {
@@ -29,7 +31,7 @@ export const Service: React.FC<{ service: IService }> = React.memo(
       <WebCardWrapper cardWidth={width}>
         <TouchableOpacity style={styles.container} onPress={onPress}>
           <Image source={service.image} style={styles.image} />
-          <Text style={styles.text}>{service.title}</Text>
+          <Text style={styles.text}>{t(service.title)}</Text>
         </TouchableOpacity>
       </WebCardWrapper>
     );

@@ -20,5 +20,13 @@
     "changePassword": "Изменить пароль",
     "signOutOfAccount": "Выйти из учетной записи",
     "deleteAccount": "Удалить учетную запись"
+  },
+  "myAccount": {
+    "label": "Мой аккаунт",
+    "settings": "Настройки",
+    "purchases": "Покупки",
+    "returns": "Возвраты",
+    "finances": "Финансы",
+    "contacts": "Контакты"
   }
 }

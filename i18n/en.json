@@ -20,5 +20,13 @@
     "changePassword": "Change password",
     "signOutOfAccount": "Sign out of account",
     "deleteAccount": "Delete account"
+  },
+  "myAccount": {
+    "label": "My account",
+    "settings": "Settings",
+    "purchases": "Purchases",
+    "returns": "Returns",
+    "finances": "Finances",
+    "contacts": "Contacts"
   }
 }
