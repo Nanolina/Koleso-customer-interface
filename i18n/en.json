@@ -5,6 +5,7 @@
   "change": "Change",
   "add": "Add",
   "selectAll": "Select all",
+  "close": "Close",
   "myAccount": {
     "label": "My account",
     "settings": "Settings",
@@ -74,7 +75,8 @@
     "pickupPoint": "Pick-up point",
     "courier": "Courier",
     "date": "Date",
-    "note": "Note"
+    "note": "Note",
+    "placeholderNote": "You can write notes here for the courier if necessary"
   },
   "address": {
     "addAddress": "Add an address",
@@ -83,5 +85,17 @@
     "street": "Street",
     "houseNumber": "House number",
     "apartmentNumber": "Apartment number"
+  },
+  "modal": {
+    "error": {
+      "title": "Sorry",
+      "message": "There was an error",
+      "tryAgain": "Please try again"
+    },
+    "success": {
+      "title": "Thank you for your purchase!",
+      "message": "Payment was successful",
+      "orderNumber": "Your order number"
+    }
   }
 }

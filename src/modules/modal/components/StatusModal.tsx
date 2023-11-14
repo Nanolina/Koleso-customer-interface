@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text } from 'react-native';
 import { sizes } from '../../../consts';
 import { images } from '../consts';
@@ -17,11 +18,15 @@ export const StatusModal: React.FC<IStatusModalProps> = React.memo(
     topImage,
     rightImage,
   }) => {
+    const { t } = useTranslation('translation', {
+      keyPrefix: 'modal',
+    });
+
     const isSuccess = type === 'success';
     const imageSource = isSuccess ? images.success : images.error;
     const additionalText = isSuccess
-      ? `Your order number: ${orderId}`
-      : 'Please try again';
+      ? `${t('success.orderNumber')}: ${orderId}`
+      : t('error.tryAgain');
 
     return (
       <CustomModal onClose={onClose}>

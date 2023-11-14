@@ -6,13 +6,10 @@ import { INoteProps } from '../types';
 
 export const Note: React.FC<INoteProps> = React.memo(
   ({ title, placeholder, value, onChangeText }) => {
-    const { t } = useTranslation('translation', {
-      keyPrefix: 'orderProcessing',
-    });
 
     return (
       <View style={styles.container}>
-        {title && <Text style={styles.text}>{t('note')}</Text>}
+        {title && <Text style={styles.text}>{title}</Text>}
         <TextInput
           style={styles.textArea}
           multiline={true}

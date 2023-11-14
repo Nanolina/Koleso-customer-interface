@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
@@ -8,11 +9,15 @@ import { Payment } from '../modules/payment';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const PaymentPage: React.FC = () => {
+  const { t } = useTranslation('translation', {
+    keyPrefix: 'modal',
+  });
+
   // true = mock data
   const [isModalVisible, setModalVisible] = useState(true);
 
   // mock data
-  const payment = false;
+  const payment = true;
 
   const onClose = useCallback(() => {
     setModalVisible(false);
@@ -21,8 +26,8 @@ export const PaymentPage: React.FC = () => {
   const modalProps = payment
     ? {
         type: 'success',
-        title: 'Thank you for your purchase!',
-        message: 'Payment was successful',
+        title: t('success.title'),
+        message: t('success.message'),
         orderId: '32345678523456',
         widthImage: 60,
         heightImage: 60,
@@ -31,8 +36,8 @@ export const PaymentPage: React.FC = () => {
       }
     : {
         type: 'error',
-        title: 'Sorry',
-        message: 'There was an error',
+        title: t('error.title'),
+        message: t('error.message'),
         widthImage: 40,
         heightImage: 40,
         topImage: 20,

@@ -70,7 +70,7 @@ export const ExtraInfoCourier: React.FC = () => {
       <Hr />
       <View style={styles.container}>
         <DatePicker
-          text="Date"
+          text={t('date')}
           value={date}
           onChange={handleDateChange}
           validRange={validRangeDate}
@@ -78,8 +78,8 @@ export const ExtraInfoCourier: React.FC = () => {
       </View>
 
       <Note
-        title="Note"
-        placeholder="Write notes for the courier..."
+        title={t('note')}
+        placeholder={t('placeholderNote')}
         value={note}
         onChangeText={handleNoteChange}
       />

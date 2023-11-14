@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     color: colors.main,
   },
   text: {
-    fontSize: sizes.text16,
+    fontSize: sizes.text15,
     fontWeight: 'bold',
     flexShrink: 1,
     flexWrap: 'wrap',

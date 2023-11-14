@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Modal, StyleSheet, View } from 'react-native';
 import { colors, css } from '../../../consts';
 import { Button } from '../../../ui/Button';
@@ -6,6 +7,8 @@ import { IModalProps } from '../types';
 
 export const CustomModal: React.FC<IModalProps> = React.memo(
   ({ children, onClose }) => {
+    const { t } = useTranslation();
+
     const handleClose = useCallback(() => {
       onClose();
     }, [onClose]);
@@ -21,7 +24,7 @@ export const CustomModal: React.FC<IModalProps> = React.memo(
           <View style={styles.centerContainer}>
             {children}
             <Button
-              text="Close"
+              text={t('close')}
               onPress={onClose}
               backgroundColor={colors.white}
               textColor={colors.main}

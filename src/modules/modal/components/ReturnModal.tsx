@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { sizes } from '../../../consts';
 import { images } from '../consts';
@@ -5,6 +6,10 @@ import { IModalProps } from '../types';
 import { CustomModal } from './CustomModal';
 
 export const ReturnModal: React.FC<IModalProps> = ({ onClose }) => {
+  const { t } = useTranslation('translation', {
+    keyPrefix: 'modal',
+  });
+
   return (
     <CustomModal onClose={onClose}>
       <View style={styles.container}>

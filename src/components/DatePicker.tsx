@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
 import {
   DatePickerInput,
@@ -16,15 +15,11 @@ registerTranslation('ru', ru);
 
 export const DatePicker: React.FC<IDatePickerProps> = React.memo(
   ({ text, value, onChange, validRange }) => {
-    const { t } = useTranslation('translation', {
-      keyPrefix: 'orderProcessing',
-    });
-
     const locale = i18n.language === 'Russian' ? 'ru' : 'en-GB';
 
     return (
       <View style={styles.container}>
-        {text && <Text style={styles.text}>{t('date')}</Text>}
+        {text && <Text style={styles.text}>{text}</Text>}
 
         <DatePickerInput
           locale={locale}
