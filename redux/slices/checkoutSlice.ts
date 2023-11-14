@@ -9,7 +9,6 @@ export interface ICheckoutState {
   house: string | null;
   apartment: string | null;
   date: string; // ISO string for date
-  time: { label: string; value: string };
   note: string | null;
 }
 
@@ -28,7 +27,6 @@ const checkoutSlice = createSlice({
     house: null,
     apartment: null,
     date: minDate.toISOString(),
-    time: { label: 'Anytime', value: 'Anytime' },
     note: null,
   } as ICheckoutState,
   reducers: {

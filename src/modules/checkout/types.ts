@@ -2,7 +2,6 @@ import { IItemProps } from '../../types';
 
 export interface ICheckoutState {
   date: string;
-  time: string;
   note: string;
 }
 

@@ -74,8 +74,7 @@
     "pickupPoint": "Пункт выдачи",
     "courier": "Курьер",
     "date": "Дата",
-    "note": "Заметки",
-    "time": "Время"
+    "note": "Заметки"
   },
   "address": {
     "addAddress": "Добавить адрес",

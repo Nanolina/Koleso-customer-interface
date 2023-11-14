@@ -119,12 +119,6 @@ const currentDate = new Date();
 export const minDate = new Date(
   currentDate.setDate(currentDate.getDate() + minDaysDelivery)
 );
-export const timeFramesDelivery = [
-  { label: 'From 9.00 to 12.00', value: '9.00-12.00' },
-  { label: 'From 12.00 to 15.00', value: '12.00-15.00' },
-  { label: 'From 15.00 to 18.00', value: '15.00-18.00' },
-  { label: 'From 18.00 to 21.00', value: '18.00-21.00' },
-];
 
 export const reasonsForReturn = ["Didn't fit", 'Bad quality', 'Warranty case'];
 export const addressPickUpPoint = {

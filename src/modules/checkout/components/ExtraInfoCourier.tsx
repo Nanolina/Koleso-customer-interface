@@ -4,6 +4,7 @@ import {
   useNavigation,
 } from '@react-navigation/native';
 import React, { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { addField } from '../../../../redux/slices/checkoutSlice';
@@ -14,13 +15,16 @@ import { Hr } from '../../../ui/Hr';
 import { Note } from '../../../ui/Note';
 import { AddingAddressText } from '../../address';
 import { ICheckoutState } from '../types';
-import { TimePicker } from './TimePicker';
 
 export const ExtraInfoCourier: React.FC = () => {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const dispatch = useDispatch();
 
-  const { date, time, note } = useSelector(
+  const { t } = useTranslation('translation', {
+    keyPrefix: 'orderProcessing',
+  });
+
+  const { date, note } = useSelector(
     (state: { checkout: ICheckoutState }) => state.checkout
   );
 
@@ -39,13 +43,6 @@ export const ExtraInfoCourier: React.FC = () => {
           value: text.toISOString(),
         })
       );
-    },
-    [dispatch]
-  );
-
-  const handleTimeChange = useCallback(
-    (text: string) => {
-      dispatch(addField({ field: 'time', value: text }));
     },
     [dispatch]
   );
@@ -77,14 +74,6 @@ export const ExtraInfoCourier: React.FC = () => {
           value={date}
           onChange={handleDateChange}
           validRange={validRangeDate}
-          width="45%"
-        />
-
-        <TimePicker
-          text="Time"
-          value={time}
-          onChange={handleTimeChange}
-          width="45%"
         />
       </View>
 

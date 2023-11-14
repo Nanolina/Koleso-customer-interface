@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
-import { colors, css, sizes, timeFramesDelivery } from '../../../consts';
+import { colors, css, sizes } from '../../../consts';
 import { ITimePickerProps } from '../types';
 
 export const TimePicker: React.FC<ITimePickerProps> = React.memo(
@@ -18,12 +18,12 @@ export const TimePicker: React.FC<ITimePickerProps> = React.memo(
         <Text style={styles.text}>{t('time')}</Text>
 
         <View style={styles.picker}>
-          <RNPickerSelect
+          {/* <RNPickerSelect
             value={value}
             onValueChange={onChange}
             placeholder={{ label: 'Anytime', value: 'Anytime' }}
             items={timeFramesDelivery}
-          />
+          /> */}
         </View>
       </View>
     );
