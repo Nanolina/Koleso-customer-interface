@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
 import { useSelector } from 'react-redux';
 import { courier, pickupPoint } from '../../../../consts';
@@ -8,13 +9,17 @@ import { ButtonsGroup } from '../../../components/ButtonsGroup';
 import { addressPickUpPoint, courierServices, css } from '../../../consts';
 import { Hr } from '../../../ui/Hr';
 import { Address } from '../../address';
-import { PriceInfoContainer } from '../../price/components/PriceInfoContainer';
 import { ReturnForm } from '../../returns';
 import { IOrderProcessingProps } from '../types';
 import { ExtraInfoCourier } from './ExtraInfoCourier';
+import { PriceInfoContainer } from '../../price';
 
 export const OrderProcessing: React.FC<IOrderProcessingProps> = React.memo(
   ({ item, isReturn }) => {
+    const { t } = useTranslation('translation', {
+      keyPrefix: 'orderProcessing',
+    });
+
     const delivery = useSelector(
       (state: { cart: ICartState }) => state.cart.delivery
     );
@@ -30,8 +35,8 @@ export const OrderProcessing: React.FC<IOrderProcessingProps> = React.memo(
         >
           <ButtonsGroup
             options={[
-              { text: pickupPoint, value: pickupPoint },
-              { text: courier, value: courier },
+              { text: t('pickupPoint'), value: pickupPoint },
+              { text: t('courier'), value: courier },
             ]}
             currentState="delivery"
             toggleFunction={toggleDelivery}

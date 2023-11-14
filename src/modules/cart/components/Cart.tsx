@@ -1,15 +1,17 @@
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { productCards } from '../../../../mockData';
 import { css } from '../../../consts';
 import { IItemProps } from '../../../types';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
-import { Hr } from '../../../ui/Hr';
-import { PriceInfo } from '../../price/components/PriceInfo';
+import { PriceInfoContainer } from '../../price';
 import { ISelectedItemsState } from '../types';
 import { CartItems } from './CartItems';
 
 export const Cart: React.FC = () => {
+  const { t } = useTranslation();
+
   const [isSelectedAll, setIsSelectedAll] = useState(false);
   const [selectedItems, setSelectedItems] = useState<ISelectedItemsState>({});
 
@@ -48,7 +50,7 @@ export const Cart: React.FC = () => {
   return (
     <View style={styles.container}>
       <CheckboxItem
-        text="Select all"
+        text={t('selectAll')}
         isSelected={isSelectedAll}
         onToggle={toggleSelectAll}
       />
@@ -57,14 +59,12 @@ export const Cart: React.FC = () => {
         selectedItems={selectedItems}
         toggleItemSelection={toggleItemSelection}
       />
-      <View style={css.priceInfoContainer}>
-        <PriceInfo text="Price for 1 product" price="100" />
-        <PriceInfo text="Discount" price="-50" />
-      </View>
-      <Hr />
-      <View style={css.priceInfoContainer}>
-        <PriceInfo text="Total cost" price="50" />
-      </View>
+      <PriceInfoContainer
+        quantity={4}
+        priceForProducts={70}
+        hasDelivery={false}
+        hasTotalPrice={false}
+      />
     </View>
   );
 };

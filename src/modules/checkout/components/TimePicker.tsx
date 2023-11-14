@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import { colors, css, sizes, timeFramesDelivery } from '../../../consts';
@@ -6,11 +7,15 @@ import { ITimePickerProps } from '../types';
 
 export const TimePicker: React.FC<ITimePickerProps> = React.memo(
   ({ text, value, onChange, width }) => {
+    const { t } = useTranslation('translation', {
+      keyPrefix: 'orderProcessing',
+    });
+
     const styles = useMemo(() => getStyles(width), [width]);
 
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>{text}</Text>
+        <Text style={styles.text}>{t('time')}</Text>
 
         <View style={styles.picker}>
           <RNPickerSelect

@@ -11,19 +11,22 @@ import { colors, currency } from '../consts';
 import { Cart } from '../modules/cart';
 import { Button } from '../ui/Button';
 import { CentralContainer } from '../ui/CentralContainer';
+import { useTranslation } from 'react-i18next';
 
 export const CartPage: React.FC = () => {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
+      const { t } = useTranslation();
+
 
   return (
     <Container>
-      <Header title="Cart" />
+      <Header title={t('cart.label')} />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Cart />
       </CentralContainer>
       <View style={styles.buttonContainer}>
         <Button
-          text="Checkout"
+          text={t('checkout.label')}
           onPress={() =>
             navigation.navigate('OrderProcessingPage', { title: 'Checkout' })
           }

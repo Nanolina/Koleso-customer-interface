@@ -1,5 +1,6 @@
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
@@ -15,8 +16,10 @@ import { Button } from '../ui/Button';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const OrderProcessingPage: React.FC = () => {
+  const { t } = useTranslation();
   const navigation = useNavigation<OrderProcessingNavigationProp>();
   const route = useRoute<OrderProcessingRouteProp>();
+
   const [openModal, setOpenModal] = useState(false);
 
   const { title, item } = route.params;
@@ -38,13 +41,13 @@ export const OrderProcessingPage: React.FC = () => {
 
   return (
     <Container>
-      <Header title={title} hasButtonBack={true} />
+      <Header title={t('checkout.label')} hasButtonBack={true} />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <OrderProcessing item={item} isReturn={isReturn} />
       </CentralContainer>
       <View style={styles.buttonContainer}>
         <Button
-          text={isReturn ? 'Return' : 'Proceed payment'}
+          text={isReturn ? t('return.label') : t('checkout.proceedPayment')}
           onPress={handlePress}
           backgroundColor={colors.orange}
           width="90%"

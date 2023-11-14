@@ -1,13 +1,18 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { colors, css, sizes } from '../consts';
 import { INoteProps } from '../types';
 
 export const Note: React.FC<INoteProps> = React.memo(
   ({ title, placeholder, value, onChangeText }) => {
+    const { t } = useTranslation('translation', {
+      keyPrefix: 'orderProcessing',
+    });
+
     return (
       <View style={styles.container}>
-        {title && <Text style={styles.text}>{title}</Text>}
+        {title && <Text style={styles.text}>{t('note')}</Text>}
         <TextInput
           style={styles.textArea}
           multiline={true}

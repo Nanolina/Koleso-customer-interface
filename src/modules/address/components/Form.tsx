@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/rootReducer';
@@ -8,6 +9,9 @@ import { css } from '../../../consts';
 
 export const Form: React.FC = React.memo(() => {
   const dispatch = useDispatch();
+  const { t } = useTranslation('translation', {
+    keyPrefix: 'address',
+  });
 
   const { name, city, street, house, apartment } = useSelector(
     (state: RootState) => state.checkout
@@ -41,15 +45,19 @@ export const Form: React.FC = React.memo(() => {
   return (
     <View style={styles.mainContainer}>
       <TextWithInput
-        text="Surname, first name, patronymic of the recipient"
+        text={t('surname')}
         value={name}
         onChangeText={handleNameChange}
         autoComplete="name"
       />
 
-      <TextWithInput text="City" value={city} onChangeText={handleCityChange} />
       <TextWithInput
-        text="Street"
+        text={t('city')}
+        value={city}
+        onChangeText={handleCityChange}
+      />
+      <TextWithInput
+        text={t('street')}
         value={street}
         onChangeText={handleStreetChange}
         autoComplete="street-address"
@@ -57,13 +65,13 @@ export const Form: React.FC = React.memo(() => {
 
       <View style={styles.container}>
         <TextWithInput
-          text="House number"
+          text={t('houseNumber')}
           value={house}
           onChangeText={handleHouseChange}
           width="45%"
         />
         <TextWithInput
-          text="Apartment number"
+          text={t('apartmentNumber')}
           value={apartment}
           onChangeText={handleApartmentChange}
           width="45%"

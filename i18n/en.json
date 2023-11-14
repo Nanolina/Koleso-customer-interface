@@ -4,6 +4,7 @@
   "reset": "Reset",
   "change": "Change",
   "add": "Add",
+  "selectAll": "Select all",
   "myAccount": {
     "label": "My account",
     "settings": "Settings",
@@ -47,5 +48,41 @@
   },
   "contacts": {
     "title": "Contact us in a convenient way"
+  },
+  "favorites": {
+    "label": "Favorites"
+  },
+  "price": {
+    "label": "Price",
+    "discount": "Discount",
+    "delivery": "Delivery",
+    "courierServices": "Courier services",
+    "totalAmount": "Total amount",
+    "terms": "I agree to the terms and conditions of the Marketplace Terms of Use and Return Policy"
+  },
+  "cart": {
+    "label": "Cart"
+  },
+  "checkout": {
+    "label": "Checkout",
+    "proceedPayment": "Proceed payment"
+  },
+  "return": {
+    "label": "Return"
+  },
+  "orderProcessing": {
+    "pickupPoint": "Pick-up point",
+    "courier": "Courier",
+    "date": "Date",
+    "time": "Time",
+    "note": "Note"
+  },
+  "address": {
+    "addAddress": "Add an address",
+    "surname": "Surname, first name, patronymic of the recipient",
+    "city": "City",
+    "street": "Street",
+    "houseNumber": "House number",
+    "apartmentNumber": "Apartment number"
   }
 }

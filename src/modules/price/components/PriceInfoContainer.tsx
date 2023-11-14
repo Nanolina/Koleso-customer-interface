@@ -1,10 +1,11 @@
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { css, sizes } from '../../../consts';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { Hr } from '../../../ui/Hr';
-import { PriceInfo } from './PriceInfo';
 import { IPriceInfoContainerProps } from '../types';
+import { PriceInfo } from './PriceInfo';
 
 export const PriceInfoContainer: React.FC<IPriceInfoContainerProps> =
   React.memo(
@@ -12,11 +13,15 @@ export const PriceInfoContainer: React.FC<IPriceInfoContainerProps> =
       quantity,
       priceForProducts,
       hasDiscount = false,
+      hasDelivery = true,
       discount,
       courierServices,
+      hasTotalPrice = true,
       totalPrice,
       isReturn = false,
     }: any) => {
+      const { t } = useTranslation();
+
       const [isChecked, setIsChecked] = useState(false);
 
       const toggleCheckbox = useCallback(() => {
@@ -27,36 +32,38 @@ export const PriceInfoContainer: React.FC<IPriceInfoContainerProps> =
         <>
           <View style={css.priceInfoContainer}>
             <PriceInfo
-              text={
-                isReturn
-                  ? 'Refundable amount'
-                  : `Price for ${quantity} ${
-                      quantity === 1 ? 'product' : 'products'
-                    }`
-              }
+              text={isReturn ? 'Refundable amount' : t('price.label')}
               price={priceForProducts}
             />
             {hasDiscount && !isReturn && (
-              <PriceInfo text="Discount" price={`-${discount}`} />
+              <PriceInfo text={t('price.discount')} price={`-${discount}`} />
             )}
             {courierServices ? (
-              <PriceInfo text="Courier services" price={courierServices} />
+              <PriceInfo
+                text={t('price.courierServices')}
+                price={courierServices}
+              />
             ) : (
-              !isReturn && (
-                <PriceInfo text="Delivery" price="Free" hasCurrency={false} />
+              !isReturn &&
+              hasDelivery && (
+                <PriceInfo text={t('price.delivery')} price="Free" hasCurrency={false} />
               )
             )}
           </View>
-          <Hr />
-          <View style={css.priceInfoContainer}>
-            <PriceInfo text={'Total amount'} price={totalPrice} />
-          </View>
-          <CheckboxItem
-            text="I agree to the terms and conditions of the Marketplace Terms of Use and Return Policy"
-            isSelected={isChecked}
-            onToggle={toggleCheckbox}
-            styleText={styles.text}
-          />
+          {hasTotalPrice && (
+            <>
+              <Hr />
+              <View style={css.priceInfoContainer}>
+                <PriceInfo text={t('price.totalAmount')} price={totalPrice} />
+              </View>
+              <CheckboxItem
+                text={t('price.terms')}
+                isSelected={isChecked}
+                onToggle={toggleCheckbox}
+                styleText={styles.text}
+              />
+            </>
+          )}
         </>
       );
     }

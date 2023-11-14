@@ -4,6 +4,7 @@
   "reset": "Сбросить",
   "change": "Изменить",
   "add": "Добавить",
+  "selectAll": "Выбрать все",
   "myAccount": {
     "label": "Мой аккаунт",
     "settings": "Настройки",
@@ -47,5 +48,41 @@
   },
   "contacts": {
     "title": "Свяжитесь с нами удобным способом"
+  },
+  "favorites": {
+    "label": "Избранное"
+  },
+  "price": {
+    "label": "Стоимость",
+    "discount": "Скидка",
+    "delivery": "Доставка",
+    "courierServices": "Курьерские услуги",
+    "totalAmount": "Итоговая сумма",
+    "terms": "Я согласен с условиями Использования торговой площадки и Политики возврата товаров"
+  },
+  "cart": {
+    "label": "Корзина"
+  },
+  "checkout": {
+    "label": "Оформить заказ",
+    "proceedPayment": "Перейти к оплате"
+  },
+  "return": {
+    "label": "Вернуть товары"
+  },
+  "orderProcessing": {
+    "pickupPoint": "Пункт выдачи",
+    "courier": "Курьер",
+    "date": "Дата",
+    "note": "Заметки",
+    "time": "Время"
+  },
+  "address": {
+    "addAddress": "Добавить адрес",
+    "surname": "Фамилия, имя, отчество получателя",
+    "city": "Город",
+    "street": "Улица",
+    "houseNumber": "Номер дома",
+    "apartmentNumber": "Номер квартиры"
   }
 }

@@ -15,8 +15,10 @@ export interface IPriceInfoContainerProps {
   priceForProducts: number;
   hasDiscount?: boolean;
   discount?: number;
+  hasTotalPrice?: boolean;
+  totalPrice?: number;
+  hasDelivery?: boolean;
   courierServices?: number;
-  totalPrice: number;
   isReturn?: boolean;
 }
 
