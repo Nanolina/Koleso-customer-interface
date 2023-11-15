@@ -71,7 +71,7 @@ export const Filter: React.FC = () => {
       <Row
         items={data.compositions}
         title="Composition"
-        displayTitle={t('filter.Composition')}
+        displayTitle={t('filter.Composition.label')}
         selectedItems={compositions}
         navigateTo="FilterCheckboxPage"
       />
@@ -90,7 +90,7 @@ export const Filter: React.FC = () => {
       <Row
         items={data.seasons}
         title="Season"
-        displayTitle={t('filter.Season')}
+        displayTitle={t('filter.Season.label')}
         selectedItems={seasons}
         navigateTo="FilterCheckboxPage"
       />

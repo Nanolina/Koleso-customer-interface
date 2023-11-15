@@ -1,3 +1,4 @@
+// If you change something, you should change it in translation
 export const data = {
   colors: [
     'Aquamarine',
