@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Platform, StyleSheet, TextInput, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,6 +17,8 @@ const getWidthInput = (isEnabled) => {
 
 export const SearchBar: React.FC<ISearchBarProps> = React.memo(
   ({ isEnabledSearch, setIsEnabledSearch }) => {
+    const { t } = useTranslation();
+
     const dispatch = useDispatch();
     const text = useSelector((state: ISearchState) => state.search.text);
     const width = useMemo(
@@ -28,7 +31,7 @@ export const SearchBar: React.FC<ISearchBarProps> = React.memo(
         <Icon name="search" size={sizes.iconSizeMax} color={colors.main} />
         <TextInput
           style={styles.input}
-          placeholder="Search..."
+          placeholder={`${t('search')}...`}
           placeholderTextColor={colors.gray}
           onFocus={() => setIsEnabledSearch(true)}
           value={text}

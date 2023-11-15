@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { handleClearAllQueries } from '../../../../../redux/slices/searchSlice';
 import { colors, css, sizes } from '../../../../consts';
 
 export const ClearAll: React.FC = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
 
   return (
@@ -11,7 +13,7 @@ export const ClearAll: React.FC = () => {
       onPress={() => dispatch(handleClearAllQueries())}
       style={styles.button}
     >
-      <Text style={css.resetAllButton}>Clear all</Text>
+      <Text style={css.resetAllButton}>{t('clearAll')}</Text>
     </TouchableOpacity>
   );
 };

@@ -6,8 +6,16 @@
   "add": "Add",
   "selectAll": "Select all",
   "resetAll": "Reset all",
+  "clearAll": "Clear all",
   "close": "Close",
   "apply": "Apply",
+  "addToCart": "Add to cart",
+  "search": "Search",
+  "QRCode": {
+    "delivery": "Delivery QR-code",
+    "text": "Show this QR-code to an employee or provide a phone number and code",
+    "code": "code"
+  },
   "myAccount": {
     "label": "My account",
     "settings": "Settings",

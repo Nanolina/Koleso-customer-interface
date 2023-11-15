@@ -5,6 +5,7 @@ import {
   useNavigation,
 } from '@react-navigation/native';
 import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Keyboard,
   Platform,
@@ -31,6 +32,7 @@ export const Header: React.FC<IHeaderProps> = React.memo(
     isEnabledSearch,
     setIsEnabledSearch,
   }) => {
+    const { t } = useTranslation();
     const navigation: NavigationProp<ParamListBase> = useNavigation();
     const dispatch = useDispatch();
 
@@ -73,7 +75,7 @@ export const Header: React.FC<IHeaderProps> = React.memo(
 
                 {isEnabledSearch && (
                   <TouchableOpacity>
-                    <Text style={styles.searchButtonText}>Search</Text>
+                    <Text style={styles.searchButtonText}>{t('search')}</Text>
                   </TouchableOpacity>
                 )}
               </View>

@@ -7,7 +7,7 @@ export const Property: React.FC<IPropertyProps> = React.memo(
   ({ label, text }) => {
     return (
       <Text style={styles.text}>
-        <Text style={styles.label}>{label}</Text> {text}
+        <Text style={styles.label}>{label}:</Text> {text}
       </Text>
     );
   }
