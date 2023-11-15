@@ -9,15 +9,13 @@ import { Payment } from '../modules/payment';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const PaymentPage: React.FC = () => {
-  const { t } = useTranslation('translation', {
-    keyPrefix: 'modal',
-  });
+  const { t } = useTranslation();
 
   // true = mock data
   const [isModalVisible, setModalVisible] = useState(true);
 
   // mock data
-  const payment = true;
+  const payment = false;
 
   const onClose = useCallback(() => {
     setModalVisible(false);
@@ -26,8 +24,8 @@ export const PaymentPage: React.FC = () => {
   const modalProps = payment
     ? {
         type: 'success',
-        title: t('success.title'),
-        message: t('success.message'),
+        title: t('modal.success.title'),
+        message: t('modal.success.message'),
         orderId: '32345678523456',
         widthImage: 60,
         heightImage: 60,
@@ -36,12 +34,12 @@ export const PaymentPage: React.FC = () => {
       }
     : {
         type: 'error',
-        title: t('error.title'),
-        message: t('error.message'),
+        title: t('modal.error.title'),
+        message: t('modal.error.message'),
         widthImage: 40,
         heightImage: 40,
-        topImage: 20,
-        rightImage: 70,
+        topImage: 50,
+        rightImage: 30,
       };
 
   return (
@@ -54,7 +52,7 @@ export const PaymentPage: React.FC = () => {
 
       {!isModalVisible && (
         <>
-          <Header title="Payment" hasButtonBack />
+          <Header title={t('payment.label')} hasButtonBack />
           <CentralContainer isPadding={true}>
             <Payment />
           </CentralContainer>

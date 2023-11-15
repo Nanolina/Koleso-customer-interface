@@ -1,7 +1,8 @@
 export interface INotificationProps {
   id: string;
-  title: string;
+  status: string;
   date: string;
   time: string;
-  text: string;
+  amount: number;
+  transactionNumber: string;
 }

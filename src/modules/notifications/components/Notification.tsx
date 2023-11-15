@@ -1,19 +1,29 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, css, sizes } from '../../../consts';
 import { INotificationProps } from '../types';
 
 export const Notification: React.FC<{ notification: INotificationProps }> =
   React.memo(({ notification }) => {
+    const { t } = useTranslation('translation', { keyPrefix: 'notifications' });
+
     return (
       <View style={styles.container}>
         <View style={styles.topContainer}>
-          <Text style={styles.title}>{notification.title}</Text>
+          <Text style={styles.title}>
+            {notification.status === 'sent' && t('sent')}
+          </Text>
           <Text style={styles.date}>
             {notification.date} {notification.time}
           </Text>
         </View>
-        <Text style={styles.text}>{notification.text}</Text>
+        <Text style={styles.text}>
+          {t('textSent', {
+            amount: notification.amount,
+            transactionNumber: notification.transactionNumber,
+          })}
+        </Text>
       </View>
     );
   });

@@ -97,5 +97,15 @@
       "message": "Payment was successful",
       "orderNumber": "Your order number"
     }
+  },
+  "payment": {
+    "label": "Payment",
+    "card": "Card",
+    "applePay": "Apple Pay"
+  },
+  "notifications": {
+    "label": "Notifications",
+    "sent": "The money has been sent",
+    "textSent": "Refund of {{amount}} euros has been sent to the card. Refund transaction №{{transactionNumber}}. Refer it to your bank if the money doesn't reach your account within 5 days"
   }
 }
