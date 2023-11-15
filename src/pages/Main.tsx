@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { productCards } from '../../mockData';
 import { RootState } from '../../redux/rootReducer';
@@ -8,6 +9,8 @@ import { ProductList } from '../modules/productCard';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const Main: React.FC = () => {
+  const { t } = useTranslation('translation', { keyPrefix: 'catalog' });
+
   const category = useSelector((state: RootState) => state.catalog.category);
   const subcategory = useSelector(
     (state: RootState) => state.catalog.subcategory
@@ -16,7 +19,7 @@ export const Main: React.FC = () => {
   return (
     <Container>
       <Header
-        title={(subcategory && subcategory.title) || category.title}
+        title={(subcategory && t(subcategory.title)) || t(category.title)}
         hasButtonBack
         showFilterSort
       />

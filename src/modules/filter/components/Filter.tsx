@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/rootReducer';
@@ -10,6 +11,8 @@ import { ResetAll } from '../ui/ResetAll';
 import { RowRange } from './RowRange';
 
 export const Filter: React.FC = () => {
+  const { t } = useTranslation();
+
   const {
     colors,
     genders,
@@ -34,56 +37,74 @@ export const Filter: React.FC = () => {
       <Row
         items={data.colors}
         title="Color"
+        displayTitle={t('filter.Color.label')}
         selectedItems={colors}
         navigateTo="FilterCheckboxPage"
       />
       <Row
         items={data.genders}
         title="Gender"
+        displayTitle={t('filter.Gender')}
         selectedItems={genders}
         navigateTo="FilterCheckboxPage"
       />
       <Row
         items={data.sizes}
         title="Size"
+        displayTitle={t('filter.Size')}
         selectedItems={sizes}
         navigateTo="FilterCheckboxPage"
       />
       <Row
         items={data.categories}
         title="Category"
+        displayTitle={t('filter.Category')}
         selectedItems={categories}
         navigateTo="FilterCheckboxPage"
       />
       <Row
         items={data.brands}
         title="Brand"
+        displayTitle={t('filter.Brand')}
         selectedItems={brands}
         navigateTo="FilterCheckboxPage"
       />
       <Row
         items={data.sellers}
         title="Seller"
+        displayTitle={t('filter.Seller')}
         selectedItems={sellers}
         navigateTo="FilterCheckboxPage"
       />
       <Row
         items={data.compositions}
         title="Composition"
+        displayTitle={t('filter.Composition')}
         selectedItems={compositions}
         navigateTo="FilterCheckboxPage"
       />
-      <RowRange title="Age" from={ageFrom} to={ageTo} />
-      <RowRange title="Price" from={priceFrom} to={priceTo} />
+      <RowRange
+        title="Age"
+        displayTitle={t('filter.Age')}
+        from={ageFrom}
+        to={ageTo}
+      />
+      <RowRange
+        title="Price"
+        displayTitle={t('filter.Price')}
+        from={priceFrom}
+        to={priceTo}
+      />
       <Row
         items={data.seasons}
         title="Season"
+        displayTitle={t('filter.Season')}
         selectedItems={seasons}
         navigateTo="FilterCheckboxPage"
       />
       <View style={styles.buttonsContainer}>
         <Button
-          text="Apply"
+          text={t('apply')}
           onPress={() => {}}
           backgroundColor={commonColors.orange}
         />

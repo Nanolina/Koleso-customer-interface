@@ -1,7 +1,9 @@
 import React, { useCallback } from 'react';
-import { View } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/rootReducer';
+import { css } from '../../../consts';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { getItems } from '../functions';
 import { ICheckboxListProps } from '../types';
@@ -9,7 +11,10 @@ import { Buttons } from './Buttons';
 
 export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
   ({ title, items }) => {
+    const { t } = useTranslation('translation', { keyPrefix: 'filter' });
+
     const dispatch = useDispatch();
+
     const {
       colors,
       genders,
@@ -40,7 +45,7 @@ export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
         return (
           <CheckboxItem
             key={item}
-            text={item}
+            text={t(`${title}.${item}`)}
             isSelected={isSelected}
             onToggle={() => dispatch(onToggleItem(item))}
           />
@@ -50,7 +55,7 @@ export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
     );
 
     return (
-      <View>
+      <View style={styles.container}>
         <Buttons
           items={items}
           selectedItems={selectedItems}
@@ -62,3 +67,9 @@ export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
     );
   }
 );
+
+const styles = StyleSheet.create({
+  container: {
+    paddingBottom: 50,
+  },
+});
