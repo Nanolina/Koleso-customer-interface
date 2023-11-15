@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Platform, StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import { css } from '../../../consts';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { Hr } from '../../../ui/Hr';
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
-    gap: Platform.OS === 'web' ? 20 : 5,
+    gap: 5,
   },
   image: {
     width: widthImage,

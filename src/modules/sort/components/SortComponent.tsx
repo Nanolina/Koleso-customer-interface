@@ -3,12 +3,11 @@ import { useTranslation } from 'react-i18next';
 import {
   Dimensions,
   Image,
-  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
 } from 'react-native';
-import { css, sizes } from '../../../consts';
+import { css } from '../../../consts';
 import { WebCardWrapper } from '../../../ui/WebCardWrapper';
 import { ISortItemProps } from '../types';
 
@@ -31,22 +30,17 @@ export const SortComponent: React.FC<ISortItemProps> = React.memo(
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection: 'row',
-    gap: 20,
-    justifyContent: 'flex-start',
     alignItems: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: Platform.OS === 'web' ? 100 : 10,
+    justifyContent: 'flex-start',
+    ...css.cards.container,
   },
   image: {
-    width: Platform.OS === 'web' ? 100 : 50,
-    height: Platform.OS === 'web' ? 100 : 50,
     resizeMode: 'cover',
-    borderRadius: css.borderRadiusMax,
+    ...css.cards.image,
   },
   text: {
-    fontSize: Platform.OS === 'web' ? sizes.text20 : sizes.text16,
     fontWeight: 'bold',
+    ...css.cards.text,
   },
 });

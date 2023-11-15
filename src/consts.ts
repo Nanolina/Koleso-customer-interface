@@ -1,4 +1,4 @@
-import { Dimensions, Platform } from 'react-native';
+import { Dimensions } from 'react-native';
 
 export const colors = {
   white: '#fff',
@@ -77,15 +77,15 @@ export const css = {
       flex: 1,
       gap: 20,
       paddingVertical: 10,
-      paddingHorizontal: Platform.OS === 'web' ? 100 : 10,
+      paddingHorizontal: 10,
     },
     image: {
-      width: Platform.OS === 'web' ? 100 : 50,
-      height: Platform.OS === 'web' ? 100 : 50,
+      width: 50,
+      height: 50,
       borderRadius: 12,
     },
     text: {
-      fontSize: Platform.OS === 'web' ? 20 : 16,
+      fontSize: 16,
     },
   },
   auth: {
