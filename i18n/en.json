@@ -193,6 +193,13 @@
       "Demiseason": "Demiseason"
     }
   },
+  "sort": {
+    "label": "Sort",
+    "By rating": "By rating",
+    "By minimum price": "By minimum price",
+    "By maximum price": "By maximum price",
+    "By new arrivals": "By new arrivals"
+  },
   "catalog": {
     "Women": "Women",
     "Men": "Men",

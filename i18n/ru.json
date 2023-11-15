@@ -193,6 +193,13 @@
       "Demiseason": "Демисезон"
     }
   },
+  "sort": {
+    "label": "Сортировка",
+    "By rating": "По рейтингу",
+    "By minimum price": "В порядке убывания цены",
+    "By maximum price": "В порядке возрастания цены",
+    "By new arrivals": "По новинкам"
+  },
   "catalog": {
     "Women": "Женщинам",
     "Men": "Мужчинам",

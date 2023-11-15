@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Dimensions,
   Image,
@@ -15,11 +16,13 @@ const { width } = Dimensions.get('window');
 
 export const SortComponent: React.FC<ISortItemProps> = React.memo(
   ({ image, title }) => {
+    const { t } = useTranslation('translation', { keyPrefix: 'sort' });
+
     return (
       <WebCardWrapper cardWidth={width}>
         <TouchableOpacity style={styles.container} onPress={() => {}}>
           <Image source={image} style={styles.image} />
-          <Text style={styles.text}>{title}</Text>
+          <Text style={styles.text}>{t(title)}</Text>
         </TouchableOpacity>
       </WebCardWrapper>
     );
