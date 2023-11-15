@@ -11,7 +11,7 @@ export const IconProductCard: React.FC<IIconProductCardProps> = React.memo(
         <Icon
           name={name}
           size={
-            Platform.OS === 'web' ? sizes.iconSizeMax : css.productCard.iconSize
+            Platform.OS === 'web' ? sizes.iconSizeMax : 18
           }
           color={colors.white}
         />
@@ -22,7 +22,7 @@ export const IconProductCard: React.FC<IIconProductCardProps> = React.memo(
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: css.productCard.borderRadius,
+    borderRadius: 5,
     width: Platform.OS === 'web' ? 40 : 25,
     height: Platform.OS === 'web' ? 40 : 25,
     overflow: 'hidden',

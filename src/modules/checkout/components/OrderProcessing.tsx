@@ -1,18 +1,23 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  ScrollView,
+  StyleSheet,
+} from 'react-native';
 import { useSelector } from 'react-redux';
 import { courier, pickupPoint } from '../../../../consts';
 import { savedAddresses } from '../../../../mockData';
 import { ICartState, toggleDelivery } from '../../../../redux/slices/cartSlice';
 import { ButtonsGroup } from '../../../components/ButtonsGroup';
-import { addressPickUpPoint, courierServices, css } from '../../../consts';
+import { addressPickUpPoint, courierServices } from '../../../consts';
 import { Hr } from '../../../ui/Hr';
 import { Address } from '../../address';
+import { PriceInfoContainer } from '../../price';
 import { ReturnForm } from '../../returns';
 import { IOrderProcessingProps } from '../types';
 import { ExtraInfoCourier } from './ExtraInfoCourier';
-import { PriceInfoContainer } from '../../price';
 
 export const OrderProcessing: React.FC<IOrderProcessingProps> = React.memo(
   ({ item, isReturn }) => {
@@ -29,7 +34,7 @@ export const OrderProcessing: React.FC<IOrderProcessingProps> = React.memo(
       >
         <ScrollView
           style={{ flex: 1 }}
-          contentContainerStyle={css.form.container}
+          contentContainerStyle={styles.container}
         >
           <ButtonsGroup
             options={[
@@ -68,3 +73,10 @@ export const OrderProcessing: React.FC<IOrderProcessingProps> = React.memo(
     );
   }
 );
+
+const styles = StyleSheet.create({
+  container: {
+    gap: 20,
+    paddingBottom: 20,
+  },
+});

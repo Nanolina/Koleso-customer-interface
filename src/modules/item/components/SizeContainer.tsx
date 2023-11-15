@@ -18,14 +18,14 @@ export const SizeContainer: React.FC<ISizeContainerProps> = React.memo(
         const isMissing = missingSizes.includes(size);
 
         const boxStyle = isSelected
-          ? { backgroundColor: colors.main, ...css.item.sizeBox }
+          ? { backgroundColor: colors.main, ...css.itemSizeBox }
           : isMissing
-          ? { backgroundColor: colors.lightGray, ...css.item.sizeBox }
+          ? { backgroundColor: colors.lightGray, ...css.itemSizeBox }
           : {
               backgroundColor: colors.white,
               borderColor: colors.main,
               borderWidth: 1,
-              ...css.item.sizeBox,
+              ...css.itemSizeBox,
             };
 
         const textStyle =

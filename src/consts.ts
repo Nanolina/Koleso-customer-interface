@@ -52,14 +52,8 @@ export const css = {
       height: 1,
     },
   },
-  productCard: {
-    iconSize: 18,
-    borderRadius: 5,
-  },
-  item: {
-    sizeBox: {
-      width: 45,
-    },
+  itemSizeBox: {
+    width: 45,
   },
   filter: {
     checkbox: {
@@ -71,22 +65,6 @@ export const css = {
   priceInfoContainer: {
     gap: 10,
     paddingVertical: 10,
-  },
-  cards: {
-    container: {
-      flex: 1,
-      gap: 20,
-      paddingVertical: 10,
-      paddingHorizontal: 10,
-    },
-    image: {
-      width: 50,
-      height: 50,
-      borderRadius: 12,
-    },
-    text: {
-      fontSize: 16,
-    },
   },
   auth: {
     gap: 50,
@@ -102,12 +80,6 @@ export const css = {
       borderWidth: 1,
       borderColor: colors.lightGray,
       borderRadius: 8,
-    },
-  },
-  form: {
-    container: {
-      gap: 20,
-      paddingBottom: 20,
     },
   },
   shadowContainer: {

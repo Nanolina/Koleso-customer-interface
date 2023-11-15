@@ -7,8 +7,8 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { selectSection } from '../../../../redux/slices/catalogSlice';
+import { CardItem } from '../../../components/CardItem';
 import { data } from '../data';
-import { CatalogItem } from './CatalogItem';
 
 export const Sections: React.FC = () => {
   const dispatch = useDispatch();
@@ -18,8 +18,10 @@ export const Sections: React.FC = () => {
     <FlatList
       data={data}
       renderItem={({ item }) => (
-        <CatalogItem
-          item={item}
+        <CardItem
+          image={item.image}
+          title={item.title}
+          translationKey="catalog"
           onPress={() => {
             dispatch(selectSection(item));
             navigation.navigate('CategoriesPage');

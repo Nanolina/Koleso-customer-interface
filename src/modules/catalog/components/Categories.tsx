@@ -8,7 +8,7 @@ import { FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/rootReducer';
 import { selectCategory } from '../../../../redux/slices/catalogSlice';
-import { CatalogItem } from './CatalogItem';
+import { CardItem } from '../../../components/CardItem';
 
 export const Categories: React.FC = () => {
   const dispatch = useDispatch();
@@ -33,8 +33,10 @@ export const Categories: React.FC = () => {
     <FlatList
       data={categories}
       renderItem={({ item }) => (
-        <CatalogItem
-          item={item}
+        <CardItem
+          image={item.image}
+          title={item.title}
+          translationKey="catalog"
           onPress={() => {
             dispatch(selectCategory(item));
             handleRedirections(item);

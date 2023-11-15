@@ -166,6 +166,13 @@ export interface INoteProps {
   onChangeText: (text: string) => void;
 }
 
+export interface CardItemProps {
+  image: any;
+  title: string;
+  onPress: () => void;
+  translationKey: string;
+}
+
 // Types
 export type OrderProcessingStackParamList = {
   PaymentPage: undefined;

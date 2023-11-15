@@ -8,7 +8,7 @@ import { FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/rootReducer';
 import { selectSubcategory } from '../../../../redux/slices/catalogSlice';
-import { CatalogItem } from './CatalogItem';
+import { CardItem } from '../../../components/CardItem';
 
 export const Subcategories: React.FC = () => {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
@@ -22,8 +22,10 @@ export const Subcategories: React.FC = () => {
     <FlatList
       data={subcategories}
       renderItem={({ item }) => (
-        <CatalogItem
-          item={item}
+        <CardItem
+          image={item.image}
+          title={item.title}
+          translationKey="catalog"
           onPress={() => {
             dispatch(selectSubcategory(item));
             navigation.navigate('Main');
