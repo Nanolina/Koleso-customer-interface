@@ -1,16 +1,13 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { InfoItem } from '../../../components/InfoItem';
 import { currency, sizes } from '../../../consts';
-import { Info } from '../ui/Info';
 
 export const TextInfoContainer = React.memo(({ item }: any) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{item.title}</Text>
-
-      {item.color && <Info text="Color" info={item.color} />}
-      {item.selectedSize && <Info text="Size" info={item.selectedSize} />}
-
+      <InfoItem item={item} />
       <Text style={styles.price}>
         {item.price} {currency}
       </Text>

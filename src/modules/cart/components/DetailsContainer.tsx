@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { InfoItem } from '../../../components/InfoItem';
 import { sizes } from '../../../consts';
+import { PriceContainer } from '../../price';
 import { gapBetweenDetails } from '../consts';
 import { IDetailsContainerProps } from '../types';
-import { Detail } from '../ui/Detail';
 import { QuantityContainer } from './QuantityContainer';
-import { PriceContainer } from '../../price';
 
 export const DetailsContainer: React.FC<IDetailsContainerProps> = React.memo(
   ({ item, quantity }) => {
@@ -18,11 +18,7 @@ export const DetailsContainer: React.FC<IDetailsContainerProps> = React.memo(
         />
 
         <Text style={styles.title}>{item.title}</Text>
-        <View>
-          <Detail name="Size" detail={item.selectedSize} />
-          <Detail name="Color" detail={item.color} />
-        </View>
-
+        <InfoItem item={item} />
         <QuantityContainer quantity={quantity} />
       </View>
     );

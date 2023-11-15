@@ -28,5 +28,5 @@ export interface IIconFeatherProps {
 
 export interface IPropertyProps {
   label: string;
-  text?: string;
+  text?: string | number;
 }

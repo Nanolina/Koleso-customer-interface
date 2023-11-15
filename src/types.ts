@@ -18,7 +18,7 @@ interface ILogisticsProps {
 
 export interface IItemProps {
   id: string;
-  image: ImageSourcePropType | string;
+  image: any;
   price: number;
   oldPrice: number;
   seller: string;
@@ -33,6 +33,11 @@ export interface IItemProps {
   missingSizes?: number[];
   return?: ILogisticsProps;
   delivery?: ILogisticsProps;
+}
+
+export interface IInfoItemProps {
+  item: IItemProps;
+  hasPadding?: boolean;
 }
 
 export interface IRowProps {

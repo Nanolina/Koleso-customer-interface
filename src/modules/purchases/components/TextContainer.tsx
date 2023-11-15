@@ -1,5 +1,7 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
+import { InfoItem } from '../../../components/InfoItem';
 import { colors, sizes } from '../../../consts';
 import { IItemProps } from '../../../types';
 import { Hr } from '../../../ui/Hr';
@@ -12,16 +14,7 @@ export const TextContainer: React.FC<{ item: IItemProps }> = React.memo(
         <View style={styles.infoContainer}>
           <Text style={styles.seller}>{item.seller}</Text>
           <Text style={styles.title}>{item.title}</Text>
-          {item.color && (
-            <Text style={styles.italicText}>
-              Color: <Text style={styles.boldText}>{item.color}</Text>
-            </Text>
-          )}
-          {item.selectedSize && (
-            <Text style={styles.italicText}>
-              Size: <Text style={styles.boldText}>{item.selectedSize}</Text>
-            </Text>
-          )}
+          <InfoItem item={item} />
         </View>
 
         <DateText item={item} />
@@ -47,15 +40,8 @@ const styles = StyleSheet.create({
     color: colors.gray,
   },
   title: {
+    paddingBottom: 10,
     fontSize: sizes.text15,
     textAlign: 'center',
-  },
-  italicText: {
-    fontSize: sizes.text15,
-    fontStyle: 'italic',
-    textAlign: 'center',
-  },
-  boldText: {
-    fontWeight: 'bold',
   },
 });

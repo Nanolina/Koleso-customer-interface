@@ -28,10 +28,10 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   text: {
-    fontSize: sizes.text20,
+    fontSize: sizes.text18,
   },
   price: {
-    fontSize: sizes.text20,
+    fontSize: sizes.text18,
     fontWeight: 'bold',
   },
 });

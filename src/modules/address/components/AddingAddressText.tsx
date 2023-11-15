@@ -1,7 +1,7 @@
 import { AntDesign } from '@expo/vector-icons';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../../consts';
-import { useTranslation } from 'react-i18next';
 
 export const AddingAddressText: React.FC = () => {
   const { t } = useTranslation('translation', {
@@ -22,5 +22,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     gap: 10,
+    paddingTop: 5,
   },
 });
