@@ -17,7 +17,7 @@ import { data } from '../data';
 export const Settings: React.FC = () => {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const { i18n } = useTranslation();
-  const { t } = useTranslation('translation', { keyPrefix: 'settings' });
+  const { t } = useTranslation();
 
   const { name, gender, phone, email, birthday } = useSelector(
     (state: RootState) => state.settings as ISettingsState
@@ -31,43 +31,43 @@ export const Settings: React.FC = () => {
     <View style={styles.container}>
       <Row
         title="Name"
-        displayTitle={t('name')}
+        displayTitle={t('settings.name')}
         selectedItem={name}
         navigateTo="SettingsInputPage"
       />
       <Row
         title="Gender"
-        displayTitle={t('gender')}
+        displayTitle={t('settings.gender')}
         items={data.genders}
         selectedItem={gender}
         navigateTo="SettingsCheckboxPage"
       />
       <Row
         title="Phone"
-        displayTitle={t('phone')}
+        displayTitle={t('settings.phone')}
         selectedItem={phone}
         navigateTo="SettingsInputPage"
       />
       <Row
         title="Email"
-        displayTitle={t('email')}
+        displayTitle={t('settings.email')}
         selectedItem={email}
         navigateTo="SettingsInputPage"
       />
       <Row
         title="Date of birth"
-        displayTitle={t('dateOfBirth')}
+        displayTitle={t('settings.dateOfBirth')}
         selectedItem={birthday}
         navigateTo="SettingsBirthdayPage"
       />
       <Row
         title="Password"
-        displayTitle={t('password')}
+        displayTitle={t('settings.password')}
         navigateTo="SettingsPasswordPage"
       />
       <Row
         title="Language"
-        displayTitle={t('language')}
+        displayTitle={t('settings.language')}
         items={data.languages}
         selectedItem={i18n.language}
         navigateTo="SettingsCheckboxPage"
@@ -75,10 +75,10 @@ export const Settings: React.FC = () => {
 
       <View style={styles.buttonsContainer}>
         <TouchableOpacity onPress={handleSignOutPress}>
-          <Text style={styles.signOut}>{t('signOutOfAccount')}</Text>
+          <Text style={styles.signOut}>{t('settings.signOutOfAccount')}</Text>
         </TouchableOpacity>
         <TouchableOpacity>
-          <Text style={styles.delete}>{t('deleteAccount')}</Text>
+          <Text style={styles.delete}>{t('settings.deleteAccount')}</Text>
         </TouchableOpacity>
       </View>
     </View>

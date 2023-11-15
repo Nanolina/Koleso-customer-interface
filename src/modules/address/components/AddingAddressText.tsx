@@ -4,14 +4,12 @@ import { StyleSheet, Text, View } from 'react-native';
 import { colors } from '../../../consts';
 
 export const AddingAddressText: React.FC = () => {
-  const { t } = useTranslation('translation', {
-    keyPrefix: 'address',
-  });
+  const { t } = useTranslation();
 
   return (
     <View style={styles.container}>
       <AntDesign name="plus" size={12} color={colors.black} />
-      <Text>{t('addAddress')}</Text>
+      <Text>{t('address.addAddress')}</Text>
     </View>
   );
 };

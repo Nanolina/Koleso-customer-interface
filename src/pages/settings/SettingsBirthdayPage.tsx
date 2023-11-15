@@ -6,11 +6,11 @@ import { Birthday } from '../../modules/settings';
 import { CentralContainer } from '../../ui/CentralContainer';
 
 export const SettingsBirthdayPage: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'settings' });
+  const { t } = useTranslation();
 
   return (
     <Container>
-      <Header title={t('dateOfBirth')} hasButtonBack />
+      <Header title={t('settings.dateOfBirth')} hasButtonBack />
       <CentralContainer isPadding={true}>
         <Birthday />
       </CentralContainer>

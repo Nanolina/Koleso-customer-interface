@@ -6,11 +6,11 @@ import { Filter } from '../../modules/filter';
 import { CentralContainer } from '../../ui/CentralContainer';
 
 export const FilterPage: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'filter' });
+  const { t } = useTranslation();
 
   return (
     <Container>
-      <Header title={t('label')} hasButtonBack />
+      <Header title={t('filter.label')} hasButtonBack />
       <CentralContainer isPadding={true}>
         <Filter />
       </CentralContainer>

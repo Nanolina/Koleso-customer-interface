@@ -6,11 +6,11 @@ import { Notifications } from '../modules/notifications';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const NotificationsPage: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'notifications' });
+  const { t } = useTranslation();
 
   return (
     <Container>
-      <Header title={t('label')} />
+      <Header title={t('notifications.label')} />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Notifications />
       </CentralContainer>

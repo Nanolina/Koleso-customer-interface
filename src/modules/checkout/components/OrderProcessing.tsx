@@ -16,9 +16,7 @@ import { PriceInfoContainer } from '../../price';
 
 export const OrderProcessing: React.FC<IOrderProcessingProps> = React.memo(
   ({ item, isReturn }) => {
-    const { t } = useTranslation('translation', {
-      keyPrefix: 'orderProcessing',
-    });
+    const { t } = useTranslation();
 
     const delivery = useSelector(
       (state: { cart: ICartState }) => state.cart.delivery
@@ -35,8 +33,8 @@ export const OrderProcessing: React.FC<IOrderProcessingProps> = React.memo(
         >
           <ButtonsGroup
             options={[
-              { text: t('pickupPoint'), value: pickupPoint },
-              { text: t('courier'), value: courier },
+              { text: t('orderProcessing.pickupPoint'), value: pickupPoint },
+              { text: t('orderProcessing.courier'), value: courier },
             ]}
             currentState="delivery"
             toggleFunction={toggleDelivery}

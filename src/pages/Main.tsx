@@ -9,7 +9,7 @@ import { ProductList } from '../modules/productCard';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const Main: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'catalog' });
+  const { t } = useTranslation();
 
   const category = useSelector((state: RootState) => state.catalog.category);
   const subcategory = useSelector(
@@ -19,7 +19,10 @@ export const Main: React.FC = () => {
   return (
     <Container>
       <Header
-        title={(subcategory && t(subcategory.title)) || t(category.title)}
+        title={
+          (subcategory && t(`catalog.${subcategory.title}`)) ||
+          t(`catalog.${category.title}`)
+        }
         hasButtonBack
         showFilterSort
       />

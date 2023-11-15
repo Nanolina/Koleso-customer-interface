@@ -7,14 +7,14 @@ import { IFinanceProps } from '../types';
 
 export const Finance: React.FC<{ finance: IFinanceProps }> = React.memo(
   ({ finance }) => {
-    const { t } = useTranslation('translation', { keyPrefix: 'finances' });
+    const { t } = useTranslation();
 
     return (
       <View style={styles.container}>
         <View style={styles.row}>
           <Text style={styles.text}>
-            {finance.type === 'payment' && t('payment')}
-            {finance.type === 'return' && t('return')}
+            {finance.type === 'payment' && t('finances.payment')}
+            {finance.type === 'return' && t('finances.return')}
           </Text>
 
           <View style={styles.amountContainer}>
@@ -42,7 +42,7 @@ export const Finance: React.FC<{ finance: IFinanceProps }> = React.memo(
                 : styles.rejected
             }
           >
-            {t(finance.status)}
+            {t(`finances.${finance.status}`)}
           </Text>
         </View>
 

@@ -8,7 +8,7 @@ import { Subcategories } from '../modules/catalog';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const SubcategoriesPage: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'catalog' });
+  const { t } = useTranslation();
 
   const category = useSelector(
     (state: RootState) => state.catalog.category.title
@@ -16,7 +16,7 @@ export const SubcategoriesPage: React.FC = () => {
 
   return (
     <Container>
-      <Header title={t(category)} hasButtonBack />
+      <Header title={t(`catalog.${category}`)} hasButtonBack />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Subcategories />
       </CentralContainer>

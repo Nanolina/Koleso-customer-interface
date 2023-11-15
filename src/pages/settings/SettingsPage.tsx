@@ -6,11 +6,11 @@ import { Settings } from '../../modules/settings';
 import { CentralContainer } from '../../ui/CentralContainer';
 
 export const SettingsPage: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'settings' });
+  const { t } = useTranslation();
 
   return (
     <Container>
-      <Header title={t('label')} hasButtonBack />
+      <Header title={t('settings.label')} hasButtonBack />
       <CentralContainer isPadding={true}>
         <Settings />
       </CentralContainer>

@@ -7,11 +7,11 @@ import { ProductList } from '../modules/productCard';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const Favorites: React.FC = () => {
-    const { t } = useTranslation('translation', { keyPrefix: 'favorites' });
+  const { t } = useTranslation();
 
   return (
     <Container>
-      <Header title={t('label')} />
+      <Header title={t('favorites.label')} />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <ProductList data={productCards} />
       </CentralContainer>

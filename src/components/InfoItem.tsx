@@ -6,7 +6,7 @@ import { Property } from '../ui/Property';
 
 export const InfoItem: React.FC<IInfoItemProps> = React.memo(
   ({ item, hasPadding = false }) => {
-    const { t } = useTranslation('translation', { keyPrefix: 'filter' });
+    const { t } = useTranslation();
 
     return (
       <View
@@ -15,10 +15,13 @@ export const InfoItem: React.FC<IInfoItemProps> = React.memo(
         }
       >
         {item.color && (
-          <Property label={t('Color.label')} text={t(`Color.${item.color}`)} />
+          <Property
+            label={t('filter.Color.label')}
+            text={t(`filter.Color.${item.color}`)}
+          />
         )}
         {item.selectedSize && (
-          <Property label={t('Size')} text={item.selectedSize} />
+          <Property label={t('filter.Size')} text={item.selectedSize} />
         )}
       </View>
     );

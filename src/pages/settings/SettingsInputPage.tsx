@@ -7,14 +7,14 @@ import { Input } from '../../modules/settings';
 import { CentralContainer } from '../../ui/CentralContainer';
 
 export const SettingsInputPage: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'settings' });
+  const { t } = useTranslation();
 
   const route: any = useRoute();
   const { title } = route.params;
 
   return (
     <Container>
-      <Header title={t(title.toLowerCase())} hasButtonBack />
+      <Header title={t(`settings.${title.toLowerCase()}`)} hasButtonBack />
       <CentralContainer isPadding={true}>
         <Input title={title} />
       </CentralContainer>

@@ -9,12 +9,14 @@ import { CentralContainer } from '../../ui/CentralContainer';
 export const SettingsCheckboxPage: React.FC = () => {
   const route: any = useRoute();
   const { title, items } = route.params;
-  const { t } = useTranslation('translation', { keyPrefix: 'settings' });
+  const { t } = useTranslation();
 
   return (
     <Container>
       <Header
-        title={title === 'Language' ? t('language') : t('gender')}
+        title={
+          title === 'Language' ? t('settings.language') : t('settings.gender')
+        }
         hasButtonBack
       />
       <CentralContainer isPadding={true}>

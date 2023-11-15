@@ -6,20 +6,22 @@ import { IModalProps } from '../types';
 import { CustomModal } from './CustomModal';
 
 export const ReturnModal: React.FC<IModalProps> = ({ onClose }) => {
-  const { t } = useTranslation('translation', {
-    keyPrefix: 'modal.return',
-  });
+  const { t } = useTranslation();
 
   return (
     <CustomModal onClose={onClose}>
       <View style={styles.container}>
-        <Text style={styles.title}>{t('success.title')}</Text>
+        <Text style={styles.title}>{t('modal.return.success.title')}</Text>
         <View style={styles.textWithImage}>
           <Image source={images.error} style={styles.image} />
-          <Text style={styles.text}>{t('success.notFit')}</Text>
+          <Text style={styles.text}>{t('modal.return.success.notFit')}</Text>
         </View>
-        <Text style={styles.text}>{t('success.notification')}</Text>
-        <Text style={styles.title}>{t('success.lookForward')}!</Text>
+        <Text style={styles.text}>
+          {t('modal.return.success.notification')}
+        </Text>
+        <Text style={styles.title}>
+          {t('modal.return.success.lookForward')}!
+        </Text>
       </View>
     </CustomModal>
   );

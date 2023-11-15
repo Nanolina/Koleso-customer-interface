@@ -6,11 +6,11 @@ import { Login } from '../../modules/auth';
 import { CentralContainer } from '../../ui/CentralContainer';
 
 export const LoginPage: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'auth' });
+  const { t } = useTranslation();
 
   return (
     <Container>
-      <Header title={t('logIn')} />
+      <Header title={t('auth.logIn')} />
       <CentralContainer isPadding={true}>
         <Login />
       </CentralContainer>

@@ -18,15 +18,13 @@ export const StatusModal: React.FC<IStatusModalProps> = React.memo(
     topImage,
     rightImage,
   }) => {
-    const { t } = useTranslation('translation', {
-      keyPrefix: 'modal',
-    });
+    const { t } = useTranslation();
 
     const isSuccess = type === 'success';
     const imageSource = isSuccess ? images.success : images.error;
     const additionalText = isSuccess
-      ? `${t('success.orderNumber')}: ${orderId}`
-      : t('error.tryAgain');
+      ? `${t('modal.success.orderNumber')}: ${orderId}`
+      : t('modal.error.tryAgain');
 
     return (
       <CustomModal onClose={onClose}>

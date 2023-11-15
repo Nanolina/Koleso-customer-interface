@@ -8,7 +8,7 @@ import { SignUpButton } from '../ui/SignUpButton';
 import { ImageInput } from './ImageInput';
 
 export const Login: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'auth' });
+  const { t } = useTranslation();
 
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
@@ -17,7 +17,7 @@ export const Login: React.FC = () => {
     <View style={styles.container}>
       <View style={css.auth.inputContainer}>
         <ImageInput
-          placeholder={t('emailUsernamePhone')}
+          placeholder={t('auth.emailUsernamePhone')}
           icon={
             <View style={styles.iconsContainer}>
               <Fontisto
@@ -37,7 +37,7 @@ export const Login: React.FC = () => {
         />
 
         <ImageInput
-          placeholder={t('password')}
+          placeholder={t('auth.password')}
           icon={
             <FontAwesome
               name="lock"
@@ -52,7 +52,7 @@ export const Login: React.FC = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button text={t('logIn')} onPress={() => {}} />
+        <Button text={t('auth.logIn')} onPress={() => {}} />
       </View>
 
       <SignUpButton />

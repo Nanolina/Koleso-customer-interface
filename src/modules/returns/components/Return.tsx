@@ -9,14 +9,14 @@ import { UpperText } from '../ui/UpperText';
 import { TextInfoContainer } from './TextInfoContainer';
 
 export const Return: React.FC<{ item: IItemProps }> = React.memo(({ item }) => {
-  const { t } = useTranslation('translation', { keyPrefix: 'returns' });
+  const { t } = useTranslation();
 
   return (
     <View style={styles.container}>
       <UpperText
         number={item.return.number}
         date={item.return.date}
-        text={t('request')}
+        text={t('returns.request')}
       />
       <View style={styles.centerContainer}>
         <ImageContainer image={item.image} />

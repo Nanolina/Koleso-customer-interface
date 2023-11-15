@@ -6,18 +6,18 @@ import { IItemProps } from '../../../types';
 
 export const DateText: React.FC<{ item: IItemProps }> = React.memo(
   ({ item }) => {
-    const { t } = useTranslation('translation', { keyPrefix: 'purchases' });
+    const { t } = useTranslation();
 
     return (
       <>
         {item.delivery && (
           <Text style={styles.delivered}>
-            {t('delivered')}: {item.delivery?.date}
+            {t('purchases.delivered')}: {item.delivery?.date}
           </Text>
         )}
         {item?.return?.date && (
           <Text style={styles.returned}>
-            {t('returned')}: {item?.return?.date}
+            {t('purchases.returned')}: {item?.return?.date}
           </Text>
         )}
       </>

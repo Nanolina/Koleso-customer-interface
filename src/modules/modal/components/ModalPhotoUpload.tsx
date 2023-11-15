@@ -8,22 +8,22 @@ import { CustomModal } from './CustomModal';
 
 export const ModalPhotoUpload: React.FC<IModalPhotoProps> = React.memo(
   ({ onClose, onCameraSelect, onGallerySelect }) => {
-    const { t } = useTranslation('translation', { keyPrefix: 'modal.photo' });
+    const { t } = useTranslation();
 
     return (
       <CustomModal onClose={onClose}>
-        <Text style={styles.title}>{t('chooseOption')}</Text>
+        <Text style={styles.title}>{t('modal.photo.chooseOption')}</Text>
 
         <View style={styles.options}>
           <Button
-            text={t('takePhoto')}
+            text={t('modal.photo.takePhoto')}
             onPress={onCameraSelect}
             backgroundColor={colors.grayOpacity}
             textColor={colors.main}
             hasShadow
           />
           <Button
-            text={t('selectFromGallery')}
+            text={t('modal.photo.selectFromGallery')}
             onPress={onGallerySelect}
             backgroundColor={colors.grayOpacity}
             textColor={colors.main}

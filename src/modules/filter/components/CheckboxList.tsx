@@ -10,7 +10,7 @@ import { Buttons } from './Buttons';
 
 export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
   ({ title, items }) => {
-    const { t } = useTranslation('translation', { keyPrefix: 'filter' });
+    const { t } = useTranslation();
 
     const dispatch = useDispatch();
 
@@ -35,7 +35,9 @@ export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
         return (
           <CheckboxItem
             key={item}
-            text={isNeedTranslation(title) ? t(`${title}.${item}`) : item}
+            text={
+              isNeedTranslation(title) ? t(`filter.${title}.${item}`) : item
+            }
             isSelected={isSelected}
             onToggle={() => dispatch(onToggleItem(item))}
           />

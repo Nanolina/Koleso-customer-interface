@@ -5,7 +5,7 @@ import { colors, reasonsForReturn } from '../../../consts';
 import { Box } from '../../../ui/Box';
 
 export const ReasonContainer: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'returns' });
+  const { t } = useTranslation();
 
   const [selectedReason, setSelectedReason] = useState(null);
 
@@ -21,7 +21,7 @@ export const ReasonContainer: React.FC = () => {
         return (
           <Box
             key={reason}
-            label={t(reason)}
+            label={t(`returns.${reason}`)}
             boxStyle={isSelected ? styles.selectedBox : styles.unselectedBox}
             textStyle={isSelected ? styles.selectedText : styles.unselectedText}
             onPress={() => handlePress(reason)}

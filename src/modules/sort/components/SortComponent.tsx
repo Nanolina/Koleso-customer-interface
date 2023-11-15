@@ -16,13 +16,13 @@ const { width } = Dimensions.get('window');
 
 export const SortComponent: React.FC<ISortItemProps> = React.memo(
   ({ image, title }) => {
-    const { t } = useTranslation('translation', { keyPrefix: 'sort' });
+    const { t } = useTranslation();
 
     return (
       <WebCardWrapper cardWidth={width}>
         <TouchableOpacity style={styles.container} onPress={() => {}}>
           <Image source={image} style={styles.image} />
-          <Text style={styles.text}>{t(title)}</Text>
+          <Text style={styles.text}>{t(`sort.${title}`)}</Text>
         </TouchableOpacity>
       </WebCardWrapper>
     );

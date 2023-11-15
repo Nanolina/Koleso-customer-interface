@@ -10,12 +10,14 @@ export const FilterCheckboxPage: React.FC = () => {
   const route: any = useRoute();
   const { title, items } = route.params;
 
-  const { t } = useTranslation('translation', { keyPrefix: 'filter' });
+  const { t } = useTranslation();
 
   return (
     <Container>
       <Header
-        title={t(isNeedTranslation(title) ? `${title}.label` : title)}
+        title={t(
+          isNeedTranslation(title) ? `filter.${title}.label` : `filter.${title}`
+        )}
         hasButtonBack
       />
       <CentralContainer isPadding>

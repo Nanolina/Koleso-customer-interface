@@ -15,7 +15,7 @@ export const PaymentPage: React.FC = () => {
   const [isModalVisible, setModalVisible] = useState(true);
 
   // mock data
-  const payment = false;
+  const payment = true;
 
   const onClose = useCallback(() => {
     setModalVisible(false);
@@ -29,7 +29,7 @@ export const PaymentPage: React.FC = () => {
         orderId: '32345678523456',
         widthImage: 60,
         heightImage: 60,
-        topImage: 30,
+        topImage: 40,
         rightImage: 10,
       }
     : {

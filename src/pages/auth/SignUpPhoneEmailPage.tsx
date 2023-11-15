@@ -6,11 +6,11 @@ import { SignUpPhoneEmail } from '../../modules/auth';
 import { CentralContainer } from '../../ui/CentralContainer';
 
 export const SignUpPhoneEmailPage: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'auth' });
+  const { t } = useTranslation();
 
   return (
     <Container>
-      <Header title={t('signUp')} hasButtonBack />
+      <Header title={t('auth.signUp')} hasButtonBack />
       <CentralContainer isPadding={true}>
         <SignUpPhoneEmail />
       </CentralContainer>

@@ -6,11 +6,11 @@ import { IContactProps } from '../types';
 import { Contact } from './Contact';
 
 export const Contacts: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'contacts' });
+  const { t } = useTranslation();
 
   return (
     <View style={styles.mainContainer}>
-      <Text style={styles.text}>{t('title')}</Text>
+      <Text style={styles.text}>{t('contacts.title')}</Text>
       <View style={styles.container}>
         {contacts.map((contact: IContactProps) => (
           <Contact contact={contact} key={contact.id} />

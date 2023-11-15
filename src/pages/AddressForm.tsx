@@ -6,13 +6,11 @@ import { Form } from '../modules/address';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const AddressForm: React.FC = () => {
-  const { t } = useTranslation('translation', {
-    keyPrefix: 'address',
-  });
+  const { t } = useTranslation();
 
   return (
     <Container>
-      <Header title={t('addAddress')} hasButtonBack />
+      <Header title={t('address.addAddress')} hasButtonBack />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Form />
       </CentralContainer>

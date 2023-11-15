@@ -9,23 +9,21 @@ import { useTranslation } from 'react-i18next';
 // 'https://dashboard.stripe.com/connect/accounts/overview'
 
 export const Payment = () => {
-  const { t } = useTranslation('translation', {
-    keyPrefix: 'payment',
-  });
+  const { t } = useTranslation();
 
   return (
     <View style={styles.container}>
       <ButtonsGroup
         options={[
-          { text: t('card'), value: 'Card' },
-          { text: t('applePay'), value: 'Apple pay' },
+          { text: t('payment.card'), value: 'Card' },
+          { text: t('payment.applePay'), value: 'Apple pay' },
         ]}
         currentState="payment"
         toggleFunction={togglePayment}
         slice="payment"
       />
 
-      <Text>{t('label')}</Text>
+      <Text>{t('payment.label')}</Text>
       <Text>use Stripe Connect</Text>
     </View>
   );

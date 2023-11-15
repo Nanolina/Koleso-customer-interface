@@ -15,13 +15,13 @@ const { width } = Dimensions.get('window');
 
 export const CatalogItem: React.FC<ICatalogItemProps> = React.memo(
   ({ item, onPress }) => {
-    const { t } = useTranslation('translation', { keyPrefix: 'catalog' });
+    const { t } = useTranslation();
 
     return (
       <WebCardWrapper cardWidth={width}>
         <TouchableOpacity style={styles.container} onPress={onPress}>
           <Image source={item.image} style={styles.image} />
-          <Text style={styles.text}>{t(item.title)}</Text>
+          <Text style={styles.text}>{t(`catalog.${item.title}`)}</Text>
         </TouchableOpacity>
       </WebCardWrapper>
     );

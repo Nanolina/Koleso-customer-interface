@@ -6,20 +6,20 @@ import { INotificationProps } from '../types';
 
 export const Notification: React.FC<{ notification: INotificationProps }> =
   React.memo(({ notification }) => {
-    const { t } = useTranslation('translation', { keyPrefix: 'notifications' });
+    const { t } = useTranslation();
 
     return (
       <View style={styles.container}>
         <View style={styles.topContainer}>
           <Text style={styles.title}>
-            {notification.status === 'sent' && t('sent')}
+            {notification.status === 'sent' && t('notifications.sent')}
           </Text>
           <Text style={styles.date}>
             {notification.date} {notification.time}
           </Text>
         </View>
         <Text style={styles.text}>
-          {t('textSent', {
+          {t('notifications.textSent', {
             amount: notification.amount,
             transactionNumber: notification.transactionNumber,
           })}

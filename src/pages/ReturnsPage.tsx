@@ -7,11 +7,11 @@ import { Returns } from '../modules/returns';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const ReturnsPage: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'myAccount' });
+  const { t } = useTranslation();
 
   return (
     <Container>
-      <Header title={t('returns')} hasButtonBack />
+      <Header title={t('myAccount.returns')} hasButtonBack />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Returns data={productCards} />
       </CentralContainer>

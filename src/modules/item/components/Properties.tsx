@@ -6,23 +6,29 @@ import { IPropertiesProps } from '../types';
 
 export const Properties: React.FC<IPropertiesProps> = React.memo(
   ({ color, composition, gender }) => {
-    const { t } = useTranslation('translation', { keyPrefix: 'filter' });
+    const { t } = useTranslation();
 
     return (
       <View>
         {color && (
-          <Property label={t('Color.label')} text={t(`Color.${color}`)} />
+          <Property
+            label={t('filter.Color.label')}
+            text={t(`filter.Color.${color}`)}
+          />
         )}
         {composition && (
           <Property
-            label={t('Composition.label')}
-            text={t(`Composition.${composition}`)}
+            label={t('filter.Composition.label')}
+            text={t(`filter.Composition.${composition}`)}
           />
         )}
         {gender && (
-          <Property label={t('Gender.label')} text={t(`Gender.${gender}`)} />
+          <Property
+            label={t('filter.Gender.label')}
+            text={t(`filter.Gender.${gender}`)}
+          />
         )}
-        <Property label={t('Size')} />
+        <Property label={t('filter.Size')} />
       </View>
     );
   }

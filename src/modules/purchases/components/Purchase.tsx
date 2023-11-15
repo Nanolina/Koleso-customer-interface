@@ -18,7 +18,7 @@ const cardWidth = width / 3;
 
 export const Purchase: React.FC<{ item: IItemProps }> = React.memo(
   ({ item }) => {
-    const { t } = useTranslation('translation', { keyPrefix: 'purchases' });
+    const { t } = useTranslation();
     const navigation: NavigationProp<ParamListBase> = useNavigation();
 
     const handlePress = React.useCallback(() => {
@@ -37,7 +37,7 @@ export const Purchase: React.FC<{ item: IItemProps }> = React.memo(
         {!item.return && (
           <View style={styles.buttonContainer}>
             <Button
-              text={t('makeReturn')}
+              text={t('purchases.makeReturn')}
               backgroundColor={colors.white}
               textColor={colors.main}
               border={false}

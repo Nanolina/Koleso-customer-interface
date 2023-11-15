@@ -6,11 +6,11 @@ import { Finances } from '../modules/finances';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const FinancesPage: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'myAccount' });
+  const { t } = useTranslation();
 
   return (
     <Container>
-      <Header title={t('finances')} hasButtonBack />
+      <Header title={t('myAccount.finances')} hasButtonBack />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Finances />
       </CentralContainer>

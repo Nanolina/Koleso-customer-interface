@@ -7,11 +7,11 @@ import { Purchases } from '../modules/purchases';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const PurchasesPage: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'myAccount' });
+  const { t } = useTranslation();
 
   return (
     <Container>
-      <Header title={t('purchases')} hasButtonBack />
+      <Header title={t('myAccount.purchases')} hasButtonBack />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Purchases data={productCards} />
       </CentralContainer>

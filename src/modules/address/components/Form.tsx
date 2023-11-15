@@ -9,9 +9,7 @@ import { css } from '../../../consts';
 
 export const Form: React.FC = React.memo(() => {
   const dispatch = useDispatch();
-  const { t } = useTranslation('translation', {
-    keyPrefix: 'address',
-  });
+  const { t } = useTranslation();
 
   const { name, city, street, house, apartment } = useSelector(
     (state: RootState) => state.checkout
@@ -45,19 +43,19 @@ export const Form: React.FC = React.memo(() => {
   return (
     <View style={styles.mainContainer}>
       <TextWithInput
-        text={t('surname')}
+        text={t('address.surname')}
         value={name}
         onChangeText={handleNameChange}
         autoComplete="name"
       />
 
       <TextWithInput
-        text={t('city')}
+        text={t('address.city')}
         value={city}
         onChangeText={handleCityChange}
       />
       <TextWithInput
-        text={t('street')}
+        text={t('address.street')}
         value={street}
         onChangeText={handleStreetChange}
         autoComplete="street-address"
@@ -65,13 +63,13 @@ export const Form: React.FC = React.memo(() => {
 
       <View style={styles.container}>
         <TextWithInput
-          text={t('houseNumber')}
+          text={t('address.houseNumber')}
           value={house}
           onChangeText={handleHouseChange}
           width="45%"
         />
         <TextWithInput
-          text={t('apartmentNumber')}
+          text={t('address.apartmentNumber')}
           value={apartment}
           onChangeText={handleApartmentChange}
           width="45%"

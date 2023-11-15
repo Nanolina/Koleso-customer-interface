@@ -7,13 +7,13 @@ import { QRCode } from '../../ui/QRCode/QRCode';
 
 export const QRCodeSection: React.FC<IQRCodeSectionProps> = React.memo(
   ({ code }) => {
-    const { t } = useTranslation('translation', { keyPrefix: 'QRCode' });
+    const { t } = useTranslation();
 
     return (
       <View style={styles.container}>
         <QRCode />
         <Text style={styles.text}>
-          {t('code')}: {code}
+          {t('QRCode.code')}: {code}
         </Text>
       </View>
     );

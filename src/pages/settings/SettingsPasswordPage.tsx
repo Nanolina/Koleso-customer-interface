@@ -6,11 +6,11 @@ import { ChangePassword } from '../../modules/settings';
 import { CentralContainer } from '../../ui/CentralContainer';
 
 export const SettingsPasswordPage: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'settings' });
+  const { t } = useTranslation();
 
   return (
     <Container>
-      <Header title={t('changePassword')} hasButtonBack />
+      <Header title={t('settings.changePassword')} hasButtonBack />
       <CentralContainer isPadding={true}>
         <ChangePassword />
       </CentralContainer>

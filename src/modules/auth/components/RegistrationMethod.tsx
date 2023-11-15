@@ -11,7 +11,7 @@ import { IRegistrationMethodProps } from '../types';
 
 const RegistrationMethod: React.FC<IRegistrationMethodProps> = React.memo(
   ({ registrationMethod }) => {
-    const { t } = useTranslation('translation', { keyPrefix: 'auth' });
+    const { t } = useTranslation();
 
     const navigation: NavigationProp<ParamListBase> = useNavigation();
 
@@ -22,7 +22,7 @@ const RegistrationMethod: React.FC<IRegistrationMethodProps> = React.memo(
     return (
       <TouchableOpacity style={styles.container} onPress={handlePress}>
         <Image source={registrationMethod.image} style={styles.image} />
-        <Text style={styles.text}>{t(registrationMethod.text)}</Text>
+        <Text style={styles.text}>{t(`auth.${registrationMethod.text}`)}</Text>
       </TouchableOpacity>
     );
   }

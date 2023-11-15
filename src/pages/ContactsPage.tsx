@@ -6,11 +6,11 @@ import { Contacts } from '../modules/contacts';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const ContactsPage: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'myAccount' });
+  const { t } = useTranslation();
 
   return (
     <Container>
-      <Header title={t('contacts')} hasButtonBack />
+      <Header title={t('myAccount.contacts')} hasButtonBack />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Contacts />
       </CentralContainer>

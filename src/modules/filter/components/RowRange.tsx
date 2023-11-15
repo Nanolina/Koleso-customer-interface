@@ -8,7 +8,7 @@ import { Range } from './Range';
 
 export const RowRange: React.FC<IRowRangeProps> = React.memo(
   ({ title, displayTitle, from, to }) => {
-    const { t } = useTranslation('translation', { keyPrefix: 'filter' });
+    const { t } = useTranslation();
 
     const { addFrom, addTo } = getFromToFunctions(title);
 
@@ -17,12 +17,12 @@ export const RowRange: React.FC<IRowRangeProps> = React.memo(
         <Text style={styles.text}>{displayTitle}</Text>
         <View style={styles.right}>
           <Range
-            text={t('from')}
+            text={t('filter.from')}
             value={from === null ? '' : String(from)}
             onChangeText={addFrom}
           />
           <Range
-            text={t('to')}
+            text={t('filter.to')}
             value={to === null ? '' : String(to)}
             onChangeText={addTo}
           />

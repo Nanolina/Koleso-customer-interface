@@ -12,7 +12,7 @@ import { ReasonContainer } from './ReasonContainer';
 
 export const ReturnForm: React.FC<{ item: IItemProps }> = React.memo(
   ({ item }) => {
-    const { t } = useTranslation('translation', { keyPrefix: 'returns' });
+    const { t } = useTranslation();
 
     const dispatch = useDispatch();
     const comment = useSelector((state: RootState) => state.return.comment);
@@ -26,20 +26,20 @@ export const ReturnForm: React.FC<{ item: IItemProps }> = React.memo(
 
     return (
       <View style={styles.mainContainer}>
-        <Text style={styles.text}>{t('reason')}</Text>
+        <Text style={styles.text}>{t('returns.reason')}</Text>
         <ReasonContainer />
 
         <View style={styles.container}>
-          <Text style={styles.text}>{t('photos')}</Text>
-          <Text style={styles.extra}>{t('upTo')} 5</Text>
+          <Text style={styles.text}>{t('returns.photos')}</Text>
+          <Text style={styles.extra}>{t('returns.upTo')} 5</Text>
         </View>
         <PhotoUpload />
 
         <View style={styles.container}>
-          <Text style={styles.text}>{t('comment')}</Text>
+          <Text style={styles.text}>{t('returns.comment')}</Text>
         </View>
         <Note
-          placeholder={`${t('commentPlaceholder')}...`}
+          placeholder={`${t('returns.commentPlaceholder')}...`}
           value={comment}
           onChangeText={handleChangeText}
         />

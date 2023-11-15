@@ -20,9 +20,7 @@ export const ExtraInfoCourier: React.FC = () => {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const dispatch = useDispatch();
 
-  const { t } = useTranslation('translation', {
-    keyPrefix: 'orderProcessing',
-  });
+  const { t } = useTranslation();
 
   const { date, note } = useSelector(
     (state: { checkout: ICheckoutState }) => state.checkout
@@ -70,7 +68,7 @@ export const ExtraInfoCourier: React.FC = () => {
       <Hr />
       <View style={styles.container}>
         <DatePicker
-          text={t('date')}
+          text={t('orderProcessing.date')}
           value={date}
           onChange={handleDateChange}
           validRange={validRangeDate}
@@ -78,8 +76,8 @@ export const ExtraInfoCourier: React.FC = () => {
       </View>
 
       <Note
-        title={t('note')}
-        placeholder={t('placeholderNote')}
+        title={t('orderProcessing.note')}
+        placeholder={t('orderProcessing.placeholderNote')}
         value={note}
         onChangeText={handleNoteChange}
       />

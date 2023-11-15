@@ -6,11 +6,11 @@ import { Services } from '../modules/myAccount';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const MyAccount: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'myAccount' });
+  const { t } = useTranslation();
 
   return (
     <Container>
-      <Header title={t('label')} />
+      <Header title={t('myAccount.label')} />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <Services />
       </CentralContainer>

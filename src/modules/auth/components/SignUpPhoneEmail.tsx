@@ -10,7 +10,7 @@ import { Button } from '../../../ui/Button';
 import { ImageInput } from './ImageInput';
 
 export const SignUpPhoneEmail: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'auth' });
+  const { t } = useTranslation();
 
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
@@ -37,7 +37,7 @@ export const SignUpPhoneEmail: React.FC = () => {
     <View style={styles.container}>
       <View style={css.auth.inputContainer}>
         <ImageInput
-          placeholder={t('email')}
+          placeholder={t('auth.email')}
           icon={
             <Fontisto
               name="email"
@@ -50,7 +50,7 @@ export const SignUpPhoneEmail: React.FC = () => {
         />
 
         <ImageInput
-          placeholder={t('phone')}
+          placeholder={t('auth.phone')}
           icon={
             <FontAwesome
               name="phone"
@@ -65,7 +65,7 @@ export const SignUpPhoneEmail: React.FC = () => {
         />
 
         <ImageInput
-          placeholder={t('username')}
+          placeholder={t('auth.username')}
           icon={
             <FontAwesome
               name="user-circle-o"
@@ -79,7 +79,7 @@ export const SignUpPhoneEmail: React.FC = () => {
         />
 
         <ImageInput
-          placeholder={t('password')}
+          placeholder={t('auth.password')}
           icon={
             <FontAwesome
               name="lock"
@@ -93,7 +93,7 @@ export const SignUpPhoneEmail: React.FC = () => {
         />
 
         <ImageInput
-          placeholder={t('repeatPassword')}
+          placeholder={t('auth.repeatPassword')}
           icon={
             <FontAwesome
               name="lock"
@@ -108,7 +108,7 @@ export const SignUpPhoneEmail: React.FC = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button text={t('signUp')} onPress={() => {}} />
+        <Button text={t('auth.signUp')} onPress={() => {}} />
       </View>
     </View>
   );

@@ -10,7 +10,7 @@ import { sizes } from '../../../consts';
 import { Button } from '../../../ui/Button';
 
 export const SignUpButton: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'auth' });
+  const { t } = useTranslation();
 
   const navigation: NavigationProp<ParamListBase> = useNavigation();
 
@@ -20,8 +20,8 @@ export const SignUpButton: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{t('notAccount')}</Text>
-      <Button text={t('signUp')} onPress={handlePress} />
+      <Text style={styles.text}>{t('auth.notAccount')}</Text>
+      <Button text={t('auth.signUp')} onPress={handlePress} />
     </View>
   );
 };

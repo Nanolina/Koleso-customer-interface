@@ -6,11 +6,11 @@ import { SortComponents } from '../modules/sort';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const SortPage: React.FC = () => {
-  const { t } = useTranslation('translation', { keyPrefix: 'sort' });
+  const { t } = useTranslation();
 
   return (
     <Container>
-      <Header title={t('label')} hasButtonBack />
+      <Header title={t('sort.label')} hasButtonBack />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <SortComponents />
       </CentralContainer>
