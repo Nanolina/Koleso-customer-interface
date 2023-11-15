@@ -1,7 +1,7 @@
 import { ImageSourcePropType } from 'react-native';
 
 export interface IImageContainerProps {
-  image: ImageSourcePropType | string;
+  image: any;
 }
 
 export interface IIconContainerProps {

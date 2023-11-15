@@ -16,11 +16,6 @@ export interface ICartItemsProps {
   toggleItemSelection: (id: string) => void;
 }
 
-export interface IDetailsContainerProps {
-  item: IItemProps;
-  quantity: number;
-}
-
 export interface IQuantityProps {
   quantity: number;
 }

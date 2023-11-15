@@ -49,21 +49,17 @@ export const Cart: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <CheckboxItem
-        text={t('selectAll')}
-        isSelected={isSelectedAll}
-        onToggle={toggleSelectAll}
-      />
+      <View style={styles.selectAll}>
+        <CheckboxItem
+          text={t('selectAll')}
+          isSelected={isSelectedAll}
+          onToggle={toggleSelectAll}
+        />
+      </View>
       <CartItems
         items={productCards}
         selectedItems={selectedItems}
         toggleItemSelection={toggleItemSelection}
-      />
-      <PriceInfoContainer
-        quantity={4}
-        priceForProducts={70}
-        hasDelivery={false}
-        hasTotalPrice={false}
       />
     </View>
   );
@@ -73,5 +69,11 @@ const styles = StyleSheet.create({
   container: {
     paddingTop: css.paddingTop,
     paddingBottom: css.paddingBottom,
+  },
+  selectAll: {
+    paddingLeft: 10,
+  },
+  priceContainer: {
+    paddingTop: 30,
   },
 });

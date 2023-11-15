@@ -2,13 +2,12 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { InfoItem } from '../../../components/InfoItem';
 import { sizes } from '../../../consts';
+import { IItemProps } from '../../../types';
 import { PriceContainer } from '../../price';
 import { gapBetweenDetails } from '../consts';
-import { IDetailsContainerProps } from '../types';
-import { QuantityContainer } from './QuantityContainer';
 
-export const DetailsContainer: React.FC<IDetailsContainerProps> = React.memo(
-  ({ item, quantity }) => {
+export const DetailsContainer: React.FC<{ item: IItemProps }> = React.memo(
+  ({ item }) => {
     return (
       <View style={styles.container}>
         <PriceContainer
@@ -19,7 +18,6 @@ export const DetailsContainer: React.FC<IDetailsContainerProps> = React.memo(
 
         <Text style={styles.title}>{item.title}</Text>
         <InfoItem item={item} />
-        <QuantityContainer quantity={quantity} />
       </View>
     );
   }

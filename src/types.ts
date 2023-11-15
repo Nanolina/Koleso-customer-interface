@@ -129,7 +129,7 @@ export interface IButtonProps {
   isBold?: boolean;
   hasShadow?: boolean;
   extra?: string;
-  navigation?: NavigationProp<ParamListBase>;
+  navigation?: any;
 }
 
 export interface IButtonBackProps {

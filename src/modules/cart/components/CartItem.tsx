@@ -3,10 +3,11 @@ import { Image, Platform, StyleSheet, View } from 'react-native';
 import { css } from '../../../consts';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { Hr } from '../../../ui/Hr';
+import { Icon } from '../../../ui/Icon';
 import { heightImage, widthImage } from '../consts';
 import { ICartItemProps } from '../types';
+import { BottomCartItem } from './BottomCartItem';
 import { DetailsContainer } from './DetailsContainer';
-import { Menu } from './Menu';
 
 export const CartItem: React.FC<ICartItemProps> = React.memo(
   ({ item, isSelected, toggleItemSelection }) => {
@@ -18,10 +19,11 @@ export const CartItem: React.FC<ICartItemProps> = React.memo(
             onToggle={toggleItemSelection}
           />
           <Image source={{ uri: item.image }} style={styles.image} />
-          <DetailsContainer item={item} quantity={item.quantity} />
-          <Menu />
+          <DetailsContainer item={item} />
+          <Icon name="delete" />
         </View>
         <Hr />
+        <BottomCartItem quantity={item.quantity} />
       </View>
     );
   }
@@ -29,7 +31,10 @@ export const CartItem: React.FC<ICartItemProps> = React.memo(
 
 const styles = StyleSheet.create({
   container: {
-    gap: 20,
+    gap: 10,
+    padding: 10,
+    borderRadius: css.borderRadiusMax,
+    ...css.shadow,
   },
   itemContainer: {
     flexDirection: 'row',
