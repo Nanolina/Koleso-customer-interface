@@ -2,7 +2,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, css, currency, sizes } from '../../../consts';
-import { Hr } from '../../../ui/Hr';
 import { IFinanceProps } from '../types';
 
 export const Finance: React.FC<{ finance: IFinanceProps }> = React.memo(
@@ -45,8 +44,6 @@ export const Finance: React.FC<{ finance: IFinanceProps }> = React.memo(
             {t(`finances.${finance.status}`)}
           </Text>
         </View>
-
-        <Hr />
       </View>
     );
   }
@@ -56,6 +53,9 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'space-between',
     gap: 10,
+    padding: 10,
+    borderRadius: css.borderRadiusMax,
+    ...css.shadow,
   },
   row: {
     flexDirection: 'row',

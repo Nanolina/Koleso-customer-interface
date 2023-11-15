@@ -15,6 +15,6 @@ export const Finances: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    gap: 20,
+    gap: 10,
   },
 });

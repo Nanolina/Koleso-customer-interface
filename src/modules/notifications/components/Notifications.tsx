@@ -15,6 +15,6 @@ export const Notifications: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    gap: 20,
+    gap: 10,
   },
 });
