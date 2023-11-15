@@ -44,7 +44,7 @@ export const Filter: React.FC = () => {
       <Row
         items={data.genders}
         title="Gender"
-        displayTitle={t('filter.Gender')}
+        displayTitle={t('filter.Gender.label')}
         selectedItems={genders}
         navigateTo="FilterCheckboxPage"
       />

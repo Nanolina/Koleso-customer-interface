@@ -152,3 +152,8 @@ export const getNumericData = (text: string): string => {
 
   return ''; // If the text is not numeric, return an empty string
 };
+
+// For translate
+export const isNeedTranslation = (title) => {
+  return title !== 'Size' && title !== 'Brand' && title !== 'Seller';
+};

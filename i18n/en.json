@@ -112,7 +112,6 @@
   },
   "filter": {
     "label": "Filter",
-    "Gender": "Gender",
     "Size": "Size",
     "Category": "Category",
     "Brand": "Brand",
@@ -153,6 +152,11 @@
       "Violet": "Violet",
       "White": "White",
       "Yellow": "Yellow"
+    },
+    "Gender": {
+      "label": "Gender",
+      "Female": "Female",
+      "Male": "Male"
     }
   },
   "catalog": {

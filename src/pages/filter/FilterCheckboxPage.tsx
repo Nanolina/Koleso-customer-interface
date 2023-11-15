@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Container } from '../../components/Container';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
-import { CheckboxList } from '../../modules/filter';
+import { CheckboxList, isNeedTranslation } from '../../modules/filter';
 import { CentralContainer } from '../../ui/CentralContainer';
 
 export const FilterCheckboxPage: React.FC = () => {
@@ -14,7 +14,10 @@ export const FilterCheckboxPage: React.FC = () => {
 
   return (
     <Container>
-      <Header title={t(`${title}.label`)} hasButtonBack />
+      <Header
+        title={t(isNeedTranslation(title) ? `${title}.label` : title)}
+        hasButtonBack
+      />
       <CentralContainer isPadding>
         <CheckboxList title={title} items={items} />
       </CentralContainer>

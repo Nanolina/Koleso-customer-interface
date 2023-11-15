@@ -3,9 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/rootReducer';
-import { css } from '../../../consts';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
-import { getItems } from '../functions';
+import { getItems, isNeedTranslation } from '../functions';
 import { ICheckboxListProps } from '../types';
 import { Buttons } from './Buttons';
 
@@ -45,7 +44,7 @@ export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
         return (
           <CheckboxItem
             key={item}
-            text={t(`${title}.${item}`)}
+            text={isNeedTranslation(title) ? t(`${title}.${item}`) : item}
             isSelected={isSelected}
             onToggle={() => dispatch(onToggleItem(item))}
           />
