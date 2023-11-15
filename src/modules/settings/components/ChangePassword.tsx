@@ -44,6 +44,7 @@ export const ChangePassword: React.FC = () => {
 const styles = StyleSheet.create({
   container: {
     gap: 20,
+    padding: 5,
   },
   buttonContainer: {
     alignItems: 'flex-end',

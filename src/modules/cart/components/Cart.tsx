@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     paddingBottom: css.paddingBottom,
   },
   selectAll: {
-    paddingLeft: 10,
+    paddingLeft: 15,
   },
   priceContainer: {
     paddingTop: 30,

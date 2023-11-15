@@ -92,6 +92,7 @@ export const css = {
     gap: 50,
     inputContainer: {
       gap: 30,
+      padding: 5,
     },
   },
   return: {
@@ -108,6 +109,10 @@ export const css = {
       gap: 20,
       paddingBottom: 20,
     },
+  },
+  shadowContainer: {
+    gap: 10,
+    padding: 5,
   },
 };
 

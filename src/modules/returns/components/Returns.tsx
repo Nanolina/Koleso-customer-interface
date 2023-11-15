@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
+import { FlatList, View } from 'react-native';
+import { css } from '../../../consts';
 import { IReturnsProps } from '../types';
 import { Return } from './Return';
 
@@ -11,7 +12,7 @@ export const Returns: React.FC<IReturnsProps> = React.memo(({ data }) => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View style={css.shadowContainer}>
       <FlatList
         data={data}
         renderItem={renderReturns}
@@ -19,10 +20,4 @@ export const Returns: React.FC<IReturnsProps> = React.memo(({ data }) => {
       />
     </View>
   );
-});
-
-const styles = StyleSheet.create({
-  container: {
-    gap: 10,
-  },
 });

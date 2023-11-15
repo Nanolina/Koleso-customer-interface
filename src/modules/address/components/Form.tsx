@@ -41,7 +41,7 @@ export const Form: React.FC = React.memo(() => {
   );
 
   return (
-    <View style={styles.mainContainer}>
+    <View style={css.shadowContainer}>
       <TextWithInput
         text={t('address.surname')}
         value={name}
@@ -80,10 +80,6 @@ export const Form: React.FC = React.memo(() => {
 });
 
 const styles = StyleSheet.create({
-  mainContainer: {
-    gap: 10,
-    paddingTop: css.paddingTop,
-  },
   container: {
     flexDirection: 'row',
     justifyContent: 'space-between',

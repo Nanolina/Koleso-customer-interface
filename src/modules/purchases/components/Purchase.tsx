@@ -31,23 +31,25 @@ export const Purchase: React.FC<{ item: IItemProps }> = React.memo(
     return (
       <View style={styles.container}>
         <ImageContainer image={item.image} />
-        <TextContainer item={item} />
-        <PriceContainer price={item.price} priceSize={sizes.text16} />
+        <View style={styles.infoContainer}>
+          <TextContainer item={item} />
+          <PriceContainer price={item.price} priceSize={sizes.text16} />
 
-        {!item.return && (
-          <View style={styles.buttonContainer}>
-            <Button
-              text={t('purchases.makeReturn')}
-              backgroundColor={colors.white}
-              textColor={colors.main}
-              border={false}
-              isBold={false}
-              width="90%"
-              hasShadow
-              onPress={handlePress}
-            />
-          </View>
-        )}
+          {!item.return && (
+            <View style={styles.buttonContainer}>
+              <Button
+                text={t('purchases.makeReturn')}
+                backgroundColor={colors.white}
+                textColor={colors.main}
+                border={false}
+                isBold={false}
+                width="90%"
+                hasShadow
+                onPress={handlePress}
+              />
+            </View>
+          )}
+        </View>
       </View>
     );
   }
@@ -62,6 +64,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white,
     borderRadius: css.borderRadiusMax,
     ...css.shadow,
+  },
+  infoContainer: {
+    padding: 5,
   },
   buttonContainer: {
     marginTop: 10,

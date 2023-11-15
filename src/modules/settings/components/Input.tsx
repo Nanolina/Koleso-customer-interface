@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/rootReducer';
 import { ISettingsState } from '../../../../redux/slices/settingsSlice';
@@ -22,7 +22,7 @@ export const Input: React.FC<IInputProps> = React.memo(({ title }) => {
   const autoComplete = getAutoComplete(title);
 
   return (
-    <View>
+    <View style={styles.container}>
       <TextWithInput
         value={value}
         onChangeText={onChangeText}
@@ -31,4 +31,10 @@ export const Input: React.FC<IInputProps> = React.memo(({ title }) => {
       />
     </View>
   );
+});
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 5,
+  },
 });

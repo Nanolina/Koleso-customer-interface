@@ -23,5 +23,6 @@ export const CartItems: React.FC<ICartItemsProps> = React.memo(
 const styles = StyleSheet.create({
   container: {
     gap: 20,
+    padding: 5,
   },
 });

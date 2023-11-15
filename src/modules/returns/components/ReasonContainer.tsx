@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
-import { colors, reasonsForReturn } from '../../../consts';
+import { colors, css, reasonsForReturn, sizes } from '../../../consts';
 import { Box } from '../../../ui/Box';
 
 export const ReasonContainer: React.FC = () => {
@@ -23,7 +23,7 @@ export const ReasonContainer: React.FC = () => {
             key={reason}
             label={t(`returns.${reason}`)}
             boxStyle={isSelected ? styles.selectedBox : styles.unselectedBox}
-            textStyle={isSelected ? styles.selectedText : styles.unselectedText}
+            textStyle={styles.text}
             onPress={() => handlePress(reason)}
           />
         );
@@ -34,24 +34,22 @@ export const ReasonContainer: React.FC = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    flexWrap: 'wrap',
     padding: 10,
     gap: 10,
+    alignItems: 'center',
   },
   selectedBox: {
-    backgroundColor: colors.main,
+    width: '90%',
+    ...css.shadow,
+    backgroundColor: colors.gray,
   },
   unselectedBox: {
+    width: '90%',
+    ...css.shadow,
     backgroundColor: colors.white,
-    borderColor: colors.main,
-    borderWidth: 1,
   },
-  selectedText: {
-    color: colors.white,
-  },
-  unselectedText: {
+  text: {
     color: colors.main,
+    fontSize: sizes.text16,
   },
 });
