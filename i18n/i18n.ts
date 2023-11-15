@@ -17,9 +17,6 @@ i18n.use(initReactI18next).init({
   lng: 'English',
   fallbackLng: 'Russian',
   debug: true,
-  interpolation: {
-    escapeValue: false,
-  },
 });
 
 export default i18n;

@@ -126,7 +126,10 @@ export const data = [
             title: 'Bodysuits and corsets',
             image: require('./assets/corsets.jpeg'),
           },
-          { id: '27b9c47d-4c33-48a1-8dc9-202d65481a88', title: 'Bras' },
+          {
+            id: '27b9c47d-4c33-48a1-8dc9-202d65481a88',
+            title: 'Bras',
+          },
           {
             id: '4341701a-fd70-4c17-918c-8d0ef78b3577',
             title: 'Pantyhose and stockings',
@@ -143,12 +146,18 @@ export const data = [
             id: '1510d221-0e83-44e4-92b9-b23486f9aa00',
             title: 'Corrective underwear',
           },
-          { id: '3ab38080-9db7-4dcd-9cbf-29f9e944e457', title: 'T-shirts' },
+          {
+            id: '3ab38080-9db7-4dcd-9cbf-29f9e944e457',
+            title: 'T-shirts',
+          },
           {
             id: 'e4e2cdf7-2803-44b8-9743-35181d0b9ce8',
             title: 'Thermal underwear',
           },
-          { id: '931360f8-3fb0-4bd5-a2ef-ea691a6111e6', title: 'Underpants' },
+          {
+            id: '931360f8-3fb0-4bd5-a2ef-ea691a6111e6',
+            title: 'Underpants',
+          },
         ],
       },
       {
@@ -192,21 +201,68 @@ export const data = [
     id: 'aad1d894-0ad1-4244-877f-39c422f2a354',
     title: 'House',
   },
-  { id: '38a3c75f-c7c6-4ff4-a935-9438a939f753', title: 'Beauty' },
-  { id: '0f723c77-3287-4428-9829-71a146bfc9ed', title: 'Accessories' },
-  { id: '3cd5e52c-9b51-4364-b881-e2aba242663b', title: 'Electronics' },
-  { id: 'e0234256-21b6-4ac8-bb18-495ebbbc5ad4', title: 'Toys' },
-  { id: '6ccc9e36-72eb-440a-bdda-ee8482581904', title: 'Furniture' },
-  { id: '181dd551-e255-4b01-9a11-3e542b061540', title: 'Products' },
-  { id: '7a9854ce-8f55-4dcf-9382-0a785805113d', title: 'Household appliances' },
-  { id: '0b3b5cb3-6423-4e86-9121-2cb09d74c856', title: 'Pet products' },
-  { id: 'c712c77b-5589-46ac-b8c5-f3041b1fe754', title: 'Sport' },
-  { id: '9ffcb481-e63a-48fc-98e2-89583487897d', title: 'Auto goods' },
-  { id: 'a87e2682-5dfa-4906-b696-e7eafa2f7a85', title: 'School' },
-  { id: '3fb97373-d0da-44ee-8071-baef7b7082c8', title: 'Books' },
-  { id: 'a4322a14-5f4c-447c-801d-03e46c0d8345', title: 'Jewelry' },
-  { id: '46b051d6-0588-47c4-bead-c32636bb2a94', title: 'For repair' },
-  { id: '601f81aa-52a5-485c-925f-d250befde0ba', title: 'Garden and cottage' },
-  { id: '2255947c-c982-4d11-ab8a-fa08bc8c10f7', title: 'Health' },
-  { id: '77b0b5e2-b63d-437d-8ab2-df395c2fb287', title: 'Stationery' },
+  {
+    id: '38a3c75f-c7c6-4ff4-a935-9438a939f753',
+    title: 'Beauty',
+  },
+  {
+    id: '0f723c77-3287-4428-9829-71a146bfc9ed',
+    title: 'Accessories',
+  },
+  {
+    id: '3cd5e52c-9b51-4364-b881-e2aba242663b',
+    title: 'Electronics',
+  },
+  {
+    id: 'e0234256-21b6-4ac8-bb18-495ebbbc5ad4',
+    title: 'Toys',
+  },
+  {
+    id: '6ccc9e36-72eb-440a-bdda-ee8482581904',
+    title: 'Furniture',
+  },
+  {
+    id: '181dd551-e255-4b01-9a11-3e542b061540',
+    title: 'Products',
+  },
+  {
+    id: '7a9854ce-8f55-4dcf-9382-0a785805113d',
+    title: 'Household appliances',
+  },
+  {
+    id: '0b3b5cb3-6423-4e86-9121-2cb09d74c856',
+    title: 'Pet products',
+  },
+  {
+    id: 'c712c77b-5589-46ac-b8c5-f3041b1fe754',
+    title: 'Sport',
+  },
+  {
+    id: '9ffcb481-e63a-48fc-98e2-89583487897d',
+    title: 'Auto goods',
+  },
+  {
+    id: '3fb97373-d0da-44ee-8071-baef7b7082c8',
+    title: 'Books',
+  },
+  {
+    id: 'a4322a14-5f4c-447c-801d-03e46c0d8345',
+    title: 'Jewelry',
+  },
+  {
+    id: '46b051d6-0588-47c4-bead-c32636bb2a94',
+    title: 'For repair',
+  },
+  {
+    id: '601f81aa-52a5-485c-925f-d250befde0ba',
+    title: 'Garden and cottage',
+  },
+  {
+    id: '2255947c-c982-4d11-ab8a-fa08bc8c10f7',
+    title: 'Health',
+  },
+  {
+    id: '77b0b5e2-b63d-437d-8ab2-df395c2fb287',
+    title: 'Stationery',
+  },
 ];

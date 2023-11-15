@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Dimensions,
   Image,
@@ -14,11 +15,13 @@ const { width } = Dimensions.get('window');
 
 export const CatalogItem: React.FC<ICatalogItemProps> = React.memo(
   ({ item, onPress }) => {
+    const { t } = useTranslation('translation', { keyPrefix: 'catalog' });
+
     return (
       <WebCardWrapper cardWidth={width}>
         <TouchableOpacity style={styles.container} onPress={onPress}>
           <Image source={item.image} style={styles.image} />
-          <Text style={styles.text}>{item.title}</Text>
+          <Text style={styles.text}>{t(item.title)}</Text>
         </TouchableOpacity>
       </WebCardWrapper>
     );
