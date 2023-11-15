@@ -1,5 +1,6 @@
 import { FontAwesome, Fontisto } from '@expo/vector-icons';
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/rootReducer';
@@ -9,6 +10,8 @@ import { Button } from '../../../ui/Button';
 import { ImageInput } from './ImageInput';
 
 export const SignUpPhoneEmail: React.FC = () => {
+  const { t } = useTranslation('translation', { keyPrefix: 'auth' });
+
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
 
@@ -34,7 +37,7 @@ export const SignUpPhoneEmail: React.FC = () => {
     <View style={styles.container}>
       <View style={css.auth.inputContainer}>
         <ImageInput
-          placeholder="Email"
+          placeholder={t('email')}
           icon={
             <Fontisto
               name="email"
@@ -47,7 +50,7 @@ export const SignUpPhoneEmail: React.FC = () => {
         />
 
         <ImageInput
-          placeholder="Phone"
+          placeholder={t('phone')}
           icon={
             <FontAwesome
               name="phone"
@@ -62,7 +65,7 @@ export const SignUpPhoneEmail: React.FC = () => {
         />
 
         <ImageInput
-          placeholder="Username"
+          placeholder={t('username')}
           icon={
             <FontAwesome
               name="user-circle-o"
@@ -76,7 +79,7 @@ export const SignUpPhoneEmail: React.FC = () => {
         />
 
         <ImageInput
-          placeholder="Password"
+          placeholder={t('password')}
           icon={
             <FontAwesome
               name="lock"
@@ -90,7 +93,7 @@ export const SignUpPhoneEmail: React.FC = () => {
         />
 
         <ImageInput
-          placeholder="Repeat password"
+          placeholder={t('repeatPassword')}
           icon={
             <FontAwesome
               name="lock"
@@ -105,7 +108,7 @@ export const SignUpPhoneEmail: React.FC = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button text="Sign up" onPress={() => {}} />
+        <Button text={t('signUp')} onPress={() => {}} />
       </View>
     </View>
   );

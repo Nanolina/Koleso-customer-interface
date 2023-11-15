@@ -4,11 +4,14 @@ import {
   useNavigation,
 } from '@react-navigation/native';
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
 import { sizes } from '../../../consts';
 import { Button } from '../../../ui/Button';
 
 export const SignUpButton: React.FC = () => {
+  const { t } = useTranslation('translation', { keyPrefix: 'auth' });
+
   const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   const handlePress = useCallback(() => {
@@ -17,8 +20,8 @@ export const SignUpButton: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Don't have an account yet?</Text>
-      <Button text="Sign up" onPress={handlePress} />
+      <Text style={styles.text}>{t('notAccount')}</Text>
+      <Button text={t('signUp')} onPress={handlePress} />
     </View>
   );
 };
@@ -29,7 +32,6 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   text: {
-    fontWeight: 'bold',
     fontSize: sizes.text18,
   },
 });

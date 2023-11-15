@@ -7,26 +7,19 @@ import { CustomModal } from './CustomModal';
 
 export const ReturnModal: React.FC<IModalProps> = ({ onClose }) => {
   const { t } = useTranslation('translation', {
-    keyPrefix: 'modal',
+    keyPrefix: 'modal.return',
   });
 
   return (
     <CustomModal onClose={onClose}>
       <View style={styles.container}>
-        <Text style={styles.title}>
-          The refund request has been created successfully
-        </Text>
+        <Text style={styles.title}>{t('success.title')}</Text>
         <View style={styles.textWithImage}>
           <Image source={images.error} style={styles.image} />
-          <Text style={styles.text}>
-            We are sorry that the product does not fit you.
-          </Text>
+          <Text style={styles.text}>{t('success.notFit')}</Text>
         </View>
-        <Text style={styles.text}>
-          You will receive a notification about the consideration of your
-          request in your personal cabinet in the nearest future.
-        </Text>
-        <Text style={styles.title}>We look forward to seeing you again!</Text>
+        <Text style={styles.text}>{t('success.notification')}</Text>
+        <Text style={styles.title}>{t('success.lookForward')}!</Text>
       </View>
     </CustomModal>
   );

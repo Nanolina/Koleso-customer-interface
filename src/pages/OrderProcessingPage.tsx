@@ -41,7 +41,10 @@ export const OrderProcessingPage: React.FC = () => {
 
   return (
     <Container>
-      <Header title={t('checkout.label')} hasButtonBack={true} />
+      <Header
+        title={isReturn ? t('return.label') : t('checkout.label')}
+        hasButtonBack={true}
+      />
       <CentralContainer isPadding={true} isMinPadding={true}>
         <OrderProcessing item={item} isReturn={isReturn} />
       </CentralContainer>

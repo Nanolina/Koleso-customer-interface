@@ -1,5 +1,6 @@
 import { FontAwesome, Fontisto } from '@expo/vector-icons';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { colors, css, sizes } from '../../../consts';
 import { Button } from '../../../ui/Button';
@@ -7,6 +8,8 @@ import { SignUpButton } from '../ui/SignUpButton';
 import { ImageInput } from './ImageInput';
 
 export const Login: React.FC = () => {
+  const { t } = useTranslation('translation', { keyPrefix: 'auth' });
+
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
 
@@ -14,7 +17,7 @@ export const Login: React.FC = () => {
     <View style={styles.container}>
       <View style={css.auth.inputContainer}>
         <ImageInput
-          placeholder="Email/username/phone"
+          placeholder={t('emailUsernamePhone')}
           icon={
             <View style={styles.iconsContainer}>
               <Fontisto
@@ -34,7 +37,7 @@ export const Login: React.FC = () => {
         />
 
         <ImageInput
-          placeholder="Password"
+          placeholder={t('password')}
           icon={
             <FontAwesome
               name="lock"
@@ -49,7 +52,7 @@ export const Login: React.FC = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button text="Log in" onPress={() => {}} />
+        <Button text={t('logIn')} onPress={() => {}} />
       </View>
 
       <SignUpButton />
@@ -67,5 +70,6 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignItems: 'center',
+    paddingBottom: 30,
   },
 });

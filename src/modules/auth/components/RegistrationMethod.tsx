@@ -4,12 +4,15 @@ import {
   useNavigation,
 } from '@react-navigation/native';
 import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { css, sizes } from '../../../consts';
 import { IRegistrationMethodProps } from '../types';
 
 const RegistrationMethod: React.FC<IRegistrationMethodProps> = React.memo(
   ({ registrationMethod }) => {
+    const { t } = useTranslation('translation', { keyPrefix: 'auth' });
+
     const navigation: NavigationProp<ParamListBase> = useNavigation();
 
     const handlePress = useCallback(() => {
@@ -19,7 +22,7 @@ const RegistrationMethod: React.FC<IRegistrationMethodProps> = React.memo(
     return (
       <TouchableOpacity style={styles.container} onPress={handlePress}>
         <Image source={registrationMethod.image} style={styles.image} />
-        <Text style={styles.text}>{registrationMethod.text}</Text>
+        <Text style={styles.text}>{t(registrationMethod.text)}</Text>
       </TouchableOpacity>
     );
   }
@@ -37,6 +40,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: sizes.text18,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   image: {
     width: 40,

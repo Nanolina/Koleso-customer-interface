@@ -11,6 +11,20 @@
   "apply": "Apply",
   "addToCart": "Add to cart",
   "search": "Search",
+  "auth": {
+    "logIn": "Log in",
+    "signUp": "Sign up",
+    "emailUsernamePhone": "Email/username/phone",
+    "password": "Password",
+    "email": "Email",
+    "phone": "Phone",
+    "username": "Username",
+    "repeatPassword": "Repeat password",
+    "haveAccount": "Already have an account",
+    "notAccount": "Don't have an account yet",
+    "Use phone or email": "Use phone or email",
+    "Continue with Google": "Continue with Google"
+  },
   "QRCode": {
     "delivery": "Delivery QR-code",
     "text": "Show this QR-code to an employee or provide a phone number and code",
@@ -49,7 +63,15 @@
   "returns": {
     "sent": "The money has been sent",
     "notSent": "The money hasn't been sent yet",
-    "request": "Return request from"
+    "request": "Return request from",
+    "reason": "Reason",
+    "Didn't fit": "Didn't fit",
+    "Bad quality": "Bad quality",
+    "Warranty case": "Warranty case",
+    "photos": "Photos",
+    "upTo": "Up to",
+    "comment": "Comment",
+    "commentPlaceholder": "Describe the reason for returning the product"
   },
   "finances": {
     "payment": "Payment for the order",
@@ -68,6 +90,7 @@
     "discount": "Discount",
     "delivery": "Delivery",
     "courierServices": "Courier services",
+    "refundableAmount": "Refundable amount",
     "totalAmount": "Total amount",
     "terms": "I agree to the terms and conditions of the Marketplace Terms of Use and Return Policy"
   },
@@ -106,6 +129,19 @@
       "title": "Thank you for your purchase!",
       "message": "Payment was successful",
       "orderNumber": "Your order number"
+    },
+    "photo": {
+      "chooseOption": "Choose an option",
+      "takePhoto": "Take a photo",
+      "selectFromGallery": "Select from gallery"
+    },
+    "return": {
+      "success": {
+        "title": "The refund request has been created successfully",
+        "notFit": "We are sorry that the product does not fit you",
+        "notification": "You will receive a notification about the consideration of your request in your personal cabinet in the nearest future",
+        "lookForward": "We look forward to seeing you again"
+      }
     }
   },
   "payment": {

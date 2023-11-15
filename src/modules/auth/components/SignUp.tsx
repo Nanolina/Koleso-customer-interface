@@ -4,6 +4,7 @@ import {
   useNavigation,
 } from '@react-navigation/native';
 import React, { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
 import { css, sizes } from '../../../consts';
 import { Button } from '../../../ui/Button';
@@ -11,6 +12,7 @@ import { registrationMethods } from '../data';
 import RegistrationMethod from './RegistrationMethod';
 
 export const SignUp: React.FC = () => {
+  const { t } = useTranslation('translation', { keyPrefix: 'auth' });
   const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   const handlePressLogin = useCallback(() => {
@@ -29,8 +31,8 @@ export const SignUp: React.FC = () => {
       </View>
 
       <View style={styles.logInContainer}>
-        <Text style={styles.text}>Already have an account?</Text>
-        <Button text="Log in" onPress={handlePressLogin} />
+        <Text style={styles.text}>{t('haveAccount')}</Text>
+        <Button text={t('logIn')} onPress={handlePressLogin} />
       </View>
     </View>
   );

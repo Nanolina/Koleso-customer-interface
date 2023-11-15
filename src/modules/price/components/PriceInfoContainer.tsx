@@ -32,7 +32,7 @@ export const PriceInfoContainer: React.FC<IPriceInfoContainerProps> =
         <>
           <View style={css.priceInfoContainer}>
             <PriceInfo
-              text={isReturn ? 'Refundable amount' : t('price.label')}
+              text={isReturn ? t('price.refundableAmount') : t('price.label')}
               price={priceForProducts}
             />
             {hasDiscount && !isReturn && (
@@ -46,7 +46,11 @@ export const PriceInfoContainer: React.FC<IPriceInfoContainerProps> =
             ) : (
               !isReturn &&
               hasDelivery && (
-                <PriceInfo text={t('price.delivery')} price="Free" hasCurrency={false} />
+                <PriceInfo
+                  text={t('price.delivery')}
+                  price="Free"
+                  hasCurrency={false}
+                />
               )
             )}
           </View>

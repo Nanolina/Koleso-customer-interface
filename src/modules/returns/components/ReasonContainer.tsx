@@ -1,9 +1,12 @@
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { colors, reasonsForReturn } from '../../../consts';
 import { Box } from '../../../ui/Box';
 
 export const ReasonContainer: React.FC = () => {
+  const { t } = useTranslation('translation', { keyPrefix: 'returns' });
+
   const [selectedReason, setSelectedReason] = useState(null);
 
   const handlePress = useCallback((reason) => {
@@ -14,10 +17,11 @@ export const ReasonContainer: React.FC = () => {
     <View style={styles.container}>
       {reasonsForReturn.map((reason) => {
         const isSelected = selectedReason === reason;
+
         return (
           <Box
             key={reason}
-            label={reason}
+            label={t(reason)}
             boxStyle={isSelected ? styles.selectedBox : styles.unselectedBox}
             textStyle={isSelected ? styles.selectedText : styles.unselectedText}
             onPress={() => handlePress(reason)}
@@ -34,6 +38,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     flexWrap: 'wrap',
     padding: 10,
+    gap: 10,
   },
   selectedBox: {
     backgroundColor: colors.main,
