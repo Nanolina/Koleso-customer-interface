@@ -5,7 +5,6 @@ export interface IFilterState {
   colors: string[];
   genders: string[];
   sizes: number[];
-  categories: string[];
   brands: string[];
   sellers: string[];
   compositions: string[];
@@ -22,7 +21,6 @@ const filterSlice = createSlice({
     colors: [],
     genders: [],
     sizes: [],
-    categories: [],
     brands: [],
     sellers: [],
     compositions: [],
@@ -79,22 +77,6 @@ const filterSlice = createSlice({
     },
     selectAllSizes(state) {
       state.sizes = data.sizes;
-    },
-
-    // Categories
-    toggleCategory(state, action) {
-      const categoryIndex = state.categories.indexOf(action.payload);
-      if (categoryIndex === -1) {
-        state.categories.push(action.payload);
-      } else {
-        state.categories.splice(categoryIndex, 1);
-      }
-    },
-    resetAllCategories(state) {
-      state.categories = [];
-    },
-    selectAllCategories(state) {
-      state.categories = data.categories;
     },
 
     // Brands
@@ -182,7 +164,6 @@ const filterSlice = createSlice({
       state.colors = [];
       state.genders = [];
       state.sizes = [];
-      state.categories = [];
       state.brands = [];
       state.sellers = [];
       state.compositions = [];
@@ -211,11 +192,6 @@ export const {
   toggleSize,
   resetAllSizes,
   selectAllSizes,
-
-  // Categories
-  toggleCategory,
-  resetAllCategories,
-  selectAllCategories,
 
   // Brands
   toggleBrand,

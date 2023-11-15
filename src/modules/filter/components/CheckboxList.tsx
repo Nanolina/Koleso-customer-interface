@@ -14,23 +14,14 @@ export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
 
     const dispatch = useDispatch();
 
-    const {
-      colors,
-      genders,
-      sizes,
-      categories,
-      brands,
-      sellers,
-      compositions,
-      seasons,
-    } = useSelector((state: RootState) => state.filter);
+    const { colors, genders, sizes, brands, sellers, compositions, seasons } =
+      useSelector((state: RootState) => state.filter);
 
     const { selectedItems, onToggleItem, resetAll, selectAll } = getItems(
       title,
       colors,
       genders,
       sizes,
-      categories,
       brands,
       sellers,
       compositions,

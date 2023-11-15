@@ -17,7 +17,6 @@ export const Filter: React.FC = () => {
     colors,
     genders,
     sizes,
-    categories,
     brands,
     sellers,
     compositions,
@@ -53,13 +52,6 @@ export const Filter: React.FC = () => {
         title="Size"
         displayTitle={t('filter.Size')}
         selectedItems={sizes}
-        navigateTo="FilterCheckboxPage"
-      />
-      <Row
-        items={data.categories}
-        title="Category"
-        displayTitle={t('filter.Category')}
-        selectedItems={categories}
         navigateTo="FilterCheckboxPage"
       />
       <Row

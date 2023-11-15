@@ -33,18 +33,6 @@ export const data = {
     49, 50,
   ],
   genders: ['Female', 'Male'],
-  categories: [
-    'Blouses and shirts',
-    'Pants',
-    'Outerwear',
-    'Sweater, turtlenecks, cardigans',
-    'Jeans',
-    'Overalls',
-    'Suits',
-    'Longsleeves',
-    'Jackets, vests, jackets',
-    'Dresses and sundresses',
-  ],
   brands: ['Chanel', 'Louis Vuitton'],
   sellers: ['Koleso', 'New Yorker'],
   compositions: [

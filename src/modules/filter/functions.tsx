@@ -4,7 +4,6 @@ import {
   addPriceFrom,
   addPriceTo,
   resetAllBrands,
-  resetAllCategories,
   resetAllColors,
   resetAllCompositions,
   resetAllGenders,
@@ -12,7 +11,6 @@ import {
   resetAllSellers,
   resetAllSizes,
   selectAllBrands,
-  selectAllCategories,
   selectAllColors,
   selectAllCompositions,
   selectAllGenders,
@@ -20,7 +18,6 @@ import {
   selectAllSellers,
   selectAllSizes,
   toggleBrand,
-  toggleCategory,
   toggleColor,
   toggleComposition,
   toggleGender,
@@ -35,7 +32,6 @@ export const getItems = (
   colors,
   genders,
   sizes,
-  categories,
   brands,
   sellers,
   compositions,
@@ -67,15 +63,6 @@ export const getItems = (
       onToggleItem: toggleSize,
       resetAll: resetAllSizes,
       selectAll: selectAllSizes,
-    };
-  }
-
-  if (title === 'Category') {
-    items = {
-      selectedItems: categories,
-      onToggleItem: toggleCategory,
-      resetAll: resetAllCategories,
-      selectAll: selectAllCategories,
     };
   }
 
