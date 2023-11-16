@@ -9,6 +9,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { PaperProvider } from 'react-native-paper';
 import { Provider } from 'react-redux';
+import './i18n/i18n.ts';
+import { linking } from './linking';
 import store from './redux/store';
 import { LoadingPage } from './src/components/LoadingPage';
 import { AddressForm } from './src/pages/AddressForm';
@@ -39,7 +41,6 @@ import { SettingsCheckboxPage } from './src/pages/settings/SettingsCheckboxPage'
 import { SettingsInputPage } from './src/pages/settings/SettingsInputPage';
 import { SettingsPage } from './src/pages/settings/SettingsPage';
 import { SettingsPasswordPage } from './src/pages/settings/SettingsPasswordPage';
-import './i18n/i18n.ts';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -59,7 +60,7 @@ export default function App() {
   return (
     <PaperProvider>
       <Provider store={store}>
-        <NavigationContainer>
+        <NavigationContainer linking={linking}>
           <Stack.Navigator
             initialRouteName="Home"
             screenOptions={{ headerShown: false }}

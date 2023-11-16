@@ -23,8 +23,8 @@ export const Purchase: React.FC<{ item: IItemProps }> = React.memo(
 
     const handlePress = React.useCallback(() => {
       navigation.navigate('OrderProcessingPage', {
-        title: 'Return',
-        item,
+        screen: 'Return',
+        params: { itemId: item.id },
       });
     }, [navigation, item]);
 

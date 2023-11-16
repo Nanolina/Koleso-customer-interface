@@ -56,7 +56,7 @@ export const OrderProcessing: React.FC<IOrderProcessingProps> = React.memo(
 
           {delivery === courier && <ExtraInfoCourier />}
 
-          {isReturn && <ReturnForm item={item} />}
+          {isReturn && <ReturnForm />}
 
           <Hr />
           <PriceInfoContainer

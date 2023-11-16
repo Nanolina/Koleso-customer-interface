@@ -1,4 +1,5 @@
 import { useRoute } from '@react-navigation/native';
+import { productCards } from '../../mockData';
 import { Container } from '../components/Container';
 import { EmptyHeader } from '../components/EmptyHeader';
 import { Footer } from '../components/Footer';
@@ -7,7 +8,9 @@ import { CentralContainer } from '../ui/CentralContainer';
 
 export const ItemPage: React.FC = () => {
   const route: any = useRoute();
-  const { item } = route.params;
+  const { itemId } = route.params;
+
+  const item = productCards.find((item) => item.id === itemId);
 
   return (
     <Container>

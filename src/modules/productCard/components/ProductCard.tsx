@@ -25,7 +25,7 @@ export const ProductCard: React.FC<{ item: IItemProps }> = React.memo(
     const navigation: NavigationProp<ParamListBase> = useNavigation();
 
     const onPress = useCallback(() => {
-      navigation.navigate('ItemPage', { item });
+      navigation.navigate('ItemPage', { itemId: item.id });
     }, [navigation, item]);
 
     return (

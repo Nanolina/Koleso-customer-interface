@@ -5,48 +5,45 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../../redux/rootReducer';
 import { addFieldReturn } from '../../../../redux/slices/returnSlice';
 import { colors, sizes } from '../../../consts';
-import { IItemProps } from '../../../types';
 import { Note } from '../../../ui/Note';
 import { PhotoUpload } from './PhotoUpload';
 import { ReasonContainer } from './ReasonContainer';
 
-export const ReturnForm: React.FC<{ item: IItemProps }> = React.memo(
-  ({ item }) => {
-    const { t } = useTranslation();
+export const ReturnForm: React.FC = React.memo(() => {
+  const { t } = useTranslation();
 
-    const dispatch = useDispatch();
-    const comment = useSelector((state: RootState) => state.return.comment);
+  const dispatch = useDispatch();
+  const comment = useSelector((state: RootState) => state.return.comment);
 
-    const handleChangeText = React.useCallback(
-      (text: string) => {
-        dispatch(addFieldReturn({ field: 'comment', value: text }));
-      },
-      [dispatch]
-    );
+  const handleChangeText = React.useCallback(
+    (text: string) => {
+      dispatch(addFieldReturn({ field: 'comment', value: text }));
+    },
+    [dispatch]
+  );
 
-    return (
-      <View style={styles.mainContainer}>
-        <Text style={styles.text}>{t('returns.reason')}</Text>
-        <ReasonContainer />
+  return (
+    <View style={styles.mainContainer}>
+      <Text style={styles.text}>{t('returns.reason')}</Text>
+      <ReasonContainer />
 
-        <View style={styles.container}>
-          <Text style={styles.text}>{t('returns.photos')}</Text>
-          <Text style={styles.extra}>{t('returns.upTo')} 5</Text>
-        </View>
-        <PhotoUpload />
-
-        <View style={styles.container}>
-          <Text style={styles.text}>{t('returns.comment')}</Text>
-        </View>
-        <Note
-          placeholder={`${t('returns.commentPlaceholder')}...`}
-          value={comment}
-          onChangeText={handleChangeText}
-        />
+      <View style={styles.container}>
+        <Text style={styles.text}>{t('returns.photos')}</Text>
+        <Text style={styles.extra}>{t('returns.upTo')} 5</Text>
       </View>
-    );
-  }
-);
+      <PhotoUpload />
+
+      <View style={styles.container}>
+        <Text style={styles.text}>{t('returns.comment')}</Text>
+      </View>
+      <Note
+        placeholder={`${t('returns.commentPlaceholder')}...`}
+        value={comment}
+        onChangeText={handleChangeText}
+      />
+    </View>
+  );
+});
 
 const styles = StyleSheet.create({
   mainContainer: {

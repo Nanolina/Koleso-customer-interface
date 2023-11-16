@@ -1,8 +1,4 @@
-import {
-  NavigationProp,
-  ParamListBase,
-  RouteProp,
-} from '@react-navigation/native';
+import { NavigationProp, RouteProp } from '@react-navigation/native';
 import { ImageSourcePropType, TextStyle, ViewStyle } from 'react-native';
 
 export interface IWebCardWrapperProps {
@@ -178,8 +174,10 @@ export type OrderProcessingStackParamList = {
   PaymentPage: undefined;
   ReturnsPage: undefined;
   OrderProcessingPage: {
-    title: string;
-    item: IItemProps;
+    screen: 'Return' | 'Checkout';
+    params: {
+      itemId: string;
+    };
   };
 };
 

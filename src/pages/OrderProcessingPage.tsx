@@ -2,6 +2,7 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
+import { productCards } from '../../mockData';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
@@ -22,9 +23,9 @@ export const OrderProcessingPage: React.FC = () => {
 
   const [openModal, setOpenModal] = useState(false);
 
-  const { title, item } = route.params;
-
-  const isReturn = title === 'Return';
+  const { screen, params } = route.params || {};
+  const isReturn = screen === 'Return';
+  const item = productCards.find((item) => item.id === params?.itemId);
 
   const handlePress = useCallback(() => {
     if (isReturn) {
@@ -42,7 +43,11 @@ export const OrderProcessingPage: React.FC = () => {
   return (
     <Container>
       <Header
-        title={isReturn ? t('return.label') : t('checkout.label')}
+        title={
+          isReturn
+            ? `${t('return.label')} ${item?.title || ''}`
+            : t('checkout.label')
+        }
         hasButtonBack={true}
       />
       <CentralContainer isPadding={true} isMinPadding={true}>
