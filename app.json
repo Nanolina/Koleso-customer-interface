@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Koleso",
-    "slug": "koleso",
+    "name": "Koleso-user",
+    "slug": "koleso-user",
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "automatic",
