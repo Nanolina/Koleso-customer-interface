@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { data } from '../../src/modules/filter/data';
+import { data } from '../../modules/filter/data';
 
 export interface IFilterState {
   colors: string[];

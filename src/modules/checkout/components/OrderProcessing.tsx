@@ -9,9 +9,9 @@ import {
 import { useSelector } from 'react-redux';
 import { courier, pickupPoint } from '../../../../consts';
 import { savedAddresses } from '../../../../mockData';
-import { ICartState, toggleDelivery } from '../../../../redux/slices/cartSlice';
 import { ButtonsGroup } from '../../../components/ButtonsGroup';
 import { addressPickUpPoint, courierServices } from '../../../consts';
+import { ICartState, toggleDelivery } from '../../../redux/slices/cartSlice';
 import { Hr } from '../../../ui/Hr';
 import { Address } from '../../address';
 import { PriceInfoContainer } from '../../price';

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { minDate } from '../../src/consts';
+import { minDate } from '../../consts';
 
 export interface ICheckoutState {
   name: string | null;

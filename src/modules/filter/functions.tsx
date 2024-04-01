@@ -24,7 +24,7 @@ import {
   toggleSeason,
   toggleSeller,
   toggleSize,
-} from '../../../redux/slices/filterSlice';
+} from '../../redux/slices/filterSlice';
 
 // For colors and genders
 export const getItems = (

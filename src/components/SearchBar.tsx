@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Platform, StyleSheet, TextInput, View } from 'react-native';
 import { Icon } from 'react-native-elements';
 import { useDispatch, useSelector } from 'react-redux';
-import { handleSearchText } from '../../redux/slices/searchSlice';
 import { colors, css, sizes } from '../consts';
+import { handleSearchText } from '../redux/slices/searchSlice';
 import { ISearchBarProps, ISearchState } from '../types';
 
 const getWidthInput = (isEnabled) => {

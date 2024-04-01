@@ -2,11 +2,11 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { colors, sizes } from '../../../consts';
 import {
   ICartState,
   setAddressDelivery,
-} from '../../../../redux/slices/cartSlice';
-import { colors, sizes } from '../../../consts';
+} from '../../../redux/slices/cartSlice';
 import { IAddressProps } from '../types';
 
 export const Address: React.FC<IAddressProps> = React.memo(

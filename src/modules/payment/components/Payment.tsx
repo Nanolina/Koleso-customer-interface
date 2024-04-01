@@ -1,8 +1,8 @@
+import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
-import { togglePayment } from '../../../../redux/slices/paymentSlice';
 import { ButtonsGroup } from '../../../components/ButtonsGroup';
 import { css } from '../../../consts';
-import { useTranslation } from 'react-i18next';
+import { togglePayment } from '../../../redux/slices/paymentSlice';
 
 // Use Stripe Connect
 // You can try PayPal, but it doesn't work in UAE and Cyprus

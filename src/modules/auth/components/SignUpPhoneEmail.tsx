@@ -3,9 +3,9 @@ import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../../redux/rootReducer';
-import { setValueAuth } from '../../../../redux/slices/authSlice';
 import { colors, css, sizes } from '../../../consts';
+import { RootState } from '../../../redux/rootReducer';
+import { setValueAuth } from '../../../redux/slices/authSlice';
 import { Button } from '../../../ui/Button';
 import { ImageInput } from './ImageInput';
 

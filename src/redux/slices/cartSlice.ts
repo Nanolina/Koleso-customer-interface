@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { savedAddresses } from '../../mockData';
-import { pickupPoint } from './../../consts';
-import { IAddress } from '../../src/modules/address';
+import { pickupPoint } from '../../../consts';
+import { savedAddresses } from '../../../mockData';
+import { IAddress } from '../../modules/address';
 
 export interface ICartState {
   delivery: string;

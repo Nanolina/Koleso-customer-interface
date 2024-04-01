@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { pickupPoint } from '../../consts';
-import { minDate, reasonsForReturn } from '../../src/consts';
+import { pickupPoint } from '../../../consts';
+import { minDate, reasonsForReturn } from '../../consts';
 
 interface ITime {
   label: string;

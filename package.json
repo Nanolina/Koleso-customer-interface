@@ -1,5 +1,5 @@
 {
-  "name": "koleso-user",
+  "name": "koleso-customer-interface",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
@@ -23,7 +23,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-i18next": "^13.4.0",
-    "react-native": "0.72.6",
+    "react-native": "0.72.10",
     "react-native-elements": "^3.4.3",
     "react-native-gesture-handler": "~2.12.0",
     "react-native-paper": "^5.10.6",
@@ -39,7 +39,8 @@
     "typescript": "^5.1.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.0"
+    "@babel/core": "^7.20.0",
+    "react-native-dotenv": "^3.4.11"
   },
   "private": true
 }

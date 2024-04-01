@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { queries } from '../../mockData';
+import { queries } from '../../../mockData';
 
 export interface ISearchState {
   queries: string[];

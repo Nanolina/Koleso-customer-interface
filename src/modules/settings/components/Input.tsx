@@ -1,9 +1,9 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../../redux/rootReducer';
-import { ISettingsState } from '../../../../redux/slices/settingsSlice';
 import { TextWithInput } from '../../../components/TextWithInput';
+import { RootState } from '../../../redux/rootReducer';
+import { ISettingsState } from '../../../redux/slices/settingsSlice';
 import { getAutoComplete, getDataForInput } from '../functions';
 import { IInputProps } from '../types';
 

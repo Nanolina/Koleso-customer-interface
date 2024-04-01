@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../../redux/rootReducer';
-import { removePhoto } from '../../../../redux/slices/returnSlice';
+import { RootState } from '../../../redux/rootReducer';
+import { removePhoto } from '../../../redux/slices/returnSlice';
 import { IPhotoProps } from '../types';
 import { ButtonRemovePhoto } from './ButtonRemovePhoto';
 

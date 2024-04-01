@@ -8,10 +8,10 @@ import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useSelector } from 'react-redux';
-import { RootState } from '../../../../redux/rootReducer';
-import { ISettingsState } from '../../../../redux/slices/settingsSlice';
 import { Row } from '../../../components/Row';
 import { colors, sizes } from '../../../consts';
+import { RootState } from '../../../redux/rootReducer';
+import { ISettingsState } from '../../../redux/slices/settingsSlice';
 import { data } from '../data';
 
 export const Settings: React.FC = () => {

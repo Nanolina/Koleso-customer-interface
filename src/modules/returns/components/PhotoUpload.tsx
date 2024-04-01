@@ -3,9 +3,9 @@ import * as ImagePicker from 'expo-image-picker';
 import React, { useCallback, useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../../redux/rootReducer';
-import { addPhoto } from '../../../../redux/slices/returnSlice';
 import { colors, css, sizes } from '../../../consts';
+import { RootState } from '../../../redux/rootReducer';
+import { addPhoto } from '../../../redux/slices/returnSlice';
 import { ModalPhotoUpload } from '../../modal';
 import { Photo } from '../ui/Photo';
 

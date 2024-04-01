@@ -3,7 +3,7 @@ import {
   ICatalogItemType,
   ICategoryType,
   ISectionType,
-} from '../../src/modules/catalog';
+} from '../../modules/catalog';
 
 export interface ICatalogState {
   section: ISectionType | null;

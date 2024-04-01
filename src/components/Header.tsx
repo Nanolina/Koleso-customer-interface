@@ -17,8 +17,8 @@ import {
   View,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { removeSearchText } from '../../redux/slices/searchSlice';
 import { colors, sizes } from '../consts';
+import { removeSearchText } from '../redux/slices/searchSlice';
 import { IHeaderProps } from '../types';
 import { ButtonBack } from '../ui/ButtonBack';
 import { SearchBar } from './SearchBar';

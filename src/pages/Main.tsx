@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { productCards } from '../../mockData';
-import { RootState } from '../../redux/rootReducer';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { ProductList } from '../modules/productCard';
+import { RootState } from '../redux/rootReducer';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const Main: React.FC = () => {

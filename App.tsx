@@ -9,10 +9,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { PaperProvider } from 'react-native-paper';
 import { Provider } from 'react-redux';
-import './i18n/i18n.ts';
 import { linking } from './linking';
-import store from './redux/store';
 import { LoadingPage } from './src/components/LoadingPage';
+import './src/i18n/i18n.ts';
 import { AddressForm } from './src/pages/AddressForm';
 import { CartPage } from './src/pages/CartPage';
 import { CategoriesPage } from './src/pages/CategoriesPage';
@@ -41,6 +40,7 @@ import { SettingsCheckboxPage } from './src/pages/settings/SettingsCheckboxPage'
 import { SettingsInputPage } from './src/pages/settings/SettingsInputPage';
 import { SettingsPage } from './src/pages/settings/SettingsPage';
 import { SettingsPasswordPage } from './src/pages/settings/SettingsPasswordPage';
+import store from './src/redux/store.ts';
 
 export default function App() {
   const Stack = createStackNavigator();

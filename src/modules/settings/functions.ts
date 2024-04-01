@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { setValue } from '../../../redux/slices/settingsSlice';
+import { setValue } from '../../redux/slices/settingsSlice';
 import { IGetDataForInput } from './types';
 
 export const getDataForInput = ({

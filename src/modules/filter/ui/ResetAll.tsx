@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { clearAllFilters } from '../../../../redux/slices/filterSlice';
 import { css } from '../../../consts';
+import { clearAllFilters } from '../../../redux/slices/filterSlice';
 
 export const ResetAll = () => {
   const dispatch = useDispatch();

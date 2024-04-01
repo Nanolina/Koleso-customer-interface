@@ -6,9 +6,9 @@ import {
 import React from 'react';
 import { FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../../redux/rootReducer';
-import { selectSubcategory } from '../../../../redux/slices/catalogSlice';
 import { CardItem } from '../../../components/CardItem';
+import { RootState } from '../../../redux/rootReducer';
+import { selectSubcategory } from '../../../redux/slices/catalogSlice';
 
 export const Subcategories: React.FC = () => {
   const navigation: NavigationProp<ParamListBase> = useNavigation();

@@ -2,10 +2,10 @@ import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../../redux/rootReducer';
-import { addField } from '../../../../redux/slices/checkoutSlice';
 import { TextWithInput } from '../../../components/TextWithInput';
 import { css } from '../../../consts';
+import { RootState } from '../../../redux/rootReducer';
+import { addField } from '../../../redux/slices/checkoutSlice';
 
 export const Form: React.FC = React.memo(() => {
   const dispatch = useDispatch();

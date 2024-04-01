@@ -6,9 +6,9 @@ import {
 import React, { useCallback } from 'react';
 import { FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../../redux/rootReducer';
-import { selectCategory } from '../../../../redux/slices/catalogSlice';
 import { CardItem } from '../../../components/CardItem';
+import { RootState } from '../../../redux/rootReducer';
+import { selectCategory } from '../../../redux/slices/catalogSlice';
 
 export const Categories: React.FC = () => {
   const dispatch = useDispatch();

@@ -6,8 +6,8 @@ import {
   registerTranslation,
   ru,
 } from 'react-native-paper-dates';
-import i18n from '../../i18n/i18n';
 import { colors, css, sizes } from '../consts';
+import i18n from '../i18n/i18n';
 import { IDatePickerProps } from '../types';
 
 registerTranslation('en-GB', enGB);

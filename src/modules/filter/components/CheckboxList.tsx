@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../../redux/rootReducer';
+import { RootState } from '../../../redux/rootReducer';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { getItems, isNeedTranslation } from '../functions';
 import { ICheckboxListProps } from '../types';

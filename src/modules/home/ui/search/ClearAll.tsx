@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { handleClearAllQueries } from '../../../../../redux/slices/searchSlice';
 import { colors, css, sizes } from '../../../../consts';
+import { handleClearAllQueries } from '../../../../redux/slices/searchSlice';
 
 export const ClearAll: React.FC = () => {
   const { t } = useTranslation();

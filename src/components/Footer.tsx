@@ -12,8 +12,8 @@ import {
   View,
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleActiveIcon } from '../../redux/slices/footerSlice';
 import { css } from '../consts';
+import { toggleActiveIcon } from '../redux/slices/footerSlice';
 import { IFooterState } from '../types';
 import { IconFooter } from '../ui/IconFooter';
 

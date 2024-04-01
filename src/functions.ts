@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import i18n from '../i18n/i18n';
+import i18n from './i18n/i18n';
 
 const formatPhone = (phone: string) => {
   if (!phone || phone.length < 3) return phone;

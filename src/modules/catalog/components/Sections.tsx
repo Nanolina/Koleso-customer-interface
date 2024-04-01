@@ -6,8 +6,8 @@ import {
 import React from 'react';
 import { FlatList } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { selectSection } from '../../../../redux/slices/catalogSlice';
 import { CardItem } from '../../../components/CardItem';
+import { selectSection } from '../../../redux/slices/catalogSlice';
 import { data } from '../data';
 
 export const Sections: React.FC = () => {
