@@ -30,13 +30,13 @@ authServiceAPI.interceptors.response.use(
     try {
       const originalRequest = error.config;
       if (
-        error.response.status === 401 &&
+        error.response?.status === 401 &&
         error.config &&
         !error.config._isRetry
       ) {
         originalRequest._isRetry = true;
         const response = await axios.get<AuthResponse>(
-          `${AUTH_SERVICE_URL}/refresh`,
+          `${AUTH_SERVICE_URL}/auth/refresh`,
           {
             withCredentials: true,
           }

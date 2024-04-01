@@ -131,6 +131,7 @@ export interface IButtonProps {
   hasShadow?: boolean;
   extra?: string;
   navigation?: any;
+  disabled?: boolean;
 }
 
 export interface IButtonBackProps {
@@ -172,6 +173,15 @@ export interface CardItemProps {
   title: string;
   onPress: () => void;
   translationKey: string;
+}
+
+export interface IMessageBox {
+  errorMessage?: string;
+  successMessage?: string;
+}
+
+export interface IValidationErrorProps {
+  error: string | undefined;
 }
 
 // Types

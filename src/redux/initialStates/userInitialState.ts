@@ -8,7 +8,7 @@ export const userInitialState: IUserState = {
   activationLinkId: '',
   isVerifiedEmail: false,
   isActive: false,
-  isSeller: false,
+  isCustomer: false,
   language: LanguageType.English,
   organizationId: '',
   success: '',

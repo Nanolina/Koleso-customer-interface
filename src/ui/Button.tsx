@@ -14,15 +14,17 @@ export const Button: React.FC<IButtonProps> = React.memo(
     isBold = true,
     hasShadow = false,
     extra,
+    disabled,
   }: any) => {
     return (
       <TouchableOpacity
         onPress={onPress}
+        disabled={disabled}
         style={[
           styles.container,
           {
             width,
-            backgroundColor,
+            backgroundColor: disabled ? colors.lightGray : backgroundColor,
             borderWidth: border ? 1 : 0,
             borderColor: border ? colors.main : undefined,
             ...(hasShadow && {

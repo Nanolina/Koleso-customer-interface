@@ -1,6 +1,7 @@
 import { LanguageType } from '../../types';
 
 export interface IImageInputProps {
+  name: string;
   placeholder: string;
   icon: JSX.Element;
   value: string;
@@ -9,6 +10,8 @@ export interface IImageInputProps {
   inputMode?: string;
   onChangeText: (text: string) => void;
   onBlur: (text: string) => void;
+  errors?: any;
+  touched?: any;
 }
 
 interface IRegistrationMethod {
@@ -29,10 +32,20 @@ export interface IUserState {
   activationLinkId: string;
   isActive: boolean;
   isVerifiedEmail: boolean;
-  isSeller: boolean;
+  isCustomer: boolean;
   language: LanguageType;
   organizationId: string;
   success: string;
   loading: boolean;
   error: any;
+}
+
+export interface IAuthPayload {
+  id: string;
+  email: string;
+  phone: string;
+  activationLinkId: string;
+  isActive: boolean;
+  isVerifiedEmail: boolean;
+  roles: string[];
 }

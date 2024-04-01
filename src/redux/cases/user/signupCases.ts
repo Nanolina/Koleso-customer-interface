@@ -1,5 +1,5 @@
 import { ActionReducerMapBuilder, PayloadAction } from '@reduxjs/toolkit';
-import { ROLE } from '../../../consts';
+import { ROLE } from '../../../../consts';
 import { IAuthPayload, IUserState } from '../../../modules/auth';
 import { handleSignup } from '../../thunks/user';
 
@@ -18,7 +18,7 @@ export const signupCases = (builder: ActionReducerMapBuilder<IUserState>) => {
         state.activationLinkId = action.payload.activationLinkId;
         state.isActive = action.payload.isActive;
         state.isVerifiedEmail = action.payload.isVerifiedEmail;
-        state.isSeller = action.payload.roles.includes(ROLE);
+        state.isCustomer = action.payload.roles.includes(ROLE);
         state.loading = false;
       }
     )

@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { ROLE } from '../../../../../consts';
+import { MessageBox } from '../../../../components/MessageBox';
 import { colors, css, sizes } from '../../../../consts';
 import { IRootState } from '../../../../redux/rootReducer';
 import { AppDispatch } from '../../../../redux/store';
@@ -23,7 +24,6 @@ export const SignUpPhoneEmailForm: React.FC = () => {
   const { loading, error } = useSelector((state: IRootState) => state.user);
 
   const onSubmit = async (values: ISignupData, { setSubmitting }) => {
-    console.log('Submitting form', values);
     const { email, phone, password, repeatedPassword } = values;
 
     const userData: ISignupData = {
@@ -63,9 +63,9 @@ export const SignUpPhoneEmailForm: React.FC = () => {
               handleSubmit,
             }) => (
               <>
-                {console.log('errors', errors)}
                 <View style={css.auth.inputContainer}>
                   <ImageInput
+                    name="email"
                     placeholder={t('auth.email')}
                     icon={
                       <Fontisto
@@ -77,6 +77,8 @@ export const SignUpPhoneEmailForm: React.FC = () => {
                     value={values.email}
                     onChangeText={handleChange('email')}
                     onBlur={handleBlur('email')}
+                    errors={errors}
+                    touched={touched}
                   />
 
                   {/* <ImageInput
@@ -136,8 +138,14 @@ export const SignUpPhoneEmailForm: React.FC = () => {
                   secureTextEntry={true}
                 /> */}
                   <View style={styles.buttonContainer}>
-                    <Button text={t('auth.signUp')} onPress={handleSubmit} />
+                    <Button
+                      text={t('auth.signUp')}
+                      onPress={handleSubmit}
+                      disabled={!isValid || !dirty}
+                    />
                   </View>
+
+                  {error && <MessageBox errorMessage={error} />}
                 </View>
               </>
             )}
