@@ -5,7 +5,7 @@ import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { DatePicker } from '../../../components/DatePicker';
 import { colors } from '../../../consts';
-import { RootState } from '../../../redux/rootReducer';
+import { IRootState } from '../../../redux/rootReducer';
 import { resetValue, setValue } from '../../../redux/slices/settingsSlice';
 import { Button } from '../../../ui/Button';
 import { maxBirthDate } from '../consts';
@@ -15,7 +15,7 @@ export const Birthday: React.FC = () => {
   const { t } = useTranslation();
 
   const birthday = useSelector(
-    (state: RootState) => state.settings.birthday as string
+    (state: IRootState) => state.settings.birthday as string
   );
 
   const validRange = useMemo(() => ({ endDate: maxBirthDate }), []);

@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { IUserState } from '../modules/auth';
 import authSlice, { IAuthState } from './slices/authSlice';
 import cartSlice, { ICartState } from './slices/cartSlice';
 import catalogSlice, { ICatalogState } from './slices/catalogSlice';
@@ -9,8 +10,10 @@ import paymentSlice, { IPaymentState } from './slices/paymentSlice';
 import returnSlice, { IReturnState } from './slices/returnSlice';
 import searchSlice, { ISearchState } from './slices/searchSlice';
 import settingsSlice, { ISettingsState } from './slices/settingsSlice';
+import userSlice from './slices/userSlice';
 
-export interface RootState {
+export interface IRootState {
+  user: IUserState;
   auth: IAuthState;
   cart: ICartState;
   catalog: ICatalogState;
@@ -24,6 +27,7 @@ export interface RootState {
 }
 
 const rootReducer = combineReducers({
+  user: userSlice,
   catalog: catalogSlice,
   search: searchSlice,
   filter: filterSlice,

@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
 import { Row } from '../../../components/Row';
 import { colors as commonColors, css } from '../../../consts';
-import { RootState } from '../../../redux/rootReducer';
+import { IRootState } from '../../../redux/rootReducer';
 import { Button } from '../../../ui/Button';
 import { data } from '../data';
 import { ResetAll } from '../ui/ResetAll';
@@ -27,7 +27,7 @@ export const Filter: React.FC = () => {
     ageTo,
     priceFrom,
     priceTo,
-  } = useSelector((state: RootState) => state.filter);
+  } = useSelector((state: IRootState) => state.filter);
 
   return (
     <View style={styles.container}>

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { colors } from '../../../consts';
-import { RootState } from '../../../redux/rootReducer';
+import { IRootState } from '../../../redux/rootReducer';
 import { resetValue, setValue } from '../../../redux/slices/settingsSlice';
 import { Button } from '../../../ui/Button';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
@@ -14,7 +14,7 @@ export const CheckboxList: React.FC = () => {
   const dispatch = useDispatch();
 
   const gender = useSelector(
-    (state: RootState) => state.settings.gender as string
+    (state: IRootState) => state.settings.gender as string
   );
 
   const items = data.genders;

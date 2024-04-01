@@ -8,10 +8,11 @@ export const ImageInput: React.FC<IImageInputProps> = React.memo(
     placeholder,
     icon,
     value,
-    onChangeText,
     inputMode = 'text',
     secureTextEntry,
     autoComplete,
+    onChangeText,
+    onBlur,
   }: any) => {
     return (
       <View style={styles.container}>
@@ -24,6 +25,7 @@ export const ImageInput: React.FC<IImageInputProps> = React.memo(
           inputMode={inputMode}
           secureTextEntry={secureTextEntry}
           autoComplete={autoComplete}
+          onBlur={onBlur}
         />
       </View>
     );

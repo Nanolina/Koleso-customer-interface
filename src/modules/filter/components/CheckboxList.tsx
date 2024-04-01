@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../../redux/rootReducer';
+import { IRootState } from '../../../redux/rootReducer';
 import { CheckboxItem } from '../../../ui/CheckboxItem';
 import { getItems, isNeedTranslation } from '../functions';
 import { ICheckboxListProps } from '../types';
@@ -15,7 +15,7 @@ export const CheckboxList: React.FC<ICheckboxListProps> = React.memo(
     const dispatch = useDispatch();
 
     const { colors, genders, sizes, brands, sellers, compositions, seasons } =
-      useSelector((state: RootState) => state.filter);
+      useSelector((state: IRootState) => state.filter);
 
     const { selectedItems, onToggleItem, resetAll, selectAll } = getItems(
       title,

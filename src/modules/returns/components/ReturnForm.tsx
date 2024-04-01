@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { colors, sizes } from '../../../consts';
-import { RootState } from '../../../redux/rootReducer';
+import { IRootState } from '../../../redux/rootReducer';
 import { addFieldReturn } from '../../../redux/slices/returnSlice';
 import { Note } from '../../../ui/Note';
 import { PhotoUpload } from './PhotoUpload';
@@ -13,7 +13,7 @@ export const ReturnForm: React.FC = React.memo(() => {
   const { t } = useTranslation();
 
   const dispatch = useDispatch();
-  const comment = useSelector((state: RootState) => state.return.comment);
+  const comment = useSelector((state: IRootState) => state.return.comment);
 
   const handleChangeText = React.useCallback(
     (text: string) => {

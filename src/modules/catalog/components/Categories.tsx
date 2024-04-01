@@ -7,7 +7,7 @@ import React, { useCallback } from 'react';
 import { FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { CardItem } from '../../../components/CardItem';
-import { RootState } from '../../../redux/rootReducer';
+import { IRootState } from '../../../redux/rootReducer';
 import { selectCategory } from '../../../redux/slices/catalogSlice';
 
 export const Categories: React.FC = () => {
@@ -15,7 +15,7 @@ export const Categories: React.FC = () => {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   const categories = useSelector(
-    (state: RootState) => state.catalog.section?.categories
+    (state: IRootState) => state.catalog.section?.categories
   );
 
   const handleRedirections = useCallback(

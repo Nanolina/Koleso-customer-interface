@@ -5,10 +5,10 @@ export const registrationMethods = [
     image: require('./assets/person.png'),
     redirectPage: 'SignUpPhoneEmailPage',
   },
-  {
-    id: '8d2b59b0-92ed-40db-a17a-1e7c7320c615',
-    text: 'Continue with Google',
-    image: require('./assets/google.png'),
-    redirectPage: '',
-  },
+  // {
+  //   id: '8d2b59b0-92ed-40db-a17a-1e7c7320c615',
+  //   text: 'Continue with Google',
+  //   image: require('./assets/google.png'),
+  //   redirectPage: '',
+  // },
 ];

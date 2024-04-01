@@ -4,7 +4,7 @@ import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { TextWithInput } from '../../../components/TextWithInput';
 import { css } from '../../../consts';
-import { RootState } from '../../../redux/rootReducer';
+import { IRootState } from '../../../redux/rootReducer';
 import { addField } from '../../../redux/slices/checkoutSlice';
 
 export const Form: React.FC = React.memo(() => {
@@ -12,7 +12,7 @@ export const Form: React.FC = React.memo(() => {
   const { t } = useTranslation();
 
   const { name, city, street, house, apartment } = useSelector(
-    (state: RootState) => state.checkout
+    (state: IRootState) => state.checkout
   );
 
   const handleNameChange = useCallback(

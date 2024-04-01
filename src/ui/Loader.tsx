@@ -2,7 +2,7 @@ import React from 'react';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import { colors, sizes } from '../consts';
 
-export const LoadingPage: React.FC = () => {
+export const Loader: React.FC = () => {
   return (
     <View style={styles.container}>
       <ActivityIndicator size="large" color={colors.main} />

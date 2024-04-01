@@ -10,7 +10,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useSelector } from 'react-redux';
 import { Row } from '../../../components/Row';
 import { colors, sizes } from '../../../consts';
-import { RootState } from '../../../redux/rootReducer';
+import { IRootState } from '../../../redux/rootReducer';
 import { ISettingsState } from '../../../redux/slices/settingsSlice';
 import { data } from '../data';
 
@@ -20,7 +20,7 @@ export const Settings: React.FC = () => {
   const { t } = useTranslation();
 
   const { name, gender, phone, email, birthday } = useSelector(
-    (state: RootState) => state.settings as ISettingsState
+    (state: IRootState) => state.settings as ISettingsState
   );
 
   const handleSignOutPress = useCallback(() => {

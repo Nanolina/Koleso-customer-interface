@@ -4,14 +4,14 @@ import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { Categories } from '../modules/catalog';
-import { RootState } from '../redux/rootReducer';
+import { IRootState } from '../redux/rootReducer';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const CategoriesPage: React.FC = () => {
   const { t } = useTranslation();
 
   const section = useSelector(
-    (state: RootState) => state.catalog.section?.title
+    (state: IRootState) => state.catalog.section?.title
   );
 
   return (

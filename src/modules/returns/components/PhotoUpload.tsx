@@ -4,13 +4,13 @@ import React, { useCallback, useState } from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { colors, css, sizes } from '../../../consts';
-import { RootState } from '../../../redux/rootReducer';
+import { IRootState } from '../../../redux/rootReducer';
 import { addPhoto } from '../../../redux/slices/returnSlice';
 import { ModalPhotoUpload } from '../../modal';
 import { Photo } from '../ui/Photo';
 
 export const PhotoUpload: React.FC = () => {
-  const photos = useSelector((state: RootState) => state.return.photos);
+  const photos = useSelector((state: IRootState) => state.return.photos);
   const dispatch = useDispatch();
   const [isModalVisible, setModalVisible] = useState(false);
 

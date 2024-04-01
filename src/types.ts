@@ -1,6 +1,11 @@
 import { NavigationProp, RouteProp } from '@react-navigation/native';
 import { ImageSourcePropType, TextStyle, ViewStyle } from 'react-native';
 
+export enum LanguageType {
+  English = 'English',
+  Russian = 'Russian',
+}
+
 export interface IWebCardWrapperProps {
   cardWidth: number;
   children: React.ReactNode;
@@ -117,7 +122,7 @@ export interface IBoxProps {
 
 export interface IButtonProps {
   text?: any;
-  onPress?: () => void;
+  onPress?: any;
   width?: string | number;
   backgroundColor?: string;
   border?: boolean;

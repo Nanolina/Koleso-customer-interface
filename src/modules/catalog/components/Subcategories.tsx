@@ -7,7 +7,7 @@ import React from 'react';
 import { FlatList } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { CardItem } from '../../../components/CardItem';
-import { RootState } from '../../../redux/rootReducer';
+import { IRootState } from '../../../redux/rootReducer';
 import { selectSubcategory } from '../../../redux/slices/catalogSlice';
 
 export const Subcategories: React.FC = () => {
@@ -15,7 +15,7 @@ export const Subcategories: React.FC = () => {
   const dispatch = useDispatch();
 
   const subcategories = useSelector(
-    (state: RootState) => state.catalog.category.subcategories
+    (state: IRootState) => state.catalog.category.subcategories
   );
 
   return (
