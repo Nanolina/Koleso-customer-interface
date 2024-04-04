@@ -1,4 +1,4 @@
-import { LanguageType } from '../../types';
+import { LanguageType, RoleType } from '../../types';
 
 export interface IImageInputProps {
   name: string;
@@ -9,9 +9,9 @@ export interface IImageInputProps {
   autoComplete?: string;
   inputMode?: string;
   onChangeText: (text: string) => void;
-  onBlur: (text: string) => void;
   errors?: any;
   touched?: any;
+  onBlur: any;
 }
 
 interface IRegistrationMethod {
@@ -47,5 +47,5 @@ export interface IAuthPayload {
   activationLinkId: string;
   isActive: boolean;
   isVerifiedEmail: boolean;
-  roles: string[];
+  role: RoleType;
 }

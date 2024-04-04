@@ -1,4 +1,4 @@
-import { Fontisto } from '@expo/vector-icons';
+import { FontAwesome, Fontisto } from '@expo/vector-icons';
 import { Formik } from 'formik';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -6,6 +6,7 @@ import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { ROLE } from '../../../../../consts';
 import { MessageBox } from '../../../../components/MessageBox';
+import { Phone } from '../../../../components/Phone';
 import { colors, css, sizes } from '../../../../consts';
 import { IRootState } from '../../../../redux/rootReducer';
 import { AppDispatch } from '../../../../redux/store';
@@ -45,7 +46,7 @@ export const SignUpPhoneEmailForm: React.FC = () => {
   return (
     <>
       <View style={styles.container}>
-        <View style={css.auth.inputContainer}>
+        <View style={styles.container}>
           <Formik
             initialValues={initialValues}
             validationSchema={() => validationSchema(t)}
@@ -55,15 +56,20 @@ export const SignUpPhoneEmailForm: React.FC = () => {
               values,
               errors,
               touched,
-              setFieldValue,
               isValid,
               dirty,
               handleChange,
-              handleBlur,
               handleSubmit,
+              setFieldTouched,
             }) => (
               <>
                 <View style={css.auth.inputContainer}>
+                  <Phone
+                    phone={values.phone}
+                    handleChange={handleChange}
+                    errorsPhone={errors.phone}
+                  />
+
                   <ImageInput
                     name="email"
                     placeholder={t('auth.email')}
@@ -76,67 +82,48 @@ export const SignUpPhoneEmailForm: React.FC = () => {
                     }
                     value={values.email}
                     onChangeText={handleChange('email')}
-                    onBlur={handleBlur('email')}
+                    inputMode="email"
                     errors={errors}
                     touched={touched}
+                    onBlur={() => setFieldTouched('email', true)}
                   />
 
-                  {/* <ImageInput
-                  placeholder={t('auth.phone')}
-                  icon={
-                    <FontAwesome
-                      name="phone"
-                      size={sizes.iconSizeMiddle}
-                      color={colors.mainOpacity}
-                    />
-                  }
-                  value={phone}
-                  onChangeText={onChangePhone}
-                  autoComplete="tel"
-                  inputMode="tel"
-                />
+                  <ImageInput
+                    name="password"
+                    placeholder={t('auth.password')}
+                    icon={
+                      <FontAwesome
+                        name="lock"
+                        size={sizes.iconSizeMax}
+                        color={colors.mainOpacity}
+                      />
+                    }
+                    value={values.password}
+                    onChangeText={handleChange('password')}
+                    secureTextEntry={true}
+                    errors={errors}
+                    touched={touched}
+                    onBlur={() => setFieldTouched('password', true)}
+                  />
 
-                <ImageInput
-                  placeholder={t('auth.username')}
-                  icon={
-                    <FontAwesome
-                      name="user-circle-o"
-                      size={sizes.iconSizeMiddle}
-                      color={colors.mainOpacity}
-                    />
-                  }
-                  value={name}
-                  onChangeText={onChangeUsername}
-                  autoComplete="name"
-                />
+                  <ImageInput
+                    name="repeatedPassword"
+                    placeholder={t('auth.repeatedPassword')}
+                    icon={
+                      <FontAwesome
+                        name="lock"
+                        size={sizes.iconSizeMax}
+                        color={colors.mainOpacity}
+                      />
+                    }
+                    value={values.repeatedPassword}
+                    onChangeText={handleChange('repeatedPassword')}
+                    secureTextEntry={true}
+                    errors={errors}
+                    touched={touched}
+                    onBlur={() => setFieldTouched('repeatedPassword', true)}
+                  />
 
-                <ImageInput
-                  placeholder={t('auth.password')}
-                  icon={
-                    <FontAwesome
-                      name="lock"
-                      size={sizes.iconSizeMax}
-                      color={colors.mainOpacity}
-                    />
-                  }
-                  value={password}
-                  onChangeText={(text) => setPassword(text)}
-                  secureTextEntry={true}
-                />
-
-                <ImageInput
-                  placeholder={t('auth.repeatPassword')}
-                  icon={
-                    <FontAwesome
-                      name="lock"
-                      size={sizes.iconSizeMax}
-                      color={colors.mainOpacity}
-                    />
-                  }
-                  value={repeatPassword}
-                  onChangeText={(text) => setRepeatPassword(text)}
-                  secureTextEntry={true}
-                /> */}
                   <View style={styles.buttonContainer}>
                     <Button
                       text={t('auth.signUp')}

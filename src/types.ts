@@ -202,3 +202,9 @@ export type OrderProcessingRouteProp = RouteProp<
   OrderProcessingStackParamList,
   'OrderProcessingPage'
 >;
+
+// Enums
+export enum RoleType {
+  Seller = 'Seller',
+  Customer = 'Customer',
+}

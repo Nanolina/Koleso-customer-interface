@@ -14,9 +14,9 @@ export const ImageInput: React.FC<IImageInputProps> = React.memo(
     secureTextEntry,
     autoComplete,
     onChangeText,
-    onBlur,
     errors,
     touched,
+    onBlur,
   }: any) => {
     return (
       <View style={styles.mainContainer}>
