@@ -1,25 +1,135 @@
-import React, { useEffect } from 'react';
-import Toast from 'react-native-toast-message';
-import { IMessageBox } from '../types';
+import { Entypo, Ionicons, MaterialIcons } from '@expo/vector-icons';
+import React, { useEffect, useRef, useState } from 'react';
+import {
+  Animated,
+  PanResponder,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import { colors, css, sizes } from '../consts';
+import { IMessageBoxProps } from '../types';
 
-export const MessageBox: React.FC<IMessageBox> = React.memo(
-  ({ errorMessage = '', successMessage = '' }) => {
+export const MessageBox: React.FC<IMessageBoxProps> = React.memo(
+  ({ errorMessage = '', successMessage = '', clearMessage }) => {
+    const [visible, setVisible] = useState(true);
+
+    const message = errorMessage || successMessage;
+    const messageType = errorMessage ? 'error' : 'success';
+    const opacity = useRef(new Animated.Value(0)).current;
+    const position = useRef(new Animated.ValueXY()).current;
+
+    // Icon
+    let IconComponent;
+    let iconName;
+    let iconColor;
+    if (messageType === 'error') {
+      IconComponent = MaterialIcons;
+      iconName = 'error-outline';
+      iconColor = colors.red;
+    } else {
+      IconComponent = Ionicons;
+      iconName = 'checkmark-circle-outline';
+      iconColor = colors.green;
+    }
+
+    const panResponder = useRef(
+      PanResponder.create({
+        onStartShouldSetPanResponder: () => true,
+        onPanResponderMove: Animated.event([null, { dx: position.x }], {
+          useNativeDriver: false,
+        }),
+        onPanResponderRelease: (e, { dx }) => {
+          if (Math.abs(dx) > 50) {
+            setVisible(false);
+            clearMessage();
+          } else {
+            Animated.spring(position, {
+              toValue: { x: 0, y: 0 },
+              useNativeDriver: true,
+            }).start();
+          }
+        },
+      })
+    ).current;
+
     useEffect(() => {
-      if (errorMessage) {
-        Toast.show({
-          type: 'error',
-          text1: errorMessage,
-        });
-      }
+      Animated.sequence([
+        Animated.timing(opacity, {
+          toValue: 1,
+          duration: 500,
+          useNativeDriver: true,
+        }),
+        Animated.delay(4000),
+        Animated.timing(opacity, {
+          toValue: 0,
+          duration: 500,
+          useNativeDriver: true,
+        }),
+      ]).start(() => {
+        setVisible(false);
+        clearMessage();
+      });
+    }, []);
 
-      if (successMessage) {
-        Toast.show({
-          type: 'success',
-          text1: successMessage,
-        });
-      }
-    }, [errorMessage, successMessage]);
+    if (!visible) return null;
 
-    return <Toast />;
+    return (
+      <Animated.View
+        style={[
+          styles.message,
+          {
+            opacity,
+            transform: [...position.getTranslateTransform()],
+            borderColor: iconColor,
+          },
+        ]}
+        {...panResponder.panHandlers}
+      >
+        <View style={styles.container}>
+          <IconComponent
+            name={iconName}
+            size={sizes.iconSizeMiddle}
+            color={iconColor}
+          />
+          <Text style={styles.text}>{message}</Text>
+          <TouchableOpacity
+            onPress={() => {
+              setVisible(false);
+              clearMessage();
+            }}
+            style={styles.cross}
+          >
+            <Entypo name="cross" color={iconColor} size={sizes.iconSize16} />
+          </TouchableOpacity>
+        </View>
+      </Animated.View>
+    );
   }
 );
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+    maxWidth: '90%',
+    position: 'relative',
+  },
+  message: {
+    padding: 10,
+    borderRadius: css.borderRadiusMax,
+    flexShrink: 1,
+    borderWidth: 1,
+    ...css.shadow,
+  },
+  text: {
+    fontSize: sizes.text16,
+  },
+  cross: {
+    position: 'absolute',
+    top: -10,
+    right: -35,
+  },
+});

@@ -9,6 +9,7 @@ import { MessageBox } from '../../../../components/MessageBox';
 import { Phone } from '../../../../components/Phone';
 import { colors, css, sizes } from '../../../../consts';
 import { IRootState } from '../../../../redux/rootReducer';
+import { clearMessages } from '../../../../redux/slices/userSlice';
 import { AppDispatch } from '../../../../redux/store';
 import { handleSignup } from '../../../../redux/thunks/user';
 import { ISignupData } from '../../../../services/types/request';
@@ -22,7 +23,9 @@ export const SignUpPhoneEmailForm: React.FC = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
 
-  const { loading, error } = useSelector((state: IRootState) => state.user);
+  const { loading, error, success } = useSelector(
+    (state: IRootState) => state.user
+  );
 
   const onSubmit = async (values: ISignupData, { setSubmitting }) => {
     const { email, phone, password, repeatedPassword } = values;
@@ -132,7 +135,18 @@ export const SignUpPhoneEmailForm: React.FC = () => {
                     />
                   </View>
 
-                  {error && <MessageBox errorMessage={error} />}
+                  {error && (
+                    <MessageBox
+                      errorMessage={error}
+                      clearMessage={() => dispatch(clearMessages())}
+                    />
+                  )}
+                  {success && (
+                    <MessageBox
+                      successMessage={success}
+                      clearMessage={() => dispatch(clearMessages())}
+                    />
+                  )}
                 </View>
               </>
             )}

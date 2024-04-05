@@ -175,9 +175,10 @@ export interface CardItemProps {
   translationKey: string;
 }
 
-export interface IMessageBox {
+export interface IMessageBoxProps {
   errorMessage?: string;
   successMessage?: string;
+  clearMessage: () => void;
 }
 
 export interface IValidationErrorProps {

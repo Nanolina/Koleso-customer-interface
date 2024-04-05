@@ -33,6 +33,7 @@ export const Phone: React.FC<any> = ({ phone, handleChange, errorsPhone }) => {
 const styles = StyleSheet.create({
   container: {
     gap: 10,
+    alignItems: 'center',
   },
   phoneContainer: {
     borderRadius: css.borderRadiusMin,
