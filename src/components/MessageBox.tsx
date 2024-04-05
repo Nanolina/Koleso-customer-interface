@@ -19,6 +19,7 @@ export const MessageBox: React.FC<IMessageBoxProps> = React.memo(
     const messageType = errorMessage ? 'error' : 'success';
     const opacity = useRef(new Animated.Value(0)).current;
     const position = useRef(new Animated.ValueXY()).current;
+    const progressWidth = useRef(new Animated.Value(1)).current;
 
     // Icon
     let IconComponent;
@@ -61,7 +62,14 @@ export const MessageBox: React.FC<IMessageBoxProps> = React.memo(
           duration: 500,
           useNativeDriver: true,
         }),
-        Animated.delay(4000),
+        Animated.parallel([
+          Animated.timing(progressWidth, {
+            toValue: 0,
+            duration: 4000,
+            useNativeDriver: false,
+          }),
+          Animated.delay(4000),
+        ]),
         Animated.timing(opacity, {
           toValue: 0,
           duration: 500,
@@ -104,6 +112,18 @@ export const MessageBox: React.FC<IMessageBoxProps> = React.memo(
             <Entypo name="cross" color={iconColor} size={sizes.iconSize16} />
           </TouchableOpacity>
         </View>
+        <Animated.View
+          style={[
+            styles.progress,
+            {
+              backgroundColor: iconColor,
+              width: progressWidth.interpolate({
+                inputRange: [0, 1],
+                outputRange: ['0%', '100%'],
+              }),
+            },
+          ]}
+        />
       </Animated.View>
     );
   }
@@ -131,5 +151,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -10,
     right: -35,
+  },
+  progress: {
+    height: 5,
+    position: 'absolute',
+    bottom: 0,
+    left: 4.5,
+    borderRadius: css.borderRadiusMax,
   },
 });
