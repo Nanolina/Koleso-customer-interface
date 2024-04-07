@@ -1,1 +1,1 @@
-export type { ISignupData } from './AuthRequest';
+export type { ILoginData, ISignupData } from './AuthRequest';

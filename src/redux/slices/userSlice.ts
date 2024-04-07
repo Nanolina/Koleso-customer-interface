@@ -1,6 +1,6 @@
 import { ActionReducerMapBuilder, createSlice } from '@reduxjs/toolkit';
 import { IUserState } from '../../modules/auth';
-import { signupCases } from '../cases/user';
+import { loginCases, logoutCases, signupCases } from '../cases/user';
 import { userInitialState } from '../initialStates';
 
 const userSlice = createSlice({
@@ -14,6 +14,8 @@ const userSlice = createSlice({
   },
   extraReducers: (builder: ActionReducerMapBuilder<IUserState>) => {
     signupCases(builder);
+    loginCases(builder);
+    logoutCases(builder);
   },
 });
 

@@ -1,15 +1,15 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import * as SecureStore from 'expo-secure-store';
 import { AuthService } from '../../../services';
-import { ISignupData } from '../../../services/types/request';
+import { ILoginData } from '../../../services/types/request';
 import { handleAsyncThunkError } from '../../functions';
 
-export const handleSignup = createAsyncThunk(
-  'user/signup',
-  async (userData: ISignupData, { rejectWithValue }) => {
+export const handleLogin = createAsyncThunk(
+  'user/login',
+  async (userData: ILoginData, { rejectWithValue }) => {
     try {
       // Submit a request
-      const response: any = await AuthService.signup(userData);
+      const response = await AuthService.login(userData);
 
       // Get data from response
       const { token, user } = response.data;

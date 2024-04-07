@@ -49,109 +49,107 @@ export const SignUpPhoneEmailForm: React.FC = () => {
   return (
     <>
       <View style={styles.container}>
-        <View style={styles.container}>
-          <Formik
-            initialValues={initialValues}
-            validationSchema={() => validationSchema(t)}
-            onSubmit={onSubmit}
-          >
-            {({
-              values,
-              errors,
-              touched,
-              isValid,
-              dirty,
-              handleChange,
-              handleSubmit,
-              setFieldTouched,
-            }) => (
-              <>
-                <View style={css.auth.inputContainer}>
-                  <Phone
-                    phone={values.phone}
-                    handleChange={handleChange}
-                    errorsPhone={errors.phone}
-                  />
+        <Formik
+          initialValues={initialValues}
+          validationSchema={() => validationSchema(t)}
+          onSubmit={onSubmit}
+        >
+          {({
+            values,
+            errors,
+            touched,
+            isValid,
+            dirty,
+            handleChange,
+            handleSubmit,
+            setFieldTouched,
+          }) => (
+            <>
+              <View style={css.auth.inputContainer}>
+                <Phone
+                  phone={values.phone}
+                  handleChange={handleChange}
+                  errorsPhone={errors.phone}
+                />
 
-                  <ImageInput
-                    name="email"
-                    placeholder={t('auth.email')}
-                    icon={
-                      <Fontisto
-                        name="email"
-                        size={sizes.iconSizeMiddle}
-                        color={colors.mainOpacity}
-                      />
-                    }
-                    value={values.email}
-                    onChangeText={handleChange('email')}
-                    inputMode="email"
-                    errors={errors}
-                    touched={touched}
-                    onBlur={() => setFieldTouched('email', true)}
-                  />
-
-                  <ImageInput
-                    name="password"
-                    placeholder={t('auth.password')}
-                    icon={
-                      <FontAwesome
-                        name="lock"
-                        size={sizes.iconSizeMax}
-                        color={colors.mainOpacity}
-                      />
-                    }
-                    value={values.password}
-                    onChangeText={handleChange('password')}
-                    secureTextEntry={true}
-                    errors={errors}
-                    touched={touched}
-                    onBlur={() => setFieldTouched('password', true)}
-                  />
-
-                  <ImageInput
-                    name="repeatedPassword"
-                    placeholder={t('auth.repeatedPassword')}
-                    icon={
-                      <FontAwesome
-                        name="lock"
-                        size={sizes.iconSizeMax}
-                        color={colors.mainOpacity}
-                      />
-                    }
-                    value={values.repeatedPassword}
-                    onChangeText={handleChange('repeatedPassword')}
-                    secureTextEntry={true}
-                    errors={errors}
-                    touched={touched}
-                    onBlur={() => setFieldTouched('repeatedPassword', true)}
-                  />
-
-                  <View style={styles.buttonContainer}>
-                    <Button
-                      text={t('auth.signUp')}
-                      onPress={handleSubmit}
-                      disabled={!isValid || !dirty}
+                <ImageInput
+                  name="email"
+                  placeholder={t('auth.email')}
+                  icon={
+                    <Fontisto
+                      name="email"
+                      size={sizes.iconSizeMiddle}
+                      color={colors.mainOpacity}
                     />
-                  </View>
+                  }
+                  value={values.email}
+                  onChangeText={handleChange('email')}
+                  inputMode="email"
+                  errors={errors}
+                  touched={touched}
+                  onBlur={() => setFieldTouched('email', true)}
+                />
 
-                  {error && (
-                    <MessageBox
-                      errorMessage={error}
-                      clearMessage={() => dispatch(clearMessages())}
+                <ImageInput
+                  name="password"
+                  placeholder={t('auth.password')}
+                  icon={
+                    <FontAwesome
+                      name="lock"
+                      size={sizes.iconSizeMax}
+                      color={colors.mainOpacity}
                     />
-                  )}
-                  {success && (
-                    <MessageBox
-                      successMessage={success}
-                      clearMessage={() => dispatch(clearMessages())}
+                  }
+                  value={values.password}
+                  onChangeText={handleChange('password')}
+                  secureTextEntry={true}
+                  errors={errors}
+                  touched={touched}
+                  onBlur={() => setFieldTouched('password', true)}
+                />
+
+                <ImageInput
+                  name="repeatedPassword"
+                  placeholder={t('auth.repeatedPassword')}
+                  icon={
+                    <FontAwesome
+                      name="lock"
+                      size={sizes.iconSizeMax}
+                      color={colors.mainOpacity}
                     />
-                  )}
+                  }
+                  value={values.repeatedPassword}
+                  onChangeText={handleChange('repeatedPassword')}
+                  secureTextEntry={true}
+                  errors={errors}
+                  touched={touched}
+                  onBlur={() => setFieldTouched('repeatedPassword', true)}
+                />
+
+                <View style={styles.buttonContainer}>
+                  <Button
+                    text={t('auth.signUp')}
+                    onPress={handleSubmit}
+                    disabled={!isValid || !dirty}
+                  />
                 </View>
-              </>
-            )}
-          </Formik>
-        </View>
+
+                {error && (
+                  <MessageBox
+                    errorMessage={error}
+                    clearMessage={() => dispatch(clearMessages())}
+                  />
+                )}
+                {success && (
+                  <MessageBox
+                    successMessage={success}
+                    clearMessage={() => dispatch(clearMessages())}
+                  />
+                )}
+              </View>
+            </>
+          )}
+        </Formik>
       </View>
     </>
   );

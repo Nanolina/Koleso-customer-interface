@@ -65,7 +65,7 @@ export default function App() {
             initialRouteName="Home"
             screenOptions={{ headerShown: false }}
           >
-            {/* <Stack.Screen name="Home" component={Home} />
+            <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Main" component={Main} />
             <Stack.Screen name="SectionsPage" component={SectionsPage} />
             <Stack.Screen name="CategoriesPage" component={CategoriesPage} />
@@ -103,14 +103,14 @@ export default function App() {
             <Stack.Screen
               name="SettingsPasswordPage"
               component={SettingsPasswordPage}
-            /> */}
+            />
             <Stack.Screen name="SignUpPage" component={SignUpPage} />
             <Stack.Screen
               name="SignUpPhoneEmailPage"
               component={SignUpPhoneEmailPage}
             />
             <Stack.Screen name="LoginPage" component={LoginPage} />
-            {/* <Stack.Screen name="PurchasesPage" component={PurchasesPage} />
+            <Stack.Screen name="PurchasesPage" component={PurchasesPage} />
             <Stack.Screen name="ReturnsPage" component={ReturnsPage} />
             <Stack.Screen name="FinancesPage" component={FinancesPage} />
             <Stack.Screen name="ContactsPage" component={ContactsPage} />
@@ -119,7 +119,7 @@ export default function App() {
               name="NotificationsPage"
               component={NotificationsPage}
             />
-            <Stack.Screen name="AddressForm" component={AddressForm} /> */}
+            <Stack.Screen name="AddressForm" component={AddressForm} />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

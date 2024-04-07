@@ -37,6 +37,8 @@ const styles = StyleSheet.create({
   },
   phoneContainer: {
     borderRadius: css.borderRadiusMin,
+    width: '100%',
+    padding: 0,
     ...css.shadow,
   },
   text: {

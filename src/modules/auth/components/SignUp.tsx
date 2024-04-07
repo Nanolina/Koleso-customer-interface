@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
   cardsContainer: {
     gap: 30,
     justifyContent: 'center',
+    width: '90%',
   },
   text: {
     fontWeight: 'bold',
@@ -54,6 +55,6 @@ const styles = StyleSheet.create({
   logInContainer: {
     gap: 20,
     alignItems: 'center',
-    width: '100%',
+    width: '90%',
   },
 });

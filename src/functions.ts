@@ -1,3 +1,4 @@
+import * as SecureStore from 'expo-secure-store';
 import { DateTime } from 'luxon';
 import i18n from './i18n/i18n';
 
@@ -36,3 +37,8 @@ export const getDisplayItem = (title: string, selectedItem: string) => {
 
   return selectedItem;
 };
+
+export async function readToken() {
+  const token = await SecureStore.getItemAsync('token');
+  console.log('token', token);
+}

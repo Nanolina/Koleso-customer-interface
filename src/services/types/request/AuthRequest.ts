@@ -7,3 +7,8 @@ export interface ISignupData {
   repeatedPassword: string;
   role: RoleType;
 }
+
+export interface ILoginData {
+  email: string;
+  password: string;
+}

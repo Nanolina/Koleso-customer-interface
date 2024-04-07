@@ -7,7 +7,11 @@ export const ValidationError = ({ error }: IValidationErrorProps) => {
     return null;
   }
 
-  return <TextInput style={styles.text}>{error}</TextInput>;
+  return (
+    <TextInput style={styles.text} editable={false} multiline>
+      {error}
+    </TextInput>
+  );
 };
 
 const styles = StyleSheet.create({

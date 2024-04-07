@@ -32,6 +32,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'center',
     gap: 20,
     borderRadius: css.borderRadiusMax,
     padding: css.padding,

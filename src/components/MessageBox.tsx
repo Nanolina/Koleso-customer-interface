@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     height: 5,
     position: 'absolute',
     bottom: 0,
-    left: 4.5,
-    borderRadius: css.borderRadiusMax,
+    left: 3,
+    borderBottomLeftRadius: css.borderRadiusMax,
   },
 });
