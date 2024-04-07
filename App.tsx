@@ -10,7 +10,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { PaperProvider } from 'react-native-paper';
 import { Provider } from 'react-redux';
 import { linking } from './linking';
-import { Loader } from './src/ui/Loader.tsx';
 import './src/i18n/i18n.ts';
 import { AddressForm } from './src/pages/AddressForm';
 import { CartPage } from './src/pages/CartPage';
@@ -31,6 +30,8 @@ import { SectionsPage } from './src/pages/SectionsPage';
 import { SortPage } from './src/pages/SortPage';
 import { SubcategoriesPage } from './src/pages/SubcategoriesPage';
 import { LoginPage } from './src/pages/auth/LoginPage';
+import { RequestPasswordRecoveryPage } from './src/pages/auth/RequestPasswordRecoveryPage.tsx';
+import { SetNewPasswordPage } from './src/pages/auth/SetNewPasswordPage.tsx';
 import { SignUpPage } from './src/pages/auth/SignUpPage';
 import { SignUpPhoneEmailPage } from './src/pages/auth/SignUpPhoneEmailPage';
 import { FilterCheckboxPage } from './src/pages/filter/FilterCheckboxPage';
@@ -41,6 +42,7 @@ import { SettingsInputPage } from './src/pages/settings/SettingsInputPage';
 import { SettingsPage } from './src/pages/settings/SettingsPage';
 import { SettingsPasswordPage } from './src/pages/settings/SettingsPasswordPage';
 import store from './src/redux/store.ts';
+import { Loader } from './src/ui/Loader.tsx';
 
 export default function App() {
   const Stack = createStackNavigator();
@@ -110,6 +112,14 @@ export default function App() {
               component={SignUpPhoneEmailPage}
             />
             <Stack.Screen name="LoginPage" component={LoginPage} />
+            <Stack.Screen
+              name="RequestPasswordRecoveryPage"
+              component={RequestPasswordRecoveryPage}
+            />
+            <Stack.Screen
+              name="SetNewPasswordPage"
+              component={SetNewPasswordPage}
+            />
             <Stack.Screen name="PurchasesPage" component={PurchasesPage} />
             <Stack.Screen name="ReturnsPage" component={ReturnsPage} />
             <Stack.Screen name="FinancesPage" component={FinancesPage} />

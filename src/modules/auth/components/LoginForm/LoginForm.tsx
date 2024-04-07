@@ -1,4 +1,9 @@
 import { FontAwesome, Fontisto } from '@expo/vector-icons';
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
 import { Formik } from 'formik';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -20,6 +25,7 @@ import { initialValues } from './initialValues';
 export const LoginForm: React.FC = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   const { loading, error, success } = useSelector(
     (state: IRootState) => state.user
@@ -93,11 +99,24 @@ export const LoginForm: React.FC = () => {
               />
             </View>
 
-            <View style={styles.buttonContainer}>
+            <View style={styles.buttonsContainer}>
               <Button
                 text={t('auth.logIn')}
                 onPress={handleSubmit}
                 disabled={!isValid || !dirty}
+                width="45%"
+              />
+              <Button
+                text={t(`${t('auth.forgotPassword')}?`)}
+                backgroundColor={colors.white}
+                textColor={colors.main}
+                border={false}
+                isBold={false}
+                hasShadow
+                width="45%"
+                onPress={() =>
+                  navigation.navigate('RequestPasswordRecoveryPage')
+                }
               />
             </View>
 
@@ -130,8 +149,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 5,
   },
-  buttonContainer: {
+  buttonsContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
     paddingBottom: 30,
+    gap: 20,
   },
 });

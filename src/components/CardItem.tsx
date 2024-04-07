@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
-
 import { Dimensions } from 'react-native';
 import { sizes } from '../consts';
 import { CardItemProps } from '../types';

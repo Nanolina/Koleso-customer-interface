@@ -1,5 +1,6 @@
-import React from 'react';
-import { StyleSheet, TextInput, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import React, { useState } from 'react';
+import { StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import { colors, css, sizes } from '../../../consts';
 import { ValidationError } from '../../../ui/ValidationError';
 import { IImageInputProps } from '../types';
@@ -18,6 +19,8 @@ export const ImageInput: React.FC<IImageInputProps> = React.memo(
     touched,
     onBlur,
   }: any) => {
+    const [isSecureEntry, setIsSecureEntry] = useState(secureTextEntry);
+
     return (
       <View style={styles.mainContainer}>
         <View style={styles.iconInputContainer}>
@@ -28,10 +31,22 @@ export const ImageInput: React.FC<IImageInputProps> = React.memo(
             value={value}
             onChangeText={onChangeText}
             inputMode={inputMode}
-            secureTextEntry={secureTextEntry}
+            secureTextEntry={isSecureEntry}
             autoComplete={autoComplete}
             onBlur={onBlur}
           />
+          {secureTextEntry && (
+            <TouchableOpacity
+              style={styles.iconContainer}
+              onPress={() => setIsSecureEntry(!isSecureEntry)}
+            >
+              <Ionicons
+                name={isSecureEntry ? 'eye-off' : 'eye'}
+                size={sizes.iconSizeMin}
+                color={colors.mainOpacity}
+              />
+            </TouchableOpacity>
+          )}
         </View>
         {errors[name] && touched[name] && (
           <ValidationError error={errors[name]} />

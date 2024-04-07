@@ -1,5 +1,5 @@
 export const linking = {
-  prefixes: ['http://localhost:19006', 'exp://192.168.1.103:8081'],
+  prefixes: ['http://localhost:19006', 'exp://192.168.68.106:8081'],
   config: {
     screens: {
       Home: '',
@@ -29,11 +29,13 @@ export const linking = {
       SettingsInputPage: 'settings-input',
       SettingsBirthdayPage: 'settings-birthday',
       SettingsPasswordPage: 'settings-password',
+      SetNewPasswordPage: 'password/set/:userId',
       SignUpPage: 'sign-up',
       SignUpPhoneEmailPage: 'sign-up-phone-email',
       LoginPage: 'login',
       PurchasesPage: 'purchases',
       ReturnsPage: 'returns',
+      RequestPasswordRecoveryPage: 'request-password-recovery',
       FinancesPage: 'finances',
       ContactsPage: 'contacts',
       Favorites: 'favorites',

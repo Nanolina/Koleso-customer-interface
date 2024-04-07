@@ -49,3 +49,11 @@ export interface IAuthPayload {
   isVerifiedEmail: boolean;
   role: RoleType;
 }
+
+export interface ITimerTextProps {
+  timer: number;
+}
+
+export interface ISetNewPasswordFormProps {
+  userId: string;
+}

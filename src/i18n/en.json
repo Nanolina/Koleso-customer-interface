@@ -4,6 +4,7 @@
   "reset": "Reset",
   "change": "Change",
   "add": "Add",
+  "send": "Send",
   "selectAll": "Select all",
   "resetAll": "Reset all",
   "clearAll": "Clear all",
@@ -16,12 +17,18 @@
     "signUp": "Sign up",
     "emailUsernamePhone": "Email/username/phone",
     "password": "Password",
+    "repeatedPassword": "Repeat password",
     "email": "Email",
     "phone": "Phone",
     "haveAccount": "Already have an account",
     "notAccount": "Don't have an account yet",
-    "repeatedPassword": "Repeat password",
+    "forgotPassword": "Forgot password",
+    "setNewPassword": "Set new password",
     "Use phone and email": "Use phone and email",
+    "timer": {
+      "wait": "Please wait",
+      "seconds": "seconds before next sending"
+    },
     "validation": {
       "phoneRequired": "Phone is required",
       "invalidEmail": "Invalid email address",
