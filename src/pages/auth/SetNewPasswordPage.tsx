@@ -16,13 +16,6 @@ export const SetNewPasswordPage: React.FC = () => {
   const route: any = useRoute();
   let { userId } = route.params;
 
-  /* This is a temporary solution as the page
-   * is not opening in the phone's browser.
-   * This is for dev only.
-   * Delete in the production
-   */
-  userId = userId || '28e6662e-bf2a-4dfb-95d7-b58410d43ea9';
-
   return (
     <Container>
       <Header title={t('auth.setNewPassword')} hasButtonBack />

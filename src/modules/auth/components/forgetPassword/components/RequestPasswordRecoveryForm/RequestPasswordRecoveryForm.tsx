@@ -106,23 +106,6 @@ export const RequestPasswordRecoveryForm: React.FC = () => {
                 disabled={!isValid || !dirty}
               />
               {isButtonDisabled && <TimerText timer={timer} />}
-
-              {/* This is a temporary solution as the page
-              is not opening in the phone's browser.
-              This is for dev only.
-              Delete in the production */}
-              <Button
-                text={t(`${t('auth.forgotPassword')}?`)}
-                backgroundColor={colors.white}
-                textColor={colors.main}
-                border={false}
-                isBold={false}
-                hasShadow
-                width="45%"
-                onPress={() =>
-                  navigation.navigate('SetNewPasswordPage', { userId: id })
-                }
-              />
             </View>
 
             {error && (
