@@ -1,10 +1,12 @@
 import { AxiosResponse } from 'axios';
 import { authServiceAPI } from '../http';
+import { IVerifyConfirmationCodePayload } from '../modules/auth';
 import {
   IChangeEmailData,
   ILoginData,
   ISetNewPasswordDataForService,
   ISignupData,
+  IVerifyConfirmationCodeData,
 } from './types/request';
 import { AuthResponse, ISetNewPasswordResponse } from './types/response';
 
@@ -51,6 +53,15 @@ export class AuthService {
         password,
         repeatedPassword,
       }
+    );
+  }
+
+  static async verifyConfirmationCode(
+    codeData: IVerifyConfirmationCodeData
+  ): Promise<AxiosResponse<IVerifyConfirmationCodePayload>> {
+    return authServiceAPI.post<IVerifyConfirmationCodePayload>(
+      '/verify-confirmation-code',
+      codeData
     );
   }
 }

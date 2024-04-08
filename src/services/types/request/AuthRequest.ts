@@ -1,4 +1,4 @@
-import { RoleType } from '../../../types';
+import { ConfirmationCodeType, RoleType } from '../../../types';
 
 export interface ISignupData {
   email: string;
@@ -26,4 +26,9 @@ export interface ISetNewPasswordDataForService {
   userId: string;
   password: string;
   repeatedPassword: string;
+}
+
+export interface IVerifyConfirmationCodeData {
+  code: number;
+  codeType: ConfirmationCodeType;
 }

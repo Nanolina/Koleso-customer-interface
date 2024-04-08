@@ -1,5 +1,10 @@
 import { NavigationProp, RouteProp } from '@react-navigation/native';
-import { ImageSourcePropType, TextStyle, ViewStyle } from 'react-native';
+import {
+  ImageSourcePropType,
+  InputModeOptions,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
 
 export enum LanguageType {
   English = 'English',
@@ -102,15 +107,22 @@ export interface ISearchState {
   };
 }
 
-export interface ITextWithInputProps {
-  text?: string;
+export interface ILabelWithInputProps {
+  name: string;
+  placeholder: string;
+  label?: string;
   value: string;
   onChangeText: (text: string) => void;
   width?: string;
   onFocus?: () => void;
-  inputMode?: string;
+  inputMode?: InputModeOptions;
+  maxLength?: number;
   secureTextEntry?: boolean;
   autoComplete?: string;
+  errors?: any;
+  touched?: any;
+  onBlur: any;
+  extra?: string;
 }
 
 export interface IBoxProps {
@@ -208,4 +220,10 @@ export type OrderProcessingRouteProp = RouteProp<
 export enum RoleType {
   Seller = 'Seller',
   Customer = 'Customer',
+}
+
+export enum ConfirmationCodeType {
+  EMAIL_CONFIRMATION = 'EMAIL_CONFIRMATION',
+  PHONE_CONFIRMATION = 'PHONE_CONFIRMATION',
+  PASSWORD_RESET = 'PASSWORD_RESET',
 }

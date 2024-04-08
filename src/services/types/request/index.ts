@@ -4,4 +4,5 @@ export type {
   ISetNewPasswordData,
   ISetNewPasswordDataForService,
   ISignupData,
+  IVerifyConfirmationCodeData,
 } from './AuthRequest';

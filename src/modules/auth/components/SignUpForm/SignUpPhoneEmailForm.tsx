@@ -1,4 +1,9 @@
 import { FontAwesome, Fontisto } from '@expo/vector-icons';
+import {
+  NavigationProp,
+  ParamListBase,
+  useNavigation,
+} from '@react-navigation/native';
 import { Formik } from 'formik';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -21,6 +26,7 @@ import { validationSchema } from './validationSchema';
 
 export const SignUpPhoneEmailForm: React.FC = () => {
   const { t } = useTranslation();
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
   const dispatch = useDispatch<AppDispatch>();
 
   const { loading, error, success } = useSelector(
@@ -40,6 +46,7 @@ export const SignUpPhoneEmailForm: React.FC = () => {
 
     dispatch(handleSignup(userData));
     setSubmitting(false);
+    navigation.navigate('EmailVerificationPage');
   };
 
   if (loading) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
-import { TextWithInput } from '../../../components/TextWithInput';
+import { TextWithInput } from '../../../components/LabelWithInput';
 import { IRootState } from '../../../redux/rootReducer';
 import { ISettingsState } from '../../../redux/slices/settingsSlice';
 import { getAutoComplete, getDataForInput } from '../functions';

@@ -1,11 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { colors, css, sizes } from '../consts';
-import { ITextWithInputProps } from '../types';
+import { ILabelWithInputProps } from '../types';
+import { ValidationError } from '../ui/ValidationError';
 
-export const TextWithInput: React.FC<ITextWithInputProps> = React.memo(
+export const LabelWithInput: React.FC<ILabelWithInputProps> = React.memo(
   ({
-    text,
+    name,
+    placeholder,
+    maxLength,
+    label,
     value,
     onChangeText,
     width,
@@ -13,19 +17,30 @@ export const TextWithInput: React.FC<ITextWithInputProps> = React.memo(
     inputMode = 'text',
     secureTextEntry,
     autoComplete,
+    errors,
+    touched,
+    onBlur,
+    extra,
   }: any) => {
     return (
       <View style={[styles.container, { width: width || '100%' }]}>
-        <Text style={styles.text}>{text}</Text>
+        <Text style={styles.label}>{label}</Text>
+        {extra && <Text style={styles.extra}>{extra}</Text>}
         <TextInput
           style={styles.input}
+          placeholder={placeholder}
           value={value}
           onChangeText={onChangeText}
           onFocus={onFocus}
           inputMode={inputMode}
+          maxLength={maxLength}
           secureTextEntry={secureTextEntry}
           autoComplete={autoComplete}
+          onBlur={onBlur}
         />
+        {errors[name] && touched[name] && (
+          <ValidationError error={errors[name]} />
+        )}
       </View>
     );
   }
@@ -43,9 +58,11 @@ const styles = StyleSheet.create({
     height: 40,
     ...css.shadow,
   },
-  text: {
-    fontSize: sizes.text16,
+  label: {
+    fontSize: sizes.text20,
+    color: colors.main,
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  extra: {},
 });

@@ -9,6 +9,7 @@
   "resetAll": "Reset all",
   "clearAll": "Clear all",
   "close": "Close",
+  "confirm": "Confirm",
   "apply": "Apply",
   "addToCart": "Add to cart",
   "search": "Search",
@@ -25,6 +26,13 @@
     "forgotPassword": "Forgot password",
     "setNewPassword": "Set new password",
     "Use phone and email": "Use phone and email",
+    "code": {
+      "email": {
+        "confirm": "Confirm email",
+        "sent": "We sent you a 6-digit code to {{email}}. Copy it into the box below",
+        "placeholder": "6-digit activation code"
+      }
+    },
     "timer": {
       "wait": "Please wait",
       "seconds": "seconds before next sending"

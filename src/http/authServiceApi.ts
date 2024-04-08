@@ -1,6 +1,6 @@
 import { AUTH_SERVICE_URL } from '@env';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
+import * as SecureStore from 'expo-secure-store';
 import { AuthResponse } from '../services/types/response';
 
 const authServiceAPI = axios.create({
@@ -10,7 +10,7 @@ const authServiceAPI = axios.create({
 
 authServiceAPI.interceptors.request.use(
   async function (config) {
-    const token = await AsyncStorage.getItem('token');
+    const token = await SecureStore.getItemAsync('token');
     if (token) {
       config.headers['Authorization'] = `Bearer ${token}`;
     }
@@ -41,7 +41,8 @@ authServiceAPI.interceptors.response.use(
             withCredentials: true,
           }
         );
-        await AsyncStorage.setItem('token', response.data.token);
+
+        await SecureStore.setItemAsync('token', response.data.token);
         return authServiceAPI.request(originalRequest);
       }
     } catch (error) {

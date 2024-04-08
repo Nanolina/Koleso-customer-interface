@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
-import { TextWithInput } from '../../../components/TextWithInput';
+import { TextWithInput } from '../../../components/LabelWithInput';
 import { colors } from '../../../consts';
 import { Button } from '../../../ui/Button';
 

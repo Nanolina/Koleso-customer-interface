@@ -1,3 +1,4 @@
+import { InputModeOptions } from 'react-native';
 import { LanguageType, RoleType } from '../../types';
 
 export interface IImageInputProps {
@@ -7,7 +8,8 @@ export interface IImageInputProps {
   value: string;
   secureTextEntry?: boolean;
   autoComplete?: string;
-  inputMode?: string;
+  inputMode?: InputModeOptions;
+  maxLength?: number;
   onChangeText: (text: string) => void;
   errors?: any;
   touched?: any;
@@ -29,7 +31,6 @@ export interface IUserState {
   id: string;
   email: string;
   phone: string;
-  activationLinkId: string;
   isActive: boolean;
   isVerifiedEmail: boolean;
   isCustomer: boolean;
@@ -44,10 +45,13 @@ export interface IAuthPayload {
   id: string;
   email: string;
   phone: string;
-  activationLinkId: string;
   isActive: boolean;
   isVerifiedEmail: boolean;
   role: RoleType;
+}
+
+export interface IVerifyConfirmationCodePayload {
+  isVerifiedEmail: boolean;
 }
 
 export interface ITimerTextProps {

@@ -12,6 +12,7 @@ export const ImageInput: React.FC<IImageInputProps> = React.memo(
     icon,
     value,
     inputMode = 'text',
+    maxLength,
     secureTextEntry,
     autoComplete,
     onChangeText,
@@ -31,6 +32,7 @@ export const ImageInput: React.FC<IImageInputProps> = React.memo(
             value={value}
             onChangeText={onChangeText}
             inputMode={inputMode}
+            maxLength={maxLength}
             secureTextEntry={isSecureEntry}
             autoComplete={autoComplete}
             onBlur={onBlur}
