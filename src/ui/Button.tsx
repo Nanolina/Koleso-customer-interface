@@ -15,6 +15,7 @@ export const Button: React.FC<IButtonProps> = React.memo(
     hasShadow = false,
     extra,
     disabled,
+    isLink = false,
   }: any) => {
     return (
       <TouchableOpacity
@@ -22,22 +23,29 @@ export const Button: React.FC<IButtonProps> = React.memo(
         disabled={disabled}
         style={[
           styles.container,
-          {
-            width,
-            backgroundColor: disabled ? colors.lightGray : backgroundColor,
-            borderWidth: border ? 1 : 0,
-            borderColor: border ? colors.main : undefined,
-            ...(hasShadow && {
-              ...css.shadow,
-              shadowRadius: 4, // reassign shadowRadius
-            }),
-          },
+          isLink
+            ? styles.link
+            : {
+                width,
+                backgroundColor: disabled ? colors.lightGray : backgroundColor,
+                borderWidth: border ? 1 : 0,
+                borderColor: border ? colors.main : undefined,
+                ...(hasShadow && {
+                  ...css.shadow,
+                  shadowRadius: 4,
+                }),
+              },
         ]}
       >
         <Text
           style={[
             styles.text,
-            { color: textColor, fontWeight: isBold ? 'bold' : 'normal' },
+            isLink
+              ? styles.linkText
+              : {
+                  color: textColor,
+                  fontWeight: isBold ? 'bold' : 'normal',
+                },
           ]}
         >
           {text}
@@ -62,5 +70,13 @@ const styles = StyleSheet.create({
   extra: {
     fontSize: sizes.text15,
     color: colors.white,
+  },
+  link: {
+    backgroundColor: 'transparent',
+  },
+  linkText: {
+    textDecorationLine: 'underline',
+    color: '#00439d',
+    fontWeight: 'normal',
   },
 });

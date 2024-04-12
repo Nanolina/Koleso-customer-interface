@@ -5,13 +5,13 @@ import {
 } from '@react-navigation/native';
 import { unwrapResult } from '@reduxjs/toolkit';
 import { Formik } from 'formik';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, Text, View } from 'react-native';
+import { CodeField, Cursor } from 'react-native-confirmation-code-field';
 import { useDispatch, useSelector } from 'react-redux';
-import { LabelWithInput } from '../../../components/LabelWithInput';
 import { MessageBox } from '../../../components/MessageBox';
-import { css } from '../../../consts';
+import { colors, css, sizes } from '../../../consts';
 import { IRootState } from '../../../redux/rootReducer';
 import { clearMessages } from '../../../redux/slices/userSlice';
 import { AppDispatch } from '../../../redux/store';
@@ -29,33 +29,50 @@ export const EmailVerificationForm: React.FC = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
   const navigation: NavigationProp<ParamListBase> = useNavigation();
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const [timer, setTimer] = useState(120); // Start timer immediately upon loading
-  const [isButtonResendDisabled, setIsButtonResendDisabled] = useState(true);
-
-  const { id, loading, error, success, email } = useSelector(
+  const { loading, error, success, email } = useSelector(
     (state: IRootState) => state.user
   );
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTimer((prevTimer) => {
-        const newTime = prevTimer - 1;
-        if (newTime <= 0) {
-          clearInterval(interval);
-          setIsButtonResendDisabled(false);
-          return 0;
-        }
-        return newTime;
-      });
-    }, 1000);
+  const [timer, setTimer] = useState(30);
+  const [isButtonResendDisabled, setIsButtonResendDisabled] = useState(true);
 
-    return () => clearInterval(interval);
+  // Timer
+  useEffect(() => {
+    if (timer === 0) {
+      setIsButtonResendDisabled(false);
+      clearInterval(intervalRef.current as NodeJS.Timeout);
+    } else {
+      setIsButtonResendDisabled(true);
+    }
+  }, [timer]);
+
+  useEffect(() => {
+    startTimer();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
   }, []);
+
+  const startTimer = () => {
+    setTimer(30);
+    intervalRef.current = setInterval(() => {
+      setTimer((prevTimer) => prevTimer - 1);
+    }, 1000);
+  };
+
+  const resendCode = () => {
+    dispatch(
+      handleResendConfirmationCode(ConfirmationCodeType.EMAIL_CONFIRMATION)
+    );
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    startTimer(); // Resetting the timer to 30 seconds
+  };
 
   const onSubmit = async (values: any) => {
     const codeData: IVerifyConfirmationCodeData = {
-      code: parseInt(values.code),
+      code: parseInt(values.code.join('')),
       codeType: ConfirmationCodeType.EMAIL_CONFIRMATION,
     };
 
@@ -65,84 +82,118 @@ export const EmailVerificationForm: React.FC = () => {
     if (isVerifiedEmail) navigation.navigate('SettingsPage');
   };
 
-  const resendCode = async () => {
-    setIsButtonResendDisabled(true);
-    setTimer(120); // Reset timer
-    dispatch(
-      handleResendConfirmationCode(ConfirmationCodeType.EMAIL_CONFIRMATION)
-    );
-  };
-
   if (loading) return <Loader />;
 
   return (
     <View style={styles.container}>
-      <Formik initialValues={{ code: '' }} onSubmit={onSubmit}>
-        {({
-          values,
-          errors,
-          touched,
-          isValid,
-          dirty,
-          handleChange,
-          handleSubmit,
-          setFieldTouched,
-        }) => (
+      <Image
+        source={require('../../../assets/email.png')}
+        style={styles.image}
+      />
+      <Formik initialValues={{ code: Array(6).fill('') }} onSubmit={onSubmit}>
+        {({ values, setFieldValue, handleSubmit }) => (
           <>
-            <LabelWithInput
-              name="code"
-              placeholder={t('auth.code.email.placeholder')}
-              label={t('auth.code.email.confirm')}
-              extra={t('auth.code.email.sent', { email })}
-              maxLength={6}
-              value={values.code}
-              inputMode="numeric"
-              onChangeText={handleChange('code')}
-              errors={errors}
-              touched={touched}
-              onBlur={() => setFieldTouched('code', true)}
-            />
+            <View style={styles.textContainer}>
+              <Text style={styles.text}>{t('auth.code.email.sent')}</Text>
+              <Text style={styles.email}>{email}</Text>
+              <Text style={styles.text}>{t('auth.code.email.copy')}</Text>
+            </View>
+            <View style={styles.codeTimerContainer}>
+              <CodeField
+                value={values.code.join('')}
+                onChangeText={(text) => {
+                  // Update the value of the code field
+                  setFieldValue('code', text.split(''));
 
-            <View style={styles.buttonsContainer}>
-              <Button
-                onPress={handleSubmit}
-                text={t('send')}
-                disabled={!isValid || !dirty}
+                  // Check if all cells are filled in
+                  if (text.length === 6) {
+                    handleSubmit(); // If filled in, submit the form
+                  }
+                }}
+                rootStyle={styles.codeContainer}
+                cellCount={6}
+                keyboardType="number-pad"
+                textContentType="oneTimeCode"
+                renderCell={({ index, symbol, isFocused }) => (
+                  <Text
+                    key={index}
+                    style={[styles.cell, isFocused && styles.focusCell]}
+                  >
+                    {symbol || (isFocused ? <Cursor /> : null)}
+                  </Text>
+                )}
               />
+              {timer > 0 && <TimerText timer={timer} />}
+            </View>
+
+            {!timer && (
               <Button
                 onPress={resendCode}
                 text={t('auth.code.email.resend', { email })}
                 disabled={isButtonResendDisabled}
-              />
-              {timer && <TimerText timer={timer}></TimerText>}
-            </View>
-
-            {error && (
-              <MessageBox
-                errorMessage={error}
-                clearMessage={() => dispatch(clearMessages())}
-              />
-            )}
-            {success && (
-              <MessageBox
-                successMessage={success}
-                clearMessage={() => dispatch(clearMessages())}
+                isLink
               />
             )}
           </>
         )}
       </Formik>
+      {error && (
+        <MessageBox
+          errorMessage={error}
+          clearMessage={() => dispatch(clearMessages())}
+        />
+      )}
+      {success && (
+        <MessageBox
+          successMessage={success}
+          clearMessage={() => dispatch(clearMessages())}
+        />
+      )}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    gap: css.auth.gap,
-  },
-  buttonsContainer: {
+    gap: 40,
+    display: 'flex',
     alignItems: 'center',
-    paddingBottom: 30,
-    gap: 20,
+  },
+  codeTimerContainer: {
+    gap: 10,
+  },
+  image: {
+    width: 150,
+    height: 150,
+  },
+  codeContainer: {
+    gap: 10,
+  },
+  textContainer: {
+    gap: 2,
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: sizes.text15,
+    textAlign: 'center',
+  },
+  email: {
+    fontWeight: 'bold',
+  },
+  cell: {
+    width: 40,
+    height: 40,
+    lineHeight: 34,
+    fontSize: sizes.text20,
+    fontWeight: 'bold',
+    color: colors.main,
+    borderWidth: 2,
+    borderRadius: css.borderRadiusMax,
+    borderColor: colors.lightGray,
+    textAlign: 'center',
+  },
+  focusCell: {
+    borderColor: colors.main,
+    borderRadius: css.borderRadiusMax,
   },
 });

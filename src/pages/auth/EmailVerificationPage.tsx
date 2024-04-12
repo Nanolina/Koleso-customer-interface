@@ -10,7 +10,7 @@ export const EmailVerificationPage: React.FC = () => {
 
   return (
     <Container>
-      <Header hasButtonBack />
+      <Header hasButtonBack title={t('auth.code.email.confirm')} />
       <CentralContainer isPadding={true}>
         <EmailVerificationForm />
       </CentralContainer>

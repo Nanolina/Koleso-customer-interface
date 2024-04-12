@@ -29,15 +29,15 @@
     "code": {
       "email": {
         "confirm": "Confirm email",
-        "sent": "We sent you a 6-digit code to {{email}}. Copy it into the box below",
-        "placeholder": "6-digit activation code",
-        "resend": "Send the code again to {{email}}",
+        "sent": "We sent you a 6-digit code to",
+        "copy": "Copy it into the box below",
+        "resend": "Resend verification code to {{email}}",
         "change": "Change email"
       }
     },
     "timer": {
-      "wait": "Please wait",
-      "seconds": "seconds before next sending"
+      "wait": "The code can be resent only after",
+      "seconds": "seconds"
     },
     "validation": {
       "phoneRequired": "Phone is required",
