@@ -36,6 +36,7 @@ export const linking = {
       PurchasesPage: 'purchases',
       ReturnsPage: 'returns',
       RequestPasswordRecoveryPage: 'request-password-recovery',
+      EmailVerificationPage: 'verify-email',
       FinancesPage: 'finances',
       ContactsPage: 'contacts',
       Favorites: 'favorites',

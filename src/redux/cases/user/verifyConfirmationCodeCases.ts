@@ -17,6 +17,7 @@ export const verifyConfirmationCodeCases = (
       handleVerifyConfirmationCode.fulfilled,
       (state, action: PayloadAction<IVerifyConfirmationCodePayload>) => {
         state.isVerifiedEmail = action.payload.isVerifiedEmail;
+        state.loading = false;
       }
     )
     .addCase(handleVerifyConfirmationCode.rejected, (state, action) => {

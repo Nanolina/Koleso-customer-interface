@@ -48,7 +48,7 @@ export const LabelWithInput: React.FC<ILabelWithInputProps> = React.memo(
 
 const styles = StyleSheet.create({
   container: {
-    gap: 10,
+    gap: 20,
   },
   input: {
     borderRadius: css.borderRadiusMin,
@@ -64,5 +64,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
-  extra: {},
+  extra: {
+    fontSize: sizes.text15,
+  },
 });

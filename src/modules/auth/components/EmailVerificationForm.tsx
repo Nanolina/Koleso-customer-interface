@@ -3,6 +3,7 @@ import {
   ParamListBase,
   useNavigation,
 } from '@react-navigation/native';
+import { unwrapResult } from '@reduxjs/toolkit';
 import { Formik } from 'formik';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -14,7 +15,10 @@ import { css } from '../../../consts';
 import { IRootState } from '../../../redux/rootReducer';
 import { clearMessages } from '../../../redux/slices/userSlice';
 import { AppDispatch } from '../../../redux/store';
-import { handleVerifyConfirmationCode } from '../../../redux/thunks/user';
+import {
+  handleResendConfirmationCode,
+  handleVerifyConfirmationCode,
+} from '../../../redux/thunks/user';
 import { IVerifyConfirmationCodeData } from '../../../services/types/request';
 import { ConfirmationCodeType } from '../../../types';
 import { Button } from '../../../ui/Button';
@@ -26,45 +30,47 @@ export const EmailVerificationForm: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigation: NavigationProp<ParamListBase> = useNavigation();
 
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const [timer, setTimer] = useState(0);
+  const [timer, setTimer] = useState(120); // Start timer immediately upon loading
+  const [isButtonResendDisabled, setIsButtonResendDisabled] = useState(true);
 
   const { id, loading, error, success, email } = useSelector(
     (state: IRootState) => state.user
   );
 
   useEffect(() => {
-    let interval: number | undefined;
-
-    if (isButtonDisabled) {
-      interval = window.setInterval(() => {
-        setTimer((oldTimer) => {
-          if (oldTimer > 0) return oldTimer - 1;
+    const interval = setInterval(() => {
+      setTimer((prevTimer) => {
+        const newTime = prevTimer - 1;
+        if (newTime <= 0) {
           clearInterval(interval);
+          setIsButtonResendDisabled(false);
           return 0;
-        });
-      }, 1000);
-    }
+        }
+        return newTime;
+      });
+    }, 1000);
 
-    return () => {
-      if (interval !== undefined) clearInterval(interval);
-    };
-  }, [isButtonDisabled]);
+    return () => clearInterval(interval);
+  }, []);
 
   const onSubmit = async (values: any) => {
-    setIsButtonDisabled(true);
-    setTimer(120); // 2 min = 120 sec
-
     const codeData: IVerifyConfirmationCodeData = {
       code: parseInt(values.code),
       codeType: ConfirmationCodeType.EMAIL_CONFIRMATION,
     };
 
-    dispatch(handleVerifyConfirmationCode(codeData));
-    navigation.navigate('SettingsPage');
+    let data;
+    data = await dispatch(handleVerifyConfirmationCode(codeData));
+    const { isVerifiedEmail } = unwrapResult(data);
+    if (isVerifiedEmail) navigation.navigate('SettingsPage');
+  };
 
-    // ADD BUTTON TO RESEND CONFIRMATION AGAIN
-    setTimeout(() => setIsButtonDisabled(false), 120000); // 120000 milliseconds = 2 min
+  const resendCode = async () => {
+    setIsButtonResendDisabled(true);
+    setTimer(120); // Reset timer
+    dispatch(
+      handleResendConfirmationCode(ConfirmationCodeType.EMAIL_CONFIRMATION)
+    );
   };
 
   if (loading) return <Loader />;
@@ -97,13 +103,18 @@ export const EmailVerificationForm: React.FC = () => {
               onBlur={() => setFieldTouched('code', true)}
             />
 
-            <View style={styles.buttonContainer}>
+            <View style={styles.buttonsContainer}>
               <Button
-                text={t('send')}
                 onPress={handleSubmit}
+                text={t('send')}
                 disabled={!isValid || !dirty}
               />
-              {isButtonDisabled && <TimerText timer={timer} />}
+              <Button
+                onPress={resendCode}
+                text={t('auth.code.email.resend', { email })}
+                disabled={isButtonResendDisabled}
+              />
+              {timer && <TimerText timer={timer}></TimerText>}
             </View>
 
             {error && (
@@ -129,8 +140,9 @@ const styles = StyleSheet.create({
   container: {
     gap: css.auth.gap,
   },
-  buttonContainer: {
+  buttonsContainer: {
     alignItems: 'center',
     paddingBottom: 30,
+    gap: 20,
   },
 });

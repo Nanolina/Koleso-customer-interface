@@ -1,6 +1,7 @@
 import { AxiosResponse } from 'axios';
 import { authServiceAPI } from '../http';
 import { IVerifyConfirmationCodePayload } from '../modules/auth';
+import { ConfirmationCodeType } from '../types';
 import {
   IChangeEmailData,
   ILoginData,
@@ -63,5 +64,11 @@ export class AuthService {
       '/verify-confirmation-code',
       codeData
     );
+  }
+
+  static async resendConfirmationCode(
+    codeType: ConfirmationCodeType
+  ): Promise<AxiosResponse<void>> {
+    return authServiceAPI.get<void>(`/resend/${codeType}`);
   }
 }

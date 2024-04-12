@@ -30,7 +30,9 @@
       "email": {
         "confirm": "Confirm email",
         "sent": "We sent you a 6-digit code to {{email}}. Copy it into the box below",
-        "placeholder": "6-digit activation code"
+        "placeholder": "6-digit activation code",
+        "resend": "Send the code again to {{email}}",
+        "change": "Change email"
       }
     },
     "timer": {

@@ -25,7 +25,9 @@ export const Settings: React.FC = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
 
-  const { loading, error } = useSelector((state: IRootState) => state.user);
+  const { loading, error, success } = useSelector(
+    (state: IRootState) => state.user
+  );
 
   const { name, gender, phone, email, birthday } = useSelector(
     (state: IRootState) => state.settings as ISettingsState
@@ -37,15 +39,6 @@ export const Settings: React.FC = () => {
   }, [navigation]);
 
   if (loading) return <Loader />;
-
-  if (error) {
-    return (
-      <MessageBox
-        errorMessage={error}
-        clearMessage={() => dispatch(clearMessages())}
-      />
-    );
-  }
 
   return (
     <View style={styles.container}>
@@ -101,6 +94,19 @@ export const Settings: React.FC = () => {
           <Text style={styles.delete}>{t('settings.deleteAccount')}</Text>
         </TouchableOpacity>
       </View>
+
+      {error && (
+        <MessageBox
+          errorMessage={error}
+          clearMessage={() => dispatch(clearMessages())}
+        />
+      )}
+      {success && (
+        <MessageBox
+          successMessage={success}
+          clearMessage={() => dispatch(clearMessages())}
+        />
+      )}
     </View>
   );
 };

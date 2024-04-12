@@ -5,6 +5,7 @@ import {
   loginCases,
   logoutCases,
   requestPasswordRecoveryCases,
+  resendConfirmationCodeCases,
   setNewPasswordCases,
   signupCases,
   verifyConfirmationCodeCases,
@@ -28,6 +29,7 @@ const userSlice = createSlice({
     setNewPasswordCases(builder);
     verifyConfirmationCodeCases(builder);
     checkAuthCases(builder);
+    resendConfirmationCodeCases(builder);
   },
 });
 

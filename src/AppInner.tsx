@@ -16,7 +16,6 @@ import { AddressForm } from './pages/AddressForm';
 import { CartPage } from './pages/CartPage';
 import { CategoriesPage } from './pages/CategoriesPage';
 import { ContactsPage } from './pages/ContactsPage';
-import { EmailVerificationPage } from './pages/EmailVerificationPage.tsx';
 import { Favorites } from './pages/Favorites';
 import { FinancesPage } from './pages/FinancesPage';
 import { Home } from './pages/Home';
@@ -31,6 +30,7 @@ import { ReturnsPage } from './pages/ReturnsPage';
 import { SectionsPage } from './pages/SectionsPage';
 import { SortPage } from './pages/SortPage';
 import { SubcategoriesPage } from './pages/SubcategoriesPage';
+import { EmailVerificationPage } from './pages/auth/EmailVerificationPage.tsx';
 import { LoginPage } from './pages/auth/LoginPage';
 import { RequestPasswordRecoveryPage } from './pages/auth/RequestPasswordRecoveryPage.tsx';
 import { SetNewPasswordPage } from './pages/auth/SetNewPasswordPage.tsx';
@@ -72,8 +72,6 @@ export default function AppInner() {
     }
   }, [dispatch, token]);
 
-  console.log('!fontsLoaded', !fontsLoaded);
-  console.log('!isInitialized', !isInitialized);
   if (!fontsLoaded || !isInitialized) {
     return <Loader />;
   }
