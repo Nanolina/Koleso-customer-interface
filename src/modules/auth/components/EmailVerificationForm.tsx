@@ -25,13 +25,15 @@ import { Button } from '../../../ui/Button';
 import { Loader } from '../../../ui/Loader';
 import { TimerText } from '../ui/Timer';
 
-export const EmailVerificationForm: React.FC = () => {
+export const EmailVerificationForm: React.FC<{
+  codeType: ConfirmationCodeType;
+}> = ({ codeType }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const { loading, error, success, email } = useSelector(
+  const { id, loading, error, success, email } = useSelector(
     (state: IRootState) => state.user
   );
 
@@ -72,14 +74,24 @@ export const EmailVerificationForm: React.FC = () => {
 
   const onSubmit = async (values: any) => {
     const codeData: IVerifyConfirmationCodeData = {
+      codeType,
       code: parseInt(values.code.join('')),
-      codeType: ConfirmationCodeType.EMAIL_CONFIRMATION,
     };
 
     let data;
-    data = await dispatch(handleVerifyConfirmationCode(codeData));
-    const { isVerifiedEmail } = unwrapResult(data);
-    if (isVerifiedEmail) navigation.navigate('SettingsPage');
+    switch (codeType) {
+      case ConfirmationCodeType.EMAIL_CONFIRMATION:
+        data = await dispatch(handleVerifyConfirmationCode(codeData));
+        const { isVerifiedEmail } = unwrapResult(data);
+        if (isVerifiedEmail) navigation.navigate('SettingsPage');
+        break;
+      case ConfirmationCodeType.PASSWORD_RESET:
+        data = await dispatch(handleVerifyConfirmationCode(codeData));
+        const isCodeVerified = unwrapResult(data);
+        if (isCodeVerified)
+          navigation.navigate('SetNewPasswordPage', { userId: id });
+        break;
+    }
   };
 
   if (loading) return <Loader />;

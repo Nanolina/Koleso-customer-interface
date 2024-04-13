@@ -4,6 +4,7 @@ import {
   ParamListBase,
   useNavigation,
 } from '@react-navigation/native';
+import { unwrapResult } from '@reduxjs/toolkit';
 import { Formik } from 'formik';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -18,6 +19,7 @@ import { clearMessages } from '../../../../redux/slices/userSlice';
 import { AppDispatch } from '../../../../redux/store';
 import { handleSignup } from '../../../../redux/thunks/user';
 import { ISignupData } from '../../../../services/types/request';
+import { ConfirmationCodeType } from '../../../../types';
 import { Button } from '../../../../ui/Button';
 import { Loader } from '../../../../ui/Loader';
 import { ImageInput } from '../ImageInput';
@@ -44,9 +46,14 @@ export const SignUpPhoneEmailForm: React.FC = () => {
       role: ROLE,
     };
 
-    dispatch(handleSignup(userData));
+    const data = await dispatch(handleSignup(userData));
     setSubmitting(false);
-    navigation.navigate('EmailVerificationPage');
+    const user = unwrapResult(data);
+    if (user) {
+      navigation.navigate('EmailVerificationPage', {
+        codeType: ConfirmationCodeType.EMAIL_CONFIRMATION,
+      });
+    }
   };
 
   if (loading) {
@@ -92,6 +99,7 @@ export const SignUpPhoneEmailForm: React.FC = () => {
                   value={values.email}
                   onChangeText={handleChange('email')}
                   inputMode="email"
+                  autoComplete="email"
                   errors={errors}
                   touched={touched}
                   onBlur={() => setFieldTouched('email', true)}

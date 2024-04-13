@@ -35,8 +35,8 @@ export class AuthService {
   // To check email in the DB and send a link "reset password" to email
   static async requestPasswordRecovery({
     email,
-  }: IChangeEmailData): Promise<void> {
-    return authServiceAPI.post('/password/recovery', {
+  }: IChangeEmailData): Promise<AxiosResponse<AuthResponse>> {
+    return authServiceAPI.post<AuthResponse>('/password/recovery', {
       email,
     });
   }

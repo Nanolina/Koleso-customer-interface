@@ -4,8 +4,8 @@ import {
   ParamListBase,
   useNavigation,
 } from '@react-navigation/native';
+import { unwrapResult } from '@reduxjs/toolkit';
 import { Formik } from 'formik';
-import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,9 +16,9 @@ import { clearMessages } from '../../../../../../redux/slices/userSlice';
 import { AppDispatch } from '../../../../../../redux/store';
 import { handleRequestPasswordRecovery } from '../../../../../../redux/thunks/user';
 import { IChangeEmailData } from '../../../../../../services/types/request';
+import { ConfirmationCodeType } from '../../../../../../types';
 import { Button } from '../../../../../../ui/Button';
 import { Loader } from '../../../../../../ui/Loader';
-import { TimerText } from '../../../../ui/Timer';
 import { ImageInput } from '../../../ImageInput';
 import { initialValues } from './initialValues';
 
@@ -27,42 +27,24 @@ export const RequestPasswordRecoveryForm: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const navigation: NavigationProp<ParamListBase> = useNavigation();
 
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-  const [timer, setTimer] = useState(0);
-
-  const { id, loading, error, success } = useSelector(
+  const { loading, error, success } = useSelector(
     (state: IRootState) => state.user
   );
 
-  useEffect(() => {
-    let interval: number | undefined;
-
-    if (isButtonDisabled) {
-      interval = window.setInterval(() => {
-        setTimer((oldTimer) => {
-          if (oldTimer > 0) return oldTimer - 1;
-          clearInterval(interval);
-          return 0;
-        });
-      }, 1000);
-    }
-
-    return () => {
-      if (interval !== undefined) clearInterval(interval);
-    };
-  }, [isButtonDisabled]);
-
   const onSubmit = async (values: IChangeEmailData) => {
-    setIsButtonDisabled(true);
-    setTimer(120); // 2 min = 120 sec
-
+    const email = values.email;
     const userData: IChangeEmailData = {
-      email: values.email,
+      email,
     };
 
-    dispatch(handleRequestPasswordRecovery(userData));
-
-    setTimeout(() => setIsButtonDisabled(false), 120000); // 120000 milliseconds = 2 min
+    let data;
+    data = await dispatch(handleRequestPasswordRecovery(userData));
+    const user = unwrapResult(data);
+    if (user) {
+      navigation.navigate('EmailVerificationPage', {
+        codeType: ConfirmationCodeType.PASSWORD_RESET,
+      });
+    }
   };
 
   if (loading) return <Loader />;
@@ -94,6 +76,7 @@ export const RequestPasswordRecoveryForm: React.FC = () => {
               value={values.email}
               onChangeText={handleChange('email')}
               inputMode="email"
+              autoComplete="email"
               errors={errors}
               touched={touched}
               onBlur={() => setFieldTouched('email', true)}
@@ -105,7 +88,6 @@ export const RequestPasswordRecoveryForm: React.FC = () => {
                 onPress={handleSubmit}
                 disabled={!isValid || !dirty}
               />
-              {isButtonDisabled && <TimerText timer={timer} />}
             </View>
 
             {error && (

@@ -4,6 +4,7 @@ import {
   ParamListBase,
   useNavigation,
 } from '@react-navigation/native';
+import { unwrapResult } from '@reduxjs/toolkit';
 import { Formik } from 'formik';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -39,8 +40,10 @@ export const LoginForm: React.FC = () => {
       password,
     };
 
-    dispatch(handleLogin(userData));
+    const data = await dispatch(handleLogin(userData));
     setSubmitting(false);
+    const user = unwrapResult(data);
+    if (user) navigation.navigate('SettingsPage');
   };
 
   if (loading) {
@@ -75,6 +78,7 @@ export const LoginForm: React.FC = () => {
                 value={values.email}
                 onChangeText={handleChange('email')}
                 inputMode="email"
+                autoComplete="email"
                 errors={errors}
                 touched={touched}
                 onBlur={() => setFieldTouched('email', true)}
