@@ -124,6 +124,18 @@ export const EmailVerificationForm: React.FC = () => {
                 )}
               />
               {timer > 0 && <TimerText timer={timer} />}
+              {error && (
+                <MessageBox
+                  errorMessage={error}
+                  clearMessage={() => dispatch(clearMessages())}
+                />
+              )}
+              {success && (
+                <MessageBox
+                  successMessage={success}
+                  clearMessage={() => dispatch(clearMessages())}
+                />
+              )}
             </View>
 
             {!timer && (
@@ -137,18 +149,6 @@ export const EmailVerificationForm: React.FC = () => {
           </>
         )}
       </Formik>
-      {error && (
-        <MessageBox
-          errorMessage={error}
-          clearMessage={() => dispatch(clearMessages())}
-        />
-      )}
-      {success && (
-        <MessageBox
-          successMessage={success}
-          clearMessage={() => dispatch(clearMessages())}
-        />
-      )}
     </View>
   );
 };
