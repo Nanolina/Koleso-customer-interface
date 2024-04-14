@@ -4,7 +4,7 @@ import { IVerifyConfirmationCodeData } from '../../../services/types/request';
 import { handleAsyncThunkError } from '../../functions';
 
 export const handleVerifyConfirmationCode = createAsyncThunk(
-  'user/verify-confirmation-code',
+  'user/code/verify',
   async (codeData: IVerifyConfirmationCodeData, { rejectWithValue }) => {
     try {
       const response = await AuthService.verifyConfirmationCode(codeData);

@@ -4,7 +4,7 @@ import { ConfirmationCodeType } from '../../../types';
 import { handleAsyncThunkError } from '../../functions';
 
 export const handleResendConfirmationCode = createAsyncThunk(
-  'user/resend-confirmation-code',
+  'user/code/resend',
   async (codeType: ConfirmationCodeType, { rejectWithValue }) => {
     try {
       const response = await AuthService.resendConfirmationCode(codeType);
