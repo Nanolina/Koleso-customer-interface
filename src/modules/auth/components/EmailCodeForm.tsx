@@ -15,18 +15,15 @@ import { colors, css, sizes } from '../../../consts';
 import { IRootState } from '../../../redux/rootReducer';
 import { clearMessages } from '../../../redux/slices/userSlice';
 import { AppDispatch } from '../../../redux/store';
-import {
-  handleResendConfirmationCode,
-  handleVerifyConfirmationCode,
-} from '../../../redux/thunks/user';
-import { IVerifyConfirmationCodeData } from '../../../services/types/request';
-import { ConfirmationCodeType } from '../../../types';
+import { handleResendCode, handleVerifyCode } from '../../../redux/thunks/user';
+import { IVerifyCodeData } from '../../../services/types/request';
+import { CodeType } from '../../../types';
 import { Button } from '../../../ui/Button';
 import { Loader } from '../../../ui/Loader';
 import { TimerText } from '../ui/Timer';
 
 export const EmailCodeForm: React.FC<{
-  codeType: ConfirmationCodeType;
+  codeType: CodeType;
 }> = ({ codeType }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
@@ -65,26 +62,26 @@ export const EmailCodeForm: React.FC<{
   };
 
   const resendCode = () => {
-    dispatch(handleResendConfirmationCode(codeType));
+    dispatch(handleResendCode(codeType));
     if (intervalRef.current) clearInterval(intervalRef.current);
     startTimer(); // Resetting the timer to 30 seconds
   };
 
   const onSubmit = async (values: any) => {
-    const codeData: IVerifyConfirmationCodeData = {
+    const codeData: IVerifyCodeData = {
       codeType,
       code: parseInt(values.code.join('')),
     };
 
     let data;
     switch (codeType) {
-      case ConfirmationCodeType.EMAIL_CONFIRMATION:
-        data = await dispatch(handleVerifyConfirmationCode(codeData));
+      case CodeType.EMAIL_CONFIRMATION:
+        data = await dispatch(handleVerifyCode(codeData));
         const { isVerifiedEmail } = unwrapResult(data);
         if (isVerifiedEmail) navigation.navigate('SettingsPage');
         break;
-      case ConfirmationCodeType.PASSWORD_RESET:
-        data = await dispatch(handleVerifyConfirmationCode(codeData));
+      case CodeType.PASSWORD_RESET:
+        data = await dispatch(handleVerifyCode(codeData));
         const isCodeVerified = unwrapResult(data);
         if (isCodeVerified) navigation.navigate('SetNewPasswordPage');
         break;

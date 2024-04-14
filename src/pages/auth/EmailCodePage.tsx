@@ -4,7 +4,7 @@ import { Container } from '../../components/Container';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
 import { EmailCodeForm } from '../../modules/auth';
-import { ConfirmationCodeType } from '../../types';
+import { CodeType } from '../../types';
 import { CentralContainer } from '../../ui/CentralContainer';
 
 export const EmailCodePage: React.FC = () => {
@@ -14,10 +14,10 @@ export const EmailCodePage: React.FC = () => {
 
   let headerText;
   switch (codeType) {
-    case ConfirmationCodeType.PASSWORD_RESET:
+    case CodeType.PASSWORD_RESET:
       headerText = t('auth.code.email.passwordReset');
       break;
-    case ConfirmationCodeType.EMAIL_CONFIRMATION:
+    case CodeType.EMAIL_CONFIRMATION:
     default:
       headerText = t('auth.code.email.confirm');
       break;

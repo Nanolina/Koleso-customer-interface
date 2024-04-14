@@ -50,7 +50,7 @@ export interface IAuthPayload {
   role: RoleType;
 }
 
-export interface IVerifyConfirmationCodePayload {
+export interface IVerifyCodePayload {
   isVerifiedEmail: boolean;
 }
 

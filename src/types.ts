@@ -223,7 +223,7 @@ export enum RoleType {
   Customer = 'Customer',
 }
 
-export enum ConfirmationCodeType {
+export enum CodeType {
   EMAIL_CONFIRMATION = 'EMAIL_CONFIRMATION',
   PHONE_CONFIRMATION = 'PHONE_CONFIRMATION',
   PASSWORD_RESET = 'PASSWORD_RESET',

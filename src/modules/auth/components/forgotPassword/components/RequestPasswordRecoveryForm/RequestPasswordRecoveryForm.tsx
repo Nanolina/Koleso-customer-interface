@@ -16,7 +16,7 @@ import { clearMessages } from '../../../../../../redux/slices/userSlice';
 import { AppDispatch } from '../../../../../../redux/store';
 import { handleRequestPasswordRecovery } from '../../../../../../redux/thunks/user';
 import { IChangeEmailData } from '../../../../../../services/types/request';
-import { ConfirmationCodeType } from '../../../../../../types';
+import { CodeType } from '../../../../../../types';
 import { Button } from '../../../../../../ui/Button';
 import { Loader } from '../../../../../../ui/Loader';
 import { ImageInput } from '../../../ImageInput';
@@ -42,7 +42,7 @@ export const RequestPasswordRecoveryForm: React.FC = () => {
     const user = unwrapResult(data);
     if (user) {
       navigation.navigate('EmailCodePage', {
-        codeType: ConfirmationCodeType.PASSWORD_RESET,
+        codeType: CodeType.PASSWORD_RESET,
       });
     }
   };

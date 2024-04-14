@@ -1,14 +1,14 @@
 import { AxiosResponse } from 'axios';
 import { authServiceAPI } from '../http';
-import { IVerifyConfirmationCodePayload } from '../modules/auth';
-import { ConfirmationCodeType } from '../types';
+import { IVerifyCodePayload } from '../modules/auth';
+import { CodeType } from '../types';
 import {
   IChangeEmailData,
   ILoginData,
   ISetNewPasswordData,
   ISignupData,
 } from './types/request';
-import { IVerifyConfirmationCodeData } from './types/request/AuthRequest';
+import { IVerifyCodeData } from './types/request/AuthRequest';
 import { AuthResponse, ISetNewPasswordResponse } from './types/response';
 
 export class AuthService {
@@ -51,21 +51,17 @@ export class AuthService {
     });
   }
 
-  static async verifyConfirmationCode({
+  static async verifyCode({
     code,
     codeType,
-  }: IVerifyConfirmationCodeData): Promise<
-    AxiosResponse<IVerifyConfirmationCodePayload>
-  > {
-    return authServiceAPI.post<IVerifyConfirmationCodePayload>(
+  }: IVerifyCodeData): Promise<AxiosResponse<IVerifyCodePayload>> {
+    return authServiceAPI.post<IVerifyCodePayload>(
       `/codes/${codeType}/verify`,
       { code }
     );
   }
 
-  static async resendConfirmationCode(
-    codeType: ConfirmationCodeType
-  ): Promise<AxiosResponse<void>> {
+  static async resendCode(codeType: CodeType): Promise<AxiosResponse<void>> {
     return authServiceAPI.get<void>(`/codes/${codeType}/resend`);
   }
 }

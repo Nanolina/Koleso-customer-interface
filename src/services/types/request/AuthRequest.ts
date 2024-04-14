@@ -1,4 +1,4 @@
-import { ConfirmationCodeType, RoleType } from '../../../types';
+import { CodeType, RoleType } from '../../../types';
 
 export interface ISignupData {
   email: string;
@@ -22,7 +22,7 @@ export interface ISetNewPasswordData {
   repeatedPassword: string;
 }
 
-export interface IVerifyConfirmationCodeData {
+export interface IVerifyCodeData {
   code: number;
-  codeType: ConfirmationCodeType;
+  codeType: CodeType;
 }

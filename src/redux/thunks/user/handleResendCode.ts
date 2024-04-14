@@ -1,13 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AuthService } from '../../../services';
-import { ConfirmationCodeType } from '../../../types';
+import { CodeType } from '../../../types';
 import { handleAsyncThunkError } from '../../functions';
 
-export const handleResendConfirmationCode = createAsyncThunk(
+export const handleResendCode = createAsyncThunk(
   'user/code/resend',
-  async (codeType: ConfirmationCodeType, { rejectWithValue }) => {
+  async (codeType: CodeType, { rejectWithValue }) => {
     try {
-      const response = await AuthService.resendConfirmationCode(codeType);
+      const response = await AuthService.resendCode(codeType);
       return response.data;
     } catch (error: any) {
       return handleAsyncThunkError(error, rejectWithValue);
