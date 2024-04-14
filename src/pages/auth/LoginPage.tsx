@@ -10,7 +10,7 @@ export const LoginPage: React.FC = () => {
 
   return (
     <Container>
-      <Header title={t('auth.logIn')} />
+      <Header title={t('auth.login')} />
       <CentralContainer isPadding={true}>
         <LoginForm />
       </CentralContainer>

@@ -15,121 +15,115 @@ import { IRootState } from '../../../../../../redux/rootReducer';
 import { clearMessages } from '../../../../../../redux/slices/userSlice';
 import { AppDispatch } from '../../../../../../redux/store';
 import { handleSetNewPassword } from '../../../../../../redux/thunks/user';
-import {
-  ISetNewPasswordData,
-  ISetNewPasswordDataForService,
-} from '../../../../../../services/types/request';
+import { ISetNewPasswordData } from '../../../../../../services/types/request';
 import { Button } from '../../../../../../ui/Button';
 import { Loader } from '../../../../../../ui/Loader';
-import { ISetNewPasswordFormProps } from '../../../../types';
 import { ImageInput } from '../../../ImageInput';
 import { initialValues } from './initialValues';
 import { validationSchema } from './validationSchema';
 
-export const SetNewPasswordForm: React.FC<ISetNewPasswordFormProps> =
-  React.memo(({ userId }) => {
-    const { t } = useTranslation();
-    const navigation: NavigationProp<ParamListBase> = useNavigation();
-    const dispatch = useDispatch<AppDispatch>();
+export const SetNewPasswordForm: React.FC = () => {
+  const { t } = useTranslation();
+  const navigation: NavigationProp<ParamListBase> = useNavigation();
+  const dispatch = useDispatch<AppDispatch>();
 
-    const { loading, error, success } = useSelector(
-      (state: IRootState) => state.user
-    );
+  const { loading, error, success } = useSelector(
+    (state: IRootState) => state.user
+  );
 
-    const onSubmit = async (values: ISetNewPasswordData) => {
-      const { password, repeatedPassword } = values;
-      const userData: ISetNewPasswordDataForService = {
-        userId,
-        password,
-        repeatedPassword,
-      };
-
-      dispatch(handleSetNewPassword(userData));
-      navigation.navigate('SettingsPage');
+  const onSubmit = async (values: ISetNewPasswordData) => {
+    const { password, repeatedPassword } = values;
+    const userData: ISetNewPasswordData = {
+      password,
+      repeatedPassword,
     };
 
-    if (loading) return <Loader />;
+    dispatch(handleSetNewPassword(userData));
+    navigation.navigate('SettingsPage');
+  };
 
-    return (
-      <View style={styles.container}>
-        <Formik
-          initialValues={initialValues}
-          validationSchema={() => validationSchema(t)}
-          onSubmit={onSubmit}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            isValid,
-            dirty,
-            handleChange,
-            handleSubmit,
-            setFieldTouched,
-          }) => (
-            <>
-              <ImageInput
-                name="password"
-                placeholder={t('auth.password')}
-                icon={
-                  <FontAwesome
-                    name="lock"
-                    size={sizes.iconSizeMax}
-                    color={colors.mainOpacity}
-                  />
-                }
-                value={values.password}
-                onChangeText={handleChange('password')}
-                secureTextEntry={true}
-                errors={errors}
-                touched={touched}
-                onBlur={() => setFieldTouched('password', true)}
+  if (loading) return <Loader />;
+
+  return (
+    <View style={styles.container}>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={() => validationSchema(t)}
+        onSubmit={onSubmit}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          isValid,
+          dirty,
+          handleChange,
+          handleSubmit,
+          setFieldTouched,
+        }) => (
+          <>
+            <ImageInput
+              name="password"
+              placeholder={t('auth.password')}
+              icon={
+                <FontAwesome
+                  name="lock"
+                  size={sizes.iconSizeMax}
+                  color={colors.mainOpacity}
+                />
+              }
+              value={values.password}
+              onChangeText={handleChange('password')}
+              secureTextEntry={true}
+              errors={errors}
+              touched={touched}
+              onBlur={() => setFieldTouched('password', true)}
+            />
+
+            <ImageInput
+              name="repeatedPassword"
+              placeholder={t('auth.repeatedPassword')}
+              icon={
+                <FontAwesome
+                  name="lock"
+                  size={sizes.iconSizeMax}
+                  color={colors.mainOpacity}
+                />
+              }
+              value={values.repeatedPassword}
+              onChangeText={handleChange('repeatedPassword')}
+              secureTextEntry={true}
+              errors={errors}
+              touched={touched}
+              onBlur={() => setFieldTouched('repeatedPassword', true)}
+            />
+
+            <View style={styles.buttonContainer}>
+              <Button
+                text={t('auth.setNewPassword')}
+                onPress={handleSubmit}
+                disabled={!isValid || !dirty}
               />
+            </View>
 
-              <ImageInput
-                name="repeatedPassword"
-                placeholder={t('auth.repeatedPassword')}
-                icon={
-                  <FontAwesome
-                    name="lock"
-                    size={sizes.iconSizeMax}
-                    color={colors.mainOpacity}
-                  />
-                }
-                value={values.repeatedPassword}
-                onChangeText={handleChange('repeatedPassword')}
-                secureTextEntry={true}
-                errors={errors}
-                touched={touched}
-                onBlur={() => setFieldTouched('repeatedPassword', true)}
+            {error && (
+              <MessageBox
+                errorMessage={error}
+                clearMessage={() => dispatch(clearMessages())}
               />
-
-              <View style={styles.buttonContainer}>
-                <Button
-                  text={t('auth.setNewPassword')}
-                  onPress={handleSubmit}
-                  disabled={!isValid || !dirty}
-                />
-              </View>
-
-              {error && (
-                <MessageBox
-                  errorMessage={error}
-                  clearMessage={() => dispatch(clearMessages())}
-                />
-              )}
-              {success && (
-                <MessageBox
-                  successMessage={success}
-                  clearMessage={() => dispatch(clearMessages())}
-                />
-              )}
-            </>
-          )}
-        </Formik>
-      </View>
-    );
-  });
+            )}
+            {success && (
+              <MessageBox
+                successMessage={success}
+                clearMessage={() => dispatch(clearMessages())}
+              />
+            )}
+          </>
+        )}
+      </Formik>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {

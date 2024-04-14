@@ -14,8 +14,8 @@
   "addToCart": "Добавить в корзину",
   "search": "Поиск",
   "auth": {
-    "logIn": "Войти",
-    "signUp": "Зарегистрироваться",
+    "login": "Войти",
+    "signup": "Зарегистрироваться",
     "emailUsernamePhone": "Электронная почта/логин/телефон",
     "password": "Пароль",
     "email": "Электронная почта",
@@ -29,6 +29,7 @@
     "code": {
       "email": {
         "confirm": "Подтвердите email",
+        "passwordReset": "Сброс пароля",
         "sent": "Мы отправили вам 6-ти значный код на",
         "copy": "Скопируйте его в поле ниже",
         "resend": "Отправить код повторно на {{email}}",
@@ -79,8 +80,7 @@
     "currentPassword": "Текущий пароль",
     "newPassword": "Новый пароль",
     "changePassword": "Изменить пароль",
-    "signOutOfAccount": "Выйти из учетной записи",
-    "deleteAccount": "Удалить учетную запись"
+    "signOutOfAccount": "Выйти из учетной записи"
   },
   "purchases": {
     "returned": "Возвращено",

@@ -14,8 +14,8 @@
   "addToCart": "Add to cart",
   "search": "Search",
   "auth": {
-    "logIn": "Log in",
-    "signUp": "Sign up",
+    "login": "Log in",
+    "signup": "Sign up",
     "emailUsernamePhone": "Email/username/phone",
     "password": "Password",
     "repeatedPassword": "Repeat password",
@@ -29,9 +29,10 @@
     "code": {
       "email": {
         "confirm": "Confirm email",
+        "passwordReset": "Password reset",
         "sent": "We sent you a 6-digit code to",
         "copy": "Copy it into the box below",
-        "resend": "Resend verification code to {{email}}",
+        "resend": "Resend code to {{email}}",
         "change": "Change email"
       }
     },
@@ -79,8 +80,7 @@
     "currentPassword": "Current password",
     "newPassword": "New password",
     "changePassword": "Change password",
-    "signOutOfAccount": "Sign out of account",
-    "deleteAccount": "Delete account"
+    "signOutOfAccount": "Sign out of account"
   },
   "purchases": {
     "returned": "Returned",

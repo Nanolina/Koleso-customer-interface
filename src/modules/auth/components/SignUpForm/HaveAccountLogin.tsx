@@ -6,22 +6,22 @@ import {
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, View } from 'react-native';
-import { sizes } from '../../../consts';
-import { Button } from '../../../ui/Button';
+import { sizes } from '../../../../consts';
+import { Button } from '../../../../ui/Button';
 
-export const SignUpButton: React.FC = () => {
+export const HaveAccountLogin: React.FC = () => {
   const { t } = useTranslation();
 
   const navigation: NavigationProp<ParamListBase> = useNavigation();
 
   const handlePress = useCallback(() => {
-    navigation.navigate('SignUpPage');
+    navigation.navigate('LoginPage');
   }, [navigation]);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>{t('auth.notAccount')}</Text>
-      <Button text={t('auth.signUp')} onPress={handlePress} />
+      <Text style={styles.text}>{t('auth.haveAccount')}</Text>
+      <Button text={t('auth.login')} onPress={handlePress} />
     </View>
   );
 };

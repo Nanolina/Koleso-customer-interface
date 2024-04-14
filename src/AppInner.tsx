@@ -30,12 +30,11 @@ import { ReturnsPage } from './pages/ReturnsPage';
 import { SectionsPage } from './pages/SectionsPage';
 import { SortPage } from './pages/SortPage';
 import { SubcategoriesPage } from './pages/SubcategoriesPage';
-import { EmailVerificationPage } from './pages/auth/EmailVerificationPage.tsx';
+import { EmailCodePage } from './pages/auth/EmailCodePage';
 import { LoginPage } from './pages/auth/LoginPage';
-import { RequestPasswordRecoveryPage } from './pages/auth/RequestPasswordRecoveryPage.tsx';
-import { SetNewPasswordPage } from './pages/auth/SetNewPasswordPage.tsx';
+import { RequestPasswordRecoveryPage } from './pages/auth/RequestPasswordRecoveryPage';
+import { SetNewPasswordPage } from './pages/auth/SetNewPasswordPage';
 import { SignUpPage } from './pages/auth/SignUpPage';
-import { SignUpPhoneEmailPage } from './pages/auth/SignUpPhoneEmailPage';
 import { FilterCheckboxPage } from './pages/filter/FilterCheckboxPage';
 import { FilterPage } from './pages/filter/FilterPage';
 import { SettingsBirthdayPage } from './pages/settings/SettingsBirthdayPage';
@@ -45,7 +44,7 @@ import { SettingsPage } from './pages/settings/SettingsPage';
 import { SettingsPasswordPage } from './pages/settings/SettingsPasswordPage';
 import { AppDispatch } from './redux/store.ts';
 import { handleCheckAuth } from './redux/thunks/user';
-import { Loader } from './ui/Loader.tsx';
+import { Loader } from './ui/Loader';
 
 export default function AppInner() {
   const dispatch = useDispatch<AppDispatch>();
@@ -116,10 +115,6 @@ export default function AppInner() {
           component={SettingsPasswordPage}
         />
         <Stack.Screen name="SignUpPage" component={SignUpPage} />
-        <Stack.Screen
-          name="SignUpPhoneEmailPage"
-          component={SignUpPhoneEmailPage}
-        />
         <Stack.Screen name="LoginPage" component={LoginPage} />
         <Stack.Screen
           name="RequestPasswordRecoveryPage"
@@ -129,10 +124,7 @@ export default function AppInner() {
           name="SetNewPasswordPage"
           component={SetNewPasswordPage}
         />
-        <Stack.Screen
-          name="EmailVerificationPage"
-          component={EmailVerificationPage}
-        />
+        <Stack.Screen name="EmailCodePage" component={EmailCodePage} />
         <Stack.Screen name="PurchasesPage" component={PurchasesPage} />
         <Stack.Screen name="ReturnsPage" component={ReturnsPage} />
         <Stack.Screen name="FinancesPage" component={FinancesPage} />

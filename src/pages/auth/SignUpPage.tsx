@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Container } from '../../components/Container';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
-import { SignUp } from '../../modules/auth';
+import { SignUpForm } from '../../modules/auth';
 import { CentralContainer } from '../../ui/CentralContainer';
 
 export const SignUpPage: React.FC = () => {
@@ -10,9 +10,9 @@ export const SignUpPage: React.FC = () => {
 
   return (
     <Container>
-      <Header title={t('auth.signUp')} />
+      <Header title={t('auth.signup')} hasButtonBack />
       <CentralContainer isPadding={true}>
-        <SignUp />
+        <SignUpForm />
       </CentralContainer>
       <Footer />
     </Container>

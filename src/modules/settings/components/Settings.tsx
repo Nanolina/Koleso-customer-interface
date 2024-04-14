@@ -35,7 +35,7 @@ export const Settings: React.FC = () => {
 
   const handleSignOutPress = useCallback(() => {
     dispatch(handleLogout());
-    navigation.navigate('SignUpPage');
+    navigation.navigate('LoginPage');
   }, [navigation]);
 
   if (loading) return <Loader />;
@@ -89,9 +89,6 @@ export const Settings: React.FC = () => {
       <View style={styles.buttonsContainer}>
         <TouchableOpacity onPress={handleSignOutPress}>
           <Text style={styles.signOut}>{t('settings.signOutOfAccount')}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Text style={styles.delete}>{t('settings.deleteAccount')}</Text>
         </TouchableOpacity>
       </View>
 

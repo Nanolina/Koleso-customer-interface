@@ -22,12 +22,6 @@ export interface ISetNewPasswordData {
   repeatedPassword: string;
 }
 
-export interface ISetNewPasswordDataForService {
-  userId: string;
-  password: string;
-  repeatedPassword: string;
-}
-
 export interface IVerifyConfirmationCodeData {
   code: number;
   codeType: ConfirmationCodeType;

@@ -25,7 +25,7 @@ import { Button } from '../../../ui/Button';
 import { Loader } from '../../../ui/Loader';
 import { TimerText } from '../ui/Timer';
 
-export const EmailVerificationForm: React.FC<{
+export const EmailCodeForm: React.FC<{
   codeType: ConfirmationCodeType;
 }> = ({ codeType }) => {
   const { t } = useTranslation();
@@ -33,7 +33,7 @@ export const EmailVerificationForm: React.FC<{
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const { id, loading, error, success, email } = useSelector(
+  const { loading, error, success, email } = useSelector(
     (state: IRootState) => state.user
   );
 
@@ -65,9 +65,7 @@ export const EmailVerificationForm: React.FC<{
   };
 
   const resendCode = () => {
-    dispatch(
-      handleResendConfirmationCode(ConfirmationCodeType.EMAIL_CONFIRMATION)
-    );
+    dispatch(handleResendConfirmationCode(codeType));
     if (intervalRef.current) clearInterval(intervalRef.current);
     startTimer(); // Resetting the timer to 30 seconds
   };
@@ -88,8 +86,7 @@ export const EmailVerificationForm: React.FC<{
       case ConfirmationCodeType.PASSWORD_RESET:
         data = await dispatch(handleVerifyConfirmationCode(codeData));
         const isCodeVerified = unwrapResult(data);
-        if (isCodeVerified)
-          navigation.navigate('SetNewPasswordPage', { userId: id });
+        if (isCodeVerified) navigation.navigate('SetNewPasswordPage');
         break;
     }
   };
@@ -135,7 +132,17 @@ export const EmailVerificationForm: React.FC<{
                   </Text>
                 )}
               />
-              {timer > 0 && <TimerText timer={timer} />}
+              {timer > 0 ? (
+                <TimerText timer={timer} />
+              ) : (
+                <Button
+                  onPress={resendCode}
+                  text={t('auth.code.email.resend', { email })}
+                  disabled={isButtonResendDisabled}
+                  isLink
+                />
+              )}
+
               {error && (
                 <MessageBox
                   errorMessage={error}
@@ -149,15 +156,6 @@ export const EmailVerificationForm: React.FC<{
                 />
               )}
             </View>
-
-            {!timer && (
-              <Button
-                onPress={resendCode}
-                text={t('auth.code.email.resend', { email })}
-                disabled={isButtonResendDisabled}
-                isLink
-              />
-            )}
           </>
         )}
       </Formik>
@@ -172,7 +170,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   codeTimerContainer: {
-    gap: 10,
+    gap: 30,
   },
   image: {
     width: 150,

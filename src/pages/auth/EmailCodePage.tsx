@@ -3,19 +3,31 @@ import { useTranslation } from 'react-i18next';
 import { Container } from '../../components/Container';
 import { Footer } from '../../components/Footer';
 import { Header } from '../../components/Header';
-import { EmailVerificationForm } from '../../modules/auth';
+import { EmailCodeForm } from '../../modules/auth';
+import { ConfirmationCodeType } from '../../types';
 import { CentralContainer } from '../../ui/CentralContainer';
 
-export const EmailVerificationPage: React.FC = () => {
+export const EmailCodePage: React.FC = () => {
   const { t } = useTranslation();
   const route: any = useRoute();
   const { codeType } = route.params;
 
+  let headerText;
+  switch (codeType) {
+    case ConfirmationCodeType.PASSWORD_RESET:
+      headerText = t('auth.code.email.passwordReset');
+      break;
+    case ConfirmationCodeType.EMAIL_CONFIRMATION:
+    default:
+      headerText = t('auth.code.email.confirm');
+      break;
+  }
+
   return (
     <Container>
-      <Header hasButtonBack title={t('auth.code.email.confirm')} />
+      <Header hasButtonBack title={headerText} />
       <CentralContainer isPadding={true}>
-        <EmailVerificationForm codeType={codeType} />
+        <EmailCodeForm codeType={codeType} />
       </CentralContainer>
       <Footer />
     </Container>

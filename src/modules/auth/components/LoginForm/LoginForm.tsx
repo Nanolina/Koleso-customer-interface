@@ -19,8 +19,8 @@ import { handleLogin } from '../../../../redux/thunks/user';
 import { ILoginData } from '../../../../services/types/request';
 import { Button } from '../../../../ui/Button';
 import { Loader } from '../../../../ui/Loader';
-import { SignUpButton } from '../../ui/SignUpButton';
 import { ImageInput } from '../ImageInput';
+import { NotAccountSignUp } from './NotAccountSignUp';
 import { initialValues } from './initialValues';
 
 export const LoginForm: React.FC = () => {
@@ -105,7 +105,7 @@ export const LoginForm: React.FC = () => {
 
             <View style={styles.buttonsContainer}>
               <Button
-                text={t('auth.logIn')}
+                text={t('auth.login')}
                 onPress={handleSubmit}
                 disabled={!isValid || !dirty}
                 width="45%"
@@ -124,7 +124,7 @@ export const LoginForm: React.FC = () => {
               />
             </View>
 
-            <SignUpButton />
+            <NotAccountSignUp />
 
             {error && (
               <MessageBox

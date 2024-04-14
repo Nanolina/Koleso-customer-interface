@@ -57,7 +57,3 @@ export interface IVerifyConfirmationCodePayload {
 export interface ITimerTextProps {
   timer: number;
 }
-
-export interface ISetNewPasswordFormProps {
-  userId: string;
-}

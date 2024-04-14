@@ -5,10 +5,10 @@ import { ConfirmationCodeType } from '../types';
 import {
   IChangeEmailData,
   ILoginData,
-  ISetNewPasswordDataForService,
+  ISetNewPasswordData,
   ISignupData,
-  IVerifyConfirmationCodeData,
 } from './types/request';
+import { IVerifyConfirmationCodeData } from './types/request/AuthRequest';
 import { AuthResponse, ISetNewPasswordResponse } from './types/response';
 
 export class AuthService {
@@ -36,39 +36,36 @@ export class AuthService {
   static async requestPasswordRecovery({
     email,
   }: IChangeEmailData): Promise<AxiosResponse<AuthResponse>> {
-    return authServiceAPI.post<AuthResponse>('/password/recovery', {
+    return authServiceAPI.post<AuthResponse>('/passwords/recovery', {
       email,
     });
   }
 
   static async setNewPassword({
-    userId,
     password,
     repeatedPassword,
-  }: ISetNewPasswordDataForService): Promise<
-    AxiosResponse<ISetNewPasswordResponse>
-  > {
-    return authServiceAPI.post<ISetNewPasswordResponse>(
-      `/password/set/${userId}`,
-      {
-        password,
-        repeatedPassword,
-      }
-    );
+  }: ISetNewPasswordData): Promise<AxiosResponse<ISetNewPasswordResponse>> {
+    return authServiceAPI.post<ISetNewPasswordResponse>('/passwords/set', {
+      password,
+      repeatedPassword,
+    });
   }
 
-  static async verifyConfirmationCode(
-    codeData: IVerifyConfirmationCodeData
-  ): Promise<AxiosResponse<IVerifyConfirmationCodePayload>> {
+  static async verifyConfirmationCode({
+    code,
+    codeType,
+  }: IVerifyConfirmationCodeData): Promise<
+    AxiosResponse<IVerifyConfirmationCodePayload>
+  > {
     return authServiceAPI.post<IVerifyConfirmationCodePayload>(
-      '/verify-confirmation-code',
-      codeData
+      `/codes/${codeType}/verify`,
+      { code }
     );
   }
 
   static async resendConfirmationCode(
     codeType: ConfirmationCodeType
   ): Promise<AxiosResponse<void>> {
-    return authServiceAPI.get<void>(`/resend/${codeType}`);
+    return authServiceAPI.get<void>(`/codes/${codeType}/resend`);
   }
 }

@@ -12,10 +12,10 @@ export const resendConfirmationCodeCases = (
     })
     .addCase(handleResendConfirmationCode.fulfilled, (state) => {
       state.loading = false;
-      state.success = 'The verification code was sent to your email';
+      state.success = 'The code was sent to your email';
     })
     .addCase(handleResendConfirmationCode.rejected, (state, action) => {
       state.loading = false;
-      state.error = action.payload || 'Failed to resend confirmation code';
+      state.error = action.payload || 'Failed to resend the code';
     });
 };

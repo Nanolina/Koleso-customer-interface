@@ -23,10 +23,11 @@ import { ConfirmationCodeType } from '../../../../types';
 import { Button } from '../../../../ui/Button';
 import { Loader } from '../../../../ui/Loader';
 import { ImageInput } from '../ImageInput';
+import { HaveAccountLogin } from './HaveAccountLogin';
 import { initialValues } from './initialValues';
 import { validationSchema } from './validationSchema';
 
-export const SignUpPhoneEmailForm: React.FC = () => {
+export const SignUpForm: React.FC = () => {
   const { t } = useTranslation();
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const dispatch = useDispatch<AppDispatch>();
@@ -50,7 +51,7 @@ export const SignUpPhoneEmailForm: React.FC = () => {
     setSubmitting(false);
     const user = unwrapResult(data);
     if (user) {
-      navigation.navigate('EmailVerificationPage', {
+      navigation.navigate('EmailCodePage', {
         codeType: ConfirmationCodeType.EMAIL_CONFIRMATION,
       });
     }
@@ -143,11 +144,13 @@ export const SignUpPhoneEmailForm: React.FC = () => {
 
                 <View style={styles.buttonContainer}>
                   <Button
-                    text={t('auth.signUp')}
+                    text={t('auth.signup')}
                     onPress={handleSubmit}
                     disabled={!isValid || !dirty}
                   />
                 </View>
+
+                <HaveAccountLogin />
 
                 {error && (
                   <MessageBox
@@ -175,6 +178,9 @@ const styles = StyleSheet.create({
     gap: css.auth.gap,
   },
   buttonContainer: {
+    flexDirection: 'row',
     alignItems: 'center',
+    paddingBottom: 30,
+    gap: 20,
   },
 });

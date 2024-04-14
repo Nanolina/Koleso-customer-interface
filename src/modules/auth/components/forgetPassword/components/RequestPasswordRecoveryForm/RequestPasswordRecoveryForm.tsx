@@ -41,7 +41,7 @@ export const RequestPasswordRecoveryForm: React.FC = () => {
     data = await dispatch(handleRequestPasswordRecovery(userData));
     const user = unwrapResult(data);
     if (user) {
-      navigation.navigate('EmailVerificationPage', {
+      navigation.navigate('EmailCodePage', {
         codeType: ConfirmationCodeType.PASSWORD_RESET,
       });
     }
