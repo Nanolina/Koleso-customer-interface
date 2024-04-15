@@ -46,15 +46,6 @@ export interface IInfoItemProps {
   hasPadding?: boolean;
 }
 
-export interface IRowProps {
-  title: string;
-  displayTitle: string;
-  navigateTo: string;
-  items?: string[] | number[];
-  selectedItems?: string[] | number[];
-  selectedItem?: string | null;
-}
-
 export interface IDatePickerProps {
   text?: string;
   value: string;

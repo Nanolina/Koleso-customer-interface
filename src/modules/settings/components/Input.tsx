@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
-import { TextWithInput } from '../../../components/LabelWithInput';
+import { LabelWithInput } from '../../../components/LabelWithInput';
 import { IRootState } from '../../../redux/rootReducer';
 import { ISettingsState } from '../../../redux/slices/settingsSlice';
 import { getAutoComplete, getDataForInput } from '../functions';
@@ -23,11 +23,14 @@ export const Input: React.FC<IInputProps> = React.memo(({ title }) => {
 
   return (
     <View style={styles.container}>
-      <TextWithInput
+      <LabelWithInput
         value={value}
         onChangeText={onChangeText}
         inputMode={inputMode}
         autoComplete={autoComplete}
+        name={''}
+        placeholder={''}
+        onBlur={undefined}
       />
     </View>
   );

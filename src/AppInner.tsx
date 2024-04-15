@@ -50,6 +50,7 @@ export default function AppInner() {
   const dispatch = useDispatch<AppDispatch>();
   const Stack = createStackNavigator();
   const [isInitialized, setIsInitialized] = useState(false);
+
   const token = useMemo(
     async () => await SecureStore.getItemAsync('token'),
     []

@@ -7,7 +7,7 @@ import {
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { colors, sizes } from '../consts';
+import { colors, sizes } from '../../../consts';
 import { getDisplayItem } from '../functions';
 import { IRowProps } from '../types';
 
@@ -43,9 +43,7 @@ export const Row: React.FC<IRowProps> = ({
         {isFilled ? (
           <Text style={styles.extraFilled}>{extraText}</Text>
         ) : (
-          <Text style={styles.extra}>
-            {title === 'Password' ? t('change') : t('add')}
-          </Text>
+          <Text style={styles.extra}>{t('add')}</Text>
         )}
         <AntDesign name="right" size={sizes.iconSize16} color={colors.gray} />
       </View>

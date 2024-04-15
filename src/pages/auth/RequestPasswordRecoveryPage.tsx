@@ -10,7 +10,7 @@ export const RequestPasswordRecoveryPage: React.FC = () => {
 
   return (
     <Container>
-      <Header title={t('auth.forgotPassword')} />
+      <Header title={t('auth.forgotPassword')} hasButtonBack/>
       <CentralContainer isPadding={true}>
         <RequestPasswordRecoveryForm />
       </CentralContainer>

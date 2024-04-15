@@ -2,12 +2,12 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
 import { useSelector } from 'react-redux';
-import { Row } from '../../../components/Row';
 import { colors as commonColors, css } from '../../../consts';
 import { IRootState } from '../../../redux/rootReducer';
 import { Button } from '../../../ui/Button';
 import { data } from '../data';
 import { ResetAll } from '../ui/ResetAll';
+import { Row } from './Row';
 import { RowRange } from './RowRange';
 
 export const Filter: React.FC = () => {

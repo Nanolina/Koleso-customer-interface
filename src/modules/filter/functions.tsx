@@ -1,3 +1,4 @@
+import i18n from '../../i18n/i18n';
 import {
   addAgeFrom,
   addAgeTo,
@@ -143,4 +144,12 @@ export const getNumericData = (text: string): string => {
 // For translate
 export const isNeedTranslation = (title) => {
   return title !== 'Size' && title !== 'Brand' && title !== 'Seller';
+};
+
+export const getDisplayItem = (title: string, selectedItem: string) => {
+  if (title === 'Gender') {
+    return i18n.t(`settings.${selectedItem.toLowerCase()}`);
+  }
+
+  return selectedItem;
 };

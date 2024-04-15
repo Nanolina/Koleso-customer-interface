@@ -16,17 +16,6 @@ export interface IImageInputProps {
   onBlur: any;
 }
 
-interface IRegistrationMethod {
-  id: string;
-  text: string;
-  image: number; // Using only local images via require
-  redirectPage: string;
-}
-
-export interface IRegistrationMethodProps {
-  registrationMethod: IRegistrationMethod;
-}
-
 export interface IUserState {
   id: string;
   email: string;
@@ -56,4 +45,8 @@ export interface IVerifyCodePayload {
 
 export interface ITimerTextProps {
   timer: number;
+}
+
+export interface IEmailPayload {
+  email: string;
 }

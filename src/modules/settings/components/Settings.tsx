@@ -9,7 +9,6 @@ import { StyleSheet, Text, View } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useDispatch, useSelector } from 'react-redux';
 import { MessageBox } from '../../../components/MessageBox';
-import { Row } from '../../../components/Row';
 import { colors, sizes } from '../../../consts';
 import { IRootState } from '../../../redux/rootReducer';
 import { ISettingsState } from '../../../redux/slices/settingsSlice';
@@ -18,6 +17,7 @@ import { AppDispatch } from '../../../redux/store';
 import { handleLogout } from '../../../redux/thunks/user';
 import { Loader } from '../../../ui/Loader';
 import { data } from '../data';
+import { Row } from './Row';
 
 export const Settings: React.FC = () => {
   const navigation: NavigationProp<ParamListBase> = useNavigation();
@@ -25,11 +25,11 @@ export const Settings: React.FC = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
 
-  const { loading, error, success } = useSelector(
+  const { loading, error, success, phone, email, isVerifiedEmail } = useSelector(
     (state: IRootState) => state.user
   );
 
-  const { name, gender, phone, email, birthday } = useSelector(
+  const { name, gender, birthday } = useSelector(
     (state: IRootState) => state.settings as ISettingsState
   );
 
@@ -65,7 +65,7 @@ export const Settings: React.FC = () => {
         title="Email"
         displayTitle={t('settings.email')}
         selectedItem={email}
-        navigateTo="SettingsInputPage"
+        navigateTo={isVerifiedEmail ? "SettingsInputPage" : "EmailCodePage"}
       />
       <Row
         title="Date of birth"

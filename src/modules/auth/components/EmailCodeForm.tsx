@@ -23,36 +23,19 @@ import { Loader } from '../../../ui/Loader';
 import { TimerText } from '../ui/Timer';
 
 export const EmailCodeForm: React.FC<{
-  codeType: CodeType;
-}> = ({ codeType }) => {
+  codeType: CodeType | undefined;
+}> = ({ codeType = CodeType.EMAIL_CONFIRMATION }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
   const navigation: NavigationProp<ParamListBase> = useNavigation();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const { loading, error, success, email } = useSelector(
+  const { loading, error, success, email, isVerifiedEmail } = useSelector(
     (state: IRootState) => state.user
   );
 
   const [timer, setTimer] = useState(30);
   const [isButtonResendDisabled, setIsButtonResendDisabled] = useState(true);
-
-  // Timer
-  useEffect(() => {
-    if (timer === 0) {
-      setIsButtonResendDisabled(false);
-      clearInterval(intervalRef.current as NodeJS.Timeout);
-    } else {
-      setIsButtonResendDisabled(true);
-    }
-  }, [timer]);
-
-  useEffect(() => {
-    startTimer();
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, []);
 
   const startTimer = () => {
     setTimer(30);
@@ -62,13 +45,14 @@ export const EmailCodeForm: React.FC<{
   };
 
   const resendCode = () => {
-    dispatch(handleResendCode(codeType));
+    dispatch(handleResendCode({ codeType, email }));
     if (intervalRef.current) clearInterval(intervalRef.current);
     startTimer(); // Resetting the timer to 30 seconds
   };
 
   const onSubmit = async (values: any) => {
     const codeData: IVerifyCodeData = {
+      email,
       codeType,
       code: parseInt(values.code.join('')),
     };
@@ -87,6 +71,28 @@ export const EmailCodeForm: React.FC<{
         break;
     }
   };
+
+  // Timer
+  useEffect(() => {
+    if (timer === 0) {
+      setIsButtonResendDisabled(false);
+      clearInterval(intervalRef.current as NodeJS.Timeout);
+    } else {
+      setIsButtonResendDisabled(true);
+    }
+  }, [timer]);
+
+  useEffect(() => {
+    startTimer();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, []);
+
+  // The first time this page is opened, it should send the code
+  useEffect(() => {
+    if (!isVerifiedEmail && email) resendCode();
+  }, []);
 
   if (loading) return <Loader />;
 
