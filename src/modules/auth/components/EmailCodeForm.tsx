@@ -1,11 +1,4 @@
-import {
-  NavigationProp,
-  ParamListBase,
-  useNavigation,
-} from '@react-navigation/native';
-import { unwrapResult } from '@reduxjs/toolkit';
 import { Formik } from 'formik';
-import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import { CodeField, Cursor } from 'react-native-confirmation-code-field';
@@ -15,11 +8,10 @@ import { colors, css, sizes } from '../../../consts';
 import { IRootState } from '../../../redux/rootReducer';
 import { clearMessages } from '../../../redux/slices/userSlice';
 import { AppDispatch } from '../../../redux/store';
-import { handleResendCode, handleVerifyCode } from '../../../redux/thunks/user';
-import { IVerifyCodeData } from '../../../services/types/request';
 import { CodeType } from '../../../types';
 import { Button } from '../../../ui/Button';
 import { Loader } from '../../../ui/Loader';
+import { useEmailCode } from '../hooks/useEmailCode';
 import { TimerText } from '../ui/Timer';
 
 export const EmailCodeForm: React.FC<{
@@ -27,72 +19,13 @@ export const EmailCodeForm: React.FC<{
 }> = ({ codeType = CodeType.EMAIL_CONFIRMATION }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
-  const navigation: NavigationProp<ParamListBase> = useNavigation();
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
-  const { loading, error, success, email, isVerifiedEmail } = useSelector(
+  const { loading, error, success, email } = useSelector(
     (state: IRootState) => state.user
   );
 
-  const [timer, setTimer] = useState(30);
-  const [isButtonResendDisabled, setIsButtonResendDisabled] = useState(true);
-
-  const startTimer = () => {
-    setTimer(30);
-    intervalRef.current = setInterval(() => {
-      setTimer((prevTimer) => prevTimer - 1);
-    }, 1000);
-  };
-
-  const resendCode = () => {
-    dispatch(handleResendCode({ codeType, email }));
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    startTimer(); // Resetting the timer to 30 seconds
-  };
-
-  const onSubmit = async (values: any) => {
-    const codeData: IVerifyCodeData = {
-      email,
-      codeType,
-      code: parseInt(values.code.join('')),
-    };
-
-    let data;
-    switch (codeType) {
-      case CodeType.EMAIL_CONFIRMATION:
-        data = await dispatch(handleVerifyCode(codeData));
-        const { isVerifiedEmail } = unwrapResult(data);
-        if (isVerifiedEmail) navigation.navigate('SettingsPage');
-        break;
-      case CodeType.PASSWORD_RESET:
-        data = await dispatch(handleVerifyCode(codeData));
-        const isCodeVerified = unwrapResult(data);
-        if (isCodeVerified) navigation.navigate('SetNewPasswordPage');
-        break;
-    }
-  };
-
-  // Timer
-  useEffect(() => {
-    if (timer === 0) {
-      setIsButtonResendDisabled(false);
-      clearInterval(intervalRef.current as NodeJS.Timeout);
-    } else {
-      setIsButtonResendDisabled(true);
-    }
-  }, [timer]);
-
-  useEffect(() => {
-    startTimer();
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, []);
-
-  // The first time this page is opened, it should send the code
-  useEffect(() => {
-    if (!isVerifiedEmail && email) resendCode();
-  }, []);
+  const { timer, isButtonResendDisabled, resendCode, onSubmitCode } =
+    useEmailCode(codeType);
 
   if (loading) return <Loader />;
 
@@ -102,7 +35,10 @@ export const EmailCodeForm: React.FC<{
         source={require('../../../assets/email.png')}
         style={styles.image}
       />
-      <Formik initialValues={{ code: Array(6).fill('') }} onSubmit={onSubmit}>
+      <Formik
+        initialValues={{ code: Array(6).fill('') }}
+        onSubmit={onSubmitCode}
+      >
         {({ values, setFieldValue, handleSubmit }) => (
           <>
             <View style={styles.textContainer}>

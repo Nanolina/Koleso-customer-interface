@@ -1,3 +1,4 @@
+export { useEmailCode } from './hooks';
 export { EmailCodeForm } from './components/EmailCodeForm';
 export { LoginForm } from './components/LoginForm/LoginForm';
 export { SignUpForm } from './components/SignUpForm/SignUpForm';
@@ -9,3 +10,4 @@ export type {
   IUserState,
   IVerifyCodePayload,
 } from './types';
+

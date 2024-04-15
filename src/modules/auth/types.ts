@@ -50,3 +50,7 @@ export interface ITimerTextProps {
 export interface IEmailPayload {
   email: string;
 }
+
+export type ValuesCode = {
+  code: string[];
+};

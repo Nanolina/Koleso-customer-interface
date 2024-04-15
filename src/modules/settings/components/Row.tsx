@@ -14,38 +14,26 @@ import { getDisplayItem } from '../functions';
 import { IRowProps } from '../types';
 
 export const Row: React.FC<IRowProps> = React.memo(
-  ({
-    title,
-    displayTitle,
-    navigateTo,
-    items = [],
-    selectedItems = [],
-    selectedItem,
-  }) => {
+  ({ title, displayTitle, navigateTo, items = [], selectedItem, onPress }) => {
     const navigation: NavigationProp<ParamListBase> = useNavigation();
     const { t } = useTranslation();
 
     const { isVerifiedEmail } = useSelector((state: IRootState) => state.user);
 
     const handlePress = useCallback(() => {
-      navigation.navigate(navigateTo, {
-        title,
-        items,
-        selectedItems,
-      });
-    }, [navigation, navigateTo, title, items, selectedItems]);
+      onPress();
+      navigation.navigate(navigateTo, { items });
+    }, [navigation, navigateTo, title, items]);
 
     // Define what to display in the right part of the component
-    const isFilled = selectedItem ? selectedItem : selectedItems.length;
-    const extraText = selectedItem
-      ? getDisplayItem(title, selectedItem)
-      : selectedItems.length;
+
+    const extraText = selectedItem ? getDisplayItem(title, selectedItem) : '';
 
     return (
       <TouchableOpacity style={styles.container} onPress={handlePress}>
         <Text style={styles.text}>{displayTitle}</Text>
         <View style={styles.right}>
-          {isFilled ? (
+          {selectedItem ? (
             <>
               <Text style={styles.extraFilled}>{extraText}</Text>
               {title === 'Email' && !isVerifiedEmail && (

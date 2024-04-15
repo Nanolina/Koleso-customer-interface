@@ -15,7 +15,9 @@ import { ISettingsState } from '../../../redux/slices/settingsSlice';
 import { clearMessages } from '../../../redux/slices/userSlice';
 import { AppDispatch } from '../../../redux/store';
 import { handleLogout } from '../../../redux/thunks/user';
+import { CodeType } from '../../../types';
 import { Loader } from '../../../ui/Loader';
+import { useEmailCode } from '../../auth';
 import { data } from '../data';
 import { Row } from './Row';
 
@@ -25,13 +27,14 @@ export const Settings: React.FC = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch<AppDispatch>();
 
-  const { loading, error, success, phone, email, isVerifiedEmail } = useSelector(
-    (state: IRootState) => state.user
-  );
+  const { loading, error, success, phone, email, isVerifiedEmail } =
+    useSelector((state: IRootState) => state.user);
 
   const { name, gender, birthday } = useSelector(
     (state: IRootState) => state.settings as ISettingsState
   );
+
+  const { resendCode } = useEmailCode(CodeType.EMAIL_CONFIRMATION);
 
   const handleSignOutPress = useCallback(() => {
     dispatch(handleLogout());
@@ -65,7 +68,8 @@ export const Settings: React.FC = () => {
         title="Email"
         displayTitle={t('settings.email')}
         selectedItem={email}
-        navigateTo={isVerifiedEmail ? "SettingsInputPage" : "EmailCodePage"}
+        navigateTo={isVerifiedEmail ? 'SettingsInputPage' : 'EmailCodePage'}
+        onPress={isVerifiedEmail ? () => {} : resendCode}
       />
       <Row
         title="Date of birth"

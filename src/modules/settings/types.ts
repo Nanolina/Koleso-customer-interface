@@ -19,6 +19,6 @@ export interface IRowProps {
   displayTitle: string;
   navigateTo: string;
   items?: string[] | number[];
-  selectedItems?: string[] | number[];
   selectedItem?: string | null;
+  onPress?: () => void;
 }

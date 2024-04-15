@@ -32,15 +32,14 @@ export const RequestPasswordRecoveryForm: React.FC = () => {
   );
 
   const onSubmit = async (values: IChangeEmailData) => {
-    const email = values.email;
     const userData: IChangeEmailData = {
-      email,
+      email: values.email,
     };
 
     let data;
     data = await dispatch(handleRequestPasswordRecovery(userData));
-    const user = unwrapResult(data);
-    if (user) {
+    const { email } = unwrapResult(data);
+    if (email) {
       navigation.navigate('EmailCodePage', {
         codeType: CodeType.PASSWORD_RESET,
       });
