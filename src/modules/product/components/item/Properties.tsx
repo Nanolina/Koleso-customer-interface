@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { Property } from '../../../../ui/Property';
-import { IPropertiesProps } from '../types';
+import { IPropertiesProps } from '../../types';
 
 export const Properties: React.FC<IPropertiesProps> = React.memo(
   ({ color, composition, gender }) => {

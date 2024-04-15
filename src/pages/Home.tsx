@@ -1,22 +1,20 @@
-import { useEffect, useState } from 'react';
-import { StyleSheet, View } from 'react-native';
-import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { StyleSheet } from 'react-native';
+import { useSelector } from 'react-redux';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { DeliveryQRCode, SearchQueries } from '../modules/home';
+import { SearchQueries } from '../modules/home';
 import { ProductList } from '../modules/product';
-import { AppDispatch } from '../redux/store';
-import { handleGetAllProducts } from '../redux/thunks/product';
+import { IRootState } from '../redux/rootReducer';
 import { CentralContainer } from '../ui/CentralContainer';
+import { Loader } from '../ui/Loader';
 
 export const Home: React.FC = () => {
-  const dispatch = useDispatch<AppDispatch>();
   const [isEnabledSearch, setIsEnabledSearch] = useState(false);
+  const { loading } = useSelector((state: IRootState) => state.products);
 
-  useEffect(() => {
-    dispatch(handleGetAllProducts());
-  }, []);
+  if (loading) return <Loader />;
 
   return (
     <Container>

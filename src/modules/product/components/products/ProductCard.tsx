@@ -11,12 +11,12 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { css, sizes } from '../../../consts';
-import { AppDispatch } from '../../../redux/store';
-import { handleGetProductById } from '../../../redux/thunks/product';
-import { WebCardWrapper } from '../../../ui/WebCardWrapper';
-import { PriceContainer } from '../../price';
-import { IProduct } from '../types';
+import { css, sizes } from '../../../../consts';
+import { AppDispatch } from '../../../../redux/store';
+import { handleGetProductById } from '../../../../redux/thunks/product';
+import { WebCardWrapper } from '../../../../ui/WebCardWrapper';
+import { PriceContainer } from '../../../price';
+import { IProduct } from '../../types';
 import { ImageContainer } from './ImageContainer';
 import { TitleContainer } from './TitleContainer';
 
@@ -30,7 +30,7 @@ export const ProductCard: React.FC<{ item: IProduct }> = React.memo(
 
     const onPress = useCallback(() => {
       dispatch(handleGetProductById(item.id));
-      navigation.navigate('ItemPage', { itemId: item.id });
+      navigation.navigate('ProductPage', { itemId: item.id });
     }, [navigation, item]);
 
     return (

@@ -1,30 +1,28 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, sizes } from '../../../../consts';
-import { ITitleContainerProps } from '../types';
+import { ITitleContainerProps } from '../../types';
 
 export const TitleContainer: React.FC<ITitleContainerProps> = React.memo(
-  ({ title, seller }) => {
+  ({ seller, title }) => {
     return (
-      <View style={styles.container}>
-        <Text style={styles.title}>{title}</Text>
+      <View>
         <Text style={styles.seller}>{seller}</Text>
+        <Text style={styles.title}>{title}</Text>
       </View>
     );
   }
 );
 
 const styles = StyleSheet.create({
-  container: {
-    paddingVertical: 10,
-  },
-  title: {
-    fontSize: sizes.title,
-    fontWeight: 'bold',
-  },
   seller: {
-    fontSize: sizes.text16,
+    fontSize: sizes.text15,
+    textAlign: 'center',
     fontFamily: 'OpenSans_400Regular_Italic',
     color: colors.gray,
+  },
+  title: {
+    fontSize: sizes.text15,
+    textAlign: 'center',
   },
 });

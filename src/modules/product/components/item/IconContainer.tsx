@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { css, headerHeight } from '../../../../consts';
 import { ButtonBack } from '../../../../ui/ButtonBack';
-import { IconFeather } from '../ui/IconFeather';
+import { IconFeather } from '../../ui/IconFeather';
 
 const top = headerHeight + 10;
 

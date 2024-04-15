@@ -1,7 +1,7 @@
-import { StyleSheet, TouchableOpacity } from 'react-native';
-import { IIconContainerProps } from '../types';
-import { IconProductCard } from '../ui/IconProductCard';
 import { useMemo } from 'react';
+import { StyleSheet, TouchableOpacity } from 'react-native';
+import { IIconContainerProps } from '../../types';
+import { IconProductCard } from '../../ui/IconProductCard';
 
 export const IconContainer: React.FC<IIconContainerProps> = ({
   name,

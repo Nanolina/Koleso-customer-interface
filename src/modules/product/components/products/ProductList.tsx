@@ -1,11 +1,13 @@
 import { useCallback } from 'react';
 import { FlatList, Platform, StyleSheet } from 'react-native';
 import { useSelector } from 'react-redux';
-import { IRootState } from '../../../redux/rootReducer';
+import { IRootState } from '../../../../redux/rootReducer';
 import { ProductCard } from './ProductCard';
 
 export const ProductList: React.FC = () => {
-  const { items: products } = useSelector((state: IRootState) => state.products);
+  const { items: products } = useSelector(
+    (state: IRootState) => state.products
+  );
 
   const renderProductCard = useCallback(
     ({ item }) => <ProductCard item={item} key={item.id} />,

@@ -43,6 +43,7 @@ import { SettingsInputPage } from './pages/settings/SettingsInputPage';
 import { SettingsPage } from './pages/settings/SettingsPage';
 import { SettingsPasswordPage } from './pages/settings/SettingsPasswordPage';
 import { AppDispatch } from './redux/store.ts';
+import { handleGetAllProducts } from './redux/thunks/product/handleGetAllProducts.ts';
 import { handleCheckAuth } from './redux/thunks/user';
 import { Loader } from './ui/Loader';
 
@@ -71,6 +72,10 @@ export default function AppInner() {
       setIsInitialized(true);
     }
   }, [dispatch, token]);
+
+  useEffect(() => {
+    dispatch(handleGetAllProducts());
+  }, []);
 
   if (!fontsLoaded || !isInitialized) {
     return <Loader />;
