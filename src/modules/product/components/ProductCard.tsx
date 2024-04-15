@@ -10,34 +10,39 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
+import { useDispatch } from 'react-redux';
 import { css, sizes } from '../../../consts';
-import { IItemProps } from '../../../types';
+import { AppDispatch } from '../../../redux/store';
+import { handleGetProductById } from '../../../redux/thunks/product';
 import { WebCardWrapper } from '../../../ui/WebCardWrapper';
 import { PriceContainer } from '../../price';
+import { IProduct } from '../types';
 import { ImageContainer } from './ImageContainer';
 import { TitleContainer } from './TitleContainer';
 
 const { width } = Dimensions.get('window');
 const cardWidth = width / 3;
 
-export const ProductCard: React.FC<{ item: IItemProps }> = React.memo(
+export const ProductCard: React.FC<{ item: IProduct }> = React.memo(
   ({ item }) => {
+    const dispatch = useDispatch<AppDispatch>();
     const navigation: NavigationProp<ParamListBase> = useNavigation();
 
     const onPress = useCallback(() => {
+      dispatch(handleGetProductById(item.id));
       navigation.navigate('ItemPage', { itemId: item.id });
     }, [navigation, item]);
 
     return (
       <WebCardWrapper cardWidth={cardWidth}>
         <TouchableOpacity style={styles.card} onPress={onPress}>
-          <ImageContainer image={item.image} />
+          <ImageContainer image={item.variants[0].images[0].url} />
           <PriceContainer
-            price={item.price}
-            oldPrice={item.oldPrice}
+            price={item.variants[0].finalPrice}
+            oldPrice={item.variants[0].priceWithoutDiscount}
             priceSize={sizes.text20}
           />
-          <TitleContainer seller={item.seller} title={item.title} />
+          <TitleContainer seller={item.store.name} title={item.name} />
         </TouchableOpacity>
       </WebCardWrapper>
     );
@@ -50,6 +55,6 @@ const styles = StyleSheet.create({
     gap: 4,
     paddingHorizontal: Platform.OS === 'web' ? 20 : 2.5,
     paddingBottom: css.paddingBottom,
-    maxWidth: Platform.OS === 'web' ? cardWidth : '100%',
+    maxWidth: Platform.OS === 'web' ? cardWidth : '50%',
   },
 });

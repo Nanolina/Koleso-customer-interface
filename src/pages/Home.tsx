@@ -1,15 +1,22 @@
-import { useState } from 'react';
-import { productCards } from '../../mockData';
+import { useEffect, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { useDispatch } from 'react-redux';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { DeliveryQRCode, SearchQueries } from '../modules/home';
-import { ProductList } from '../modules/productCard';
+import { ProductList } from '../modules/product';
+import { AppDispatch } from '../redux/store';
+import { handleGetAllProducts } from '../redux/thunks/product';
 import { CentralContainer } from '../ui/CentralContainer';
-import { StyleSheet, View } from 'react-native';
 
 export const Home: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
   const [isEnabledSearch, setIsEnabledSearch] = useState(false);
+
+  useEffect(() => {
+    dispatch(handleGetAllProducts());
+  }, []);
 
   return (
     <Container>
@@ -21,11 +28,10 @@ export const Home: React.FC = () => {
       <CentralContainer isPadding={true} isMinPadding={true}>
         {!isEnabledSearch && (
           <>
-          <View style={styles.container}>
-
-            <DeliveryQRCode />
-          </View>
-            <ProductList data={productCards} />
+            {/* <View style={styles.container}>
+              <DeliveryQRCode />
+            </View> */}
+            <ProductList />
           </>
         )}
         {isEnabledSearch && <SearchQueries />}

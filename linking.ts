@@ -12,7 +12,7 @@ export const linking = {
       SectionsPage: 'sections',
       CategoriesPage: 'categories',
       SubcategoriesPage: 'subcategories',
-      ItemPage: 'item/:itemId',
+      ProductPage: 'product/:productId',
       SortPage: 'sort',
       FilterPage: 'filter',
       FilterCheckboxPage: 'filter-checkbox',

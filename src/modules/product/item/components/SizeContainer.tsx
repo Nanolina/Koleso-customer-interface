@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { StyleSheet, View } from 'react-native';
-import { colors, css } from '../../../consts';
-import { Box } from '../../../ui/Box';
+import { colors, css } from '../../../../consts';
+import { Box } from '../../../../ui/Box';
 import { ISizeContainerProps } from '../types';
 
 export const SizeContainer: React.FC<ISizeContainerProps> = React.memo(

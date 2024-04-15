@@ -1,20 +1,27 @@
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { productCards } from '../../mockData';
+import { useDispatch, useSelector } from 'react-redux';
 import { Container } from '../components/Container';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
-import { ProductList } from '../modules/productCard';
+import { ProductList } from '../modules/product';
 import { IRootState } from '../redux/rootReducer';
+import { AppDispatch } from '../redux/store';
+import { handleGetAllProducts } from '../redux/thunks/product';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const Main: React.FC = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch<AppDispatch>();
 
   const category = useSelector((state: IRootState) => state.catalog.category);
   const subcategory = useSelector(
     (state: IRootState) => state.catalog.subcategory
   );
+
+  useEffect(() => {
+    dispatch(handleGetAllProducts());
+  }, []);
 
   return (
     <Container>
@@ -27,7 +34,7 @@ export const Main: React.FC = () => {
         showFilterSort
       />
       <CentralContainer isPadding={true} isMinPadding={true}>
-        <ProductList data={productCards} />
+        <ProductList />
       </CentralContainer>
       <Footer />
     </Container>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { colors, sizes } from '../../../consts';
+import { colors, sizes } from '../../../../consts';
 import { ITitleContainerProps } from '../types';
 
 export const TitleContainer: React.FC<ITitleContainerProps> = React.memo(

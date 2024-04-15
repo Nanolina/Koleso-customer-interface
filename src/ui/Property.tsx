@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text } from 'react-native';
 import { sizes } from '../consts';
-import { IPropertyProps } from '../modules/item/types';
+import { IPropertyProps } from '../modules/product/item/types';
 
 export const Property: React.FC<IPropertyProps> = React.memo(
   ({ label, text }) => {

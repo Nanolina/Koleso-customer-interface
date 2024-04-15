@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, TouchableOpacity } from 'react-native';
-import { colors, sizes } from '../../../consts';
+import { colors, sizes } from '../../../../consts';
 import { IDescriptionProps } from '../types';
 
 export const Description: React.FC<IDescriptionProps> = React.memo(

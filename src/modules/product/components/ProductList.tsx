@@ -1,9 +1,12 @@
 import { useCallback } from 'react';
 import { FlatList, Platform, StyleSheet } from 'react-native';
-import { IItemProps } from '../../../types';
+import { useSelector } from 'react-redux';
+import { IRootState } from '../../../redux/rootReducer';
 import { ProductCard } from './ProductCard';
 
-export const ProductList: React.FC<{ data: IItemProps[] }> = ({ data }) => {
+export const ProductList: React.FC = () => {
+  const { items: products } = useSelector((state: IRootState) => state.products);
+
   const renderProductCard = useCallback(
     ({ item }) => <ProductCard item={item} key={item.id} />,
     []
@@ -11,7 +14,7 @@ export const ProductList: React.FC<{ data: IItemProps[] }> = ({ data }) => {
 
   return (
     <FlatList
-      data={data}
+      data={products}
       renderItem={renderProductCard}
       keyExtractor={(item) => item.id}
       numColumns={Platform.OS === 'web' ? 3 : 2}

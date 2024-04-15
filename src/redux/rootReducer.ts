@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { IUserState } from '../modules/auth';
+import { IProductsState } from '../modules/product';
 import authSlice, { IAuthState } from './slices/authSlice';
 import cartSlice, { ICartState } from './slices/cartSlice';
 import catalogSlice, { ICatalogState } from './slices/catalogSlice';
@@ -7,6 +8,7 @@ import checkoutSlice, { ICheckoutState } from './slices/checkoutSlice';
 import filterSlice, { IFilterState } from './slices/filterSlice';
 import footerSlice, { IFooterState } from './slices/footerSlice';
 import paymentSlice, { IPaymentState } from './slices/paymentSlice';
+import productsSlice from './slices/productsSlice';
 import returnSlice, { IReturnState } from './slices/returnSlice';
 import searchSlice, { ISearchState } from './slices/searchSlice';
 import settingsSlice, { ISettingsState } from './slices/settingsSlice';
@@ -24,6 +26,7 @@ export interface IRootState {
   return: IReturnState;
   search: ISearchState;
   settings: ISettingsState;
+  products: IProductsState;
 }
 
 const rootReducer = combineReducers({
@@ -38,6 +41,7 @@ const rootReducer = combineReducers({
   auth: authSlice,
   return: returnSlice,
   footer: footerSlice,
+  products: productsSlice,
 });
 
 export default rootReducer;

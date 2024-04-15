@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { StyleSheet, View } from 'react-native';
-import { colors, css } from '../../../consts';
-import { Button } from '../../../ui/Button';
+import { colors, css } from '../../../../consts';
+import { Button } from '../../../../ui/Button';
 
 export const Buttons: React.FC = () => {
   const { t } = useTranslation();

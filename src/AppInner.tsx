@@ -19,12 +19,12 @@ import { ContactsPage } from './pages/ContactsPage';
 import { Favorites } from './pages/Favorites';
 import { FinancesPage } from './pages/FinancesPage';
 import { Home } from './pages/Home';
-import { ItemPage } from './pages/ItemPage';
 import { Main } from './pages/Main';
 import { MyAccount } from './pages/MyAccount';
 import { NotificationsPage } from './pages/NotificationsPage';
 import { OrderProcessingPage } from './pages/OrderProcessingPage';
 import { PaymentPage } from './pages/PaymentPage';
+import { ProductPage } from './pages/ProductPage.tsx';
 import { PurchasesPage } from './pages/PurchasesPage';
 import { ReturnsPage } from './pages/ReturnsPage';
 import { SectionsPage } from './pages/SectionsPage';
@@ -87,7 +87,7 @@ export default function AppInner() {
         <Stack.Screen name="SectionsPage" component={SectionsPage} />
         <Stack.Screen name="CategoriesPage" component={CategoriesPage} />
         <Stack.Screen name="SubcategoriesPage" component={SubcategoriesPage} />
-        <Stack.Screen name="ItemPage" component={ItemPage} />
+        <Stack.Screen name="ProductPage" component={ProductPage} />
         <Stack.Screen name="SortPage" component={SortPage} />
         <Stack.Screen name="FilterPage" component={FilterPage} />
         <Stack.Screen

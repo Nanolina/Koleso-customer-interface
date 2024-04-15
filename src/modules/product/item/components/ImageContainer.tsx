@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dimensions, Platform, StyleSheet, View } from 'react-native';
 import { Image } from 'react-native-elements';
-import { css } from '../../../consts';
+import { css } from '../../../../consts';
 import { IImageContainerProps } from '../types';
 
 const { height } = Dimensions.get('window');
