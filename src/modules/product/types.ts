@@ -147,3 +147,8 @@ export interface IColorGroup {
   freeSizes?: string[];
   unavailableSizes?: string[];
 }
+
+export interface ISetSelectedProductSizePayload {
+  size: string;
+  colorGroupId: string;
+}

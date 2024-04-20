@@ -3,7 +3,12 @@ import {
   PayloadAction,
   createSlice,
 } from '@reduxjs/toolkit';
-import { ColorType, IColorGroup, IProductsState } from '../../modules/product';
+import {
+  ColorType,
+  IColorGroup,
+  IProductsState,
+  ISetSelectedProductSizePayload,
+} from '../../modules/product';
 import { getAllProductsCases, getProductByIdCases } from '../cases/product';
 import { productsInitialState } from '../initialStates';
 
@@ -21,9 +26,16 @@ const productsSlice = createSlice({
     setSelectedColorGroup: (state, action: PayloadAction<IColorGroup>) => {
       state.product.colorPalette.selectedColorGroup = action.payload;
     },
-    setSelectedProductSize: (state, action: PayloadAction<string>) => {
-      state.product.colorPalette.selectedColorGroup.selectedSize =
-        action.payload;
+    setSelectedProductSize: (
+      state,
+      action: PayloadAction<ISetSelectedProductSizePayload>
+    ) => {
+      state.product.colorPalette.colorGroups =
+        state.product.colorPalette.colorGroups.map((colorGroup) =>
+          colorGroup.id === action.payload.colorGroupId
+            ? { ...colorGroup, selectedSize: action.payload.size }
+            : colorGroup
+        );
     },
   },
   extraReducers: (builder: ActionReducerMapBuilder<IProductsState>) => {

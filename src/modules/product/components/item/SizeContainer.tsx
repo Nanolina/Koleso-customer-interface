@@ -15,7 +15,7 @@ export const SizeContainer: React.FC = () => {
     (state: IRootState) => state.products.product.colorPalette
   );
 
-  const { selectedSize, freeSizes, unavailableSizes } = useSelector(
+  const { id, freeSizes, unavailableSizes, selectedSize } = useSelector(
     (state: IRootState) =>
       state.products.product.colorPalette.selectedColorGroup
   );
@@ -52,7 +52,8 @@ export const SizeContainer: React.FC = () => {
           textStyle={textStyle}
           onPress={
             !isMissing
-              ? () => dispatch(setSelectedProductSize(size))
+              ? () =>
+                  dispatch(setSelectedProductSize({ size, colorGroupId: id }))
               : undefined
           }
         />

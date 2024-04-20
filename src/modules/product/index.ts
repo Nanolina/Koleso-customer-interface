@@ -13,6 +13,7 @@ export {
   IProduct,
   IProductState,
   IProductsState,
+  ISetSelectedProductSizePayload,
   IStore,
   IVariant,
 } from './types';
