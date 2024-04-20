@@ -1,51 +1,76 @@
 import React from 'react';
-import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
-import { css } from '../../../../consts';
+import {
+  Image,
+  ScrollView,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
+import { colors, css } from '../../../../consts';
+import { IRootState } from '../../../../redux/rootReducer';
+import { setSelectedProductColor } from '../../../../redux/slices/productsSlice';
+import { AppDispatch } from '../../../../redux/store';
+import { ColorType, IImagesWith1Color } from '../../types';
 
-export const ThumbnailBar: React.FC<any> = ({
-  images,
-  selectedImage,
-  setSelectedImage,
-}) => {
+export const ThumbnailBar: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
+  const { selectedColor, items: colorsWithImagesItems } = useSelector(
+    (state: IRootState) => state.products.product.colorsWithImages
+  );
+
   return (
-    <View style={styles.scrollContainer}>
-      {images.map((img, index) => (
+    <ScrollView
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={styles.container}
+    >
+      {colorsWithImagesItems.map((colorWithImages: IImagesWith1Color) => (
         <TouchableOpacity
-          key={`${img.url}-${index}`}
+          key={colorWithImages.id}
           onPress={() => {
-            // onSelect(img);
-            setSelectedImage(img.url);
+            dispatch(
+              setSelectedProductColor(colorWithImages.color as ColorType)
+            );
           }}
         >
-          <Image
-            source={{ uri: img.url }}
-            style={[
-              styles.thumbnail,
-              img.url === selectedImage ? styles.selectedThumbnail : {},
-            ]}
-          />
+          <View
+            style={
+              selectedColor === colorWithImages.color
+                ? styles.selected
+                : styles.notSelected
+            }
+          >
+            <Image
+              source={{ uri: colorWithImages.images[0] }}
+              style={styles.image}
+            />
+          </View>
         </TouchableOpacity>
       ))}
-    </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollContainer: {
+  container: {
     display: 'flex',
-    flexDirection: 'row',
-    paddingVertical: 10,
-    width: '100%',
+    gap: 10,
   },
-  thumbnail: {
+  image: {
     width: 50,
-    height: 60,
-    marginRight: 10,
+    height: 70,
     borderWidth: 2,
-    borderColor: 'transparent',
+    borderColor: colors.white,
     borderRadius: css.borderRadiusMax,
   },
-  selectedThumbnail: {
-    borderColor: 'purple',
+  notSelected: {
+    borderWidth: 2,
+    borderColor: colors.white,
+  },
+  selected: {
+    borderWidth: 2,
+    borderColor: colors.main,
+    borderRadius: css.borderRadiusMax,
   },
 });

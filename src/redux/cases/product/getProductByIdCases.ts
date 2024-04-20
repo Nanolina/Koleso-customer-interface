@@ -1,6 +1,7 @@
 import { ActionReducerMapBuilder, PayloadAction } from '@reduxjs/toolkit';
 import { IProduct, IProductsState } from '../../../modules/product';
 import { handleGetProductById } from '../../thunks/product';
+import { getValuesForColorsWithImages } from './functions';
 
 export const getProductByIdCases = (
   builder: ActionReducerMapBuilder<IProductsState>
@@ -14,8 +15,15 @@ export const getProductByIdCases = (
     .addCase(
       handleGetProductById.fulfilled,
       (state, action: PayloadAction<IProduct>) => {
-        state.product = action.payload;
+        const colorsWithImages = getValuesForColorsWithImages(
+          action.payload.variants
+        );
+
         state.loading = false;
+        state.product = {
+          colorsWithImages,
+          ...action.payload,
+        };
       }
     )
     .addCase(handleGetProductById.rejected, (state, action) => {

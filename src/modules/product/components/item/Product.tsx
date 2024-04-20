@@ -10,9 +10,9 @@ export const Product: React.FC = () => {
 
   return (
     <>
-      {product.variants?.map((variant: IVariant) => (
+      {/* {product.variants?.map((variant: IVariant) => (
         <Variant variant={variant} />
-      ))}
+      ))} */}
       {product.description && <Description description={product.description} />}
     </>
   );

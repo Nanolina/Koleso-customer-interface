@@ -1,5 +1,13 @@
-import { ActionReducerMapBuilder, createSlice } from '@reduxjs/toolkit';
-import { IProductsState } from '../../modules/product';
+import {
+  ActionReducerMapBuilder,
+  PayloadAction,
+  createSlice,
+} from '@reduxjs/toolkit';
+import {
+  ColorType,
+  IImagesWith1Color,
+  IProductsState,
+} from '../../modules/product';
 import { getAllProductsCases, getProductByIdCases } from '../cases/product';
 import { productsInitialState } from '../initialStates';
 
@@ -11,6 +19,15 @@ const productsSlice = createSlice({
       state.error = null;
       state.success = null;
     },
+    setSelectedProductColor: (state, action: PayloadAction<ColorType>) => {
+      state.product.colorsWithImages.selectedColor = action.payload;
+    },
+    setSelectedImagesWith1Color: (
+      state,
+      action: PayloadAction<IImagesWith1Color>
+    ) => {
+      state.product.colorsWithImages.selectedImagesWith1Color = action.payload;
+    },
   },
   extraReducers: (builder: ActionReducerMapBuilder<IProductsState>) => {
     getAllProductsCases(builder);
@@ -20,4 +37,8 @@ const productsSlice = createSlice({
 
 export default productsSlice.reducer;
 
-export const { clearMessages } = productsSlice.actions;
+export const {
+  clearMessages,
+  setSelectedProductColor,
+  setSelectedImagesWith1Color,
+} = productsSlice.actions;

@@ -1,31 +1,31 @@
 export enum ColorType {
-  Aquamarine,
-  Beige,
-  Black,
-  Blue,
-  Brown,
-  Cherry,
-  Cream,
-  Emerald,
-  Fuchsia,
-  Golden,
-  Green,
-  Grey,
-  LightBlue,
-  Lilac,
-  Maroon,
-  Olive,
-  Orange,
-  Pink,
-  Purple,
-  Raspberry,
-  Red,
-  Sandy,
-  Silver,
-  Turquoise,
-  White,
-  Yellow,
-  Transparent,
+  Aquamarine = 'Aquamarine',
+  Beige = 'Beige',
+  Black = 'Black',
+  Blue = 'Blue',
+  Brown = 'Brown',
+  Cherry = 'Cherry',
+  Cream = 'Cream',
+  Emerald = 'Emerald',
+  Fuchsia = 'Fuchsia',
+  Golden = 'Golden',
+  Green = 'Green',
+  Grey = 'Grey',
+  LightBlue = 'LightBlue',
+  Lilac = 'Lilac',
+  Maroon = 'Maroon',
+  Olive = 'Olive',
+  Orange = 'Orange',
+  Pink = 'Pink',
+  Purple = 'Purple',
+  Raspberry = 'Raspberry',
+  Red = 'Red',
+  Sandy = 'Sandy',
+  Silver = 'Silver',
+  Turquoise = 'Turquoise',
+  White = 'White',
+  Yellow = 'Yellow',
+  Transparent = 'Transparent',
 }
 
 export enum GenderType {
@@ -93,9 +93,19 @@ export interface IProduct {
   variants: IVariant[];
 }
 
+export interface IColorsWithImagesState {
+  items: IImagesWith1Color[];
+  selectedColor: ColorType | '';
+  selectedImagesWith1Color: IImagesWith1Color;
+}
+
+export interface IProductState extends IProduct {
+  colorsWithImages: IColorsWithImagesState;
+}
+
 export interface IProductsState {
   items: IProduct[];
-  product: IProduct;
+  product: IProductState;
   success: string | null;
   loading: boolean;
   error: any;
@@ -132,4 +142,10 @@ export interface IIconFeatherProps {
 export interface IPropertyProps {
   label: string;
   text?: string | number;
+}
+
+export interface IImagesWith1Color {
+  id: string;
+  color: ColorType | '';
+  images: string[];
 }

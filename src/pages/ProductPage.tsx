@@ -1,44 +1,60 @@
 import { useRoute } from '@react-navigation/native';
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Container } from '../components/Container';
 import { EmptyHeader } from '../components/EmptyHeader';
 import { Footer } from '../components/Footer';
 import {
   Buttons,
+  IImagesWith1Color,
   IconContainer,
   ImageContainer,
   Product,
+  ThumbnailBar,
 } from '../modules/product';
 import { IRootState } from '../redux/rootReducer';
+import { setSelectedImagesWith1Color } from '../redux/slices/productsSlice';
+import { AppDispatch } from '../redux/store';
 import { CentralContainer } from '../ui/CentralContainer';
 
 export const ProductPage: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
   const route: any = useRoute();
   const { productId } = route.params;
 
-  const { product } = useSelector((state: IRootState) => state.products);
-
-  const [images, setImages] = useState([]);
+  const {
+    items: colorsWithImagesItems,
+    selectedColor,
+    selectedImagesWith1Color,
+  } = useSelector(
+    (state: IRootState) => state.products.product.colorsWithImages
+  );
 
   useEffect(() => {
-    if (product && product.variants) {
-      const imageSet = new Set();
-      product.variants.forEach((variant) => {
-        variant.images.forEach((image) => {
-          imageSet.add(image.url);
-        });
-      });
-      setImages(Array.from(imageSet));
+    if (colorsWithImagesItems.length) {
+      const selectedColorWithImages: IImagesWith1Color =
+        colorsWithImagesItems.find(
+          (imagesWith1Color) => imagesWith1Color.color === selectedColor
+        );
+
+      if (selectedColorWithImages?.color) {
+        dispatch(setSelectedImagesWith1Color(selectedColorWithImages));
+      }
     }
-  }, [product]);
+  }, [colorsWithImagesItems, selectedColor]);
 
   return (
     <Container>
       <EmptyHeader />
       <IconContainer />
       <CentralContainer isPadding={false}>
-        <ImageContainer images={product.variants[0].images} />
+        {colorsWithImagesItems.length > 0 &&
+          selectedImagesWith1Color.images.length > 0 && (
+            <>
+              <ImageContainer />
+              <ThumbnailBar />
+            </>
+          )}
         <CentralContainer isPadding isMinPadding>
           <Product />
         </CentralContainer>

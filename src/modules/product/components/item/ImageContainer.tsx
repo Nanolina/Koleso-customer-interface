@@ -2,33 +2,37 @@ import React from 'react';
 import { Dimensions, Platform, StyleSheet, View } from 'react-native';
 import { Image } from 'react-native-elements';
 import Swiper from 'react-native-swiper';
+import { useSelector } from 'react-redux';
 import { colors, css } from '../../../../consts';
-import { IImage } from '../../types';
+import { IRootState } from '../../../../redux/rootReducer';
 
 const { height } = Dimensions.get('window');
 const imageHeight = height / 2;
 
-export const ImageContainer: React.FC<{ images: IImage[] }> =
-  React.memo(({ images }) => {
-    return (
-      <View style={styles.container}>
-        <Swiper
-          height={imageHeight}
-          dotStyle={styles.dot}
-          activeDotStyle={styles.activeDot}
-        >
-          {images.map((img, index) => (
-            <Image
-              key={index}
-              source={{ uri: img.url }}
-              style={styles.image}
-              resizeMode="cover"
-            />
-          ))}
-        </Swiper>
-      </View>
-    );
-  });
+export const ImageContainer: React.FC = () => {
+  const { selectedImagesWith1Color } = useSelector(
+    (state: IRootState) => state.products.product.colorsWithImages
+  );
+
+  return (
+    <View style={styles.container}>
+      <Swiper
+        height={imageHeight}
+        dotStyle={styles.dot}
+        activeDotStyle={styles.activeDot}
+      >
+        {selectedImagesWith1Color.images.map((image, index) => (
+          <Image
+            key={`${image}-${index}`}
+            source={{ uri: image }}
+            style={styles.image}
+            resizeMode="cover"
+          />
+        ))}
+      </Swiper>
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
