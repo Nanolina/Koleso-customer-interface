@@ -93,14 +93,14 @@ export interface IProduct {
   variants: IVariant[];
 }
 
-export interface IColorsWithImagesState {
-  items: IImagesWith1Color[];
+export interface IColorPaletteState {
+  colorGroups: IColorGroup[];
   selectedColor: ColorType | '';
-  selectedImagesWith1Color: IImagesWith1Color;
+  selectedColorGroup: IColorGroup;
 }
 
 export interface IProductState extends IProduct {
-  colorsWithImages: IColorsWithImagesState;
+  colorPalette: IColorPaletteState;
 }
 
 export interface IProductsState {
@@ -125,11 +125,6 @@ export interface IPropertiesProps {
   gender: string;
 }
 
-export interface ISizeContainerProps {
-  possibleSizes: number[];
-  missingSizes: number[];
-}
-
 export interface ITitleContainerProps {
   title: string;
   seller: string;
@@ -144,8 +139,11 @@ export interface IPropertyProps {
   text?: string | number;
 }
 
-export interface IImagesWith1Color {
+export interface IColorGroup {
   id: string;
   color: ColorType | '';
   images: string[];
+  selectedSize?: string;
+  freeSizes?: string[];
+  unavailableSizes?: string[];
 }

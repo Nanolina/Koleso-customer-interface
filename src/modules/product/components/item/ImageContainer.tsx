@@ -10,8 +10,8 @@ const { height } = Dimensions.get('window');
 const imageHeight = height / 2;
 
 export const ImageContainer: React.FC = () => {
-  const { selectedImagesWith1Color } = useSelector(
-    (state: IRootState) => state.products.product.colorsWithImages
+  const { selectedColorGroup } = useSelector(
+    (state: IRootState) => state.products.product.colorPalette
   );
 
   return (
@@ -21,7 +21,7 @@ export const ImageContainer: React.FC = () => {
         dotStyle={styles.dot}
         activeDotStyle={styles.activeDot}
       >
-        {selectedImagesWith1Color.images.map((image, index) => (
+        {selectedColorGroup.images.map((image, index) => (
           <Image
             key={`${image}-${index}`}
             source={{ uri: image }}

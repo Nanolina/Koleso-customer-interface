@@ -11,12 +11,12 @@ import { colors, css } from '../../../../consts';
 import { IRootState } from '../../../../redux/rootReducer';
 import { setSelectedProductColor } from '../../../../redux/slices/productsSlice';
 import { AppDispatch } from '../../../../redux/store';
-import { ColorType, IImagesWith1Color } from '../../types';
+import { ColorType, IColorGroup } from '../../types';
 
 export const ThumbnailBar: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
-  const { selectedColor, items: colorsWithImagesItems } = useSelector(
-    (state: IRootState) => state.products.product.colorsWithImages
+  const { selectedColor, colorGroups } = useSelector(
+    (state: IRootState) => state.products.product.colorPalette
   );
 
   return (
@@ -25,24 +25,22 @@ export const ThumbnailBar: React.FC = () => {
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={styles.container}
     >
-      {colorsWithImagesItems.map((colorWithImages: IImagesWith1Color) => (
+      {colorGroups.map((colorGroup: IColorGroup) => (
         <TouchableOpacity
-          key={colorWithImages.id}
+          key={colorGroup.id}
           onPress={() => {
-            dispatch(
-              setSelectedProductColor(colorWithImages.color as ColorType)
-            );
+            dispatch(setSelectedProductColor(colorGroup.color as ColorType));
           }}
         >
           <View
             style={
-              selectedColor === colorWithImages.color
+              selectedColor === colorGroup.color
                 ? styles.selected
                 : styles.notSelected
             }
           >
             <Image
-              source={{ uri: colorWithImages.images[0] }}
+              source={{ uri: colorGroup.images[0] }}
               style={styles.image}
             />
           </View>

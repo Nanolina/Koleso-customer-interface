@@ -7,15 +7,16 @@ import { EmptyHeader } from '../components/EmptyHeader';
 import { Footer } from '../components/Footer';
 import {
   Buttons,
-  IImagesWith1Color,
+  IColorGroup,
   IconContainer,
   ImageContainer,
   Product,
+  SizeContainer,
   ThumbnailBar,
   TitleContainer,
 } from '../modules/product';
 import { IRootState } from '../redux/rootReducer';
-import { setSelectedImagesWith1Color } from '../redux/slices/productsSlice';
+import { setSelectedColorGroup } from '../redux/slices/productsSlice';
 import { AppDispatch } from '../redux/store';
 import { CentralContainer } from '../ui/CentralContainer';
 import { Property } from '../ui/Property';
@@ -30,52 +31,47 @@ export const ProductPage: React.FC = () => {
     (state: IRootState) => state.products.product
   );
 
-  const {
-    items: colorsWithImagesItems,
-    selectedColor,
-    selectedImagesWith1Color,
-  } = useSelector(
-    (state: IRootState) => state.products.product.colorsWithImages
+  const { colorGroups, selectedColor, selectedColorGroup } = useSelector(
+    (state: IRootState) => state.products.product.colorPalette
   );
 
   useEffect(() => {
-    if (colorsWithImagesItems.length) {
-      const selectedColorWithImages: IImagesWith1Color =
-        colorsWithImagesItems.find(
-          (imagesWith1Color) => imagesWith1Color.color === selectedColor
-        );
+    if (colorGroups.length) {
+      const activeColorGroup: IColorGroup = colorGroups.find(
+        (colorGroup) => colorGroup.color === selectedColor
+      );
 
-      if (selectedColorWithImages?.color) {
-        dispatch(setSelectedImagesWith1Color(selectedColorWithImages));
+      if (activeColorGroup?.color) {
+        dispatch(setSelectedColorGroup(activeColorGroup));
       }
     }
-  }, [colorsWithImagesItems, selectedColor]);
+  }, [colorGroups, selectedColor]);
 
   return (
     <Container>
       <EmptyHeader />
       <IconContainer />
       <CentralContainer isPadding={false}>
-        {colorsWithImagesItems.length > 0 &&
-          selectedImagesWith1Color.images.length > 0 && (
-            <>
-              <ImageContainer />
-              <TitleContainer title={name} seller={store.name} />
-              <ThumbnailBar />
-              {selectedColor && (
-                <Property
-                  label={t('filter.Color.label')}
-                  text={t(`filter.Color.${selectedColor}`)}
-                />
-              )}
-              {gender && (
-                <Property
-                  label={t('filter.Gender.label')}
-                  text={t(`filter.Gender.${gender}`)}
-                />
-              )}
-            </>
-          )}
+        {colorGroups.length > 0 && selectedColorGroup.images.length > 0 && (
+          <>
+            <ImageContainer />
+            <TitleContainer title={name} seller={store.name} />
+            <ThumbnailBar />
+            {selectedColor && (
+              <Property
+                label={t('filter.Color.label')}
+                text={t(`filter.Color.${selectedColor}`)}
+              />
+            )}
+            {gender && (
+              <Property
+                label={t('filter.Gender.label')}
+                text={t(`filter.Gender.${gender}`)}
+              />
+            )}
+            <SizeContainer />
+          </>
+        )}
         <CentralContainer isPadding isMinPadding>
           <Product />
         </CentralContainer>

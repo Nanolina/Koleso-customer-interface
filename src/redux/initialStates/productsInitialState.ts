@@ -1,6 +1,6 @@
 import {
-  IColorsWithImagesState,
-  IImagesWith1Color,
+  IColorGroup,
+  IColorPaletteState,
   IProductState,
   IProductsState,
   IStore,
@@ -12,16 +12,16 @@ const storeInitialState: IStore = {
   organizationId: '',
 };
 
-export const selectedImagesWith1ColorState: IImagesWith1Color = {
+export const selectedColorGroupState: IColorGroup = {
   id: '',
   color: '',
   images: [],
 };
 
-export const colorsWithImagesState: IColorsWithImagesState = {
-  items: [],
+export const colorPaletteState: IColorPaletteState = {
+  colorGroups: [],
   selectedColor: '',
-  selectedImagesWith1Color: selectedImagesWith1ColorState,
+  selectedColorGroup: selectedColorGroupState,
 };
 
 export const productInitialState: IProductState = {
@@ -38,7 +38,7 @@ export const productInitialState: IProductState = {
   subcategoryId: 0,
   composition: [],
   variants: [],
-  colorsWithImages: colorsWithImagesState,
+  colorPalette: colorPaletteState,
 };
 
 export const productsInitialState: IProductsState = {

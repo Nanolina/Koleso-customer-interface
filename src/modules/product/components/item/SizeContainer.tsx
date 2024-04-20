@@ -1,56 +1,68 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { StyleSheet, View } from 'react-native';
+import { useDispatch, useSelector } from 'react-redux';
 import { colors, css } from '../../../../consts';
+import { IRootState } from '../../../../redux/rootReducer';
+import { setSelectedProductSize } from '../../../../redux/slices/productsSlice';
+import { AppDispatch } from '../../../../redux/store';
 import { Box } from '../../../../ui/Box';
-import { ISizeContainerProps } from '../../types';
+import { compileAllSizes } from '../../functions';
 
-export const SizeContainer: React.FC<ISizeContainerProps> = React.memo(
-  ({ possibleSizes, missingSizes }) => {
-    const [selectedSize, setSelectedSize] = useState<number | null>(null);
+export const SizeContainer: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>();
 
-    const handlePress = useCallback((size: number) => {
-      setSelectedSize(size);
-    }, []);
+  const { colorGroups } = useSelector(
+    (state: IRootState) => state.products.product.colorPalette
+  );
 
-    const renderSizeBox = useCallback(
-      (size: number) => {
-        const isSelected = selectedSize === size;
-        const isMissing = missingSizes.includes(size);
+  const { selectedSize, freeSizes, unavailableSizes } = useSelector(
+    (state: IRootState) =>
+      state.products.product.colorPalette.selectedColorGroup
+  );
 
-        const boxStyle = isSelected
-          ? { backgroundColor: colors.main, ...css.itemSizeBox }
-          : isMissing
-          ? { backgroundColor: colors.lightGray, ...css.itemSizeBox }
-          : {
-              backgroundColor: colors.white,
-              borderColor: colors.main,
-              borderWidth: 1,
-              ...css.itemSizeBox,
-            };
+  const allSizes = compileAllSizes(colorGroups);
 
-        const textStyle =
-          isSelected || isMissing
-            ? { color: colors.white }
-            : { color: colors.main };
+  const renderSizeBox = useCallback(
+    (size: string) => {
+      const isSelected = selectedSize === size;
+      const isMissing =
+        unavailableSizes.includes(size) || !freeSizes.includes(size);
 
-        return (
-          <Box
-            key={size}
-            label={`${size}`}
-            boxStyle={boxStyle}
-            textStyle={textStyle}
-            onPress={!isMissing ? () => handlePress(size) : undefined}
-          />
-        );
-      },
-      [selectedSize, missingSizes, handlePress]
-    );
+      const boxStyle = isSelected
+        ? { backgroundColor: colors.main, ...css.itemSizeBox }
+        : isMissing
+        ? { backgroundColor: colors.lightGray, ...css.itemSizeBox }
+        : {
+            backgroundColor: colors.white,
+            borderColor: colors.main,
+            borderWidth: 1,
+            ...css.itemSizeBox,
+          };
 
-    return (
-      <View style={styles.container}>{possibleSizes?.map(renderSizeBox)}</View>
-    );
-  }
-);
+      const textStyle =
+        isSelected || isMissing
+          ? { color: colors.white }
+          : { color: colors.main };
+
+      return (
+        <Box
+          key={size}
+          label={`${size}`}
+          boxStyle={boxStyle}
+          textStyle={textStyle}
+          onPress={
+            !isMissing
+              ? () => dispatch(setSelectedProductSize(size))
+              : undefined
+          }
+        />
+      );
+    },
+    [selectedSize, freeSizes, unavailableSizes]
+  );
+
+  return <View style={styles.container}>{allSizes.map(renderSizeBox)}</View>;
+};
 
 const styles = StyleSheet.create({
   container: {

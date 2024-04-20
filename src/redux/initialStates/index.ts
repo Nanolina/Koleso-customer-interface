@@ -1,6 +1,6 @@
 export {
-  colorsWithImagesState,
+  colorPaletteState,
   productsInitialState,
-  selectedImagesWith1ColorState,
+  selectedColorGroupState,
 } from './productsInitialState';
 export { userInitialState } from './userInitialState';
