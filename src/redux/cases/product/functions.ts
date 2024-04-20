@@ -6,7 +6,7 @@ import {
 } from '../../../modules/product';
 import { selectedImagesWith1ColorState } from '../../initialStates';
 
-export const groupImagesByColor = (variants: IVariant[]) => {
+const groupImagesByColor = (variants: IVariant[]) => {
   const colorMap = new Map();
 
   variants.forEach((variant) => {
