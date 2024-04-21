@@ -141,10 +141,16 @@ export interface IColorGroup {
   selectedSize?: string;
   freeSizes?: string[];
   unavailableSizes?: string[];
+  currentImageIndex: number;
 }
 
 export interface ISetSelectedProductSizePayload {
   size: string;
+  colorGroupId: string;
+}
+
+export interface ISetCurrentImageIndexPayload {
+  currentImageIndex: number;
   colorGroupId: string;
 }
 

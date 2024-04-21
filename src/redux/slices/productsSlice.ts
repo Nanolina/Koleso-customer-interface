@@ -7,6 +7,7 @@ import {
   ColorType,
   IColorGroup,
   IProductsState,
+  ISetCurrentImageIndexPayload,
   ISetSelectedProductSizePayload,
 } from '../../modules/product';
 import { getAllProductsCases, getProductByIdCases } from '../cases/product';
@@ -19,6 +20,20 @@ const productsSlice = createSlice({
     clearMessages: (state) => {
       state.error = null;
       state.success = null;
+    },
+    setCurrentImageIndex: (
+      state,
+      action: PayloadAction<ISetCurrentImageIndexPayload>
+    ) => {
+      state.product.colorPalette.colorGroups =
+        state.product.colorPalette.colorGroups.map((colorGroup) =>
+          colorGroup.id === action.payload.colorGroupId
+            ? {
+                ...colorGroup,
+                currentImageIndex: action.payload.currentImageIndex,
+              }
+            : colorGroup
+        );
     },
     setSelectedProductColor: (state, action: PayloadAction<ColorType>) => {
       state.product.colorPalette.selectedColor = action.payload;
@@ -48,6 +63,7 @@ export default productsSlice.reducer;
 
 export const {
   clearMessages,
+  setCurrentImageIndex,
   setSelectedProductColor,
   setSelectedColorGroup,
   setSelectedProductSize,

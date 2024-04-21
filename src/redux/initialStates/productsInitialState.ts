@@ -16,6 +16,10 @@ export const selectedColorGroupState: IColorGroup = {
   id: '',
   color: '',
   images: [],
+  priceWithoutDiscount: 0,
+  finalPrice: 0,
+  articleKoleso: '',
+  currentImageIndex: 0,
 };
 
 export const colorPaletteState: IColorPaletteState = {

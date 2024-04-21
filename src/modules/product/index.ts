@@ -11,6 +11,7 @@ export {
   IProduct,
   IProductState,
   IProductsState,
+  ISetCurrentImageIndexPayload,
   ISetSelectedProductSizePayload,
   IStore,
   IVariant,
