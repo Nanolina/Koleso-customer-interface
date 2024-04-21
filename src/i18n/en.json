@@ -14,7 +14,8 @@
   "addToCart": "Add to cart",
   "search": "Search",
   "product": {
-    "article": "Article"
+    "article": "Article",
+    "description": "Description"
   },
   "auth": {
     "login": "Log in",

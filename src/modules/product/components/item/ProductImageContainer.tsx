@@ -9,7 +9,7 @@ import { IRootState } from '../../../../redux/rootReducer';
 const { height } = Dimensions.get('window');
 const imageHeight = height / 2;
 
-export const ImageContainer: React.FC = () => {
+export const ProductImageContainer: React.FC = () => {
   const { selectedColorGroup } = useSelector(
     (state: IRootState) => state.products.product.colorPalette
   );

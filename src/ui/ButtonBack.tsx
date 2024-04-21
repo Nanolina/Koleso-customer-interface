@@ -5,7 +5,7 @@ import { colors, sizes } from '../consts';
 import { IButtonProps } from '../types';
 
 export const ButtonBack: React.FC<IButtonProps> = React.memo(
-  ({ navigation, onPress, width }: any) => {
+  ({ navigation, onPress, width, style }: any) => {
     const handlePress = useCallback(() => {
       if (onPress) {
         onPress();
@@ -23,6 +23,7 @@ export const ButtonBack: React.FC<IButtonProps> = React.memo(
           name="chevron-left"
           size={sizes.iconSizeMax}
           color={colors.white}
+          style={style}
         />
       </TouchableOpacity>
     );

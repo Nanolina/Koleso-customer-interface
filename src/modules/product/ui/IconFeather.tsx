@@ -5,10 +5,15 @@ import { colors, sizes } from '../../../consts';
 import { IIconFeatherProps } from '../types';
 
 export const IconFeather: React.FC<IIconFeatherProps> = React.memo(
-  ({ name }) => {
+  ({ name, style }) => {
     return (
       <TouchableOpacity>
-        <Feather name={name} size={sizes.iconSizeMiddle} color={colors.white} />
+        <Feather
+          name={name}
+          size={sizes.iconSizeMiddle}
+          color={colors.white}
+          style={style}
+        />
       </TouchableOpacity>
     );
   }

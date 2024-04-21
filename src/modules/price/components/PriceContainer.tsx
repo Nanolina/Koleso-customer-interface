@@ -36,10 +36,13 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    borderRadius: css.borderRadiusMin,
+    borderRadius: css.borderRadiusMax,
+    backgroundColor: colors.pink,
+    padding: 5,
   },
   finalPrice: {
     fontWeight: 'bold',
+    color: colors.main,
   },
   priceWithoutDiscount: {
     textDecorationLine: 'line-through',

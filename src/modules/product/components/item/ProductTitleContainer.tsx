@@ -1,18 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors, sizes } from '../../../../consts';
-import { ITitleContainerProps } from '../../types';
+import { IProductTitleContainerProps } from '../../types';
 
-export const TitleContainer: React.FC<ITitleContainerProps> = React.memo(
-  ({ title, seller }) => {
+export const ProductTitleContainer: React.FC<IProductTitleContainerProps> =
+  React.memo(({ title, seller }) => {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.seller}>{seller}</Text>
       </View>
     );
-  }
-);
+  });
 
 const styles = StyleSheet.create({
   container: {

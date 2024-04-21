@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
   descriptionContainer: {
     flexDirection: 'column',
     alignItems: 'flex-start',
-    paddingVertical: 20,
   },
   textContainer: {
     flexDirection: 'column',

@@ -14,7 +14,8 @@
   "addToCart": "Добавить в корзину",
   "search": "Поиск",
   "product": {
-    "article": "Артикул"
+    "article": "Артикул",
+    "description": "Описание"
   },
   "auth": {
     "login": "Войти",

@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { colors, css } from '../../../../consts';
 import { Button } from '../../../../ui/Button';
 
-export const Buttons: React.FC = () => {
+export const ProductButtons: React.FC = () => {
   const { t } = useTranslation();
 
   return (

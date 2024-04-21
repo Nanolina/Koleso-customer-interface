@@ -41,6 +41,11 @@ export interface IItemProps {
   delivery?: ILogisticsProps;
 }
 
+export interface IPropertyProps {
+  label: string;
+  text?: string | number;
+}
+
 export interface IInfoItemProps {
   item: IItemProps;
   hasPadding?: boolean;
@@ -136,6 +141,7 @@ export interface IButtonProps {
   navigation?: any;
   disabled?: boolean;
   isLink?: boolean;
+  style?: any;
 }
 
 export interface IButtonBackProps {

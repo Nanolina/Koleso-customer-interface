@@ -42,7 +42,7 @@ export interface IIconProductCardProps {
   name: string;
 }
 
-export interface ITitleContainerProps {
+export interface IProductTitleContainerProps {
   seller: string;
   title: string;
 }
@@ -128,11 +128,7 @@ export interface ITitleContainerProps {
 
 export interface IIconFeatherProps {
   name: any;
-}
-
-export interface IPropertyProps {
-  label: string;
-  text?: string | number;
+  style?: any;
 }
 
 export interface IColorGroup {
