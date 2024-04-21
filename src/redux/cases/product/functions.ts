@@ -55,7 +55,6 @@ const groupVariantsByColor = (variants: IVariant[]): IColorGroup[] => {
     };
   });
 
-  console.log('Grouped colorMap with sizes', result);
   return result;
 };
 

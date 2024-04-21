@@ -6,6 +6,7 @@ import { EmptyHeader } from '../components/EmptyHeader';
 import { Footer } from '../components/Footer';
 import {
   IColorGroup,
+  IVariant,
   ProductButtons,
   ProductDetails,
   ProductIconsContainer,
@@ -24,8 +25,21 @@ export const ProductPage: React.FC = () => {
   const { colorGroups, selectedColorGroup, selectedColor } = useSelector(
     (state: IRootState) => state.products.product.colorPalette
   );
+  const { variants } = useSelector(
+    (state: IRootState) => state.products.product
+  );
+
   const isColorGroups =
     colorGroups.length > 0 && selectedColorGroup.images.length > 0;
+
+  const selectedVariant = variants.find((variant: IVariant) => {
+    const isColorMatch = variant.color === selectedColorGroup.color;
+    const isSizeMatch = variant.size
+      ? variant.size === selectedColorGroup.selectedSize
+      : true;
+
+    return isColorMatch && isSizeMatch;
+  });
 
   useEffect(() => {
     if (colorGroups.length) {
@@ -49,7 +63,7 @@ export const ProductPage: React.FC = () => {
           {isColorGroups && <ProductDetails />}
         </CentralContainer>
       </CentralContainer>
-      <ProductButtons />
+      <ProductButtons productId={productId} variantId={selectedVariant?.id} />
       <Footer />
     </Container>
   );

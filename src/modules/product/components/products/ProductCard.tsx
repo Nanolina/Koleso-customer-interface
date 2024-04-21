@@ -16,33 +16,33 @@ import { AppDispatch } from '../../../../redux/store';
 import { handleGetProductById } from '../../../../redux/thunks/product';
 import { WebCardWrapper } from '../../../../ui/WebCardWrapper';
 import { PriceContainer } from '../../../price';
-import { IProduct } from '../../types';
+import { IProductCardProps } from '../../types';
 import { ImageContainer } from './ImageContainer';
 import { TitleContainer } from './TitleContainer';
 
 const { width } = Dimensions.get('window');
 const cardWidth = width / 3;
 
-export const ProductCard: React.FC<{ item: IProduct }> = React.memo(
-  ({ item }) => {
+export const ProductCard: React.FC<IProductCardProps> = React.memo(
+  ({ product }) => {
     const dispatch = useDispatch<AppDispatch>();
     const navigation: NavigationProp<ParamListBase> = useNavigation();
 
     const onPress = useCallback(() => {
-      dispatch(handleGetProductById(item.id));
-      navigation.navigate('ProductPage', { itemId: item.id });
-    }, [navigation, item]);
+      dispatch(handleGetProductById(product.id));
+      navigation.navigate('ProductPage', { productId: product.id });
+    }, [navigation, product]);
 
     return (
       <WebCardWrapper cardWidth={cardWidth}>
         <TouchableOpacity style={styles.card} onPress={onPress}>
-          <ImageContainer image={item.variants[0].images[0].url} />
+          <ImageContainer image={product.variants[0].images[0].url} />
           <PriceContainer
-            finalPrice={item.variants[0].finalPrice}
-            priceWithoutDiscount={item.variants[0].priceWithoutDiscount}
+            finalPrice={product.variants[0].finalPrice}
+            priceWithoutDiscount={product.variants[0].priceWithoutDiscount}
             priceSize={sizes.text20}
           />
-          <TitleContainer seller={item.store.name} title={item.name} />
+          <TitleContainer seller={product.store.name} title={product.name} />
         </TouchableOpacity>
       </WebCardWrapper>
     );

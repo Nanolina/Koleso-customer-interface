@@ -10,7 +10,7 @@ export const ProductList: React.FC = () => {
   );
 
   const renderProductCard = useCallback(
-    ({ item }) => <ProductCard item={item} key={item.id} />,
+    ({ item }) => <ProductCard product={item} key={item.id} />,
     []
   );
 

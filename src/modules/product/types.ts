@@ -42,6 +42,10 @@ export interface IIconProductCardProps {
   name: string;
 }
 
+export interface IProductCardProps {
+  product: IProduct;
+}
+
 export interface IProductTitleContainerProps {
   seller: string;
   title: string;
@@ -147,6 +151,11 @@ export interface IColorGroup {
 export interface ISetSelectedProductSizePayload {
   size: string;
   colorGroupId: string;
+}
+
+export interface IProductButtonsProps {
+  productId: string;
+  variantId: string;
 }
 
 export interface ISetCurrentImageIndexPayload {
