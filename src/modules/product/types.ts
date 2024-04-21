@@ -142,6 +142,8 @@ export interface IPropertyProps {
 export interface IColorGroup {
   id: string;
   color: ColorType | '';
+  priceWithoutDiscount: number;
+  finalPrice: number;
   images: string[];
   selectedSize?: string;
   freeSizes?: string[];

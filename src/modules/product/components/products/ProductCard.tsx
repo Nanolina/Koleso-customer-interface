@@ -38,8 +38,8 @@ export const ProductCard: React.FC<{ item: IProduct }> = React.memo(
         <TouchableOpacity style={styles.card} onPress={onPress}>
           <ImageContainer image={item.variants[0].images[0].url} />
           <PriceContainer
-            price={item.variants[0].finalPrice}
-            oldPrice={item.variants[0].priceWithoutDiscount}
+            finalPrice={item.variants[0].finalPrice}
+            priceWithoutDiscount={item.variants[0].priceWithoutDiscount}
             priceSize={sizes.text20}
           />
           <TitleContainer seller={item.store.name} title={item.name} />

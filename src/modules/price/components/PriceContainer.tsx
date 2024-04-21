@@ -5,16 +5,22 @@ import { IPriceContainerProps } from '../types';
 import { Price } from '../ui/Price';
 
 export const PriceContainer: React.FC<IPriceContainerProps> = React.memo(
-  ({ price, oldPrice, priceSize }) => {
+  ({ priceSize, finalPrice, priceWithoutDiscount }) => {
     return (
       <View style={styles.centeredContent}>
         <View style={styles.container}>
           <Price
-            price={price}
-            style={[styles.currentPrice, { fontSize: priceSize }]}
+            price={finalPrice}
+            style={[styles.finalPrice, { fontSize: priceSize }]}
           />
         </View>
-        {oldPrice && <Price price={oldPrice} style={styles.oldPrice} />}
+
+        {priceWithoutDiscount && (
+          <Price
+            price={priceWithoutDiscount}
+            style={styles.priceWithoutDiscount}
+          />
+        )}
       </View>
     );
   }
@@ -32,10 +38,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: css.borderRadiusMin,
   },
-  currentPrice: {
+  finalPrice: {
     fontWeight: 'bold',
   },
-  oldPrice: {
+  priceWithoutDiscount: {
     textDecorationLine: 'line-through',
     color: colors.darkGray,
     fontSize: sizes.text15,

@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Container } from '../components/Container';
 import { EmptyHeader } from '../components/EmptyHeader';
 import { Footer } from '../components/Footer';
+import { sizes } from '../consts';
+import { PriceContainer } from '../modules/price';
 import {
   Buttons,
   IColorGroup,
@@ -55,6 +57,11 @@ export const ProductPage: React.FC = () => {
         {colorGroups.length > 0 && selectedColorGroup.images.length > 0 && (
           <>
             <ImageContainer />
+            <PriceContainer
+              priceSize={sizes.title}
+              finalPrice={selectedColorGroup.finalPrice}
+              priceWithoutDiscount={selectedColorGroup.priceWithoutDiscount}
+            />
             <TitleContainer title={name} seller={store.name} />
             <ThumbnailBar />
             {selectedColor && (

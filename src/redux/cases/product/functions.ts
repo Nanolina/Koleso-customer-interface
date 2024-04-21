@@ -6,7 +6,7 @@ import {
 } from '../../../modules/product';
 import { selectedColorGroupState } from '../../initialStates';
 
-const groupVariantsByColor = (variants: IVariant[]) => {
+const groupVariantsByColor = (variants: IVariant[]): IColorGroup[] => {
   const colorMap = new Map();
   const allSizes = new Set<string>();
 
@@ -19,6 +19,8 @@ const groupVariantsByColor = (variants: IVariant[]) => {
       colorMap.set(variant.color, {
         id: uuidv4(),
         color: variant.color,
+        priceWithoutDiscount: variant.priceWithoutDiscount,
+        finalPrice: variant.finalPrice,
         images: [...variant.images.map((img) => img.url)],
         freeSizes: new Set(variant.size ? [variant.size] : []),
       });

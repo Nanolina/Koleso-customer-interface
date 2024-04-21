@@ -1,6 +1,6 @@
 export interface IPriceContainerProps {
-  price: number;
-  oldPrice?: number;
+  finalPrice: number;
+  priceWithoutDiscount?: number;
   priceSize: number;
 }
 
