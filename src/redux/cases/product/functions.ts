@@ -21,6 +21,7 @@ const groupVariantsByColor = (variants: IVariant[]): IColorGroup[] => {
         color: variant.color,
         priceWithoutDiscount: variant.priceWithoutDiscount,
         finalPrice: variant.finalPrice,
+        articleKoleso: variant.articleKoleso,
         images: [...variant.images.map((img) => img.url)],
         freeSizes: new Set(variant.size ? [variant.size] : []),
       });

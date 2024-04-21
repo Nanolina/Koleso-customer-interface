@@ -111,10 +111,6 @@ export interface IProductsState {
   error: any;
 }
 
-export interface IDescriptionProps {
-  description: string;
-}
-
 export interface IImageContainerProps {
   image: string;
 }
@@ -144,6 +140,7 @@ export interface IColorGroup {
   color: ColorType | '';
   priceWithoutDiscount: number;
   finalPrice: number;
+  articleKoleso: string;
   images: string[];
   selectedSize?: string;
   freeSizes?: string[];
@@ -153,4 +150,9 @@ export interface IColorGroup {
 export interface ISetSelectedProductSizePayload {
   size: string;
   colorGroupId: string;
+}
+
+export interface IComposition {
+  title: string;
+  percentage: number;
 }

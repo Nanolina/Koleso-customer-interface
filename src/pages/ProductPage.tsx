@@ -1,6 +1,7 @@
 import { useRoute } from '@react-navigation/native';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Text } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { Container } from '../components/Container';
 import { EmptyHeader } from '../components/EmptyHeader';
@@ -9,7 +10,9 @@ import { sizes } from '../consts';
 import { PriceContainer } from '../modules/price';
 import {
   Buttons,
+  Description,
   IColorGroup,
+  IComposition,
   IconContainer,
   ImageContainer,
   Product,
@@ -29,9 +32,8 @@ export const ProductPage: React.FC = () => {
   const route: any = useRoute();
   const { productId } = route.params;
 
-  const { gender, name, store } = useSelector(
-    (state: IRootState) => state.products.product
-  );
+  const { gender, name, store, description, brand, model, composition } =
+    useSelector((state: IRootState) => state.products.product);
 
   const { colorGroups, selectedColor, selectedColorGroup } = useSelector(
     (state: IRootState) => state.products.product.colorPalette
@@ -64,6 +66,13 @@ export const ProductPage: React.FC = () => {
             />
             <TitleContainer title={name} seller={store.name} />
             <ThumbnailBar />
+            <SizeContainer />
+            {selectedColorGroup.articleKoleso && (
+              <Property
+                label={t('product.article')}
+                text={selectedColorGroup.articleKoleso}
+              />
+            )}
             {selectedColor && (
               <Property
                 label={t('filter.Color.label')}
@@ -76,7 +85,19 @@ export const ProductPage: React.FC = () => {
                 text={t(`filter.Gender.${gender}`)}
               />
             )}
-            <SizeContainer />
+            {brand && <Property label={t('filter.Brand')} text={brand} />}
+            {model && <Property label={t('filter.Model')} text={model} />}
+            {description && <Description />}
+            {composition &&
+              composition.map((material: IComposition) => (
+                <>
+                  <Text>{t('filter.Composition.label')}</Text>
+                  <Property
+                    label={t(`filter.Composition.${material.title}`)}
+                    text={material.percentage}
+                  />
+                </>
+              ))}
           </>
         )}
         <CentralContainer isPadding isMinPadding>

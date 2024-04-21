@@ -13,6 +13,9 @@
   "apply": "Apply",
   "addToCart": "Add to cart",
   "search": "Search",
+  "product": {
+    "article": "Article"
+  },
   "auth": {
     "login": "Log in",
     "signup": "Sign up",
@@ -186,6 +189,7 @@
     "Size": "Size",
     "Category": "Category",
     "Brand": "Brand",
+    "Model": "Model",
     "Seller": "Seller",
     "Age": "Age",
     "Price": "Price",
